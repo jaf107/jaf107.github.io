@@ -43,7 +43,7 @@ const SectionTabs = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const hash = location.hash.replace("#", "");
+    const hash = location.hash.replace(/^#?\/?/, '');
     if (hash) {
       setActiveSection(hash);
     }
@@ -51,7 +51,7 @@ const SectionTabs = () => {
 
   const handleSectionChange = (sectionId) => {
     setActiveSection(sectionId);
-    navigate(`#${sectionId}`, { replace: true });
+    navigate(`/#${sectionId}`, { replace: true });
   };
 
   // Get icon component based on icon name from navigation data
