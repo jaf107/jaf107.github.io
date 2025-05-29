@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Moon,
   Sun,
@@ -38,21 +39,19 @@ import navigationData from "../data/navigation.json";
 const SectionTabs = () => {
   const { theme, setTheme } = useTheme();
   const [activeSection, setActiveSection] = useState("about");
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const hash = window.location.hash.replace("#", "");
+    const hash = location.hash.replace("#", "");
     if (hash) {
       setActiveSection(hash);
     }
-  }, []);
+  }, [location.hash]);
 
   const handleSectionChange = (sectionId) => {
     setActiveSection(sectionId);
-
-    // Update URL hash without scrolling
-    const scrollPosition = window.pageYOffset;
-    window.location.hash = sectionId;
-    window.scrollTo(window.pageXOffset, scrollPosition);
+    navigate(`#${sectionId}`, { replace: true });
   };
 
   // Get icon component based on icon name from navigation data
