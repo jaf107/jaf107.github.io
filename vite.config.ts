@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/jaf107.github.io/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
@@ -22,5 +22,10 @@ export default defineConfig(({ mode }) => ({
   build: {
     sourcemap: mode === "development",
     reportCompressedSize: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
 }));
