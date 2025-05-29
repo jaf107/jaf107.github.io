@@ -13,7 +13,7 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        project: "./tsconfig.eslint.json", // ← updated!
+        project: "./tsconfig.eslint.json",
         ecmaFeatures: {
           jsx: true,
         },
@@ -24,22 +24,50 @@ export default tseslint.config(
       "react-refresh": reactRefresh,
     },
     rules: {
+      // React Hooks Rules
       ...reactHooks.configs.recommended.rules,
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+
+      // React Refresh
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
       ],
+
+      // TypeScript Rules
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
           argsIgnorePattern: "^_",
           varsIgnorePattern: "^_",
+          destructuredArrayIgnorePattern: "^_",
         },
       ],
       "@typescript-eslint/explicit-function-return-type": "off",
       "@typescript-eslint/no-non-null-assertion": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-empty-function": "warn",
+      "@typescript-eslint/consistent-type-imports": [
+        "warn",
+        { prefer: "type-imports" },
+      ],
+      "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+      "@typescript-eslint/no-floating-promises": "warn",
+      "@typescript-eslint/await-thenable": "warn",
+      "@typescript-eslint/no-misused-promises": "warn",
+
+      // General Rules
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-debugger": "warn",
+      "no-duplicate-imports": "error",
+      "no-unused-expressions": "warn",
+      "no-unused-private-class-members": "warn",
+      "no-var": "error",
+      "prefer-const": "warn",
+      "prefer-template": "warn",
+      "eqeqeq": ["error", "always"],
+      "curly": ["error", "all"]
     },
   },
   {
@@ -47,6 +75,7 @@ export default tseslint.config(
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
+      "no-console": "off",
     },
   }
 );

@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 import {
+  Moon,
+  Sun,
   Briefcase,
   Code,
   Award,
