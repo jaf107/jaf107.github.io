@@ -1,23 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
+  FiGithub,
   FiExternalLink,
   FiChevronDown,
   FiChevronUp,
-  FiImage,
 } from "react-icons/fi";
-import { SiGithub } from "react-icons/si";
+import { Card, CardContent, CardTitle } from "@optiaxiom/react/unstable";
+import { Badge, Box, Flex, Heading, Link } from "@optiaxiom/react";
+import { Button } from "@optiaxiom/react";
 import {
-  Box,
-  Text,
-  Badge,
-  Button,
   Disclosure,
   DisclosureContent,
   DisclosureTrigger,
-  Flex,
-  Link,
-  SegmentedControl,
-  SegmentedControlItem,
 } from "@optiaxiom/react";
 import projectsData from "../data/projects.json";
 
@@ -28,7 +22,6 @@ interface ProjectItemProps {
   githubLink?: string | null;
   demoLink?: string | null;
   achievements?: string[];
-  imagePath?: string;
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
@@ -38,62 +31,62 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   githubLink,
   demoLink,
   achievements,
-  imagePath,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const hasAchievements = achievements && achievements.length > 0;
 
   return (
-    <Box
-      className="h-full flex flex-col card-hover"
-      border="1"
-      rounded="lg"
-      bg="bg.default"
-    >
-      <Box
-        className="relative w-full h-48 overflow-hidden rounded-lg"
-        bg="bg.accent.subtle"
-      >
-        {imagePath ? (
-          <img
-            src={imagePath}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-          />
-        ) : (
-          <Flex
-            alignItems="center"
-            justifyContent="center"
-            className="w-full h-full"
-          >
-            <FiImage size={48} className="opacity-40" />
-          </Flex>
-        )}
+    <Card className="h-full flex flex-col card-hover" border="1" rounded="xl">
+      <Box className="flex justify-between">
+        <CardTitle className="text-xl font-bold">{title}</CardTitle>
+        <Box className="flex gap-2">
+          {githubLink && (
+            <Button
+              asChild
+              appearance="subtle"
+              size="sm"
+              className="gap-1"
+              icon={<FiGithub size={14} />}
+            >
+              <Link
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            </Button>
+          )}
+          {demoLink && (
+            <Button
+              asChild
+              appearance="subtle"
+              size="sm"
+              className="gap-1"
+              icon={<FiExternalLink size={14} />}
+            >
+              <Link href={demoLink} target="_blank" rel="noopener noreferrer" />
+            </Button>
+          )}
+        </Box>
       </Box>
-
-      <Box p="4">
-        <Text fontSize="xl" fontWeight="700">
-          {title}
-        </Text>
-      </Box>
-      <Box p="4" className="flex-1">
-        <Text color="fg.default" className="mb-4">
-          {description}
-        </Text>
-        <Flex flexWrap="wrap" gap="2" className="mb-4">
+      <CardContent className="flex-grow">
+        <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
-            <Badge key={index}>{tech}</Badge>
+            <Badge key={index} intent="information">
+              {tech}
+            </Badge>
           ))}
-        </Flex>
+        </div>
+        <p className="text-muted-foreground mb-4">{description}</p>
 
         {hasAchievements && (
-          <Disclosure open={isOpen} onOpenChange={setIsOpen}>
+          <Disclosure open={isOpen} onOpenChange={setIsOpen} className="mt-2">
             <DisclosureTrigger>
               <Button
                 appearance="subtle"
+                size="sm"
                 className="flex items-center gap-1 w-full justify-between"
               >
-                <Text fontWeight="600">Key Achievements</Text>
+                <span className="font-semibold">Key Achievements</span>
                 {isOpen ? (
                   <FiChevronUp size={16} />
                 ) : (
@@ -101,13 +94,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                 )}
               </Button>
             </DisclosureTrigger>
-            <DisclosureContent>
-              <Box className="p-4 space-y-2">
+            <DisclosureContent className="mt-2">
+              <ul className="space-y-2 pl-4">
                 {achievements.map((achievement, i) => (
-                  <Box key={i} className="relative p-2">
-                    <Box className="absolute -left-4 top-2.5 w-2 h-2 rounded-full bg-accent opacity-70" />
-                    <Text
-                      fontSize="sm"
+                  <li key={i} className="text-sm relative pl-2">
+                    <span className="absolute left-[-1rem] top-[0.6rem] h-1.5 w-1.5 rounded-full bg-primary/70"></span>
+                    <span
                       dangerouslySetInnerHTML={{
                         __html: achievement.replace(
                           /\*\*(.*?)\*\*/g,
@@ -115,81 +107,27 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                         ),
                       }}
                     />
-                  </Box>
+                  </li>
                 ))}
-              </Box>
+              </ul>
             </DisclosureContent>
           </Disclosure>
         )}
-      </Box>
-      <Flex p="4" gap="2">
-        {githubLink && (
-          <Button appearance="subtle" icon={<SiGithub size={14} />}>
-            <Link href={githubLink} target="_blank" rel="noopener noreferrer">
-              Code
-            </Link>
-          </Button>
-        )}
-        {demoLink && (
-          <Button icon={<FiExternalLink size={14} />}>
-            <Link href={demoLink} target="_blank" rel="noopener noreferrer">
-              Demo
-            </Link>
-          </Button>
-        )}
-      </Flex>
-    </Box>
+      </CardContent>
+    </Card>
   );
 };
 
 const Projects = () => {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
-  const categories = [
-    { id: "research", label: "Research" },
-    { id: "academic", label: "Academic" },
-    { id: "hackathon", label: "Hackathon" },
-  ];
-
-  const filteredProjects =
-    selectedCategories.length === 0
-      ? projectsData
-      : projectsData.filter((project) =>
-          selectedCategories.some((category) =>
-            project.categories?.includes(category)
-          )
-        );
-
   return (
-    <Box className="py-16" id="projects">
-      <Box className="max-w-lg mx-auto px-4">
-        <Box className="text-center mb-10">
-          <Text className="section-title mx-auto">
-            <Text fontWeight="700" className="inline">
-              Academic
-            </Text>{" "}
-            Projects
-          </Text>
-          <Text color="fg.default" className="mt-3 max-w-lg mx-auto">
-            A showcase of my academic and personal projects
-          </Text>
-        </Box>
-
-        <Flex justifyContent="center" className="mb-8">
-          <SegmentedControl
-            value={selectedCategories}
-            onValueChange={setSelectedCategories}
-          >
-            {categories.map((category) => (
-              <SegmentedControlItem key={category.id} value={category.id}>
-                {category.label}
-              </SegmentedControlItem>
-            ))}
-          </SegmentedControl>
-        </Flex>
+    <Box id="projects" className="py-16">
+      <Flex className="container mx-auto px-4 md:px-6" alignItems={"center"}>
+        <Heading level="2" className="section-title" textAlign="center">
+          Academic Projects
+        </Heading>
 
         <Box className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 staggered-animate">
-          {filteredProjects.map((project, index) => (
+          {projectsData.map((project, index) => (
             <ProjectItem
               key={index}
               title={project.title}
@@ -198,11 +136,10 @@ const Projects = () => {
               githubLink={project.githubLink}
               demoLink={project.demoLink}
               achievements={project.achievements}
-              imagePath={project.imagePath}
             />
           ))}
         </Box>
-      </Box>
+      </Flex>
     </Box>
   );
 };

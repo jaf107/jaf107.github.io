@@ -1,9 +1,8 @@
-
 [
   {
     "title": "Opti-Retreat Voting System",
     "description": "Developed a web-based voting application aimed at facilitating secure and efficient voting processes for organizational retreats.",
-    "technologies": ["React.js", "Supabase", "JavaScript", "HTML5", "CSS3", "Netlify"],
+    "technologies": ["React.js", "Supabase", "JavaScript", "Netlify"],
     "githubLink": "https://github.com/jaf107/opti-retreat-voting-system",
     "demoLink": null,
     "categories": ["academic", "research"],
