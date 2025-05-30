@@ -1,11 +1,10 @@
-
 [
   {
     "institution": "University of Dhaka",
     "degree": "BSc in Software Engineering",
-    "duration": "January 2019 - December 2023",
+    "duration": "2019 - 2023",
     "location": "Dhaka, Bangladesh",
-    "gpa": "3.88 (out of 4.00)",
+    "gpa": "3.89 (out of 4.00)",
     "department": "Institute of Information Technology (IIT)",
     "description": "Completed a comprehensive curriculum in software engineering principles, algorithms, data structures, and software development methodologies. Participated in multiple software projects and research initiatives."
   },

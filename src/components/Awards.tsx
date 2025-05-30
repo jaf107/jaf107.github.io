@@ -1,21 +1,25 @@
 import { FiAward, FiCircle, FiStar } from "react-icons/fi";
 import { FaTrophy } from "react-icons/fa";
-import { Box, Text, Flex } from "@optiaxiom/react";
+import { Box, Text, Flex, Badge, Paper } from "@optiaxiom/react";
 import awardsData from "../data/awards.json";
+import { ComponentPropsWithoutRef } from "react";
 
-interface AwardItemProps {
+type BadgeProps = ComponentPropsWithoutRef<typeof Badge>;
+
+type AwardItemProps = {
   title: string;
   description: string;
   year: string;
   index: number;
-}
+  tags?: Array<{ name: string; intent: BadgeProps["intent"] }>;
+};
 
 const getAwardIcon = (title: string, _index: number) => {
   if (title.toLowerCase().includes("scholarship")) {
     return <FiCircle size={22} className="text-yellow-500" />;
   } else if (
     title.toLowerCase().includes("champion") ||
-    title.toLowerCase().includes("top")
+    title.toLowerCase().includes("best")
   ) {
     return <FaTrophy size={22} className="text-yellow-500" />;
   } else if (title.toLowerCase().includes("runner")) {
@@ -29,34 +33,43 @@ const AwardItem: React.FC<AwardItemProps> = ({
   description,
   year,
   index,
+  tags,
 }) => {
   const Icon = getAwardIcon(title, index);
 
   return (
-    <Box className="card-hover h-full border border-border rounded-lg bg-bg.default p-6">
-      <Box className="pb-2">
-        <Flex justifyContent="space-between" alignItems="start">
-          <Flex alignItems="center" gap="2">
+    <Paper
+      border="1"
+      rounded="xl"
+      p="24"
+      bg="bg.default"
+      className="card-hover"
+      // w="2/3"
+    >
+      <Box>
+        <Flex flexDirection={"row"} gap="12" justifyContent={"space-between"}>
+          <Flex flexDirection={"row"} gap="12" flex="1" alignItems={"center"}>
             {Icon}
-            <Text fontSize="lg" fontWeight="700">
+            <Text fontSize="xl" fontWeight="700">
               {title}
             </Text>
+            {year && <Badge variant="strong">{year}</Badge>}
           </Flex>
-          <Text
-            fontSize="sm"
-            color="fg.default"
-            className="opacity-70 font-semibold"
-          >
-            {year}
-          </Text>
+          <Flex flexDirection={"row"} gap="12">
+            {tags?.map((tag, index) => (
+              <Badge key={index} intent={tag.intent}>
+                {tag.name}
+              </Badge>
+            ))}
+          </Flex>
         </Flex>
       </Box>
-      <Box className="mt-4">
-        <Text color="fg.default" className="opacity-70">
+      <Box mt="12">
+        <Text color="fg.default" fontWeight="400">
           {description}
         </Text>
       </Box>
-    </Box>
+    </Paper>
   );
 };
 
@@ -81,6 +94,12 @@ const Awards = () => {
               description={award.description}
               year={award.year}
               index={index}
+              tags={
+                award.tags as Array<{
+                  name: string;
+                  intent: BadgeProps["intent"];
+                }>
+              }
             />
           ))}
         </Box>

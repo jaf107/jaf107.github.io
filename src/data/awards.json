@@ -1,38 +1,60 @@
-
 [
   {
-    "title": "Academic Scholarship",
+    "title": "Scholarship",
     "description": "For outstanding undergraduate academic performance",
-    "year": "2022"
-  },
-  {
-    "title": "Champion",
-    "description": "In Refactoring Competition",
-    "year": "2023"
-  },
-  {
-    "title": "Best UI/UX",
-    "description": "At Hackathon",
-    "year": "2023"
+    "year": "2022",
+    "tags": [
+      { "name": "Academic", "intent": "information" },
+      { "name": "Scholarship", "intent": "success" }
+    ]
   },
   {
     "title": "Top 6",
-    "description": "In SCORE-ICSE",
-    "year": "2023"
-  },
-  {
-    "title": "Champions",
-    "description": "In Refactoring Competition",
-    "year": "2023"
+    "description": "SCORE-ICSE",
+    "year": "2023",
+    "tags": [
+      { "name": "Conference", "intent": "information" },
+      { "name": "Top 6", "intent": "neutral" }
+    ]
   },
   {
     "title": "Champion",
-    "description": "In Project Showcasing",
-    "year": "2022"
+    "description": "DU ITVerse Code Odyssey Refactoring Competition",
+    "year": "2023",
+    "tags": [{ "name": "Champion", "intent": "success" }]
+  },
+
+  {
+    "title": "Best UI/UX",
+    "description": "BUET CSE Fest Hackathon",
+    "year": "2023",
+    "tags": [
+      { "name": "Hackathon", "intent": "information" },
+      { "name": "Best UI/UX", "intent": "success" }
+    ]
+  },
+  {
+    "title": "Champions",
+    "description": "RUET CSE Fest Project Showcasing",
+    "year": "2022",
+    "tags": [{ "name": "Champion", "intent": "success" }]
   },
   {
     "title": "Runners Up",
-    "description": "Project Showcasing",
-    "year": "2021"
+    "description": "MIST CSE Fest Project Showcasing",
+    "year": "2022",
+    "tags": [{ "name": "Runners Up", "intent": "warning" }]
+  },
+  {
+    "title": "Runners Up",
+    "description": "CUET CSE Fest Project Showcasing",
+    "year": "2021",
+    "tags": [{ "name": "Runners Up", "intent": "warning" }]
+  },
+  {
+    "title": "Top 50",
+    "description": "NASA Space Apps Challenge",
+    "year": "2023",
+    "tags": [{ "name": "Top 50", "intent": "neutral" }]
   }
 ]
