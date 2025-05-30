@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
 import SectionTabs from "@/components/SectionTabs";
 import NavLinks from "@/components/NavLinks";
 
@@ -44,7 +43,6 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <NavLinks />
       <SectionTabs />
-      <Outlet />
     </div>
   );
 };

@@ -1,6 +1,16 @@
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import { Box, Button, Text, Flex, Link, ButtonGroup } from "@optiaxiom/react";
+import {
+  Box,
+  Button,
+  Text,
+  Flex,
+  Link,
+  ButtonGroup,
+  Paper,
+  Listbox,
+  ListboxItem,
+} from "@optiaxiom/react";
 import contactData from "../data/contact.json";
 
 interface ContactItemProps {
@@ -34,13 +44,8 @@ const ContactItem: React.FC<ContactItemProps> = ({
   href,
 }) => {
   const content = (
-    <Flex alignItems="center" gap="8" flexDirection={"row"}>
-      <Box
-        rounded="full"
-        bg="bg.avatar.neutral"
-        p="12"
-        color="fg.accent.hovered"
-      >
+    <Flex alignItems="center" gap="16" flexDirection={"row"}>
+      <Box rounded="full" bg="bg.avatar.neutral" color="fg.accent.hovered">
         {icon}
       </Box>
       <Box>
@@ -80,32 +85,48 @@ const Contact = () => {
         justifyContent={"center"}
         flexDirection={"row"}
         mt="32"
-        px="80"
       >
-        <Flex flex={"1"}>
-          <Flex
-            border="1"
-            p="32"
-            rounded="lg"
-            bg="bg.default"
-            flex="1"
-            justifyContent={"start"}
-          >
+        <Paper
+          p="32"
+          rounded="xl"
+          bg="bg.secondary"
+          flex="1"
+          justifyContent={"start"}
+        >
+          <Listbox>
             {contactData.contactInfo.map((item, index) => (
-              <ContactItem
-                key={index}
-                icon={getIcon(item.icon)}
-                title={item.title}
-                value={item.value}
-                href={item.href}
-              />
+              <ListboxItem key={index}>
+                <ContactItem
+                  key={index}
+                  icon={getIcon(item.icon)}
+                  title={item.title}
+                  value={item.value}
+                  href={item.href}
+                />
+              </ListboxItem>
             ))}
-          </Flex>
-        </Flex>
+          </Listbox>
+        </Paper>
 
-        <Flex h="full" flex={"1"} p="32" border="1" rounded="lg">
-          <Flex flex="1" alignItems={"center"} justifyContent={"center"}>
-            <Text fontSize="2xl" fontWeight="700">
+        <Paper
+          h="full"
+          flex={"1"}
+          p="32"
+          border="1"
+          rounded="xl"
+          className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-lg animate-fade-in"
+        >
+          <Flex
+            flex="1"
+            alignItems={"center"}
+            justifyContent={"center"}
+            gap="32"
+          >
+            <Text
+              fontSize="2xl"
+              fontWeight="700"
+              className="text-2xl font-bold text-primary"
+            >
               {contactData.callToAction.title}
             </Text>
             <Text
@@ -116,12 +137,12 @@ const Contact = () => {
               {contactData.callToAction.description}
             </Text>
             <ButtonGroup>
-              <Button asChild size="lg" icon={<FiMail />}>
+              <Button asChild icon={<FiMail />}>
                 <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                   Send Email
                 </Link>
               </Button>
-              <Button asChild size="lg" icon={<SiLinkedin />}>
+              <Button asChild icon={<SiLinkedin />}>
                 <Link
                   href={contactData.contactInfo[2].href}
                   target="_blank"
@@ -130,14 +151,14 @@ const Contact = () => {
                   Connect on LinkedIn
                 </Link>
               </Button>
-              <Button asChild size="lg" icon={<FiMail size={18} />}>
+              <Button asChild icon={<FiMail size={18} />}>
                 <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                   Contact Me
                 </Link>
               </Button>
             </ButtonGroup>
           </Flex>
-        </Flex>
+        </Paper>
       </Flex>
     </Flex>
   );
