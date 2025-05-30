@@ -1,4 +1,5 @@
-import { Mail, Phone, Github, Linkedin, MapPin } from "lucide-react";
+import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { Box, Button, Text, Flex, Link, ButtonGroup } from "@optiaxiom/react";
 import contactData from "../data/contact.json";
 
@@ -12,17 +13,17 @@ interface ContactItemProps {
 const getIcon = (iconName: string, size = 20) => {
   switch (iconName) {
     case "Mail":
-      return <Mail size={size} />;
+      return <FiMail size={size} />;
     case "Phone":
-      return <Phone size={size} />;
+      return <FiPhone size={size} />;
     case "Github":
-      return <Github size={size} />;
+      return <SiGithub size={size} />;
     case "Linkedin":
-      return <Linkedin size={size} />;
+      return <SiLinkedin size={size} />;
     case "MapPin":
-      return <MapPin size={size} />;
+      return <FiMapPin size={size} />;
     default:
-      return <Mail size={size} />;
+      return <FiMail size={size} />;
   }
 };
 
@@ -115,12 +116,12 @@ const Contact = () => {
               {contactData.callToAction.description}
             </Text>
             <ButtonGroup>
-              <Button asChild size="lg" icon={<Mail />}>
+              <Button asChild size="lg" icon={<FiMail />}>
                 <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                   Send Email
                 </Link>
               </Button>
-              <Button asChild size="lg" icon={<Linkedin />}>
+              <Button asChild size="lg" icon={<SiLinkedin />}>
                 <Link
                   href={contactData.contactInfo[2].href}
                   target="_blank"
@@ -129,7 +130,7 @@ const Contact = () => {
                   Connect on LinkedIn
                 </Link>
               </Button>
-              <Button asChild size="lg" icon={<Mail size={18} />}>
+              <Button asChild size="lg" icon={<FiMail size={18} />}>
                 <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                   Contact Me
                 </Link>

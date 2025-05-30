@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { FiExternalLink, FiMail } from "react-icons/fi";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { Button, Tooltip } from "@optiaxiom/react";
 import contactData from "../data/contact.json";
 
@@ -9,7 +10,7 @@ const NavLinks = () => {
         <Button
           appearance="subtle"
           aria-label="GitHub Profile"
-          icon={<Github className="h-5 w-5" />}
+          icon={<FiExternalLink className="h-5 w-5" />}
           asChild
         >
           <a
@@ -27,7 +28,7 @@ const NavLinks = () => {
         <Button
           appearance="subtle"
           aria-label="LinkedIn Profile"
-          icon={<Linkedin className="h-5 w-5" />}
+          icon={<FiExternalLink className="h-5 w-5" />}
           asChild
         >
           <a
@@ -45,7 +46,7 @@ const NavLinks = () => {
         <Button
           appearance="subtle"
           aria-label="Send Email"
-          icon={<Mail className="h-5 w-5" />}
+          icon={<FiMail className="h-5 w-5" />}
           asChild
         >
           <a

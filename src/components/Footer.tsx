@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { FiMail } from "react-icons/fi";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -19,7 +20,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
-              <Github size={20} />
+              <SiGithub size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/abu-jafar-saifullah/"
@@ -27,13 +28,13 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
-              <Linkedin size={20} />
+              <SiLinkedin size={20} />
             </a>
             <a
               href="mailto:jafarmahin107@gmail.com"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
-              <Mail size={20} />
+              <FiMail size={20} />
             </a>
           </div>
         </div>

@@ -1,4 +1,11 @@
-import { Code, Database, Terminal, Layout, Server, Wrench } from "lucide-react";
+import {
+  FiCode,
+  FiDatabase,
+  FiTerminal,
+  FiLayout,
+  FiServer,
+  FiTool,
+} from "react-icons/fi";
 import { Box, Text, Flex, Badge } from "@optiaxiom/react";
 import skillsData from "../data/skills.json";
 
@@ -26,12 +33,12 @@ interface IconProps {
 
 const getIcon = (iconName: string, props: IconProps = { size: 20 }) => {
   const icons = {
-    Code: <Code {...props} />,
-    Terminal: <Terminal {...props} />,
-    Layout: <Layout {...props} />,
-    Database: <Database {...props} />,
-    Wrench: <Wrench {...props} />,
-    Server: <Server {...props} />,
+    Code: <FiCode {...props} />,
+    Terminal: <FiTerminal {...props} />,
+    Layout: <FiLayout {...props} />,
+    Database: <FiDatabase {...props} />,
+    Wrench: <FiTool {...props} />,
+    Server: <FiServer {...props} />,
   };
 
   return icons[iconName as keyof typeof icons] || icons.Code;

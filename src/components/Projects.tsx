@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
-  Github,
-  ExternalLink,
-  ChevronDown,
-  ChevronUp,
-  Image as ImageIcon,
-} from "lucide-react";
+  FiExternalLink,
+  FiChevronDown,
+  FiChevronUp,
+  FiImage,
+} from "react-icons/fi";
+import { SiGithub } from "react-icons/si";
 import {
   Box,
   Text,
@@ -66,7 +66,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             justifyContent="center"
             className="w-full h-full"
           >
-            <ImageIcon size={48} className="opacity-40" />
+            <FiImage size={48} className="opacity-40" />
           </Flex>
         )}
       </Box>
@@ -94,7 +94,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
                 className="flex items-center gap-1 w-full justify-between"
               >
                 <Text fontWeight="600">Key Achievements</Text>
-                {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                {isOpen ? (
+                  <FiChevronUp size={16} />
+                ) : (
+                  <FiChevronDown size={16} />
+                )}
               </Button>
             </DisclosureTrigger>
             <DisclosureContent>
@@ -120,14 +124,14 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       </Box>
       <Flex p="4" gap="2">
         {githubLink && (
-          <Button appearance="subtle" icon={<Github size={14} />}>
+          <Button appearance="subtle" icon={<SiGithub size={14} />}>
             <Link href={githubLink} target="_blank" rel="noopener noreferrer">
               Code
             </Link>
           </Button>
         )}
         {demoLink && (
-          <Button icon={<ExternalLink size={14} />}>
+          <Button icon={<FiExternalLink size={14} />}>
             <Link href={demoLink} target="_blank" rel="noopener noreferrer">
               Demo
             </Link>

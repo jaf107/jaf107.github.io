@@ -1,4 +1,5 @@
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { FiMail, FiFileText } from "react-icons/fi";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 import { Button, Box, Text, Flex, Link } from "@optiaxiom/react";
 import aboutData from "../data/about.json";
 import Logo from "./Logo";
@@ -22,12 +23,12 @@ const Hero = () => {
             </Text>
 
             <Flex flexDirection={"row"}>
-              <Button size="lg" icon={<Mail size={18} />} asChild>
+              <Button size="lg" icon={<FiMail size={18} />} asChild>
                 <Link href={`mailto:${email}`}>Contact Me</Link>
               </Button>
               <Button
                 size="lg"
-                icon={<Github size={18} />}
+                icon={<SiGithub size={18} />}
                 appearance="subtle"
                 asChild
               >
@@ -41,7 +42,7 @@ const Hero = () => {
               </Button>
               <Button
                 size="lg"
-                icon={<Linkedin size={18} />}
+                icon={<SiLinkedin size={18} />}
                 appearance="subtle"
                 asChild
               >
@@ -55,7 +56,7 @@ const Hero = () => {
               </Button>
               <Button
                 size="lg"
-                icon={<FileText size={18} />}
+                icon={<FiFileText size={18} />}
                 appearance="subtle"
                 asChild
               >

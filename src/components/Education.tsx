@@ -1,4 +1,4 @@
-import { GraduationCap, Calendar, Award, MapPin, School } from "lucide-react";
+import { FiUser, FiCalendar, FiAward, FiMapPin, FiHome } from "react-icons/fi";
 import { Box, Text, Flex, Badge } from "@optiaxiom/react";
 import educationData from "../data/education.json";
 
@@ -36,7 +36,7 @@ const InfoItem: React.FC<InfoItemProps> = ({ icon, text, isHighlighted }) => (
 );
 
 const EducationCard: React.FC<EducationCardProps> = ({ education, index }) => {
-  const icon = index === 0 ? <GraduationCap size={20} /> : <School size={20} />;
+  const icon = index === 0 ? <FiUser size={20} /> : <FiHome size={20} />;
 
   return (
     <Box border="1" rounded="lg" bg="bg.default" p="6" className="card-hover">
@@ -55,7 +55,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ education, index }) => {
           </Flex>
           <Badge>
             <Flex alignItems="center" gap="2">
-              <Calendar size={14} />
+              <FiCalendar size={14} />
               <Text fontWeight="600">{education.duration}</Text>
             </Flex>
           </Badge>
@@ -63,7 +63,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ education, index }) => {
       </Box>
 
       <Box mt="4" className="space-y-3">
-        <InfoItem icon={<MapPin size={14} />} text={education.location} />
+        <InfoItem icon={<FiMapPin size={14} />} text={education.location} />
 
         <Text color="fg.default" className="opacity-70">
           <Text fontWeight="600" display="inline">
@@ -74,7 +74,7 @@ const EducationCard: React.FC<EducationCardProps> = ({ education, index }) => {
 
         {education.department && (
           <InfoItem
-            icon={<Award size={14} />}
+            icon={<FiAward size={14} />}
             text={education.department}
             isHighlighted
           />

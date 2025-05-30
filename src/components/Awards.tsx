@@ -1,4 +1,5 @@
-import { Award, Trophy, Medal, Star } from "lucide-react";
+import { FiAward, FiCircle, FiStar } from "react-icons/fi";
+import { FaTrophy } from "react-icons/fa";
 import { Box, Text, Flex } from "@optiaxiom/react";
 import awardsData from "../data/awards.json";
 
@@ -11,16 +12,16 @@ interface AwardItemProps {
 
 const getAwardIcon = (title: string, _index: number) => {
   if (title.toLowerCase().includes("scholarship")) {
-    return <Medal size={22} className="text-yellow-500" />;
+    return <FiCircle size={22} className="text-yellow-500" />;
   } else if (
     title.toLowerCase().includes("champion") ||
     title.toLowerCase().includes("top")
   ) {
-    return <Trophy size={22} className="text-yellow-500" />;
+    return <FaTrophy size={22} className="text-yellow-500" />;
   } else if (title.toLowerCase().includes("runner")) {
-    return <Star size={22} className="text-yellow-500" />;
+    return <FiStar size={22} className="text-yellow-500" />;
   }
-  return <Award size={22} className="text-yellow-500" />;
+  return <FiAward size={22} className="text-yellow-500" />;
 };
 
 const AwardItem: React.FC<AwardItemProps> = ({

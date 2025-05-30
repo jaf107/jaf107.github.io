@@ -1,4 +1,4 @@
-import { Calendar, Briefcase, MapPin } from "lucide-react";
+import { FiCalendar, FiBriefcase, FiMapPin } from "react-icons/fi";
 import {
   Disclosure,
   DisclosureContent,
@@ -54,7 +54,7 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
         >
           <Box>
             <Flex alignItems="center" gap="2">
-              <Briefcase className="h-5 w-5 text-primary" />
+              <FiBriefcase className="h-5 w-5 text-primary" />
               <Link href={companyLink} fontSize="xl" fontWeight="700">
                 {companyName}
               </Link>
@@ -62,7 +62,7 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
                 <>
                   <Text color="fg.default">•</Text>
                   <Flex alignItems="center" gap="2" fontSize="sm">
-                    <MapPin size={14} className="text-muted-foreground/70" />
+                    <FiMapPin size={14} className="text-muted-foreground/70" />
                     <Text fontWeight="500">{location}</Text>
                   </Flex>
                 </>
@@ -89,7 +89,7 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
                   </Flex>
                   <Badge>
                     <Flex alignItems="center" gap="2">
-                      <Calendar size={14} />
+                      <FiCalendar size={14} />
                       <Text fontWeight="600">{role.duration}</Text>
                     </Flex>
                   </Badge>

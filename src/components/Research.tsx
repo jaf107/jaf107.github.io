@@ -1,4 +1,9 @@
-import { BookOpen, Calendar, FileText, ExternalLink } from "lucide-react";
+import {
+  FiBookOpen,
+  FiCalendar,
+  FiFileText,
+  FiExternalLink,
+} from "react-icons/fi";
 import { Box, Text, Flex, Button } from "@optiaxiom/react";
 import researchData from "../data/research.json";
 
@@ -22,7 +27,7 @@ const ResearchItem: React.FC<ResearchItemProps> = ({
       <Box className="pb-2">
         <Flex justifyContent="space-between" alignItems="start">
           <Flex alignItems="center" gap="2">
-            <BookOpen size={20} className="text-primary" />
+            <FiBookOpen size={20} className="text-primary" />
             <Box>
               <Text fontSize="xl" fontWeight="700">
                 {title}
@@ -33,7 +38,7 @@ const ResearchItem: React.FC<ResearchItemProps> = ({
             </Box>
           </Flex>
           <Flex alignItems="center" gap="2" className="text-sm">
-            <Calendar size={14} className="opacity-70" />
+            <FiCalendar size={14} className="opacity-70" />
             <Text fontWeight="600">{period}</Text>
           </Flex>
         </Flex>
@@ -45,7 +50,7 @@ const ResearchItem: React.FC<ResearchItemProps> = ({
             <Button
               appearance="subtle"
               asChild
-              icon={<ExternalLink size={14} />}
+              icon={<FiExternalLink size={14} />}
             >
               <a href={link} target="_blank" rel="noopener noreferrer">
                 View Project
@@ -68,7 +73,7 @@ const ResearchProject: React.FC<{
     <Box className="card-hover border border-border rounded-lg bg-bg.default p-6">
       <Box className="pb-2">
         <Flex alignItems="center" gap="2">
-          <FileText size={20} className="text-primary" />
+          <FiFileText size={20} className="text-primary" />
           <Text fontSize="lg" fontWeight="700">
             {title}
           </Text>
@@ -89,7 +94,7 @@ const ResearchProject: React.FC<{
             <Button
               appearance="subtle"
               asChild
-              icon={<ExternalLink size={14} />}
+              icon={<FiExternalLink size={14} />}
             >
               <a href={link} target="_blank" rel="noopener noreferrer">
                 View Project

@@ -2,19 +2,18 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import {
-  Moon,
-  Sun,
-  Briefcase,
-  Code,
-  Award,
-  GraduationCap,
-  Mail,
-  Sparkles,
-  Brain,
-  User,
-  ListCollapse,
-  FileText,
-} from "lucide-react";
+  FiMoon,
+  FiSun,
+  FiBriefcase,
+  FiCode,
+  FiAward,
+  FiUser,
+  FiMail,
+  FiStar,
+  FiHeart,
+  FiList,
+  FiFileText,
+} from "react-icons/fi";
 import Experience from "./Experience";
 import Projects from "./Projects";
 import Research from "./Research";
@@ -56,25 +55,25 @@ const SectionTabs = () => {
   const getIconComponent = (iconName: string) => {
     switch (iconName) {
       case "User":
-        return <User size={20} />;
+        return <FiUser size={20} />;
       case "Briefcase":
-        return <Briefcase size={20} />;
+        return <FiBriefcase size={20} />;
       case "Code":
-        return <Code size={20} />;
+        return <FiCode size={20} />;
       case "Brain":
-        return <Brain size={20} />;
+        return <FiHeart size={20} />;
       case "Sparkles":
-        return <Sparkles size={20} />;
+        return <FiStar size={20} />;
       case "Award":
-        return <Award size={20} />;
+        return <FiAward size={20} />;
       case "GraduationCap":
-        return <GraduationCap size={20} />;
+        return <FiUser size={20} />;
       case "FileText":
-        return <FileText size={20} />;
+        return <FiFileText size={20} />;
       case "Mail":
-        return <Mail size={20} />;
+        return <FiMail size={20} />;
       default:
-        return <User size={20} />;
+        return <FiUser size={20} />;
     }
   };
 
@@ -108,14 +107,14 @@ const SectionTabs = () => {
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               icon={
                 <Box className="relative w-5 h-5">
-                  <Sun className="h-5 w-5 absolute transition-all dark:scale-0 dark:opacity-0" />
-                  <Moon className="h-5 w-5 absolute transition-all scale-0 opacity-0 dark:scale-100 dark:opacity-100" />
+                  <FiSun className="h-5 w-5 absolute transition-all dark:scale-0 dark:opacity-0" />
+                  <FiMoon className="h-5 w-5 absolute transition-all scale-0 opacity-0 dark:scale-100 dark:opacity-100" />
                 </Box>
               }
             >
               Toggle Theme
             </NavItem>
-            <SidebarToggle icon={<ListCollapse size={20} />} />
+            <SidebarToggle icon={<FiList size={20} />} />
           </NavFooter>
         </Nav>
       </Sidebar>
