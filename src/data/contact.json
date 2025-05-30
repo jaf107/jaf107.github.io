@@ -24,9 +24,8 @@
       "icon": "MapPin"
     }
   ],
-  "message": "I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
   "callToAction": {
     "title": "Let's Build Something Together",
-    "description": "I'm open to freelance opportunities, full-time positions, and collaborations on interesting projects."
+    "description": "I'm open to freelance opportunities, part-time positions, and collaborations on interesting projects."
   }
 }

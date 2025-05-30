@@ -1,11 +1,4 @@
-
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Phone,
-  FileText,
-} from "lucide-react";
+import { Github, Linkedin, Mail, Phone, FileText } from "lucide-react";
 import { Button, Box, Text, Flex, Link } from "@optiaxiom/react";
 import aboutData from "../data/about.json";
 import Logo from "./Logo";
@@ -24,8 +17,12 @@ const Hero = () => {
             <Text className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
               {name}
             </Text>
-            <Text className="text-2xl md:text-3xl text-foreground/80">{title}</Text>
-            <Text className="text-lg text-muted-foreground max-w-xl">{bio}</Text>
+            <Text className="text-2xl md:text-3xl text-foreground/80">
+              {title}
+            </Text>
+            <Text className="text-lg text-muted-foreground max-w-xl">
+              {bio}
+            </Text>
             <Flex className="flex-wrap gap-3">
               <Button icon={<Mail size={18} />} asChild>
                 <Link href={`mailto:${email}`}>Contact Me</Link>
@@ -58,12 +55,16 @@ const Hero = () => {
                 </Link>
               </Button>
             </Flex>
-            <Flex alignItems="center" gap="3" className="text-sm text-muted-foreground">
-              <Flex alignItems="center" gap="1">
+            <Flex
+              alignItems="center"
+              gap="4"
+              className="text-sm text-muted-foreground"
+            >
+              <Flex alignItems="center" gap="2">
                 <Phone size={14} />
                 <Text>{phone}</Text>
               </Flex>
-              <Flex alignItems="center" gap="1">
+              <Flex alignItems="center" gap="2">
                 <Mail size={14} />
                 <Text>{email}</Text>
               </Flex>

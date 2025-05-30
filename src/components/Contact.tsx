@@ -1,8 +1,7 @@
-
-import React from 'react';
-import { Mail, Phone, Github, Linkedin, MapPin } from 'lucide-react';
-import { Box, Button, Text, Flex, Link } from '@optiaxiom/react';
-import contactData from '../data/contact.json';
+import React from "react";
+import { Mail, Phone, Github, Linkedin, MapPin } from "lucide-react";
+import { Box, Button, Text, Flex, Link, ButtonGroup } from "@optiaxiom/react";
+import contactData from "../data/contact.json";
 
 interface ContactItemProps {
   icon: React.ReactNode;
@@ -11,14 +10,44 @@ interface ContactItemProps {
   href?: string;
 }
 
-const ContactItem: React.FC<ContactItemProps> = ({ icon, title, value, href }) => {
+// Icon mapping
+const getIcon = (iconName: string, size = 20) => {
+  switch (iconName) {
+    case "Mail":
+      return <Mail size={size} />;
+    case "Phone":
+      return <Phone size={size} />;
+    case "Github":
+      return <Github size={size} />;
+    case "Linkedin":
+      return <Linkedin size={size} />;
+    case "MapPin":
+      return <MapPin size={size} />;
+    default:
+      return <Mail size={size} />;
+  }
+};
+
+const ContactItem: React.FC<ContactItemProps> = ({
+  icon,
+  title,
+  value,
+  href,
+}) => {
   const content = (
-    <Flex alignItems="center" gap="4">
-      <Box className="bg-primary/10 p-3 rounded-full text-primary">
+    <Flex alignItems="center" gap="8" flexDirection={"row"}>
+      <Box
+        rounded="full"
+        bg="bg.avatar.neutral"
+        p="12"
+        color="fg.accent.hovered"
+      >
         {icon}
       </Box>
       <Box>
-        <Text fontSize="sm" color="fg.default" className="opacity-70">{title}</Text>
+        <Text fontSize="sm" color="fg.default">
+          {title}
+        </Text>
         <Text fontWeight="500">{value}</Text>
       </Box>
     </Flex>
@@ -26,12 +55,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, title, value, href }) =
 
   if (href) {
     return (
-      <Link 
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block hover:opacity-80 transition-opacity"
-      >
+      <Link href={href} target="_blank" rel="noopener noreferrer">
         {content}
       </Link>
     );
@@ -41,81 +65,83 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, title, value, href }) =
 };
 
 const Contact = () => {
-  // Icon mapping
-  const getIcon = (iconName: string, size = 20) => {
-    switch (iconName) {
-      case 'Mail':
-        return <Mail size={size} />;
-      case 'Phone':
-        return <Phone size={size} />;
-      case 'Github':
-        return <Github size={size} />;
-      case 'Linkedin':
-        return <Linkedin size={size} />;
-      case 'MapPin':
-        return <MapPin size={size} />;
-      default:
-        return <Mail size={size} />;
-    }
-  };
-
   return (
-    <Box className="py-16" id="contact">
-      <Box className="container mx-auto px-4 md:px-6">
-        <Text className="section-title">Get In Touch</Text>
-        
-        <Box className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Box className="space-y-6 staggered-animate">
-            <Text fontSize="lg" color="fg.default" className="opacity-70">
-              {contactData.message}
+    <Flex
+      mx="auto"
+      px="4"
+      alignItems={"center"}
+      justifyContent={"start"}
+      py="32"
+      h={"full"}
+    >
+      <Text className="section-title">Get In Touch</Text>
+
+      <Flex
+        // h="full"
+        alignItems={"start"}
+        justifyContent={"center"}
+        flexDirection={"row"}
+        mt="32"
+        px="80"
+      >
+        <Flex flex={"1"}>
+          <Flex
+            border="1"
+            p="32"
+            rounded="lg"
+            bg="bg.default"
+            flex="1"
+            justifyContent={"start"}
+          >
+            {contactData.contactInfo.map((item, index) => (
+              <ContactItem
+                key={index}
+                icon={getIcon(item.icon)}
+                title={item.title}
+                value={item.value}
+                href={item.href}
+              />
+            ))}
+          </Flex>
+        </Flex>
+
+        <Flex h="full" flex={"1"} p="32" border="1" rounded="lg">
+          <Flex flex="1" alignItems={"center"} justifyContent={"center"}>
+            <Text fontSize="2xl" fontWeight="700" color="fg.accent">
+              {contactData.callToAction.title}
             </Text>
-            
-            <Box className="bg-bg.default border border-border rounded-lg p-6 space-y-4">
-              {contactData.contactInfo.map((item, index) => (
-                <ContactItem 
-                  key={index}
-                  icon={getIcon(item.icon)} 
-                  title={item.title} 
-                  value={item.value} 
-                  href={item.href} 
-                />
-              ))}
-            </Box>
-            
-            <Flex gap="4">
-              <Button asChild icon={<Mail size={18} />}>
+            <Text
+              color="fg.default"
+              className="opacity-70"
+              textAlign={"center"}
+            >
+              {contactData.callToAction.description}
+            </Text>
+            <ButtonGroup>
+              <Button asChild size="lg" icon={<Mail />}>
                 <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                   Send Email
                 </Link>
               </Button>
-              <Button appearance="subtle" asChild icon={<Linkedin size={18} />}>
-                <Link href={contactData.contactInfo[2].href} target="_blank" rel="noopener noreferrer">
+              <Button asChild size="lg" icon={<Linkedin />}>
+                <Link
+                  href={contactData.contactInfo[2].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Connect on LinkedIn
                 </Link>
               </Button>
-            </Flex>
-          </Box>
-          
-          <Box className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-lg animate-fade-in">
-            <Box textAlign="center" className="space-y-4">
-              <Text fontSize="2xl" fontWeight="700" color="fg.accent">
-                {contactData.callToAction.title}
-              </Text>
-              <Text color="fg.default" className="opacity-70">
-                {contactData.callToAction.description}
-              </Text>
-              <Box className="pt-4">
-                <Button size="lg" asChild icon={<Mail size={18} />}>
-                  <Link href={`mailto:${contactData.contactInfo[0].value}`}>
-                    Contact Me
-                  </Link>
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+              <Button asChild size="lg" icon={<Mail size={18} />}>
+                <Link href={`mailto:${contactData.contactInfo[0].value}`}>
+                  Contact Me
+                </Link>
+              </Button>
+            </ButtonGroup>
+          </Flex>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
