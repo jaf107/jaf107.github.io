@@ -1,7 +1,7 @@
-import React from 'react';
-import { BookOpen, GraduationCap, Calendar, FileText, ExternalLink } from 'lucide-react';
-import { Box, Text, Flex, Button } from '@optiaxiom/react';
-import researchData from '../data/research.json';
+import React from "react";
+import { BookOpen, Calendar, FileText, ExternalLink } from "lucide-react";
+import { Box, Text, Flex, Button } from "@optiaxiom/react";
+import researchData from "../data/research.json";
 
 interface ResearchItemProps {
   title: string;
@@ -11,7 +11,13 @@ interface ResearchItemProps {
   link?: string;
 }
 
-const ResearchItem: React.FC<ResearchItemProps> = ({ title, organization, period, description, link }) => {
+const ResearchItem: React.FC<ResearchItemProps> = ({
+  title,
+  organization,
+  period,
+  description,
+  link,
+}) => {
   return (
     <Box className="card-hover border border-border rounded-lg bg-bg.default p-6">
       <Box className="pb-2">
@@ -37,7 +43,11 @@ const ResearchItem: React.FC<ResearchItemProps> = ({ title, organization, period
         {description}
         {link && (
           <Box className="mt-2">
-            <Button appearance="subtle" asChild icon={<ExternalLink size={14} />}>
+            <Button
+              appearance="subtle"
+              asChild
+              icon={<ExternalLink size={14} />}
+            >
               <a href={link} target="_blank" rel="noopener noreferrer">
                 View Project
               </a>
@@ -70,11 +80,18 @@ const ResearchProject: React.FC<{
           {description}
         </Text>
         <Text fontSize="sm" color="fg.default" className="opacity-70">
-          <Text fontWeight="600" className="inline">Technologies:</Text> {technologies.join(', ')}
+          <Text fontWeight="600" className="inline">
+            Technologies:
+          </Text>{" "}
+          {technologies.join(", ")}
         </Text>
         {link && (
           <Box className="mt-3">
-            <Button appearance="subtle" asChild icon={<ExternalLink size={14} />}>
+            <Button
+              appearance="subtle"
+              asChild
+              icon={<ExternalLink size={14} />}
+            >
               <a href={link} target="_blank" rel="noopener noreferrer">
                 View Project
               </a>
@@ -88,14 +105,17 @@ const ResearchProject: React.FC<{
 
 const Research = () => {
   const { experience, projects } = researchData;
-  
+
   return (
     <Box className="py-16 bg-secondary/50" id="research">
       <Box className="container mx-auto px-4 md:px-6">
         <Text className="section-title">
-          <Text fontWeight="700" className="inline">Research</Text> Experience
+          <Text fontWeight="700" className="inline">
+            Research
+          </Text>{" "}
+          Experience
         </Text>
-        
+
         <Box className="mt-10 grid gap-6 staggered-animate">
           {experience.map((exp, index) => (
             <ResearchItem
@@ -117,11 +137,11 @@ const Research = () => {
               link={exp.link}
             />
           ))}
-          
+
           <Text fontSize="xl" fontWeight="700" className="mt-8 mb-4">
             Research Projects
           </Text>
-          
+
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <ResearchProject
@@ -129,7 +149,7 @@ const Research = () => {
                 title={project.title}
                 technologies={project.technologies}
                 description={project.description}
-                link={project.link}
+                link={project.link || undefined}
               />
             ))}
           </Box>
