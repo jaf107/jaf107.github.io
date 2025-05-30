@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
@@ -33,6 +34,7 @@ import {
   NavItem,
   SidebarToggle,
   Text,
+  Box,
 } from "@optiaxiom/react";
 import navigationData from "../data/navigation.json";
 
@@ -79,7 +81,7 @@ const SectionTabs = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <Box className="flex h-screen overflow-hidden">
       <Sidebar defaultExpanded>
         <Nav>
           <NavHeader alignItems={"start"} my="4">
@@ -107,10 +109,10 @@ const SectionTabs = () => {
               id="theme-toggle"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               icon={
-                <div className="relative w-5 h-5">
+                <Box className="relative w-5 h-5">
                   <Sun className="h-5 w-5 absolute transition-all dark:scale-0 dark:opacity-0" />
                   <Moon className="h-5 w-5 absolute transition-all scale-0 opacity-0 dark:scale-100 dark:opacity-100" />
-                </div>
+                </Box>
               }
             >
               Toggle Theme
@@ -120,20 +122,22 @@ const SectionTabs = () => {
         </Nav>
       </Sidebar>
 
-      <main className="flex-1 overflow-auto p-6 pb-20 bg-background">
-        <Routes>
-          <Route path="/" element={<Hero />} />
-          <Route path="/about" element={<Hero />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/awards" element={<Awards />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-    </div>
+      <Box asChild className="flex-1 overflow-auto p-6 pb-20 bg-background">
+        <main>
+          <Routes>
+            <Route path="/" element={<Hero />} />
+            <Route path="/about" element={<Hero />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/awards" element={<Awards />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+      </Box>
+    </Box>
   );
 };
 

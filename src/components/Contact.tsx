@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Mail, Phone, Github, Linkedin, MapPin } from 'lucide-react';
-import { Box, Button, Text, Flex } from '@optiaxiom/react';
+import { Box, Button, Text, Flex, Link } from '@optiaxiom/react';
 import contactData from '../data/contact.json';
 
 interface ContactItemProps {
@@ -25,12 +26,14 @@ const ContactItem: React.FC<ContactItemProps> = ({ icon, title, value, href }) =
 
   if (href) {
     return (
-      <Box 
+      <Link 
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         className="block hover:opacity-80 transition-opacity"
-        onClick={() => window.open(href, '_blank', 'noopener,noreferrer')}
       >
         {content}
-      </Box>
+      </Link>
     );
   }
 
@@ -81,14 +84,14 @@ const Contact = () => {
             
             <Flex gap="4">
               <Button asChild icon={<Mail size={18} />}>
-                <a href={`mailto:${contactData.contactInfo[0].value}`}>
+                <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                   Send Email
-                </a>
+                </Link>
               </Button>
               <Button appearance="subtle" asChild icon={<Linkedin size={18} />}>
-                <a href={contactData.contactInfo[2].href} target="_blank" rel="noopener noreferrer">
+                <Link href={contactData.contactInfo[2].href} target="_blank" rel="noopener noreferrer">
                   Connect on LinkedIn
-                </a>
+                </Link>
               </Button>
             </Flex>
           </Box>
@@ -103,9 +106,9 @@ const Contact = () => {
               </Text>
               <Box className="pt-4">
                 <Button size="lg" asChild icon={<Mail size={18} />}>
-                  <a href={`mailto:${contactData.contactInfo[0].value}`}>
+                  <Link href={`mailto:${contactData.contactInfo[0].value}`}>
                     Contact Me
-                  </a>
+                  </Link>
                 </Button>
               </Box>
             </Box>
