@@ -1,4 +1,3 @@
-import React from "react";
 import { GraduationCap, Calendar, Award, MapPin, School } from "lucide-react";
 import { Box, Text, Flex, Badge } from "@optiaxiom/react";
 import educationData from "../data/education.json";

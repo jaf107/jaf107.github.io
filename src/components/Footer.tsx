@@ -1,6 +1,4 @@
-
-import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,33 +11,33 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-1">Abu Jafar Saifullah</h3>
             <p className="text-primary-foreground/80">Software Engineer</p>
           </div>
-          
+
           <div className="flex space-x-4">
-            <a 
-              href="https://github.com/jaf107" 
-              target="_blank" 
+            <a
+              href="https://github.com/jaf107"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               <Github size={20} />
             </a>
-            <a 
-              href="https://www.linkedin.com/in/abu-jafar-saifullah/" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/abu-jafar-saifullah/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               <Linkedin size={20} />
             </a>
-            <a 
-              href="mailto:jafarmahin107@gmail.com" 
+            <a
+              href="mailto:jafarmahin107@gmail.com"
               className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
             >
               <Mail size={20} />
             </a>
           </div>
         </div>
-        
+
         <div className="border-t border-primary-foreground/20 mt-6 pt-6 text-center text-sm text-primary-foreground/60">
           <p>&copy; {currentYear} Abu Jafar Saifullah. All rights reserved.</p>
         </div>

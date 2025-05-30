@@ -1,4 +1,3 @@
-import React from "react";
 import { Code, Database, Terminal, Layout, Server, Wrench } from "lucide-react";
 import { Box, Text, Flex, Badge } from "@optiaxiom/react";
 import skillsData from "../data/skills.json";

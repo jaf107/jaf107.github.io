@@ -1,4 +1,3 @@
-import React from "react";
 import { BookOpen, Calendar, FileText, ExternalLink } from "lucide-react";
 import { Box, Text, Flex, Button } from "@optiaxiom/react";
 import researchData from "../data/research.json";

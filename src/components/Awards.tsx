@@ -1,4 +1,3 @@
-import React from "react";
 import { Award, Trophy, Medal, Star } from "lucide-react";
 import { Box, Text, Flex } from "@optiaxiom/react";
 import awardsData from "../data/awards.json";

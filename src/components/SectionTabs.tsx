@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import {
@@ -45,17 +44,17 @@ const SectionTabs = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const path = location.pathname.replace(/^\//, '') || 'about';
+    const path = location.pathname.replace(/^\//, "") || "about";
     setActiveSection(path);
   }, [location.pathname]);
 
-  const handleSectionChange = (sectionId) => {
+  const handleSectionChange = (sectionId: string) => {
     setActiveSection(sectionId);
     navigate(`/${sectionId}`);
   };
 
   // Get icon component based on icon name from navigation data
-  const getIconComponent = (iconName) => {
+  const getIconComponent = (iconName: string) => {
     switch (iconName) {
       case "User":
         return <User size={20} />;
@@ -86,12 +85,12 @@ const SectionTabs = () => {
         <Nav>
           <NavHeader alignItems={"start"} my="4">
             <NavItem icon={<Logo size={40} />}>
-              <Text fontSize="lg" fontWeight="700">
+              <Text ml="8" fontSize="lg" fontWeight="700">
                 Abu Jafar
               </Text>
             </NavItem>
           </NavHeader>
-          <NavBody>
+          <NavBody mt="32">
             {navigationData.map((item) => (
               <NavItem
                 key={item.id}

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import SectionTabs from '@/components/SectionTabs';
-import NavLinks from '@/components/NavLinks';
+import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import SectionTabs from "@/components/SectionTabs";
+import NavLinks from "@/components/NavLinks";
 
 const Index = () => {
   // Add scroll animation to reveal elements as they come into view
@@ -10,7 +10,7 @@ const Index = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in');
+            entry.target.classList.add("animate-fade-in");
           }
         });
       },
@@ -18,7 +18,9 @@ const Index = () => {
     );
 
     // Target all section content divs and staggered elements
-    const hiddenElements = document.querySelectorAll('section > div, .staggered-animate > *');
+    const hiddenElements = document.querySelectorAll(
+      "section > div, .staggered-animate > *"
+    );
     hiddenElements.forEach((el) => observer.observe(el));
 
     // Make sure to reset the observer when filters change
@@ -30,11 +32,11 @@ const Index = () => {
     };
 
     // Add event listener for toggle group changes
-    document.addEventListener('toggleGroupChange', resetObserver);
+    document.addEventListener("toggleGroupChange", resetObserver);
 
     return () => {
       hiddenElements.forEach((el) => observer.unobserve(el));
-      document.removeEventListener('toggleGroupChange', resetObserver);
+      document.removeEventListener("toggleGroupChange", resetObserver);
     };
   }, []);
 

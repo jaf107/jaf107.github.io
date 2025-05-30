@@ -1,5 +1,3 @@
-import React from "react";
-
 const Logo = ({ size = 64 }: { size?: number }) => {
   return (
     <div

@@ -1,4 +1,3 @@
-import React from "react";
 import { Calendar, Briefcase, MapPin } from "lucide-react";
 import {
   Disclosure,
@@ -40,9 +39,19 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
   const [companyName, location] = company.split(", ");
 
   return (
-    <Box className="card-hover overflow-hidden" border="1" rounded="lg" bg="bg.default">
+    <Box
+      className="card-hover overflow-hidden"
+      border="1"
+      rounded="lg"
+      bg="bg.default"
+    >
       <Box p="4" bg="bg.accent.subtle">
-        <Flex justifyContent="space-between" alignItems="start" gap="2" flexWrap="wrap">
+        <Flex
+          justifyContent="space-between"
+          alignItems="start"
+          gap="2"
+          flexWrap="wrap"
+        >
           <Box>
             <Flex alignItems="center" gap="2">
               <Briefcase className="h-5 w-5 text-primary" />
@@ -66,7 +75,9 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
         {roles.map((role, roleIndex) => (
           <Box
             key={roleIndex}
-            className={roleIndex > 0 ? "mt-6 pt-6 border-t border-border/50" : ""}
+            className={
+              roleIndex > 0 ? "mt-6 pt-6 border-t border-border/50" : ""
+            }
           >
             <Disclosure defaultOpen>
               <DisclosureTrigger chevronPosition="end">
@@ -92,7 +103,11 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
                       className={`space-y-3 ${detailIndex > 0 ? "mt-6" : ""}`}
                     >
                       <Flex alignItems="center" gap="2">
-                        <Text fontSize="lg" fontWeight="600" color="fg.accent.strong">
+                        <Text
+                          fontSize="lg"
+                          fontWeight="600"
+                          color="fg.accent.strong"
+                        >
                           {detail.title}
                         </Text>
                         {detail.link && (
@@ -111,14 +126,16 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
                       {detail.points.length > 0 && (
                         <Box p="4" ml="6" className="space-y-2">
                           {detail.points.map((point, pointIndex) => (
-                            <Box  key={pointIndex} 
-                            // position="relative" 
-                            p="2">
+                            <Box
+                              key={pointIndex}
+                              // position="relative"
+                              p="2"
+                            >
                               <Box
                                 // position="absolute"
                                 // left="-1rem"
                                 // top="0.6rem"
-                                
+
                                 rounded="full"
                                 bg="bg.accent"
                                 // opacity="70"
@@ -142,15 +159,15 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
 
 const Experience = () => {
   return (
-    <Box  id="experience" py="16" bg="bg.accent.subtle">
+    <Box id="experience" py="16" bg="bg.accent.subtle">
       <Box maxW="lg" mx="auto" px="4">
         <Box textAlign="center" mb="10">
           <Text className="section-title" mx="auto">
-            <Text  fontWeight="700">Professional</Text> Experience
+            <Text fontWeight="700">Professional</Text> Experience
           </Text>
           <Text color="fg.default" mt="2" maxW="lg" mx="auto">
-            My <Text  fontWeight="600">professional journey</Text> and{" "}
-            <Text  fontWeight="600">career progression</Text> across
+            My <Text fontWeight="600">professional journey</Text> and{" "}
+            <Text fontWeight="600">career progression</Text> across
             organizations
           </Text>
         </Box>

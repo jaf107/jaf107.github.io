@@ -1,4 +1,3 @@
-import React from "react";
 import { Mail, Phone, Github, Linkedin, MapPin } from "lucide-react";
 import { Box, Button, Text, Flex, Link, ButtonGroup } from "@optiaxiom/react";
 import contactData from "../data/contact.json";
