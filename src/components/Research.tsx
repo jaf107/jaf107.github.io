@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { BookOpen, GraduationCap, Calendar, FileText, ExternalLink } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Box, Text, Flex, Button } from '@optiaxiom/react';
 import researchData from '../data/research.json';
 
 interface ResearchItemProps {
@@ -15,40 +13,39 @@ interface ResearchItemProps {
 
 const ResearchItem: React.FC<ResearchItemProps> = ({ title, organization, period, description, link }) => {
   return (
-    <Card className="card-hover">
-      <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
-          <div className="flex items-center gap-2">
+    <Box className="card-hover border border-border rounded-lg bg-bg.default p-6">
+      <Box className="pb-2">
+        <Flex justifyContent="space-between" alignItems="start">
+          <Flex alignItems="center" gap="2">
             <BookOpen size={20} className="text-primary" />
-            <div>
-              <CardTitle className="text-xl">
-                <span className="font-bold">{title}</span>
-              </CardTitle>
-              <CardDescription className="text-base font-medium">{organization}</CardDescription>
-            </div>
-          </div>
-          <div className="flex items-center gap-1 text-sm text-muted-foreground">
-            <Calendar size={14} />
-            <span className="font-semibold">{period}</span>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-3">
-          {description}
-          {link && (
-            <div className="mt-2">
-              <Button variant="outline" size="sm" asChild className="gap-1">
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink size={14} />
-                  <span className="font-medium">View Project</span>
-                </a>
-              </Button>
-            </div>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+            <Box>
+              <Text fontSize="xl" fontWeight="700">
+                {title}
+              </Text>
+              <Text fontSize="md" color="fg.default" className="opacity-70">
+                {organization}
+              </Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap="2" className="text-sm">
+            <Calendar size={14} className="opacity-70" />
+            <Text fontWeight="600">{period}</Text>
+          </Flex>
+        </Flex>
+      </Box>
+      <Box className="space-y-3 mt-4">
+        {description}
+        {link && (
+          <Box className="mt-2">
+            <Button appearance="subtle" asChild icon={<ExternalLink size={14} />}>
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                View Project
+              </a>
+            </Button>
+          </Box>
+        )}
+      </Box>
+    </Box>
   );
 };
 
@@ -59,32 +56,33 @@ const ResearchProject: React.FC<{
   link?: string;
 }> = ({ title, technologies, description, link }) => {
   return (
-    <Card className="card-hover">
-      <CardHeader className="pb-2">
-        <div className="flex items-center gap-2">
+    <Box className="card-hover border border-border rounded-lg bg-bg.default p-6">
+      <Box className="pb-2">
+        <Flex alignItems="center" gap="2">
           <FileText size={20} className="text-primary" />
-          <CardTitle className="text-lg">
-            <span className="font-bold">{title}</span>
-          </CardTitle>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground mb-3">{description}</p>
-        <div className="text-sm text-muted-foreground">
-          <span className="font-semibold">Technologies:</span> {technologies.join(', ')}
-        </div>
+          <Text fontSize="lg" fontWeight="700">
+            {title}
+          </Text>
+        </Flex>
+      </Box>
+      <Box className="space-y-3 mt-4">
+        <Text color="fg.default" className="opacity-70">
+          {description}
+        </Text>
+        <Text fontSize="sm" color="fg.default" className="opacity-70">
+          <Text fontWeight="600" className="inline">Technologies:</Text> {technologies.join(', ')}
+        </Text>
         {link && (
-          <div className="mt-3">
-            <Button variant="outline" size="sm" asChild className="gap-1">
+          <Box className="mt-3">
+            <Button appearance="subtle" asChild icon={<ExternalLink size={14} />}>
               <a href={link} target="_blank" rel="noopener noreferrer">
-                <ExternalLink size={14} />
-                <span className="font-medium">View Project</span>
+                View Project
               </a>
             </Button>
-          </div>
+          </Box>
         )}
-      </CardContent>
-    </Card>
+      </Box>
+    </Box>
   );
 };
 
@@ -92,13 +90,13 @@ const Research = () => {
   const { experience, projects } = researchData;
   
   return (
-    <section id="research" className="py-16 bg-secondary/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">
-          <span className="font-bold">Research</span> Experience
-        </h2>
+    <Box className="py-16 bg-secondary/50" id="research">
+      <Box className="container mx-auto px-4 md:px-6">
+        <Text className="section-title">
+          <Text fontWeight="700" className="inline">Research</Text> Experience
+        </Text>
         
-        <div className="mt-10 grid gap-6 staggered-animate">
+        <Box className="mt-10 grid gap-6 staggered-animate">
           {experience.map((exp, index) => (
             <ResearchItem
               key={index}
@@ -106,23 +104,25 @@ const Research = () => {
               organization={exp.organization}
               period={exp.period}
               description={
-                <div className="space-y-3">
-                  <ul className="space-y-2 list-disc pl-5">
+                <Box className="space-y-3">
+                  <Box role="list" className="space-y-2 list-disc pl-5">
                     {exp.points.map((point, pointIndex) => (
-                      <li key={pointIndex}>
-                        <span className="font-medium">{point}</span>
-                      </li>
+                      <Box role="listitem" key={pointIndex}>
+                        <Text fontWeight="500">{point}</Text>
+                      </Box>
                     ))}
-                  </ul>
-                </div>
+                  </Box>
+                </Box>
               }
               link={exp.link}
             />
           ))}
           
-          <h3 className="text-xl font-bold mt-8 mb-4">Research Projects</h3>
+          <Text fontSize="xl" fontWeight="700" className="mt-8 mb-4">
+            Research Projects
+          </Text>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {projects.map((project, index) => (
               <ResearchProject
                 key={index}
@@ -132,10 +132,10 @@ const Research = () => {
                 link={project.link}
               />
             ))}
-          </div>
-        </div>
-      </div>
-    </section>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

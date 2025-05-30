@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Mail, Phone, Github, Linkedin, MapPin } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Box, Button, Text, Flex } from '@optiaxiom/react';
 import contactData from '../data/contact.json';
 
 interface ContactItemProps {
@@ -14,22 +12,25 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ icon, title, value, href }) => {
   const content = (
-    <div className="flex items-center gap-3">
-      <div className="bg-primary/10 p-3 rounded-full text-primary">
+    <Flex alignItems="center" gap="4">
+      <Box className="bg-primary/10 p-3 rounded-full text-primary">
         {icon}
-      </div>
-      <div>
-        <p className="text-sm text-muted-foreground">{title}</p>
-        <p className="font-medium">{value}</p>
-      </div>
-    </div>
+      </Box>
+      <Box>
+        <Text fontSize="sm" color="fg.default" className="opacity-70">{title}</Text>
+        <Text fontWeight="500">{value}</Text>
+      </Box>
+    </Flex>
   );
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block hover:opacity-80 transition-opacity">
+      <Box 
+        className="block hover:opacity-80 transition-opacity"
+        onClick={() => window.open(href, '_blank', 'noopener,noreferrer')}
+      >
         {content}
-      </a>
+      </Box>
     );
   }
 
@@ -56,65 +57,62 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">Get In Touch</h2>
+    <Box className="py-16" id="contact">
+      <Box className="container mx-auto px-4 md:px-6">
+        <Text className="section-title">Get In Touch</Text>
         
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-6 staggered-animate">
-            <p className="text-lg text-muted-foreground">
+        <Box className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Box className="space-y-6 staggered-animate">
+            <Text fontSize="lg" color="fg.default" className="opacity-70">
               {contactData.message}
-            </p>
+            </Text>
             
-            <Card>
-              <CardContent className="space-y-4 p-6">
-                {contactData.contactInfo.map((item, index) => (
-                  <ContactItem 
-                    key={index}
-                    icon={getIcon(item.icon)} 
-                    title={item.title} 
-                    value={item.value} 
-                    href={item.href} 
-                  />
-                ))}
-              </CardContent>
-            </Card>
+            <Box className="bg-bg.default border border-border rounded-lg p-6 space-y-4">
+              {contactData.contactInfo.map((item, index) => (
+                <ContactItem 
+                  key={index}
+                  icon={getIcon(item.icon)} 
+                  title={item.title} 
+                  value={item.value} 
+                  href={item.href} 
+                />
+              ))}
+            </Box>
             
-            <div className="flex gap-4">
-              <Button asChild className="gap-2">
+            <Flex gap="4">
+              <Button asChild icon={<Mail size={18} />}>
                 <a href={`mailto:${contactData.contactInfo[0].value}`}>
-                  <Mail size={18} />
                   Send Email
                 </a>
               </Button>
-              <Button variant="outline" asChild className="gap-2">
+              <Button appearance="subtle" asChild icon={<Linkedin size={18} />}>
                 <a href={contactData.contactInfo[2].href} target="_blank" rel="noopener noreferrer">
-                  <Linkedin size={18} />
                   Connect on LinkedIn
                 </a>
               </Button>
-            </div>
-          </div>
+            </Flex>
+          </Box>
           
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-lg animate-fade-in">
-            <div className="text-center space-y-4">
-              <h3 className="text-2xl font-bold text-primary">{contactData.callToAction.title}</h3>
-              <p className="text-muted-foreground">
+          <Box className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-lg animate-fade-in">
+            <Box textAlign="center" className="space-y-4">
+              <Text fontSize="2xl" fontWeight="700" color="fg.accent">
+                {contactData.callToAction.title}
+              </Text>
+              <Text color="fg.default" className="opacity-70">
                 {contactData.callToAction.description}
-              </p>
-              <div className="pt-4">
-                <Button asChild size="lg" className="gap-2">
+              </Text>
+              <Box className="pt-4">
+                <Button size="lg" asChild icon={<Mail size={18} />}>
                   <a href={`mailto:${contactData.contactInfo[0].value}`}>
-                    <Mail size={18} />
                     Contact Me
                   </a>
                 </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

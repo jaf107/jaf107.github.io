@@ -1,52 +1,64 @@
 import React from "react";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button, Tooltip } from "@optiaxiom/react";
 import contactData from "../data/contact.json";
 
 const NavLinks = () => {
   return (
     <div className="fixed top-0 right-0 z-50 flex items-center gap-2 p-4">
-      <Button variant="ghost" size="icon" asChild>
-        <a
-          href={
-            contactData.contactInfo.find((item) => item.title === "GitHub")
-              ?.href || "https://github.com/jaf107"
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
+      <Tooltip content="Visit GitHub Profile">
+        <Button
+          appearance="subtle"
+          aria-label="GitHub Profile"
+          icon={<Github className="h-5 w-5" />}
+          asChild
         >
-          <Github className="h-5 w-5" />
-        </a>
-      </Button>
+          <a
+            href={
+              contactData.contactInfo.find((item) => item.title === "GitHub")
+                ?.href || "https://github.com/jaf107"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </Button>
+      </Tooltip>
 
-      <Button variant="ghost" size="icon" asChild>
-        <a
-          href={
-            contactData.contactInfo.find((item) => item.title === "LinkedIn")
-              ?.href || "https://www.linkedin.com/in/abu-jafar-saifullah/"
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
+      <Tooltip content="Connect on LinkedIn">
+        <Button
+          appearance="subtle"
+          aria-label="LinkedIn Profile"
+          icon={<Linkedin className="h-5 w-5" />}
+          asChild
         >
-          <Linkedin className="h-5 w-5" />
-        </a>
-      </Button>
+          <a
+            href={
+              contactData.contactInfo.find((item) => item.title === "LinkedIn")
+                ?.href || "https://www.linkedin.com/in/abu-jafar-saifullah/"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </Button>
+      </Tooltip>
 
-      <Button variant="ghost" size="icon" asChild>
-        <a
-          href={
-            contactData.contactInfo.find((item) => item.title === "Email")
-              ?.href || "mailto:jafarmahin107@gmail.com"
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Email"
+      <Tooltip content="Send Email">
+        <Button
+          appearance="subtle"
+          aria-label="Send Email"
+          icon={<Mail className="h-5 w-5" />}
+          asChild
         >
-          <Mail className="h-5 w-5" />
-        </a>
-      </Button>
+          <a
+            href={
+              contactData.contactInfo.find((item) => item.title === "Email")
+                ?.href || "mailto:jafarmahin107@gmail.com"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </Button>
+      </Tooltip>
     </div>
   );
 };

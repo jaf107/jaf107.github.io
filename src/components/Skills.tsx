@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Code, Database, Terminal, Layout, Server, Wrench } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Box, Text, Flex, Badge } from '@optiaxiom/react';
 import skillsData from '../data/skills.json';
 
 interface SkillCategoryProps {
@@ -13,23 +11,27 @@ interface SkillCategoryProps {
 
 const SkillCategory: React.FC<SkillCategoryProps> = ({ title, icon, skills }) => {
   return (
-    <Card className="h-full card-hover">
-      <CardHeader className="pb-2">
-        <CardTitle className="flex items-center gap-2 text-lg">
+    <Box 
+      className="h-full card-hover border border-border rounded-lg bg-bg.default p-6"
+    >
+      <Box className="pb-2">
+        <Flex alignItems="center" gap="2">
           {icon}
-          <span className="font-bold">{title}</span>
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2">
+          <Text fontSize="lg" fontWeight="700">
+            {title}
+          </Text>
+        </Flex>
+      </Box>
+      <Box className="mt-4">
+        <Flex flexWrap="wrap" gap="2">
           {skills.map((skill, index) => (
-            <Badge key={index} variant="outline" className="px-2.5 py-1 text-sm font-medium">
+            <Badge key={index} variant="subtle" intent="neutral">
               {skill}
             </Badge>
           ))}
-        </div>
-      </CardContent>
-    </Card>
+        </Flex>
+      </Box>
+    </Box>
   );
 };
 
@@ -55,13 +57,13 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-16 bg-secondary/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">
-          <span className="font-bold">Technical</span> Skills
-        </h2>
+    <Box className="py-16 bg-secondary/50" id="skills">
+      <Box className="container mx-auto px-4 md:px-6">
+        <Text className="section-title">
+          <Text fontWeight="700" className="inline">Technical</Text> Skills
+        </Text>
         
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 staggered-animate">
+        <Box className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 staggered-animate">
           {skillsData.categories.map((category, index) => (
             <SkillCategory 
               key={index}
@@ -70,15 +72,15 @@ const Skills = () => {
               skills={category.skills} 
             />
           ))}
-        </div>
+        </Box>
 
-        <div className="mt-10 text-center">
-          <p className="text-muted-foreground">
-            <span className="font-semibold">{skillsData.problemSolving}</span>
-          </p>
-        </div>
-      </div>
-    </section>
+        <Box textAlign="center" className="mt-10">
+          <Text color="fg.default" className="opacity-70">
+            <Text fontWeight="600" className="inline">{skillsData.problemSolving}</Text>
+          </Text>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

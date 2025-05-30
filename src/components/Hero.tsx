@@ -1,4 +1,3 @@
-
 import {
   Github,
   Linkedin,
@@ -7,7 +6,7 @@ import {
   BookOpen,
   FileText,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@optiaxiom/react";
 import aboutData from "../data/about.json";
 import Logo from "./Logo";
 
@@ -28,39 +27,33 @@ const Hero = () => {
             <h2 className="text-2xl md:text-3xl text-foreground/80">{title}</h2>
             <p className="text-lg text-muted-foreground max-w-xl">{bio}</p>
             <div className="flex flex-wrap gap-3">
-              <Button variant="default" asChild className="gap-2">
-                <a href={`mailto:${email}`}>
-                  <Mail size={18} />
-                  Contact Me
-                </a>
+              <Button icon={<Mail size={18} />}>
+                <a href={`mailto:${email}`}>Contact Me</a>
               </Button>
-              <Button variant="outline" asChild className="gap-2">
+              <Button icon={<Github size={18} />} appearance="subtle">
                 <a
                   href={socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github size={18} />
                   GitHub
                 </a>
               </Button>
-              <Button variant="outline" asChild className="gap-2">
+              <Button icon={<Linkedin size={18} />} appearance="subtle">
                 <a
                   href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Linkedin size={18} />
                   LinkedIn
                 </a>
               </Button>
-              <Button variant="outline" asChild className="gap-2">
+              <Button icon={<FileText size={18} />} appearance="subtle">
                 <a
                   href={socialLinks.resume}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FileText size={18} />
                   Resume
                 </a>
               </Button>

@@ -1,68 +1,80 @@
-
 import React from 'react';
 import { GraduationCap, Calendar, Award, MapPin, School } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Box, Text, Flex } from '@optiaxiom/react';
 import educationData from '../data/education.json';
+
+const EducationCard = ({ education, index }: { education: any; index: number }) => {
+  return (
+    <Box 
+      className="card-hover border border-border rounded-lg bg-bg.default p-6"
+    >
+      <Box className="pb-2">
+        <Flex justifyContent="space-between" alignItems="start">
+          <Flex alignItems="center" gap="2">
+            {index === 0 ? (
+              <GraduationCap size={20} className="text-primary" />
+            ) : (
+              <School size={20} className="text-primary" />
+            )}
+            <Box>
+              <Text fontSize="xl" fontWeight="700">
+                {education.institution}
+              </Text>
+              <Text fontSize="lg" color="fg.default" className="opacity-70">
+                {education.degree}
+              </Text>
+            </Box>
+          </Flex>
+          <Flex alignItems="center" gap="2" className="text-sm">
+            <Calendar size={14} className="opacity-70" />
+            <Text fontWeight="600">{education.duration}</Text>
+          </Flex>
+        </Flex>
+      </Box>
+
+      <Box className="space-y-3 mt-4">
+        <Flex alignItems="center" gap="2" className="text-sm">
+          <MapPin size={14} className="opacity-70" />
+          <Text fontWeight="500">{education.location}</Text>
+        </Flex>
+        <Text color="fg.default" className="opacity-70">
+          <Text fontWeight="600" className="inline">GPA —</Text> {education.gpa}
+        </Text>
+        {education.department && (
+          <Flex alignItems="center" gap="2">
+            <Award size={14} className="text-primary" />
+            <Text fontSize="sm" fontWeight="500">
+              {education.department}
+            </Text>
+          </Flex>
+        )}
+        <Text fontSize="sm" color="fg.default" className="opacity-70">
+          {education.description}
+        </Text>
+      </Box>
+    </Box>
+  );
+};
 
 const Education = () => {
   return (
-    <section id="education" className="py-16 bg-secondary/50">
-      <div className="container mx-auto px-4 md:px-6">
-        <h2 className="section-title">
-          <span className="font-bold">Education</span>
-        </h2>
+    <Box className="py-16 bg-secondary/50" id="education">
+      <Box className="container mx-auto px-4 md:px-6">
+        <Text className="section-title">
+          <Text fontWeight="700" className="inline">Education</Text>
+        </Text>
         
-        <div className="mt-10 max-w-2xl mx-auto space-y-6 animate-fade-in">
+        <Box className="mt-10 max-w-2xl mx-auto space-y-6 animate-fade-in">
           {educationData.map((education, index) => (
-            <Card key={index} className="card-hover">
-              <CardHeader className="pb-2">
-                <div className="flex justify-between items-start">
-                  <div className="flex items-center gap-2">
-                    {index === 0 ? (
-                      <GraduationCap size={20} className="text-primary" />
-                    ) : (
-                      <School size={20} className="text-primary" />
-                    )}
-                    <div>
-                      <CardTitle className="text-xl">
-                        <span className="font-bold">{education.institution}</span>
-                      </CardTitle>
-                      <CardDescription className="text-base font-medium">
-                        {education.degree}
-                      </CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <Calendar size={14} />
-                    <span className="font-semibold">{education.duration}</span>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-1 text-sm">
-                    <MapPin size={14} className="text-muted-foreground" />
-                    <span className="font-medium">{education.location}</span>
-                  </div>
-                  <p className="text-muted-foreground">
-                    <span className="font-semibold">GPA —</span> {education.gpa}
-                  </p>
-                  {education.department && (
-                    <div className="flex items-center gap-1">
-                      <Award size={14} className="text-primary" />
-                      <span className="text-sm font-medium">{education.department}</span>
-                    </div>
-                  )}
-                  <p className="text-sm text-muted-foreground">
-                    {education.description}
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <EducationCard 
+              key={index} 
+              education={education} 
+              index={index} 
+            />
           ))}
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Award, Trophy, Medal, Star } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Box, Text, Flex } from '@optiaxiom/react';
 import awardsData from '../data/awards.json';
 
 interface AwardItemProps {
@@ -26,38 +25,42 @@ const AwardItem: React.FC<AwardItemProps> = ({ title, description, year, index }
   const Icon = getAwardIcon(title, index);
   
   return (
-    <Card className="card-hover h-full">
-      <CardHeader className="pb-2">
-        <div className="flex justify-between items-start">
-          <div className="flex items-center gap-2">
+    <Box 
+      className="card-hover h-full border border-border rounded-lg bg-bg.default p-6"
+    >
+      <Box className="pb-2">
+        <Flex justifyContent="space-between" alignItems="start">
+          <Flex alignItems="center" gap="2">
             {Icon}
-            <CardTitle className="text-lg">
-              <span className="font-bold">{title}</span>
-            </CardTitle>
-          </div>
-          <CardDescription>
-            <span className="font-semibold">{year}</span>
-          </CardDescription>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
+            <Text fontSize="lg" fontWeight="700">
+              {title}
+            </Text>
+          </Flex>
+          <Text fontSize="sm" color="fg.default" className="opacity-70 font-semibold">
+            {year}
+          </Text>
+        </Flex>
+      </Box>
+      <Box className="mt-4">
+        <Text color="fg.default" className="opacity-70">
+          {description}
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
 const Awards = () => {
   return (
-    <section id="awards" className="py-16">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex justify-center">
-          <h2 className="section-title text-center">
-            <span className="font-bold">Awards</span> & Achievements
-          </h2>
-        </div>
+    <Box className="py-16" id="awards">
+      <Box className="container mx-auto px-4 md:px-6">
+        <Flex justifyContent="center">
+          <Text className="section-title text-center">
+            <Text fontWeight="700" className="inline">Awards</Text> & Achievements
+          </Text>
+        </Flex>
         
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 staggered-animate">
+        <Box className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 staggered-animate">
           {awardsData.map((award, index) => (
             <AwardItem
               key={index}
@@ -67,9 +70,9 @@ const Awards = () => {
               index={index}
             />
           ))}
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

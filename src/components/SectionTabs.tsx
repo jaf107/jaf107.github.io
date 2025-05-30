@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import {
   Moon,
   Sun,
@@ -43,15 +43,13 @@ const SectionTabs = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const hash = location.hash.replace(/^#?\/?/, '');
-    if (hash) {
-      setActiveSection(hash);
-    }
-  }, [location.hash]);
+    const path = location.pathname.replace(/^\//, '') || 'about';
+    setActiveSection(path);
+  }, [location.pathname]);
 
   const handleSectionChange = (sectionId) => {
     setActiveSection(sectionId);
-    navigate(`/#${sectionId}`, { replace: true });
+    navigate(`/${sectionId}`);
   };
 
   // Get icon component based on icon name from navigation data
@@ -80,30 +78,6 @@ const SectionTabs = () => {
     }
   };
 
-  // Render content based on active section
-  const renderContent = () => {
-    switch (activeSection) {
-      case "about":
-        return <Hero />;
-      case "experience":
-        return <Experience />;
-      case "projects":
-        return <Projects />;
-      case "research":
-        return <Research />;
-      case "skills":
-        return <Skills />;
-      case "awards":
-        return <Awards />;
-      case "education":
-        return <Education />;
-      case "contact":
-        return <Contact />;
-      default:
-        return <Hero />;
-    }
-  };
-
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar defaultExpanded>
@@ -122,6 +96,7 @@ const SectionTabs = () => {
                 id={item.id}
                 icon={getIconComponent(item.icon)}
                 onClick={() => handleSectionChange(item.id)}
+                active={activeSection === item.id}
               >
                 {item.label}
               </NavItem>
@@ -146,7 +121,17 @@ const SectionTabs = () => {
       </Sidebar>
 
       <main className="flex-1 overflow-auto p-6 pb-20 bg-background">
-        {renderContent()}
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/about" element={<Hero />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/awards" element={<Awards />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </main>
     </div>
   );

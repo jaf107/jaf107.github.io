@@ -1,9 +1,5 @@
 import React from "react";
 import { Calendar, Briefcase, MapPin } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
-// import { Badge } from "@/components/ui/badge";
-import experienceData from "../data/experience.json";
 import {
   Disclosure,
   DisclosureContent,
@@ -12,7 +8,10 @@ import {
   Flex,
   Link,
   Button,
+  Box,
+  Text,
 } from "@optiaxiom/react";
+import experienceData from "../data/experience.json";
 
 interface RoleDetails {
   title: string;
@@ -41,65 +40,61 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
   const [companyName, location] = company.split(", ");
 
   return (
-    <Card className="card-hover overflow-hidden ">
-      <CardHeader className="pb-2 bg-muted/30">
-        <div className="flex justify-between items-start flex-wrap gap-2">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-lg font-medium text-foreground">
+    <Box className="card-hover overflow-hidden" border="1" rounded="lg" bg="bg.default">
+      <Box p="4" bg="bg.accent.subtle">
+        <Flex justifyContent="space-between" alignItems="start" gap="2" flexWrap="wrap">
+          <Box>
+            <Flex alignItems="center" gap="2">
               <Briefcase className="h-5 w-5 text-primary" />
-
-              <Link href={companyLink} className="font-bold text-xl">
+              <Link href={companyLink} fontSize="xl" fontWeight="700">
                 {companyName}
               </Link>
-
               {location && (
                 <>
-                  <span className="text-muted-foreground/50">•</span>
-                  <div className="flex items-center gap-1 text-sm">
+                  <Text color="fg.default">•</Text>
+                  <Flex alignItems="center" gap="2" fontSize="sm">
                     <MapPin size={14} className="text-muted-foreground/70" />
-                    <span className="font-medium">{location}</span>
-                  </div>
+                    <Text fontWeight="500">{location}</Text>
+                  </Flex>
                 </>
               )}
-            </div>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent className="pt-4">
+            </Flex>
+          </Box>
+        </Flex>
+      </Box>
+      <Box p="4">
         {roles.map((role, roleIndex) => (
-          <div
+          <Box
             key={roleIndex}
-            className={
-              roleIndex > 0 ? "mt-6 pt-6 border-t border-border/50" : ""
-            }
+            className={roleIndex > 0 ? "mt-6 pt-6 border-t border-border/50" : ""}
           >
             <Disclosure defaultOpen>
               <DisclosureTrigger chevronPosition="end">
-                <Flex flexDirection={"row"} justifyContent={"space-between"}>
-                  <Flex justifyItems={"center"} gap={"2"} flexDirection={"row"}>
-                    <CardTitle className="text-xl">
-                      <span className="font-bold">{role.position}</span>
-                    </CardTitle>
+                <Flex justifyContent="space-between">
+                  <Flex gap="2">
+                    <Text fontSize="xl" fontWeight="700">
+                      {role.position}
+                    </Text>
                   </Flex>
-
-                  <Badge className="flex items-center gap-1 px-2 py-1 h-auto">
-                    <Calendar size={14} />
-                    <span className="font-semibold">{role.duration}</span>
+                  <Badge>
+                    <Flex alignItems="center" gap="2">
+                      <Calendar size={14} />
+                      <Text fontWeight="600">{role.duration}</Text>
+                    </Flex>
                   </Badge>
                 </Flex>
-                {/* </div> */}
               </DisclosureTrigger>
               <DisclosureContent>
-                <div className="ml-4">
+                <Box ml="4">
                   {role.details.map((detail, detailIndex) => (
-                    <div
+                    <Box
                       key={detailIndex}
                       className={`space-y-3 ${detailIndex > 0 ? "mt-6" : ""}`}
                     >
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-lg font-semibold text-foreground/90 flex items-center gap-2">
-                          <span className="font-bold">{detail.title}</span>
-                        </h3>
+                      <Flex alignItems="center" gap="2">
+                        <Text fontSize="lg" fontWeight="600" color="fg.accent.strong">
+                          {detail.title}
+                        </Text>
                         {detail.link && (
                           <Button size="sm" asChild>
                             <Link
@@ -112,45 +107,55 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
                             </Link>
                           </Button>
                         )}
-                      </div>
+                      </Flex>
                       {detail.points.length > 0 && (
-                        <ul className="space-y-2 pl-5 ml-6">
+                        <Box p="4" ml="6" className="space-y-2">
                           {detail.points.map((point, pointIndex) => (
-                            <li key={pointIndex} className="relative pl-1">
-                              <span className="absolute left-[-1rem] top-[0.6rem] h-1.5 w-1.5 rounded-full bg-primary/70"></span>
-                              <span className="font-medium">{point}</span>
-                            </li>
+                            <Box  key={pointIndex} 
+                            // position="relative" 
+                            p="2">
+                              <Box
+                                // position="absolute"
+                                // left="-1rem"
+                                // top="0.6rem"
+                                
+                                rounded="full"
+                                bg="bg.accent"
+                                // opacity="70"
+                              />
+                              <Text fontWeight="500">{point}</Text>
+                            </Box>
                           ))}
-                        </ul>
+                        </Box>
                       )}
-                    </div>
+                    </Box>
                   ))}
-                </div>
+                </Box>
               </DisclosureContent>
             </Disclosure>
-          </div>
+          </Box>
         ))}
-      </CardContent>
-    </Card>
+      </Box>
+    </Box>
   );
 };
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-10">
-          <h2 className="section-title mx-auto">
-            <span className="font-bold">Professional</span> Experience
-          </h2>
-          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            My <span className="font-semibold">professional journey</span> and{" "}
-            <span className="font-semibold">career progression</span> across
+    <Box  id="experience" py="16" bg="bg.accent.subtle">
+      <Box maxW="lg" mx="auto" px="4">
+        <Box textAlign="center" mb="10">
+          <Text className="section-title" mx="auto">
+            <Text  fontWeight="700">Professional</Text> Experience
+          </Text>
+          <Text color="fg.default" mt="2" maxW="lg" mx="auto">
+            My <Text  fontWeight="600">professional journey</Text> and{" "}
+            <Text  fontWeight="600">career progression</Text> across
             organizations
-          </p>
-        </div>
+          </Text>
+        </Box>
 
-        <div className="mt-10 grid gap-8 staggered-animate">
+        <Box mt="10" display="grid" gap="8" className="staggered-animate">
           {experienceData.map((exp, index) => (
             <ExperienceCard
               key={index}
@@ -159,9 +164,9 @@ const Experience = () => {
               roles={exp.roles}
             />
           ))}
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
