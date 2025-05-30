@@ -9,7 +9,6 @@ interface ContactItemProps {
   href?: string;
 }
 
-// Icon mapping
 const getIcon = (iconName: string, size = 20) => {
   switch (iconName) {
     case "Mail":
@@ -76,7 +75,6 @@ const Contact = () => {
       <Text className="section-title">Get In Touch</Text>
 
       <Flex
-        // h="full"
         alignItems={"start"}
         justifyContent={"center"}
         flexDirection={"row"}
@@ -106,7 +104,7 @@ const Contact = () => {
 
         <Flex h="full" flex={"1"} p="32" border="1" rounded="lg">
           <Flex flex="1" alignItems={"center"} justifyContent={"center"}>
-            <Text fontSize="2xl" fontWeight="700" color="fg.accent">
+            <Text fontSize="2xl" fontWeight="700">
               {contactData.callToAction.title}
             </Text>
             <Text

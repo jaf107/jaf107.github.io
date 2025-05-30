@@ -126,20 +126,8 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
                       {detail.points.length > 0 && (
                         <Box p="4" ml="6" className="space-y-2">
                           {detail.points.map((point, pointIndex) => (
-                            <Box
-                              key={pointIndex}
-                              // position="relative"
-                              p="2"
-                            >
-                              <Box
-                                // position="absolute"
-                                // left="-1rem"
-                                // top="0.6rem"
-
-                                rounded="full"
-                                bg="bg.accent"
-                                // opacity="70"
-                              />
+                            <Box key={pointIndex} p="2">
+                              <Box rounded="full" bg="bg.accent" />
                               <Text fontWeight="500">{point}</Text>
                             </Box>
                           ))}

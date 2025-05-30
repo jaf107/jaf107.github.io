@@ -53,7 +53,6 @@ const SectionTabs = () => {
     navigate(`/${sectionId}`);
   };
 
-  // Get icon component based on icon name from navigation data
   const getIconComponent = (iconName: string) => {
     switch (iconName) {
       case "User":
