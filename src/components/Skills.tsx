@@ -5,20 +5,31 @@ import {
   FiLayout,
   FiServer,
   FiTool,
+  FiCloud,
 } from "react-icons/fi";
-import { Box, Text, Flex, Badge } from "@optiaxiom/react";
+import {
+  SiPython,
+  SiJavascript,
+  SiTypescript,
+  SiCplusplus,
+  SiDotnet,
+  SiReact,
+  SiSpring,
+  SiNodedotjs,
+  SiNextdotjs,
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiPostgresql,
+  SiGit,
+  SiPostman,
+  SiDocker,
+  SiNginx,
+  SiAmazonwebservices,
+} from "react-icons/si";
+import { Box, Text, Flex, Badge, Heading } from "@optiaxiom/react";
 import skillsData from "../data/skills.json";
-
-interface SkillCategory {
-  title: string;
-  icon: string;
-  skills: string[];
-}
-
-interface SkillsData {
-  categories: SkillCategory[];
-  problemSolving: string;
-}
+import { Card } from "@optiaxiom/react/unstable";
 
 interface SkillCategoryProps {
   title: string;
@@ -26,38 +37,51 @@ interface SkillCategoryProps {
   skills: string[];
 }
 
-interface IconProps {
-  size?: number;
-  className?: string;
-}
-
-const getIcon = (iconName: string, props: IconProps = { size: 20 }) => {
-  const icons = {
-    Code: <FiCode {...props} />,
-    Terminal: <FiTerminal {...props} />,
-    Layout: <FiLayout {...props} />,
-    Database: <FiDatabase {...props} />,
-    Wrench: <FiTool {...props} />,
-    Server: <FiServer {...props} />,
-  };
-
-  return icons[iconName as keyof typeof icons] || icons.Code;
-};
-
 const SkillCategory: React.FC<SkillCategoryProps> = ({
   title,
   icon,
   skills,
 }) => {
+  const getTechIcon = (skill: string) => {
+    const iconMap: { [key: string]: React.ReactNode } = {
+      // Programming Languages
+      Python: <SiPython size={16} className="text-blue-500" />,
+      JavaScript: <SiJavascript size={16} className="text-yellow-500" />,
+      TypeScript: <SiTypescript size={16} className="text-blue-600" />,
+      Java: <FiCode size={16} className="text-red-500" />,
+      "C#": <FiCode size={16} className="text-purple-600" />,
+      "C++": <SiCplusplus size={16} className="text-blue-700" />,
+
+      // Web Frameworks
+      ".NET": <SiDotnet size={16} className="text-purple-600" />,
+      ReactJS: <SiReact size={16} className="text-blue-400" />,
+      SpringBoot: <SiSpring size={16} className="text-green-600" />,
+      NodeJS: <SiNodedotjs size={16} className="text-green-600" />,
+      "Next.js": (
+        <SiNextdotjs size={16} className="text-black dark:text-white" />
+      ),
+      Express: <SiExpress size={16} className="text-gray-700" />,
+
+      // Databases
+      MSSQL: <FiDatabase size={16} className="text-red-600" />,
+      MongoDB: <SiMongodb size={16} className="text-green-600" />,
+      MySQL: <SiMysql size={16} className="text-blue-600" />,
+      PostgreSQL: <SiPostgresql size={16} className="text-blue-700" />,
+
+      // Tools
+      Git: <SiGit size={16} className="text-orange-600" />,
+      Postman: <SiPostman size={16} className="text-orange-500" />,
+      Azure: <FiCloud size={16} className="text-blue-600" />,
+      Docker: <SiDocker size={16} className="text-blue-500" />,
+      Nginx: <SiNginx size={16} className="text-green-600" />,
+      AWS: <SiAmazonwebservices size={16} className="text-orange-400" />,
+    };
+
+    return iconMap[skill] || <FiCode size={16} className="text-gray-500" />;
+  };
+
   return (
-    <Box
-      border="1"
-      rounded="lg"
-      bg="bg.default"
-      p="6"
-      h="full"
-      className="card-hover"
-    >
+    <Card className="card-hover">
       <Box pb="2">
         <Flex alignItems="center" gap="2">
           <Box color="fg.accent">{icon}</Box>
@@ -68,41 +92,51 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({
       </Box>
 
       <Box mt="4">
-        <Flex flexWrap="wrap" gap="2">
+        <Flex flexWrap="wrap" gap="4" flexDirection="row">
           {skills.map((skill, index) => (
-            <Badge key={index} variant="subtle" intent="neutral">
-              {skill}
+            <Badge key={index} gap={"2"} variant="strong">
+              {getTechIcon(skill)}
+              <Text fontSize="sm" fontWeight="500">
+                {skill}
+              </Text>
             </Badge>
           ))}
         </Flex>
       </Box>
-    </Box>
+    </Card>
   );
 };
 
-const Skills: React.FC = () => {
-  const { categories, problemSolving }: SkillsData = skillsData;
+const Skills = () => {
+  // Icon mapping
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case "Code":
+        return <FiCode size={20} className="text-primary" />;
+      case "Terminal":
+        return <FiTerminal size={20} className="text-primary" />;
+      case "Layout":
+        return <FiLayout size={20} className="text-primary" />;
+      case "Database":
+        return <FiDatabase size={20} className="text-primary" />;
+      case "Wrench":
+        return <FiTool size={20} className="text-primary" />;
+      case "Server":
+        return <FiServer size={20} className="text-primary" />;
+      default:
+        return <FiCode size={20} className="text-primary" />;
+    }
+  };
 
   return (
-    <Box py="16" bg="bg.accent.subtle" id="skills">
-      <Box maxW="full" mx="auto" px="4">
-        <Box textAlign="center" mb="10">
-          <Text className="section-title" mx="auto">
-            <Text fontWeight="700" display="inline">
-              Technical
-            </Text>{" "}
-            Skills
-          </Text>
-          <Text color="fg.default" mt="2" className="max-w-lg mx-auto">
-            My technical expertise and proficiencies
-          </Text>
-        </Box>
+    <Flex h="full" id="skills" justifyContent={"start"} py="64">
+      <Flex className="container mx-auto px-4 md:px-6">
+        <Heading level={"2"} className="section-title">
+          Technical
+        </Heading>
 
-        <Box
-          mt="10"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 staggered-animate"
-        >
-          {categories.map((category, index) => (
+        <Flex className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 staggered-animate">
+          {skillsData.categories.map((category, index) => (
             <SkillCategory
               key={index}
               title={category.title}
@@ -110,17 +144,13 @@ const Skills: React.FC = () => {
               skills={category.skills}
             />
           ))}
-        </Box>
+        </Flex>
 
-        <Box textAlign="center" mt="10">
-          <Text color="fg.default" className="opacity-70">
-            <Text fontWeight="600" display="inline">
-              {problemSolving}
-            </Text>
-          </Text>
-        </Box>
-      </Box>
-    </Box>
+        <Flex className="mt-10 text-center">
+          <Text fontWeight="700">{skillsData.problemSolving}</Text>
+        </Flex>
+      </Flex>
+    </Flex>
   );
 };
 
