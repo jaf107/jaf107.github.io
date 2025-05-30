@@ -1,16 +1,19 @@
-import { FiExternalLink, FiMail } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import { SiGithub, SiLinkedin } from "react-icons/si";
-import { Button, Tooltip } from "@optiaxiom/react";
+import { Button, Flex, Tooltip } from "@optiaxiom/react";
 import contactData from "../data/contact.json";
 
 const NavLinks = () => {
   return (
-    <div className="fixed top-0 right-0 z-50 flex items-center gap-2 p-4">
+    <Flex
+      bg="bg.secondary"
+      className="fixed top-0 right-0 z-50 flex items-center gap-2 p-4"
+    >
       <Tooltip content="Visit GitHub Profile">
         <Button
           appearance="subtle"
           aria-label="GitHub Profile"
-          icon={<FiExternalLink className="h-5 w-5" />}
+          icon={<SiGithub className="h-5 w-5 text-primary" />}
           asChild
         >
           <a
@@ -28,7 +31,7 @@ const NavLinks = () => {
         <Button
           appearance="subtle"
           aria-label="LinkedIn Profile"
-          icon={<FiExternalLink className="h-5 w-5" />}
+          icon={<SiLinkedin className="h-5 w-5 text-primary" />}
           asChild
         >
           <a
@@ -46,7 +49,7 @@ const NavLinks = () => {
         <Button
           appearance="subtle"
           aria-label="Send Email"
-          icon={<FiMail className="h-5 w-5" />}
+          icon={<FiMail className="h-5 w-5 text-primary" />}
           asChild
         >
           <a
@@ -59,7 +62,7 @@ const NavLinks = () => {
           />
         </Button>
       </Tooltip>
-    </div>
+    </Flex>
   );
 };
 
