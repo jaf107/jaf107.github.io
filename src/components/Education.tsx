@@ -5,7 +5,7 @@ import { Card } from "@optiaxiom/react/unstable";
 
 const Education = () => {
   return (
-    <Box id="education" className="py-16 bg-secondary/50">
+    <Box id="education" className="py-16 ">
       <Flex className="mx-auto px-4 md:px-6">
         <Text className="section-title">Education</Text>
 

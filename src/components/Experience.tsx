@@ -10,6 +10,8 @@ import {
   Link,
   Button,
   Box,
+  Heading,
+  Text,
 } from "@optiaxiom/react";
 import { Card, CardHeader, CardFooter } from "@optiaxiom/react/unstable";
 
@@ -41,7 +43,7 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
 
   return (
     <Card className="card-hover overflow-hidden ">
-      <Box className="pb-2 bg-muted/30">
+      <Box className="pb-2">
         <div className="flex justify-between items-start flex-wrap gap-2">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-lg font-medium text-foreground">
@@ -135,20 +137,20 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-secondary/30">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-10">
-          <h2 className="section-title mx-auto">
-            <span className="font-bold">Professional</span> Experience
-          </h2>
-          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+    <Box id="experience" className="py-16 ">
+      <Box className="container mx-auto px-4 md:px-6">
+        <Box className="text-center mb-10">
+          <Heading level="2" className="section-title mx-auto">
+            Professional Experience
+          </Heading>
+          <Text className="text-muted-foreground mt-3 max-w-2xl mx-auto">
             My <span className="font-semibold">professional journey</span> and{" "}
             <span className="font-semibold">career progression</span> across
             organizations
-          </p>
-        </div>
+          </Text>
+        </Box>
 
-        <div className="mt-10 grid gap-8 staggered-animate">
+        <Box className="mt-10 grid gap-8 staggered-animate">
           {experienceData.map((exp, index) => (
             <ExperienceCard
               key={index}
@@ -157,9 +159,9 @@ const Experience = () => {
               roles={exp.roles}
             />
           ))}
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 
