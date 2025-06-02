@@ -7,11 +7,11 @@ import {
   Flex,
   Link,
   ButtonGroup,
-  Paper,
   Listbox,
   ListboxItem,
 } from "@optiaxiom/react";
 import contactData from "../data/contact.json";
+import { Card } from "@optiaxiom/react/unstable";
 
 interface ContactItemProps {
   icon: React.ReactNode;
@@ -86,12 +86,9 @@ const Contact = () => {
         flexDirection={"row"}
         mt="32"
       >
-        <Paper
-          p="32"
-          rounded="xl"
-          bg="bg.secondary"
-          flex="1"
-          justifyContent={"start"}
+        <Card
+          className="p-8 rounded-lg animate-fade-in card-hover"
+          borderColor="border.default"
         >
           <Listbox>
             {contactData.contactInfo.map((item, index) => (
@@ -106,15 +103,15 @@ const Contact = () => {
               </ListboxItem>
             ))}
           </Listbox>
-        </Paper>
+        </Card>
 
-        <Paper
+        <Card
           h="full"
           flex={"1"}
           p="32"
           border="1"
           rounded="xl"
-          className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-lg animate-fade-in"
+          className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-lg animate-fade-in card-hover"
         >
           <Flex
             flex="1"
@@ -158,7 +155,7 @@ const Contact = () => {
               </Button>
             </ButtonGroup>
           </Flex>
-        </Paper>
+        </Card>
       </Flex>
     </Flex>
   );

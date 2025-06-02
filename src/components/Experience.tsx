@@ -11,7 +11,7 @@ import {
   Button,
   Box,
 } from "@optiaxiom/react";
-import { Card, CardContent, CardTitle } from "@optiaxiom/react/unstable";
+import { Card, CardHeader, CardFooter } from "@optiaxiom/react/unstable";
 
 interface RoleDetails {
   title: string;
@@ -64,7 +64,7 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
           </div>
         </div>
       </Box>
-      <CardContent className="pt-4">
+      <CardFooter className="pt-4">
         {roles.map((role, roleIndex) => (
           <div
             key={roleIndex}
@@ -76,9 +76,9 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
               <DisclosureTrigger chevronPosition="end">
                 <Flex flexDirection={"row"} justifyContent={"space-between"}>
                   <Flex justifyItems={"center"} gap={"2"} flexDirection={"row"}>
-                    <CardTitle className="text-xl">
+                    <CardHeader className="text-xl">
                       <span className="font-bold">{role.position}</span>
-                    </CardTitle>
+                    </CardHeader>
                   </Flex>
 
                   <Badge className="flex items-center gap-1 px-2 py-1 h-auto">
@@ -128,7 +128,7 @@ const ExperienceCard: React.FC<ExperienceItem> = ({
             </Disclosure>
           </div>
         ))}
-      </CardContent>
+      </CardFooter>
     </Card>
   );
 };

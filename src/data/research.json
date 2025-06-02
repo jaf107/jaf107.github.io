@@ -1,4 +1,3 @@
-
 {
   "experience": [
     {
@@ -15,15 +14,23 @@
   "projects": [
     {
       "title": "Text Summarizer Tool",
-      "technologies": ["Java", "JavaFX", "SPL 1"],
-      "description": "Research project where input text is summarized using extractive techniques.",
-      "link": null
+      "technologies": [
+        { "tool": "Java", "badgeType": "success" },
+        { "tool": "JavaFX", "badgeType": "success" },
+        { "tool": "SPL 1", "badgeType": "information" }
+      ],
+      "description": "Research project where input text is summarized using extractive techniques which includes Direct Method Algorithm, TextRank and Word Frequency Algorithm.",
+      "link": "https://github.com/jaf107/Text-Summarization-Tool"
     },
     {
       "title": "Clippy",
-      "technologies": ["Angular", "NodeJS", "ICSE SCORE"],
+      "technologies": [
+        { "tool": "Angular", "badgeType": "success" },
+        { "tool": "NodeJS", "badgeType": "success" },
+        { "tool": "ICSE SCORE", "badgeType": "information" }
+      ],
       "description": "Empowering paper reading with intelligent features like cross-referencing, summarization, and knowledge graph generation.",
-      "link": null
+      "link": "https://github.com/jaf107/Clippy"
     }
   ]
 }

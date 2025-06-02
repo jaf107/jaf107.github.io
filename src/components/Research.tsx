@@ -1,4 +1,5 @@
 import {
+  Badge,
   Box,
   Button,
   Flex,
@@ -8,22 +9,17 @@ import {
   ListboxItem,
   Text,
 } from "@optiaxiom/react";
-import researchData from "../data/research.json";
+import researchDataJson from "../data/research.json";
 
 import React from "react";
 import {
   FiBookOpen,
   FiCalendar,
   FiFileText,
-  FiExternalLink,
+  // FiExternalLink,
+  FiGithub,
 } from "react-icons/fi";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  //CardHeader,
-  CardTitle,
-} from "@optiaxiom/react/unstable";
+import { Card } from "@optiaxiom/react/unstable";
 
 interface ResearchItemProps {
   title: string;
@@ -32,6 +28,39 @@ interface ResearchItemProps {
   description: React.ReactNode;
   link?: string;
 }
+
+interface TechnologyItem {
+  tool: string;
+  badgeType:
+    | "information"
+    | "warning"
+    | "success"
+    | "danger"
+    | "neutral"
+    | "primary";
+}
+
+interface ResearchExperience {
+  title: string;
+  organization: string;
+  period: string;
+  points: string[];
+  link?: string;
+}
+
+interface ResearchProject {
+  title: string;
+  technologies: TechnologyItem[];
+  description: string;
+  link?: string;
+}
+
+interface ResearchData {
+  experience: ResearchExperience[];
+  projects: ResearchProject[];
+}
+
+const researchData = researchDataJson as ResearchData;
 
 const ResearchItem: React.FC<ResearchItemProps> = ({
   title,
@@ -43,81 +72,81 @@ const ResearchItem: React.FC<ResearchItemProps> = ({
   return (
     <Card className="card-hover">
       <Flex
-        className="pb-2"
+        gap="12"
         flexDirection="row"
         justifyContent="space-between"
         alignItems="start"
+        w="full"
       >
-        <Flex alignItems="center" gap="12" flexDirection="row">
+        <Flex alignItems="center" flexDirection="row">
           <FiBookOpen size={20} className="text-primary" />
-          <Box>
-            <CardTitle className="text-xl font-bold">{title}</CardTitle>
-            <CardDescription className="text-base font-medium">
-              {organization}
-            </CardDescription>
-          </Box>
+          <Flex gap="2">
+            <Text className="text-xl font-bold">{title}</Text>
+            <Text className="text-base font-medium">{organization}</Text>
+          </Flex>
         </Flex>
-        <Flex
-          flexDirection="row"
-          alignItems="center"
-          gap="2"
-          className="text-sm text-muted-foreground"
-        >
+        <Flex flexDirection="row" gap="2">
           <FiCalendar size={14} />
-          <Text fontWeight="600">{period}</Text>
+          <Text fontWeight="400">{period}</Text>
         </Flex>
       </Flex>
-      <CardContent>
-        <Box gap="2" className="space-y-3">
+      <Flex flexDirection="row" justifyContent="space-between">
+        <Box w="full">
           {description}
           {link && (
-            <Box mt="2">
-              <Button appearance="subtle" size="sm" asChild className="gap-1">
-                <Link href={link} target="_blank" rel="noopener noreferrer" />
-              </Button>
-            </Box>
+            <Button appearance="subtle" size="sm" asChild>
+              <Link href={link} target="_blank" rel="noopener noreferrer" />
+            </Button>
           )}
         </Box>
-      </CardContent>
+      </Flex>
     </Card>
   );
 };
 
 const ResearchProject: React.FC<{
   title: string;
-  technologies: string[];
+  technologies: TechnologyItem[];
   description: string;
   link?: string;
 }> = ({ title, technologies, description, link }) => {
   return (
     <Card className="card-hover">
-      <Box className="pb-2">
-        <Flex alignItems="center" gap="2">
-          <FiFileText size={20} className="text-primary" />
-          <CardTitle className="text-lg">
-            <Text fontWeight="600">{title}</Text>
-          </CardTitle>
+      <Flex alignItems="center" flexDirection="row" gap="8" w="full">
+        <FiFileText size={20} className="text-primary" />
+        <Flex
+          w="full"
+          className="text-lg"
+          flexDirection="row"
+          justifyContent={"space-between"}
+        >
+          <Text fontWeight="600">{title}</Text>
+          <Flex flexDirection="row" justifyContent={"end"}>
+            {technologies.map((tech, i) => (
+              <Badge key={i} intent={tech.badgeType}>
+                {tech.tool}
+              </Badge>
+            ))}
+            {link && (
+              <Box mt="2">
+                <Button
+                  appearance="default"
+                  size="sm"
+                  asChild
+                  className="gap-1"
+                  icon={<FiGithub size={14} />}
+                >
+                  <Link href={link} target="_blank" rel="noopener noreferrer" />
+                </Button>
+              </Box>
+            )}
+          </Flex>
         </Flex>
-      </Box>
-      <CardContent>
+      </Flex>
+
+      <Flex justifyContent="space-between">
         <Text className="text-muted-foreground mb-3">{description}</Text>
-        <Text className="text-sm text-muted-foreground">
-          <Text fontWeight="600">Technologies:</Text> {technologies.join(", ")}
-        </Text>
-        {link && (
-          <Box mt="2">
-            <Button
-              appearance="subtle"
-              size="sm"
-              asChild
-              className="gap-1"
-              icon={<FiExternalLink size={14} />}
-            >
-              <Link href={link} target="_blank" rel="noopener noreferrer" />
-            </Button>
-          </Box>
-        )}
-      </CardContent>
+      </Flex>
     </Card>
   );
 };
@@ -140,22 +169,20 @@ const Research = () => {
               organization={exp.organization}
               period={exp.period}
               description={
-                <Box className="space-y-3">
-                  <Listbox className="space-y-2 list-disc pl-5">
-                    {exp.points.map((point, pointIndex) => (
-                      <ListboxItem key={pointIndex}>
-                        <Text fontWeight="600">{point}</Text>
-                      </ListboxItem>
-                    ))}
-                  </Listbox>
-                </Box>
+                <Listbox ml="32">
+                  {exp.points.map((point, pointIndex) => (
+                    <ListboxItem key={pointIndex}>
+                      <Text fontWeight="400">- {point}</Text>
+                    </ListboxItem>
+                  ))}
+                </Listbox>
               }
               link={exp.link}
             />
           ))}
 
-          <Heading level="3" className="text-xl font-bold mt-8 mb-4">
-            Research Projects
+          <Heading textAlign="center" className="section-title mt-10 mb-6">
+            Projects
           </Heading>
 
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">

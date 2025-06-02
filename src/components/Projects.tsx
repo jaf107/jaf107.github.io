@@ -5,7 +5,7 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
-import { Card, CardContent, CardTitle } from "@optiaxiom/react/unstable";
+import { Card, CardFooter, CardHeader } from "@optiaxiom/react/unstable";
 import { Badge, Box, Flex, Heading, Link } from "@optiaxiom/react";
 import { Button } from "@optiaxiom/react";
 import {
@@ -38,7 +38,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   return (
     <Card className="h-full flex flex-col card-hover" border="1" rounded="xl">
       <Box className="flex justify-between">
-        <CardTitle className="text-xl font-bold">{title}</CardTitle>
+        <CardHeader className="text-xl font-bold">{title}</CardHeader>
         <Box className="flex gap-2">
           {githubLink && (
             <Button
@@ -68,7 +68,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           )}
         </Box>
       </Box>
-      <CardContent className="flex-grow">
+      <CardFooter className="flex-grow">
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
             <Badge key={index} intent="information">
@@ -113,7 +113,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             </DisclosureContent>
           </Disclosure>
         )}
-      </CardContent>
+      </CardFooter>
     </Card>
   );
 };

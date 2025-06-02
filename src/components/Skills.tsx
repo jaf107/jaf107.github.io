@@ -81,7 +81,7 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({
   };
 
   return (
-    <Card className="card-hover">
+    <Card className="card-hover" alignItems={"center"}>
       <Box pb="2">
         <Flex alignItems="center" gap="2">
           <Box color="fg.accent">{icon}</Box>
