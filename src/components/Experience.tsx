@@ -9,6 +9,24 @@ interface Job {
   summary: string; themes?: string[]; bullets: Bullet[];
 }
 
+function renderDescription(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0, m: RegExpExecArray | null;
+  while ((m = pattern.exec(text)) !== null) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    parts.push(
+      <a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer"
+        style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
+        {m[1]}
+      </a>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return parts.length ? parts : text;
+}
+
 function JobCard({ job }: { job: Job }) {
   const [open, setOpen] = useState(false);
   const visible = open ? job.bullets : job.bullets.slice(0, 3);
@@ -44,7 +62,7 @@ function JobCard({ job }: { job: Job }) {
         {visible.map((b, i) => (
           <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.9rem 1.1rem' }}>
             <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-mid)', marginBottom: '0.3rem' }}>{b.t}</div>
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>{b.d}</p>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>{renderDescription(b.d)}</p>
           </div>
         ))}
       </div>
