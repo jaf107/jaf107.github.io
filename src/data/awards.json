@@ -1,9 +1,82 @@
 [
-  { "title": "ICT Division Fellowship", "org": "Government of Bangladesh", "year": "2026", "desc": "Research funding for NavA11y / M.Sc. thesis (Grant No. 56.00.0000.052.33.002.24-61)" },
-  { "title": "Top 6 — ICSE SCORE 2023", "org": "International undergraduate SE competition", "year": "2023" },
-  { "title": "Champion — Refactoring Competition", "org": "", "year": "2023" },
-  { "title": "Best UI/UX — BUET Hackathon", "org": "", "year": "2023" },
-  { "title": "Champion — Project Showcasing", "org": "", "year": "2022" },
-  { "title": "Runners-up — Project Showcasing", "org": "", "year": "2021" },
-  { "title": "600+ problems solved", "org": "Codeforces & LeetCode", "year": "" }
+  {
+    "slug": "ict-fellowship",
+    "title": "ICT Division Fellowship",
+    "org": "Government of Bangladesh",
+    "year": "2026",
+    "desc": "Research funding for NavA11y / M.Sc. thesis (Grant No. 56.00.0000.052.33.002.24-61)",
+    "description": "Awarded the ICT Division Fellowship by the Government of Bangladesh to support research on NavA11y — an accessibility-focused navigation assistant developed as part of my M.Sc. thesis in Software Engineering at the University of Dhaka.",
+    "sections": [
+      { "h": "About the Fellowship", "body": "The ICT Division Fellowship is a competitive national grant issued by the Ministry of Posts, Telecommunications and Information Technology of Bangladesh. It funds promising graduate research in technology and software engineering." },
+      { "h": "Research Scope", "body": "The grant supports my M.Sc. thesis work on NavA11y, a system aimed at improving web accessibility through intelligent navigation assistance. The research involves controlled user studies, accessibility audits, and browser-based instrumentation." }
+    ],
+    "images": []
+  },
+  {
+    "slug": "icse-score-2023",
+    "title": "Top 6 — ICSE SCORE 2023",
+    "org": "International undergraduate SE competition",
+    "year": "2023",
+    "desc": "International undergraduate software engineering competition",
+    "description": "Placed in the Top 6 at ICSE SCORE 2023 — the Student Research Competition and Expo at the International Conference on Software Engineering, one of the most prestigious undergraduate SE research venues globally.",
+    "sections": [
+      { "h": "About ICSE SCORE", "body": "ICSE SCORE is the student research competition held at the International Conference on Software Engineering (ICSE). It invites undergraduate students to present original research to a panel of expert judges from academia and industry." },
+      { "h": "Our Work", "body": "Our submission presented original software engineering research conducted during our undergraduate program. Competing against teams from universities worldwide, we advanced to the final round and placed in the top 6." }
+    ],
+    "images": []
+  },
+  {
+    "slug": "refactoring-champion",
+    "title": "Champion — Refactoring Competition",
+    "org": "",
+    "year": "2023",
+    "desc": "First place in a competitive code refactoring challenge",
+    "description": "Won first place in a competitive refactoring challenge, demonstrating ability to improve code quality, readability, and maintainability under time constraints.",
+    "sections": [
+      { "h": "The Challenge", "body": "Competitors were given a legacy codebase and tasked with refactoring it for improved structure, readability, and adherence to software engineering principles — without breaking existing functionality." }
+    ],
+    "images": []
+  },
+  {
+    "slug": "buet-hackathon-uiux",
+    "title": "Best UI/UX — BUET Hackathon",
+    "org": "",
+    "year": "2023",
+    "desc": "Best UI/UX award at the BUET Hackathon",
+    "description": "Awarded Best UI/UX at the BUET Hackathon 2023 for delivering a polished, accessible, and intuitive user interface under hackathon time constraints.",
+    "sections": [
+      { "h": "The Hackathon", "body": "The BUET Hackathon brought together teams from top Bangladeshi universities to build functional products in a compressed timeframe. Our team was recognized for the quality and thoughtfulness of the user experience we delivered." }
+    ],
+    "images": []
+  },
+  {
+    "slug": "project-showcasing-champion-2022",
+    "title": "Champion — Project Showcasing",
+    "org": "",
+    "year": "2022",
+    "desc": "First place at departmental project showcasing event",
+    "description": "Won first place at the departmental project showcasing event in 2022, presenting an original software project to a panel of faculty judges.",
+    "sections": [],
+    "images": []
+  },
+  {
+    "slug": "project-showcasing-runnerup-2021",
+    "title": "Runners-up — Project Showcasing",
+    "org": "",
+    "year": "2021",
+    "desc": "Second place at departmental project showcasing event",
+    "description": "Placed second at the departmental project showcasing event in 2021.",
+    "sections": [],
+    "images": []
+  },
+  {
+    "slug": "leetcode-practice",
+    "title": "LeetCode Practice",
+    "org": "LeetCode",
+    "year": "",
+    "desc": "Practice problems regularly — focus on problem-solving patterns, not competitive rankings.",
+    "description": "Regular practice on LeetCode focusing on algorithmic thinking and problem-solving patterns. Not competitive programming — just keeping the problem-solving muscles sharp.",
+    "sections": [],
+    "images": []
+  }
 ]
