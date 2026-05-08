@@ -8,17 +8,15 @@
     "roleNote": "promoted from SE I, Apr 2026",
     "period": "Apr 2024 – Present",
     "current": true,
-    "summary": "Shipping AI features and design-system migrations across Optimizely's Content Marketing Platform. De-facto sign-off owner for design-system migrations and AI-tracking instrumentation.",
+    "summary": "Part of CMP's platform team — contributing to AI feature development, design-system migrations, client bug triage, and feature requests alongside the broader platform.",
     "themes": ["Design Systems", "AI Integration", "Micro-frontends", "Platform Quality"],
     "bullets": [
-      { "t": "Design System Migration", "d": "Drove the platform's multi-year migration from a legacy in-house design library to the OptiAxiom design system, authoring React/TypeScript adapter components and leading component migrations. Authored internal migration documentation adopted across product teams." },
-      { "t": "Axiom V3 Brand Refresh", "d": "Led the Axiom V3 rollout including resolving a critical micro-frontend architecture issue; migrated the color token system and key UI components." },
-      { "t": "AI Platform Integration", "d": "Owned end-to-end integration of an AI integration SDK — migrated the backend service to a modern framework, designed the internal package publishing pipeline, built the permissions layer and test suite, and authored internal documentation that graduated the feature from beta to GA." },
+      { "t": "Design System Migration", "d": "Contributed to the platform's multi-year migration from a legacy design library to OptiAxiom, building React/TypeScript adapter components and writing migration documentation adopted across product teams." },
+      { "t": "AI Platform Integration", "d": "Worked on end-to-end integration of an AI SDK — migrated the backend service, designed the internal package publishing pipeline, built the permissions layer and test suite, and wrote documentation that helped graduate the feature from beta to GA." },
       { "t": "AI Event Instrumentation", "d": "Built a reusable event-tracking React hook and instrumented structured AI-context events across multiple product surfaces." },
-      { "t": "Block-based AI Document UI", "d": "Implemented backend context extraction for LLM prompts, frontend block form interaction, and AI resource rendering for the platform's AI document interface." },
-      { "t": "Spotlight & Status System", "d": "Centralized fragmented per-feature status indicators into a unified StatusBadge component backed by a shared server-side schema across campaigns, tasks, and milestones; surfaced in global Spotlight search." },
+      { "t": "Block-based AI Document UI", "d": "Implemented backend context extraction for LLM prompts, frontend block interaction, and AI resource rendering using [Adaptive Cards](https://adaptivecards.io) for the platform's document AI interface." },
       { "t": "Platform Quality", "d": "Resolved duplicate comment/task creation on rapid clicks (server + client), fixed duplicate in-app notifications, refactored Dark Mode to CSS variables, and added 8 missing i18n locale variants." },
-      { "t": "Code Review & Mentorship", "d": "Reviewed 300+ pull requests across multiple repositories." }
+      { "t": "Code Review & Mentorship", "d": "Reviewed 300+ pull requests, served as onboarding buddy for new team members, and participated in sprint planning, reviews, and technical design discussions." }
     ]
   },
   {
