@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useInView } from '../hooks/useInView';
+import { useTheme } from '../context/ThemeContext';
+import { SKILL_ICONS, resolveIconUrl } from '../data/skillIcons';
 import projects from '../data/projects.json';
 
 interface Project {
@@ -9,6 +11,62 @@ interface Project {
 }
 
 const CATEGORIES = ['All', 'Research', 'AI', 'Open Source', 'Full Stack', 'Distributed Systems'];
+
+function getMonogram(name: string) {
+  const compact = name
+    .replace(/\b(API|SDK|UI|Core)\b/g, '')
+    .trim()
+    .split(/[\s./+-]+/)
+    .filter(Boolean);
+
+  if (compact.length > 1) {
+    return compact.map(part => part[0]).join('').slice(0, 3).toUpperCase();
+  }
+
+  return name.replace(/[^a-z0-9]/gi, '').slice(0, 3).toUpperCase();
+}
+
+function TechIcon({ name }: { name: string }) {
+  const { dark } = useTheme();
+  const [failed, setFailed] = useState(false);
+  const icon = SKILL_ICONS[name];
+  const iconUrl = icon?.src && !failed ? resolveIconUrl(icon.src) : null;
+  const iconFilter = icon?.invertOnDark && dark ? 'brightness(0) invert(1)' : undefined;
+
+  return (
+    <span
+      title={name}
+      aria-label={name}
+      role="img"
+      style={{
+        width: '24px',
+        height: '24px',
+        flex: '0 0 24px',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'var(--text-muted)',
+      }}
+    >
+      {iconUrl ? (
+        <img
+          src={iconUrl}
+          alt=""
+          aria-hidden="true"
+          width={24}
+          height={24}
+          loading="lazy"
+          onError={() => setFailed(true)}
+          style={{ display: 'block', width: '24px', height: '24px', objectFit: 'contain', filter: iconFilter }}
+        />
+      ) : (
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.66rem', lineHeight: 1, letterSpacing: '0.02em' }}>
+          {getMonogram(name)}
+        </span>
+      )}
+    </span>
+  );
+}
 
 function ProjectCard({ project, idx }: { project: Project; idx: number }) {
   const [ref, inView] = useInView();
@@ -46,9 +104,9 @@ function ProjectCard({ project, idx }: { project: Project; idx: number }) {
       <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 0.9rem' }}>{project.subtitle}</p>
       <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.65, margin: '0 0 1rem', flex: 1 }}>{project.summary}</p>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.7rem', alignItems: 'center', marginBottom: '1rem' }}>
         {project.tech.map(t => (
-          <span key={t} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.66rem', color: 'var(--text-muted)', background: 'var(--bg-alt)', padding: '2px 7px', borderRadius: '3px', border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>{t}</span>
+          <TechIcon key={t} name={t} />
         ))}
       </div>
 
