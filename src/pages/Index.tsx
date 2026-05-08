@@ -8,7 +8,6 @@ import Publications from '../components/Publications';
 import Skills from '../components/Skills';
 import Education from '../components/Education';
 import Awards from '../components/Awards';
-import Blog from '../components/Blog';
 import Beyond from '../components/Beyond';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -26,8 +25,7 @@ export default function Index() {
         <Skills />
         <Education />
         <Awards />
-        <Blog />
-        <Beyond />
+<Beyond />
         <Contact />
       </main>
       <Footer />
