@@ -1,9 +1,9 @@
 {
   "Languages": ["TypeScript", "Python", "C++"],
-  "Frontend": ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Radix UI", "Storybook", "Module Federation", "Rspack"],
+  "Frontend": ["React", "Tailwind CSS", "shadcn/ui", "Radix UI", "Storybook"],
   "Backend": ["Node.js", "Hono", "Express", "FastAPI"],
   "Testing": ["Playwright", "Vitest", "Mocha"],
   "Databases": ["MongoDB", "PostgreSQL", "SQL Server", "Supabase"],
-  "DevOps / Cloud": ["Docker", "NGINX", "GitHub Actions", "AWS CodeArtifact", "AWS S3", "Cloudflare Workers"],
+  "DevOps / Cloud": ["Docker", "GitHub Actions", "Cloudflare Workers"],
   "Research Methods": ["Dynamic Program Analysis", "Mining Software Repositories (SZZ)", "Controlled User Studies", "Statistical Evaluation", "Inter-rater Agreement (κ, PABAK)"]
 }

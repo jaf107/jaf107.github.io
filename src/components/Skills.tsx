@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { SectionHeader } from './Research';
+import { useTheme } from '../context/ThemeContext';
 import skillsData from '../data/skills.json';
 import { SKILL_ICONS, resolveIconUrl } from '../data/skillIcons';
 
@@ -9,9 +10,10 @@ const researchMethods = (skillsData as Record<string, string[]>)[RESEARCH_KEY] ?
 
 function SkillTile({ name }: { name: string }) {
   const [hovered, setHovered] = useState(false);
+  const { dark } = useTheme();
   const icon = SKILL_ICONS[name];
   const iconUrl = icon?.src ? resolveIconUrl(icon.src) : null;
-  const tileBg = icon?.bg;
+  const iconFilter = icon?.invertOnDark && dark ? 'brightness(0) invert(1)' : undefined;
 
   return (
     <div
@@ -25,7 +27,7 @@ function SkillTile({ name }: { name: string }) {
         gap: '0.5rem',
         width: '80px',
         padding: '0.75rem 0.5rem',
-        background: tileBg ?? 'var(--surface)',
+        background: 'var(--surface)',
         border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
         borderRadius: '10px',
         cursor: 'default',
@@ -41,7 +43,7 @@ function SkillTile({ name }: { name: string }) {
             alt={name}
             width={40}
             height={40}
-            style={{ objectFit: 'contain', opacity: hovered ? 1 : 0.85, transition: 'opacity 0.15s' }}
+            style={{ objectFit: 'contain', opacity: hovered ? 1 : 0.85, transition: 'opacity 0.15s', filter: iconFilter }}
           />
         ) : (
           <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: hovered ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 1 }}>/&gt;</span>
@@ -50,7 +52,7 @@ function SkillTile({ name }: { name: string }) {
       <span style={{
         fontFamily: 'DM Sans, sans-serif',
         fontSize: '0.68rem',
-        color: hovered ? 'var(--accent)' : (tileBg ? '#ccc' : 'var(--text-muted)'),
+        color: hovered ? 'var(--accent)' : 'var(--text-muted)',
         textAlign: 'center',
         lineHeight: 1.2,
         transition: 'color 0.15s',
