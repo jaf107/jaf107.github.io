@@ -9,12 +9,12 @@
     "period": "Apr 2024 – Present",
     "current": true,
     "summary": "Part of CMP's platform team — contributing to AI feature development, design-system migrations, client bug triage, and feature requests alongside the broader platform.",
-    "themes": ["Design Systems", "AI Integration", "Micro-frontends", "Platform Quality"],
+    "themes": ["Design Systems", "AI Integration", "Platform Quality"],
     "bullets": [
       { "t": "Design System Migration", "d": "Contributed to the platform's multi-year migration from a legacy design library to OptiAxiom, building React/TypeScript adapter components and writing migration documentation adopted across product teams." },
       { "t": "AI Platform Integration", "d": "Worked on end-to-end integration of an AI SDK — migrated the backend service, designed the internal package publishing pipeline, built the permissions layer and test suite, and wrote documentation that helped graduate the feature from beta to GA." },
       { "t": "AI Event Instrumentation", "d": "Built a reusable event-tracking React hook and instrumented structured AI-context events across multiple product surfaces." },
-      { "t": "Block-based AI Document UI", "d": "Implemented backend context extraction for LLM prompts, frontend block interaction, and AI resource rendering using [Adaptive Cards](https://adaptivecards.io) for the platform's document AI interface." },
+      { "t": "Block-based AI Document UI", "d": "Implemented backend context extraction for LLM prompts, frontend block interaction, and AI resource rendering for the platform's document AI interface — following a block-based UI pattern inspired by [Adaptive Cards](https://adaptivecards.io)." },
       { "t": "Platform Quality", "d": "Resolved duplicate comment/task creation on rapid clicks (server + client), fixed duplicate in-app notifications, refactored Dark Mode to CSS variables, and added 8 missing i18n locale variants." },
       { "t": "Code Review & Mentorship", "d": "Reviewed 300+ pull requests, served as onboarding buddy for new team members, and participated in sprint planning, reviews, and technical design discussions." }
     ]
