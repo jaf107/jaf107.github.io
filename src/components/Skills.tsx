@@ -70,67 +70,50 @@ const RESEARCH_METHODS = [
   'Inter-rater Agreement (κ, PABAK)',
 ];
 
-function SkillCell({ name, hovered, onEnter, onLeave }: {
-  name: string;
-  hovered: boolean;
-  onEnter: () => void;
-  onLeave: () => void;
-}) {
+function SkillRow({ name }: { name: string }) {
+  const [hovered, setHovered] = useState(false);
   const Icon = ICON_MAP[name];
   return (
     <div
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
         display: 'flex',
-        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        gap: '0.5rem',
-        padding: '0.9rem 0.4rem',
-        background: 'var(--surface)',
+        gap: '0.6rem',
+        padding: '0.5rem 0.75rem',
+        background: hovered ? 'var(--accent-bg)' : 'var(--surface)',
         border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
-        borderRadius: '10px',
+        borderRadius: '7px',
         cursor: 'default',
-        transition: 'border-color 0.2s, transform 0.15s',
-        transform: hovered ? 'translateY(-2px)' : 'none',
+        transition: 'all 0.15s',
       }}
     >
       {Icon ? (
-        <Icon size={24} color={hovered ? 'var(--accent)' : 'var(--text-muted)'} />
+        <Icon size={16} color={hovered ? 'var(--accent)' : 'var(--text-muted)'} />
       ) : (
-        <span style={{
-          fontSize: '0.85rem',
-          fontFamily: 'DM Mono, monospace',
-          color: hovered ? 'var(--accent)' : 'var(--text-dim)',
-          lineHeight: 1,
-        }}>{'/>'}</span>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: hovered ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 1, width: 16, textAlign: 'center' }}>/&gt;</span>
       )}
       <span style={{
         fontFamily: 'DM Sans, sans-serif',
-        fontSize: '0.7rem',
-        color: hovered ? 'var(--text)' : 'var(--text-muted)',
-        textAlign: 'center',
-        lineHeight: 1.3,
-        transition: 'color 0.2s',
+        fontSize: '0.82rem',
+        color: hovered ? 'var(--accent)' : 'var(--text-mid)',
+        transition: 'color 0.15s',
+        whiteSpace: 'nowrap',
       }}>{name}</span>
     </div>
   );
 }
 
-function SkillGrid({ items }: { items: string[] }) {
-  const [hovered, setHovered] = useState<string | null>(null);
+function CategoryColumn({ group, showLabel }: { group: { label: string; items: string[] }; showLabel: boolean }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(90px, 1fr))', gap: '0.55rem' }}>
-      {items.map(name => (
-        <SkillCell
-          key={name}
-          name={name}
-          hovered={hovered === name}
-          onEnter={() => setHovered(name)}
-          onLeave={() => setHovered(null)}
-        />
-      ))}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', minWidth: 0 }}>
+      {showLabel && (
+        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.4rem' }}>
+          {group.label.toUpperCase()}
+        </p>
+      )}
+      {group.items.map(name => <SkillRow key={name} name={name} />)}
     </div>
   );
 }
@@ -167,23 +150,16 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* Skill groups */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      {/* Categories as vertical columns */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '1.5rem 1rem', alignItems: 'start' }}>
         {visible.map(group => (
-          <div key={group.label}>
-            {active === 'All' && (
-              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.68rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>
-                {group.label.toUpperCase()}
-              </p>
-            )}
-            <SkillGrid items={group.items} />
-          </div>
+          <CategoryColumn key={group.label} group={group} showLabel={active === 'All'} />
         ))}
       </div>
 
-      {/* Research Methods — always visible */}
+      {/* Research Methods */}
       <div style={{ marginTop: '2.5rem' }}>
-        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.68rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>RESEARCH METHODS</p>
+        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>RESEARCH METHODS</p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
           {RESEARCH_METHODS.map(m => (
             <span key={m} style={{
