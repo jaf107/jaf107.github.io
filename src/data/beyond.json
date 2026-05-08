@@ -1,17 +1,9 @@
 {
-  "statement": "When I'm not shipping code or running browser experiments, I'm usually behind a chessboard, on a long walk, or reading something I shouldn't be reading at 2 AM.",
+  "statement": "When not shipping code, I'm deep in a game of Mafia, watching too many episodes of something, or nursing a strong tea before 9 AM.",
   "pursuits": [
-    { "icon": "♟", "title": "Chess", "body": "Tournament-style classical and rapid. Currently working through endgame studies — Dvoretsky's manual is on my desk most evenings." },
-    { "icon": "◐", "title": "Competitive Programming", "body": "600+ problems on Codeforces & LeetCode. Same muscles I exercise when debugging a flaky Playwright test at 11 PM." },
-    { "icon": "⌨", "title": "Mechanical Keyboards", "body": "Quiet linears and home-row mods. Typing comfortably for 10 hours a day is a real ergonomic concern, not a hobby." },
-    { "icon": "✎", "title": "Writing & Technical Notes", "body": "Building a habit of long-form writing — partly to think more clearly, partly as PhD-application practice." },
-    { "icon": "☕", "title": "Tea & Slow Mornings", "body": "Strong tea, no rush, paper notebook. The best research ideas have all shown up before 9 AM." },
-    { "icon": "◯", "title": "Walks & Photography", "body": "Old Dhaka, Ramna Park, anywhere with texture. Camera optional but encouraged." }
-  ],
-  "reading": [
-    "\"Designing Data-Intensive Applications\" — Kleppmann",
-    "\"How to Read a Paper\" — Keshav",
-    "\"Mythical Man-Month\" — Brooks",
-    "arXiv cs.SE weekly digest"
+    { "icon": "🎭", "title": "Mind & Social Games", "body": "Mafia, interactive party games, puzzles. Monopoly Deal and Uno No Mercy are staples." },
+    { "icon": "🎮", "title": "Valorant", "body": "Play occasionally with friends. Competitive enough to care, casual enough to keep it fun." },
+    { "icon": "📺", "title": "TV & Cinema", "body": "Marvel through Phase 4, DC (big Batman fan — loved Peacemaker). Game of Thrones, House of the Dragon. Sitcoms: The Office, Brooklyn 99, HIMYM, Big Bang Theory." },
+    { "icon": "☕", "title": "Tea & Slow Mornings", "body": "Strong tea, no rush. The best ideas have all shown up before 9 AM." }
   ]
 }
