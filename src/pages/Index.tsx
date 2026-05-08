@@ -18,11 +18,11 @@ export default function Index() {
       <main>
         <Hero />
         <Experience />
+        <Education />
         <Projects />
         <Research />
         <Publications />
         <Skills />
-        <Education />
         <Awards />
 <Contact />
       </main>
