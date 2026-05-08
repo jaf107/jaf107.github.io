@@ -29,14 +29,14 @@ export default function Education() {
   return (
     <section id="education" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
       <SectionHeader label="ACADEMICS" title="Education" />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 0, maxWidth: '700px', margin: '0 auto' }}>
         {entries.map((e, i) => (
           <div
             key={i}
             style={{
               borderLeft: `2px solid ${e.current ? 'var(--accent)' : 'var(--border-md)'}`,
               paddingLeft: '2rem',
-              paddingBottom: i < entries.length - 1 ? '3rem' : 0,
+              paddingBottom: i < entries.length - 1 ? '1.5rem' : 0,
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1.5rem', flexWrap: 'wrap' }}>
