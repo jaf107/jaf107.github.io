@@ -1,0 +1,34 @@
+[
+  {
+    "id": "wcag-focus",
+    "title": "Why Static Accessibility Checkers Miss WCAG 2.4",
+    "excerpt": "Notes from building NavA11y — what axe-core can't see, and why driving a real browser matters for focus-behavior testing.",
+    "tag": "Research Notes",
+    "date": "Coming Soon",
+    "readTime": "8 min"
+  },
+  {
+    "id": "design-system-mig",
+    "title": "Migrating a Design System Without Breaking Production",
+    "excerpt": "Lessons from leading the OptiAxiom V1→V2→V3 migrations across a multi-repo, module-federated micro-frontend.",
+    "tag": "Engineering",
+    "date": "Coming Soon",
+    "readTime": "12 min"
+  },
+  {
+    "id": "llm-repair",
+    "title": "Runtime vs. Static Evidence for LLM Patch Generation",
+    "excerpt": "Early findings from RepairA11y: does giving an LLM live DOM state change the quality of generated accessibility fixes?",
+    "tag": "Research Notes",
+    "date": "Coming Soon",
+    "readTime": "10 min"
+  },
+  {
+    "id": "phd-prep",
+    "title": "From SE II to PhD Applicant: A Field Report",
+    "excerpt": "What I wish I'd known about balancing industry work, an M.Sc. thesis, and PhD applications — written in real time.",
+    "tag": "Career",
+    "date": "Coming Soon",
+    "readTime": "6 min"
+  }
+]

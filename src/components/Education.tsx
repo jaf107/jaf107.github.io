@@ -1,86 +1,41 @@
-import { FiCalendar, FiAward, FiMapPin, FiBookOpen } from "react-icons/fi";
-import { Box, Flex, Text } from "@optiaxiom/react";
-import educationData from "../data/education.json";
-import { Card } from "@optiaxiom/react/unstable";
+import React from 'react';
+import { SectionHeader } from './Research';
+import education from '../data/education.json';
 
-const Education = () => {
+interface Edu {
+  school: string; degree: string; period: string;
+  note?: string; gpa: string; current?: boolean;
+}
+
+export default function Education() {
   return (
-    <Box id="education" className="py-16 ">
-      <Flex className="mx-auto px-4 md:px-6">
-        <Text className="section-title">Education</Text>
-
-        <Flex className="mt-10 max-w-2xl mx-auto space-y-6 animate-fade-in">
-          {educationData.map((education, index) => (
-            <Card
-              p="24"
-              key={index}
-              className="card-hover"
-              justifyContent="space-between"
-            >
-              <Flex
-                flexDirection="row"
-                justifyContent="space-between"
-                w="full"
-                alignItems="center"
-              >
-                <Flex flexDirection="row" alignItems="center">
-                  <FiBookOpen size={25} className="text-primary" />
-                  <Box>
-                    <Text fontSize="lg" fontWeight="700">
-                      {education.institution}
-                    </Text>
-                    <Text
-                      fontSize="md"
-                      color="fg.default"
-                      className="opacity-70"
-                    >
-                      {education.degree}
-                    </Text>
-                  </Box>
-                </Flex>
-                <Flex
-                  flexDirection="row"
-                  // alignItems="center"
-                  gap="2"
-                  className="text-sm text-muted-foreground"
-                >
-                  <FiCalendar size={14} />
-                  <Text fontSize="sm" fontWeight="500">
-                    {education.duration}
-                  </Text>
-                </Flex>
-              </Flex>
-
-              <Box className="mt-4">
-                <Box className="space-y-3">
-                  <Box className="flex items-center gap-1 text-sm">
-                    <FiMapPin size={14} className="text-muted-foreground" />
-                    <Text fontSize="sm" fontWeight="500">
-                      {education.location}
-                    </Text>
-                  </Box>
-                  <Text fontSize="sm" fontWeight="500">
-                    GPA — <span className="font-semibold">{education.gpa}</span>
-                  </Text>
-                  {education.department && (
-                    <Box className="flex items-center gap-1">
-                      <FiAward size={14} className="text-primary" />
-                      <Text fontSize="sm" fontWeight="500">
-                        {education.department}
-                      </Text>
-                    </Box>
-                  )}
-                  <Text fontSize="sm" fontWeight="400" color="fg.secondary">
-                    {education.description}
-                  </Text>
-                </Box>
-              </Box>
-            </Card>
-          ))}
-        </Flex>
-      </Flex>
-    </Box>
+    <section id="education" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
+      <SectionHeader label="ACADEMICS" title="Education" />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        {(education as Edu[]).map((e, i) => (
+          <div key={i} style={{
+            background: 'var(--surface)',
+            border: e.current ? '1px solid var(--border)' : '1px solid var(--border)',
+            borderLeft: e.current ? '3px solid var(--accent)' : '1px solid var(--border)',
+            borderRadius: '10px', padding: '1.25rem 1.5rem',
+            display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem',
+          }}>
+            <div>
+              <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.05rem', color: 'var(--text)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+                {e.school}
+                {e.current && <span style={{ background: 'var(--accent-bg)', color: 'var(--accent)', fontSize: '0.65rem', padding: '2px 8px', borderRadius: '20px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.05em' }}>IN PROGRESS</span>}
+              </h3>
+              <p style={{ fontFamily: 'DM Sans, sans-serif', fontStyle: 'italic', color: 'var(--accent)', margin: '4px 0 0', fontSize: '0.88rem' }}>{e.degree}</p>
+              {e.note && <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.78rem', color: 'var(--text-muted)', margin: '4px 0 0' }}>{e.note}</p>}
+              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--text-muted)', margin: '6px 0 0' }}>{e.period}</p>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '1.5rem', color: 'var(--accent)', fontWeight: 700 }}>{e.gpa.split(' / ')[0]}</div>
+              <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.7rem', color: 'var(--text-muted)' }}>GPA / {e.gpa.split(' / ')[1] || '4.00'}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
-};
-
-export default Education;
+}

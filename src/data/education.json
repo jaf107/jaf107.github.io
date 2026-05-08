@@ -1,19 +1,5 @@
 [
-  {
-    "institution": "University of Dhaka",
-    "degree": "BSc in Software Engineering",
-    "duration": "2019 - 2023",
-    "location": "Dhaka, Bangladesh",
-    "gpa": "3.89 (out of 4.00)",
-    "department": "Institute of Information Technology (IIT)",
-    "description": "Completed a comprehensive curriculum in software engineering principles, algorithms, data structures, and software development methodologies. Participated in multiple software projects and research initiatives."
-  },
-  {
-    "institution": "Notre Dame College",
-    "degree": "Higher Secondary Certificate (HSC)",
-    "duration": "2016 - 2018",
-    "location": "Dhaka, Bangladesh",
-    "gpa": "5.00 (out of 5.00)",
-    "description": "Science group with concentration in Physics, Chemistry, and Mathematics."
-  }
+  { "school": "University of Dhaka", "degree": "M.Sc. in Software Engineering", "period": "Apr 2025 – Aug 2026", "note": "Final Semester · Currently in Progress", "gpa": "3.92 / 4.00", "current": true },
+  { "school": "University of Dhaka", "degree": "B.Sc. in Software Engineering", "period": "Jan 2019 – Dec 2023", "gpa": "3.89 / 4.00" },
+  { "school": "Notre Dame College", "degree": "Higher Secondary Certificate", "period": "Jun 2014 – Jun 2016", "gpa": "5.00 / 5.00" }
 ]

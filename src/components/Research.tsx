@@ -1,205 +1,50 @@
-import {
-  Badge,
-  Box,
-  Button,
-  Flex,
-  Heading,
-  Link,
-  Listbox,
-  ListboxItem,
-  Text,
-} from "@optiaxiom/react";
-import researchDataJson from "../data/research.json";
+import React from 'react';
+import { useInView } from '../hooks/useInView';
+import research from '../data/research.json';
 
-import React from "react";
-import {
-  FiBookOpen,
-  FiCalendar,
-  FiFileText,
-  // FiExternalLink,
-  FiGithub,
-} from "react-icons/fi";
-import { Card } from "@optiaxiom/react/unstable";
-
-interface ResearchItemProps {
-  title: string;
-  organization: string;
-  period: string;
-  description: React.ReactNode;
-  link?: string;
-}
-
-interface TechnologyItem {
-  tool: string;
-  badgeType:
-    | "information"
-    | "warning"
-    | "success"
-    | "danger"
-    | "neutral"
-    | "primary";
-}
-
-interface ResearchExperience {
-  title: string;
-  organization: string;
-  period: string;
-  points: string[];
-  link?: string;
-}
-
-interface ResearchProject {
-  title: string;
-  technologies: TechnologyItem[];
-  description: string;
-  link?: string;
-}
-
-interface ResearchData {
-  experience: ResearchExperience[];
-  projects: ResearchProject[];
-}
-
-const researchData = researchDataJson as ResearchData;
-
-const ResearchItem: React.FC<ResearchItemProps> = ({
-  title,
-  organization,
-  period,
-  description,
-  link,
-}) => {
+function SectionHeader({ label, title }: { label: string; title: string }) {
+  const [ref, inView] = useInView();
   return (
-    <Card className="card-hover">
-      <Flex
-        gap="12"
-        flexDirection="row"
-        justifyContent="space-between"
-        alignItems="start"
-        w="full"
-      >
-        <Flex alignItems="center" flexDirection="row">
-          <FiBookOpen size={20} className="text-primary" />
-          <Flex gap="2">
-            <Text className="text-xl font-bold">{title}</Text>
-            <Text className="text-base font-medium">{organization}</Text>
-          </Flex>
-        </Flex>
-        <Flex flexDirection="row" gap="2">
-          <FiCalendar size={14} />
-          <Text fontWeight="400">{period}</Text>
-        </Flex>
-      </Flex>
-      <Flex flexDirection="row" justifyContent="space-between">
-        <Box w="full">
-          {description}
-          {link && (
-            <Button appearance="subtle" size="sm" asChild>
-              <Link href={link} target="_blank" rel="noopener noreferrer" />
-            </Button>
-          )}
-        </Box>
-      </Flex>
-    </Card>
+    <div ref={ref} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: 'all 0.5s ease', marginBottom: '2.5rem' }}>
+      <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.75rem', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>{label}</p>
+      <h2 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: 0 }}>{title}</h2>
+    </div>
   );
-};
+}
 
-const ResearchProject: React.FC<{
-  title: string;
-  technologies: TechnologyItem[];
-  description: string;
-  link?: string;
-}> = ({ title, technologies, description, link }) => {
+export { SectionHeader };
+
+export default function Research() {
   return (
-    <Card className="card-hover">
-      <Flex alignItems="center" flexDirection="row" gap="8" w="full">
-        <FiFileText size={20} className="text-primary" />
-        <Flex
-          w="full"
-          className="text-lg"
-          flexDirection="row"
-          justifyContent={"space-between"}
-        >
-          <Text fontWeight="600">{title}</Text>
-          <Flex flexDirection="row" justifyContent={"end"}>
-            {technologies.map((tech, i) => (
-              <Badge key={i} intent={tech.badgeType}>
-                {tech.tool}
-              </Badge>
-            ))}
-            {link && (
-              <Box mt="2">
-                <Button
-                  appearance="default"
-                  size="sm"
-                  asChild
-                  className="gap-1"
-                  icon={<FiGithub size={14} />}
-                >
-                  <Link href={link} target="_blank" rel="noopener noreferrer" />
-                </Button>
-              </Box>
-            )}
-          </Flex>
-        </Flex>
-      </Flex>
+    <section id="research" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg)' }}>
+      <SectionHeader label="ACADEMIC" title="Research" />
 
-      <Flex justifyContent="space-between">
-        <Text className="text-muted-foreground mb-3">{description}</Text>
-      </Flex>
-    </Card>
-  );
-};
-
-const Research = () => {
-  const { experience, projects } = researchData;
-
-  return (
-    <Flex id="research" className="py-16 ">
-      <Flex className="container mx-auto px-4 md:px-6" alignItems="center">
-        <Heading level="2" className="section-title">
-          Research Experience
-        </Heading>
-
-        <Box className="mt-10 grid gap-6 staggered-animate">
-          {experience.map((exp, i) => (
-            <ResearchItem
-              key={i}
-              title={exp.title}
-              organization={exp.organization}
-              period={exp.period}
-              description={
-                <Listbox ml="32">
-                  {exp.points.map((point, pointIndex) => (
-                    <ListboxItem key={pointIndex}>
-                      <Text fontWeight="400">- {point}</Text>
-                    </ListboxItem>
-                  ))}
-                </Listbox>
-              }
-              link={exp.link}
-            />
+      <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: '3px solid var(--accent)', borderRadius: '10px', padding: '1.5rem 2rem', marginBottom: '2.5rem' }}>
+        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>RESEARCH INTERESTS</p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+          {research.interests.map(k => (
+            <span key={k} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text)', background: 'var(--bg-alt)', padding: '5px 12px', borderRadius: '20px', border: '1px solid var(--border-md)' }}>{k}</span>
           ))}
+        </div>
+      </div>
 
-          <Heading textAlign="center" className="section-title mt-10 mb-6">
-            Projects
-          </Heading>
-
-          <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project, i) => (
-              <ResearchProject
-                key={i}
-                title={project.title}
-                technologies={project.technologies}
-                description={project.description}
-                link={project.link ?? undefined}
-              />
-            ))}
-          </Box>
-        </Box>
-      </Flex>
-    </Flex>
+      <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: '1.05rem', color: 'var(--text)', marginBottom: '1rem' }}>Research Affiliations</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        {research.affiliations.map((a, i) => (
+          <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '10px', padding: '1.25rem 1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <div>
+                <h4 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1rem', color: 'var(--text)', margin: 0 }}>{a.lab}</h4>
+                <p style={{ fontFamily: 'DM Sans, sans-serif', fontStyle: 'italic', color: 'var(--accent)', margin: '3px 0 0', fontSize: '0.9rem' }}>
+                  {a.role} <span style={{ fontStyle: 'normal', color: 'var(--text-muted)' }}>· {a.advisors}</span>
+                </p>
+              </div>
+              <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.75rem', color: 'var(--text-muted)' }}>{a.period}</span>
+            </div>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: '0.6rem 0 0' }}>{a.work}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
-};
-
-export default Research;
+}

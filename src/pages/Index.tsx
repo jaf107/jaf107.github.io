@@ -1,50 +1,36 @@
-import { useEffect } from "react";
-import SectionTabs from "@/components/SectionTabs";
-import NavLinks from "@/components/NavLinks";
+import React from 'react';
+import Nav from '../components/Nav';
+import Hero from '../components/Hero';
+import Experience from '../components/Experience';
+import Projects from '../components/Projects';
+import Research from '../components/Research';
+import Publications from '../components/Publications';
+import Skills from '../components/Skills';
+import Education from '../components/Education';
+import Awards from '../components/Awards';
+import Blog from '../components/Blog';
+import Beyond from '../components/Beyond';
+import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 
-const Index = () => {
-  // Add scroll animation to reveal elements as they come into view
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    // Target all section content divs and staggered elements
-    const hiddenElements = document.querySelectorAll(
-      "section > div, .staggered-animate > *"
-    );
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    // Make sure to reset the observer when filters change
-    const resetObserver = () => {
-      hiddenElements.forEach((el) => {
-        observer.unobserve(el);
-        observer.observe(el);
-      });
-    };
-
-    // Add event listener for toggle group changes
-    document.addEventListener("toggleGroupChange", resetObserver);
-
-    return () => {
-      hiddenElements.forEach((el) => observer.unobserve(el));
-      document.removeEventListener("toggleGroupChange", resetObserver);
-    };
-  }, []);
-
+export default function Index() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <NavLinks />
-      <SectionTabs />
-    </div>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <Experience />
+        <Projects />
+        <Research />
+        <Publications />
+        <Skills />
+        <Education />
+        <Awards />
+        <Blog />
+        <Beyond />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
-};
-
-export default Index;
+}

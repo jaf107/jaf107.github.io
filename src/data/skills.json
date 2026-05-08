@@ -1,36 +1,10 @@
-
 {
-  "categories": [
-    {
-      "title": "Programming Languages",
-      "icon": "Code",
-      "skills": ["Python", "C#", "C++", "Java", "JavaScript", "TypeScript"]
-    },
-    {
-      "title": "Concepts",
-      "icon": "Terminal",
-      "skills": ["OOP", "REST API", "Design Patterns", "SOA", "Microservices"]
-    },
-    {
-      "title": "Web Frameworks",
-      "icon": "Layout",
-      "skills": [".NET", "ReactJS", "SpringBoot", "NodeJS", "Next.js", "Express"]
-    },
-    {
-      "title": "Databases",
-      "icon": "Database",
-      "skills": ["MSSQL", "MongoDB", "MySQL", "PostgreSQL"]
-    },
-    {
-      "title": "Tools",
-      "icon": "Wrench",
-      "skills": ["Git", "Postman", "Azure", "Docker", "Nginx", "AWS", "CI/CD"]
-    },
-    {
-      "title": "Soft Skills",
-      "icon": "Server",
-      "skills": ["Problem Solving", "Team Collaboration", "Agile Development", "Technical Writing"]
-    }
-  ],
-  "problemSolving": "Problem Solving: Solved 600+ problems in CodeForces, Leetcode"
+  "Languages": ["TypeScript", "JavaScript", "Python", "Java", "C#", "C++"],
+  "Frontend": ["React 18/19", "Next.js", "Angular", "Vite", "Tailwind CSS", "shadcn/ui", "Radix UI", "Chakra UI", "Framer Motion", "Storybook", "Module Federation", "Rspack"],
+  "Backend": ["Node.js", "Hono", "Express", "FastAPI", "Spring Boot 3", "ASP.NET Core", "Entity Framework Core"],
+  "Testing & Automation": ["Playwright", "Vitest", "Karma", "Mocha", "Chai", "Sinon", "axe-core", "Selenium"],
+  "Databases": ["MongoDB", "PostgreSQL", "SQL Server", "Firebase", "Redis", "Supabase"],
+  "DevOps / Cloud": ["AWS CodeArtifact", "AWS S3", "Azure", "Cloudflare Workers", "Docker", "NGINX", "GitHub Actions", "Netlify"],
+  "ML / NLP": ["TensorFlow", "HuggingFace", "BPE Tokenization", "TextRank", "TF-IDF", "scikit-learn"],
+  "Research Methods": ["Dynamic Program Analysis", "Mining Software Repositories (SZZ)", "Controlled User Studies", "Statistical Evaluation", "Inter-rater Agreement (κ, PABAK)"]
 }

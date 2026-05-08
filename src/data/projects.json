@@ -1,64 +1,219 @@
 [
   {
-    "title": "Opti-Retreat Voting System",
-    "description": "Developed a web-based voting application aimed at facilitating secure and efficient voting processes for organizational retreats.",
-    "technologies": ["React.js", "Supabase", "JavaScript", "Netlify"],
-    "githubLink": "https://github.com/jaf107/opti-retreat-voting-system",
-    "demoLink": null,
-    "categories": ["academic", "research"],
-    "imagePath": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&h=500",
-    "achievements": [
-      "Role-Based Access Control: Implemented a system distinguishing between admin and regular users, ensuring appropriate access levels and enhancing security.",
-      "Controlled Voting Sessions: Enabled admins to activate or deactivate voting periods, preventing unauthorized voting and maintaining process integrity.",
-      "Enhanced Voting Efficiency: Designed and implemented a user-friendly interface that streamlined the voting process, reducing the time required for vote casting and tallying by approximately 40%.",
-      "Improved Data Accuracy: Integrated real-time validation mechanisms to ensure the integrity of votes cast, minimizing errors and discrepancies in the final results.",
-      "Scalable Architecture: Built the application using scalable components, allowing for easy adaptation to larger events or organizations with minimal additional development effort.",
-      "Deployment and Accessibility: Deployed the application on Netlify, ensuring high availability and accessibility for users across various devices and locations."
-    ]
+    "id": "nava11y",
+    "title": "NavA11y",
+    "subtitle": "Dynamic WCAG 2.4 Accessibility Testing",
+    "tech": ["Node.js", "Playwright", "Chromium"],
+    "category": "Research",
+    "year": "2025",
+    "badge": "Published — ENASE 2025",
+    "summary": "Dynamic WCAG 2.4 accessibility testing tool — the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event.",
+    "headline": "100% precision and recall on the labeled benchmark · 2,947 violations detected on 26 production sites · 90% confirmed true-positive rate.",
+    "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state — surfacing violations that only appear at runtime.",
+    "sections": [
+      { "h": "Two-phase Architecture", "body": "Page-Level Analysis performs full-keyboard tab traversal and computes Kendall τ divergence between expected and observed focus order. Element-Level Analysis inspects each focused element's rendered focus state, including a 7×7 grid obscuration probe to detect occluded focus indicators." },
+      { "h": "Empirical Results", "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed via independent manual validation by two expert raters (PABAK = 0.80)." },
+      { "h": "Contributions", "body": "First automated tool to cover all five WCAG 2.4 focus-behavior success criteria. Released a reusable 22-page labeled focus-behavior dataset covering pass, boundary, and obscuration cases for community benchmarking." },
+      { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of ENASE 2025 — 20th International Conference on Evaluation of Novel Approaches to Software Engineering. Accepted." }
+    ],
+    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2025" },
+    "links": [{ "label": "Code", "href": "#" }, { "label": "Paper", "href": "#" }]
   },
   {
-    "title": "API Miners GPT",
-    "description": "Engineered enhanced ChatGPT using OpenAI and Stable Diffusion APIs, featuring audio I/O, OCR, and a child book generator, with an integrated bookstore for content distribution.",
-    "technologies": [".NET", "ReactJS", "OpenAI API", "Hackathon"],
-    "githubLink": "https://github.com/jaf107/API-Miners-GPT",
-    "demoLink": null,
-    "categories": ["hackathon"],
-    "imagePath": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&h=500"
+    "id": "repaira11y",
+    "title": "RepairA11y",
+    "subtitle": "LLM-Driven Accessibility Repair",
+    "tech": ["Node.js", "Playwright", "Vitest", "LLMs"],
+    "category": "Research",
+    "year": "2026",
+    "badge": "M.Sc. Thesis — In Progress",
+    "summary": "LLM-driven automated repair pipeline for WCAG 2.4 accessibility violations. Evaluates whether runtime-evidence prompting outperforms static-evidence prompting for accessibility patch generation.",
+    "headline": "Open question: does live DOM evidence + dynamic violation reports produce better LLM patches than HTML/screenshots alone?",
+    "description": "RepairA11y forms the second half of my M.Sc. thesis — an automated repair pipeline that takes NavA11y's violation reports as input and generates accessibility patches via LLMs.",
+    "sections": [
+      { "h": "Research Questions", "body": "RQ1: Effectiveness — can LLM-generated patches resolve real WCAG 2.4 violations? RQ2: Evidence ablation — does runtime evidence outperform static evidence? RQ3: Regression safety — do patches preserve existing functionality? RQ4: Fault localization quality — does NavA11y's output narrow the LLM's search space effectively?" },
+      { "h": "Pipeline", "body": "NavA11y violations → context assembly (HTML / screenshot / live DOM) → LLM patch generation → automated validation via NavA11y as oracle → regression test suite via Vitest." },
+      { "h": "Status", "body": "Funded by ICT Division Fellowship (Govt. of Bangladesh, Apr 2026). Currently in implementation; targeting completion alongside M.Sc. thesis defense in Aug 2026." }
+    ],
+    "stack": { "Pipeline": "Node.js, Playwright", "Validation": "Vitest, NavA11y oracle", "Funding": "ICT Division Fellowship", "Status": "In Progress" },
+    "links": []
   },
   {
+    "id": "optiaxiom",
+    "title": "OptiAxiom Migration",
+    "subtitle": "CMP's Design System Migration",
+    "tech": ["React", "TypeScript", "Module Federation", "Storybook"],
+    "category": "Open Source",
+    "year": "2024–2026",
+    "badge": "Production at Optimizely",
+    "summary": "Multi-year migration from a legacy design library to OptiAxiom — including the V3 brand refresh, micro-frontend architecture fixes, and dark-mode theming.",
+    "headline": "Adapter components · component migrations · Authored internal guides adopted across product teams.",
+    "description": "OptiAxiom is Optimizely's open-source design system. My contributions span the full migration lifecycle of the platform.",
+    "sections": [
+      { "h": "Adapter Components & Component Migrations", "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Led component migrations directly in the design-system repo." },
+      { "h": "Axiom V3 Rollout", "body": "Led the V3 brand-refresh rollout including resolving a critical micro-frontend architecture issue. Migrated the color token system and key UI components." },
+      { "h": "Documentation", "body": "Authored internal migration guides adopted across product teams." },
+      { "h": "Other System Work", "body": "Refactored Dark Mode to CSS variables; centralized fragmented status indicators into a unified StatusBadge schema; added missing i18n locale variants." }
+    ],
+    "stack": { "Framework": "React 18/19, Next.js", "Architecture": "Module Federation, Rspack", "Documentation": "Storybook", "Language": "TypeScript" },
+    "links": []
+  },
+  {
+    "id": "opal-ai",
+    "title": "AI Platform Integration",
+    "subtitle": "AI SDK Integration + Block-based Document UI",
+    "tech": ["Node.js", "MCP", "LLMs", "React"],
+    "category": "AI",
+    "year": "2025",
+    "badge": "Shipped at Optimizely",
+    "summary": "End-to-end integration of an AI SDK across the platform — service migration, internal publishing pipeline, instrumentation, and a block-based AI document UI.",
+    "headline": "AI-context events across multiple product surfaces · graduated feature from beta to GA.",
+    "description": "I owned the end-to-end AI integration into the platform, including infrastructure migration, the AI event-tracking layer, and a block-based AI document interface.",
+    "sections": [
+      { "h": "SDK Integration & Infrastructure", "body": "Migrated the AI service to a modern framework. Designed the internal package publishing pipeline. Built the permissions layer and test suite. Authored internal documentation that graduated the feature from beta to GA." },
+      { "h": "AI Event Instrumentation", "body": "Built a reusable event-tracking hook and instrumented structured AI-context events across multiple product surfaces." },
+      { "h": "Block-based AI Document UI", "body": "Implemented backend context extraction for LLM prompts, frontend block form interaction, and AI resource rendering for the platform's AI document interface." }
+    ],
+    "stack": { "Backend": "Node.js (migrated to modern framework)", "Publishing": "Internal package registry", "Protocol": "MCP (Model Context Protocol)", "Frontend": "React" },
+    "links": []
+  },
+  {
+    "id": "clippy",
+    "title": "Clippy",
+    "subtitle": "Smart PDF Reader for Researchers",
+    "tech": ["Angular", "Node.js", "AWS S3"],
+    "category": "Research",
+    "year": "2023",
+    "badge": "ICSE SRC 2023 — Top 6",
+    "summary": "Smart PDF reader with knowledge graph extraction, citation network visualization, and paper recommendation. Submitted to ICSE 2023 Student Research Competition.",
+    "headline": "392 commits · 5 GitHub stars · Top 6 at ICSE SRC 2023.",
+    "description": "Clippy reimagines the academic PDF reader: papers are parsed into a knowledge graph, citations form an interactive network, and similar papers are recommended via embedding similarity.",
+    "sections": [
+      { "h": "Features", "body": "PDF parsing → knowledge graph extraction; citation network visualization; paper recommendation engine; OTP-based authentication; Azure CI/CD pipeline." },
+      { "h": "Recognition", "body": "Selected as a Top 6 finalist at the ICSE 2023 Student Research Competition (SCORE) — an international undergraduate SE research competition." }
+    ],
+    "stack": { "Frontend": "Angular", "Backend": "Node.js", "Storage": "AWS S3", "CI": "Azure", "Auth": "OTP-based" },
+    "links": [{ "label": "GitHub", "href": "https://github.com/jaf107" }]
+  },
+  {
+    "id": "bpe-tokenizer",
+    "title": "BPE Tokenizer",
+    "subtitle": "Byte Pair Encoding from Scratch",
+    "tech": ["Python", "Flask", "HuggingFace"],
+    "category": "AI",
+    "year": "2023",
+    "badge": "Published on PyPI",
+    "summary": "Byte Pair Encoding tokenizer implemented from scratch and published as python-bpe-tokenizer on PyPI. Includes a Flask web interface for training on custom corpora.",
+    "headline": "Direct precursor to my SEMERU Lab tokenizer research.",
+    "description": "A from-scratch BPE tokenizer that handles the full training/encoding/decoding cycle. Shipped as a public PyPI package and a Flask UI for non-CLI users.",
+    "sections": [
+      { "h": "Package", "body": "Published as python-bpe-tokenizer on PyPI — supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export." },
+      { "h": "Why", "body": "Built as a teaching tool and as a direct precursor to the PL-specific tokenizer research at SEMERU Lab." }
+    ],
+    "stack": { "Language": "Python", "Frontend": "Flask", "Reference": "HuggingFace tokenizers", "Distribution": "PyPI" },
+    "links": [{ "label": "PyPI", "href": "#" }]
+  },
+  {
+    "id": "mr-bin",
     "title": "Mr. Bin",
-    "description": "Web app that connects recyclers and sellers in order to encourage recycling and sell useless products. SPL 2 project.",
-    "technologies": ["MERN", "SpringBoot", "TensorFlow", "Maps API"],
-    "githubLink": "https://github.com/jaf107/Mr-Bin",
-    "demoLink": null,
-    "categories": ["academic"],
-    "imagePath": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&h=500"
+    "subtitle": "Recycling Marketplace + ML Classification",
+    "tech": ["MERN", "Spring Boot 3", "TensorFlow", "Maps API"],
+    "category": "Full Stack",
+    "year": "2023",
+    "badge": "JavaFest 2023 (Therap)",
+    "summary": "Full-stack recycling and exchange marketplace with ML-based object detection for item classification.",
+    "headline": "MERN frontend with a Spring Boot 3 / Java 17 backend rewrite.",
+    "description": "Mr. Bin is a two-sided marketplace connecting recyclers and sellers of usable products. Built originally on MERN, later partially rewritten to Spring Boot 3 / Java 17.",
+    "sections": [
+      { "h": "Features", "body": "User auth, listings, real-time chat, geolocation-based discovery via Google Maps API, ML-based image classification of recyclable materials." },
+      { "h": "Tech Stack Migration", "body": "Initial MERN implementation; backend later rewritten in Spring Boot 3 / Java 17 as part of Therap's JavaFest 2023 entry." }
+    ],
+    "stack": { "Frontend": "React, Redux", "Backend": "Node.js → Spring Boot 3", "ML": "TensorFlow", "Maps": "Google Maps API", "Database": "MongoDB" },
+    "links": []
   },
   {
+    "id": "emitxplorer",
+    "title": "EmitXplorer",
+    "subtitle": "Greenhouse Gas Visualization",
+    "tech": ["React", "ASP.NET Core", "TensorFlow"],
+    "category": "AI",
+    "year": "2023",
+    "badge": "NASA Space Apps 2023",
+    "summary": "Gamified greenhouse gas visualization platform using SCISAT satellite data and ML-based CO₂ concentration prediction.",
+    "headline": "Built for NASA Space Apps Challenge 2023.",
+    "description": "EmitXplorer turns SCISAT satellite emissions data into an interactive gamified visualization, with an ML model that predicts CO₂ concentrations from input parameters.",
+    "sections": [
+      { "h": "Approach", "body": "SCISAT satellite data → preprocessing → ML model (TensorFlow) for CO₂ prediction → React/ASP.NET visualization with gamified exploration." }
+    ],
+    "stack": { "Frontend": "React", "Backend": "ASP.NET Core", "ML": "TensorFlow", "Data": "SCISAT satellite" },
+    "links": []
+  },
+  {
+    "id": "api-miners-gpt",
+    "title": "API Miners GPT",
+    "subtitle": "GPT-Powered PDF Chatbot",
+    "tech": ["ASP.NET Core", "React", "OpenAI API", "EF Core"],
+    "category": "AI",
+    "year": "2023",
+    "badge": "BUET Hackathon — Best UI/UX",
+    "summary": "GPT-powered PDF chatbot with audio I/O, OCR, and Stable Diffusion image generation.",
+    "headline": "Won Best UI/UX at BUET Hackathon 2023.",
+    "description": "A multimodal GPT interface: chat with PDFs, voice in/out, OCR for image-to-text, and on-the-fly image generation via Stable Diffusion.",
+    "sections": [
+      { "h": "Features", "body": "PDF chat (RAG-style), audio I/O for voice interaction, OCR pipeline, AI image generation via Stable Diffusion, integrated bookstore." },
+      { "h": "Stack", "body": ".NET backend with SQL Server, React + Tailwind CSS frontend." }
+    ],
+    "stack": { "Frontend": "React + Tailwind", "Backend": "ASP.NET Core, EF Core", "AI": "OpenAI API, Stable Diffusion", "Database": "SQL Server" },
+    "links": []
+  },
+  {
+    "id": "minifacebook",
     "title": "MiniFacebook",
-    "description": "Developed web app with Status, Story services in a Service Oriented Architecture. Distributed system project.",
-    "technologies": ["MERN", "NodeJS", "Docker", "Nginx"],
-    "githubLink": "https://github.com/jaf107/MiniFacebook",
-    "demoLink": null,
-    "categories": ["academic"],
-    "imagePath": "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=500"
+    "subtitle": "Monolith → Microservices",
+    "tech": ["React", "Node.js", "Docker", "NGINX"],
+    "category": "Distributed Systems",
+    "year": "2022",
+    "summary": "Demonstrated monolith-to-microservices decomposition — split a Node.js app into User, Story, and Status services behind an NGINX reverse proxy.",
+    "headline": "NGINX-fronted Docker Compose stack with three independent services.",
+    "description": "An academic study in service decomposition: take a Node.js monolith and break it cleanly along user/story/status seams, with NGINX handling routing and Docker Compose handling orchestration.",
+    "sections": [
+      { "h": "Architecture", "body": "Three independent services (User, Story, Status) each with their own data store; NGINX reverse proxy for routing and basic load balancing; Docker Compose for orchestration." }
+    ],
+    "stack": { "Frontend": "React", "Backend": "Node.js, Express", "Infrastructure": "Docker Compose, NGINX", "Database": "MongoDB" },
+    "links": [{ "label": "GitHub", "href": "https://github.com/jaf107" }]
   },
   {
-    "title": "Text Summarizer Tool",
-    "description": "Research project where input text is summarized using extractive techniques.",
-    "technologies": ["Java", "JavaFX", "SPL 1"],
-    "githubLink": null,
-    "demoLink": null,
-    "categories": ["research", "academic"],
-    "imagePath": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=500"
+    "id": "design-system-study",
+    "title": "Design System Usability Study",
+    "subtitle": "Controlled Developer Study (n=15)",
+    "tech": ["React 19", "MUI", "Carbon", "Fluent UI"],
+    "category": "Research",
+    "year": "2025",
+    "badge": "M.Sc. Coursework",
+    "summary": "Designed and built the research instrument for a controlled developer study comparing Material UI, Carbon, and Fluent UI across 5 standardized UI tasks.",
+    "headline": "n = 15 participants · 3 design systems · 5 standardized tasks.",
+    "description": "A controlled study instrument for evaluating developer experience across major design systems. Includes automated time-logging, consent documentation, and structured evaluation rubrics.",
+    "sections": [
+      { "h": "Method", "body": "Participants (n=15) completed 5 standardized UI implementation tasks using each of MUI, Carbon, and Fluent UI; task time was auto-logged and code/output rated against rubrics." }
+    ],
+    "stack": { "Frontend": "React 19, TypeScript", "Systems Compared": "MUI · Carbon · Fluent UI", "Method": "Controlled study (n=15)" },
+    "links": []
   },
   {
-    "title": "Gomoku - AI",
-    "description": "A desktop game with AI opponent using minimax algorithm.",
-    "technologies": ["Python", "Minimax", "Alpha-Beta Pruning", "AI Project"],
-    "githubLink": null,
-    "demoLink": null,
-    "categories": ["academic"],
-    "imagePath": "https://images.unsplash.com/photo-1496096265110-f83ad7f96608?auto=format&fit=crop&w=800&h=500"
+    "id": "szz-mining",
+    "title": "ML Bug Mining (SZZ)",
+    "subtitle": "Mining Software Repositories",
+    "tech": ["Python", "GitPython", "pandas", "scikit-learn"],
+    "category": "Research",
+    "year": "2025",
+    "badge": "M.Sc. Coursework",
+    "summary": "Mined ML-related bugs across 9 open-source repositories using the SZZ algorithm.",
+    "headline": "9 repos · bug-fixing → bug-introducing commit linkage.",
+    "description": "An MSR (Mining Software Repositories) project: applied the SZZ algorithm to identify bug-fixing and bug-introducing commits across 9 ML-library-touching open-source projects.",
+    "sections": [
+      { "h": "Pipeline", "body": "Clone repos → keyword-heuristic bug-fix detection → git blame to recover bug-introducing commits → filter for ML-library-touching code → analysis." }
+    ],
+    "stack": { "Language": "Python", "Tooling": "GitPython, pandas, scikit-learn", "Algorithm": "SZZ" },
+    "links": []
   }
 ]

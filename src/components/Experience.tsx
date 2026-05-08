@@ -1,168 +1,76 @@
-import React from "react";
-import { FiBriefcase, FiCalendar, FiMapPin } from "react-icons/fi";
-import experienceData from "../data/experience.json";
-import {
-  Disclosure,
-  DisclosureContent,
-  Badge,
-  DisclosureTrigger,
-  Flex,
-  Link,
-  Button,
-  Box,
-  Heading,
-  Text,
-} from "@optiaxiom/react";
-import { Card, CardHeader, CardFooter } from "@optiaxiom/react/unstable";
+import React, { useState } from 'react';
+import { useInView } from '../hooks/useInView';
+import jobs from '../data/jobs.json';
 
-interface RoleDetails {
-  title: string;
-  link?: string;
-  points: string[];
+interface Bullet { t: string; d: string; }
+interface Job {
+  id: string; company: string; team?: string; location: string;
+  role: string; roleNote?: string; period: string; current?: boolean;
+  summary: string; themes?: string[]; bullets: Bullet[];
 }
 
-interface Role {
-  position: string;
-  duration: string;
-  details: RoleDetails[];
-}
-
-interface ExperienceItem {
-  company: string;
-  companyLink: string;
-  roles: Role[];
-}
-
-const ExperienceCard: React.FC<ExperienceItem> = ({
-  company,
-  companyLink,
-  roles,
-}) => {
-  // Extract company name and location if provided in format "Company, Location"
-  const [companyName, location] = company.split(", ");
-
+function JobCard({ job }: { job: Job }) {
+  const [open, setOpen] = useState(false);
+  const visible = open ? job.bullets : job.bullets.slice(0, 3);
   return (
-    <Card className="card-hover overflow-hidden ">
-      <Box className="pb-2">
-        <div className="flex justify-between items-start flex-wrap gap-2">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2 text-lg font-medium text-foreground">
-              <FiBriefcase className="h-5 w-5 text-primary" />
-
-              <Link href={companyLink} className="font-bold text-xl">
-                {companyName}
-              </Link>
-
-              {location && (
-                <>
-                  <span className="text-muted-foreground/50">•</span>
-                  <div className="flex items-center gap-1 text-sm">
-                    <FiMapPin size={14} className="text-muted-foreground/70" />
-                    <span className="font-medium">{location}</span>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
+    <div style={{ borderLeft: `2px solid ${job.current ? 'var(--accent)' : 'var(--border-md)'}`, paddingLeft: '2rem', marginBottom: '3rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <div>
+          <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.25rem', color: 'var(--text)', margin: 0 }}>
+            {job.company}
+            {job.team && <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: '0.95rem' }}> — {job.team}</span>}
+          </h3>
+          <p style={{ fontFamily: 'DM Sans, sans-serif', fontStyle: 'italic', color: 'var(--accent)', margin: '4px 0 0', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+            {job.role}
+            {job.roleNote && <span style={{ fontStyle: 'normal', color: 'var(--text-muted)', fontSize: '0.78rem' }}>({job.roleNote})</span>}
+            {job.current && <span style={{ fontStyle: 'normal', background: 'var(--accent-bg)', color: 'var(--accent)', fontSize: '0.7rem', padding: '2px 8px', borderRadius: '20px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.05em' }}>CURRENT</span>}
+          </p>
+          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--text-muted)', margin: '6px 0 0' }}>{job.location}</p>
         </div>
-      </Box>
-      <CardFooter className="pt-4">
-        {roles.map((role, roleIndex) => (
-          <div
-            key={roleIndex}
-            className={
-              roleIndex > 0 ? "mt-6 pt-6 border-t border-border/50" : ""
-            }
-          >
-            <Disclosure defaultOpen>
-              <DisclosureTrigger chevronPosition="end">
-                <Flex flexDirection={"row"} justifyContent={"space-between"}>
-                  <Flex justifyItems={"center"} gap={"2"} flexDirection={"row"}>
-                    <CardHeader className="text-xl">
-                      <span className="font-bold">{role.position}</span>
-                    </CardHeader>
-                  </Flex>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.78rem', color: 'var(--text-muted)', letterSpacing: '0.04em', paddingTop: '4px' }}>{job.period}</span>
+      </div>
 
-                  <Badge className="flex items-center gap-1 px-2 py-1 h-auto">
-                    <FiCalendar size={14} />
-                    <span className="font-semibold">{role.duration}</span>
-                  </Badge>
-                </Flex>
-              </DisclosureTrigger>
-              <DisclosureContent>
-                <div className="ml-4">
-                  {role.details.map((detail, detailIndex) => (
-                    <div
-                      key={detailIndex}
-                      className={`space-y-3 ${detailIndex > 0 ? "mt-6" : ""}`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <h3 className="text-lg font-semibold text-foreground/90 flex items-center gap-2">
-                          <span className="font-bold">{detail.title}</span>
-                        </h3>
-                        {detail.link && (
-                          <Button size="sm" asChild>
-                            <Link
-                              href={detail.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              external
-                            >
-                              View
-                            </Link>
-                          </Button>
-                        )}
-                      </div>
-                      {detail.points.length > 0 && (
-                        <ul className="space-y-2 pl-5 ml-6">
-                          {detail.points.map((point, pointIndex) => (
-                            <li key={pointIndex} className="relative pl-1">
-                              <span className="absolute left-[-1rem] top-[0.6rem] h-1.5 w-1.5 rounded-full bg-primary/70"></span>
-                              <span className="font-medium">{point}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </DisclosureContent>
-            </Disclosure>
+      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.93rem', color: 'var(--text-muted)', margin: '1rem 0 0.75rem', lineHeight: 1.7 }}>{job.summary}</p>
+
+      {job.themes && (
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1rem' }}>
+          {job.themes.map(t => (
+            <span key={t} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.68rem', color: 'var(--accent)', background: 'var(--accent-bg)', padding: '3px 9px', borderRadius: '4px' }}>{t}</span>
+          ))}
+        </div>
+      )}
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginTop: '1rem' }}>
+        {visible.map((b, i) => (
+          <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.9rem 1.1rem' }}>
+            <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-mid)', marginBottom: '0.3rem' }}>{b.t}</div>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>{b.d}</p>
           </div>
         ))}
-      </CardFooter>
-    </Card>
-  );
-};
+      </div>
 
-const Experience = () => {
+      {job.bullets.length > 3 && (
+        <button onClick={() => setOpen(!open)} style={{
+          marginTop: '1rem', background: 'transparent', border: '1px solid var(--border-md)',
+          color: 'var(--accent)', fontFamily: 'DM Mono, monospace', fontSize: '0.72rem',
+          padding: '6px 14px', borderRadius: '20px', cursor: 'pointer', letterSpacing: '0.04em',
+        }}>
+          {open ? '— show less' : `+ read more (${job.bullets.length - 3} more)`}
+        </button>
+      )}
+    </div>
+  );
+}
+
+export default function Experience() {
+  const [ref, inView] = useInView();
   return (
-    <Box id="experience" className="py-16 ">
-      <Box className="container mx-auto px-4 md:px-6">
-        <Box className="text-center mb-10">
-          <Heading level="2" className="section-title mx-auto">
-            Professional Experience
-          </Heading>
-          <Text className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            My <span className="font-semibold">professional journey</span> and{" "}
-            <span className="font-semibold">career progression</span> across
-            organizations
-          </Text>
-        </Box>
-
-        <Box className="mt-10 grid gap-8 staggered-animate">
-          {experienceData.map((exp, index) => (
-            <ExperienceCard
-              key={index}
-              company={exp.company}
-              companyLink={exp.companyLink}
-              roles={exp.roles}
-            />
-          ))}
-        </Box>
-      </Box>
-    </Box>
+    <section id="experience" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg)' }}>
+      <div ref={ref} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: 'all 0.5s ease', marginBottom: '3rem' }}>
+        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.75rem', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>CAREER</p>
+        <h2 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: 0 }}>Experience</h2>
+      </div>
+      {(jobs as Job[]).map(job => <JobCard key={job.id} job={job} />)}
+    </section>
   );
-};
-
-export default Experience;
+}

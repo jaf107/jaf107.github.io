@@ -1,147 +1,90 @@
-import React, { useState } from "react";
-import {
-  FiGithub,
-  FiExternalLink,
-  FiChevronDown,
-  FiChevronUp,
-} from "react-icons/fi";
-import { Card, CardFooter, CardHeader } from "@optiaxiom/react/unstable";
-import { Badge, Box, Flex, Heading, Link } from "@optiaxiom/react";
-import { Button } from "@optiaxiom/react";
-import {
-  Disclosure,
-  DisclosureContent,
-  DisclosureTrigger,
-} from "@optiaxiom/react";
-import projectsData from "../data/projects.json";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useInView } from '../hooks/useInView';
+import projects from '../data/projects.json';
 
-interface ProjectItemProps {
-  title: string;
-  description: string;
-  technologies: string[];
-  githubLink?: string | null;
-  demoLink?: string | null;
-  achievements?: string[];
+interface Project {
+  id: string; title: string; subtitle: string; tech: string[];
+  category: string; year: string; badge?: string; summary: string;
 }
 
-const ProjectItem: React.FC<ProjectItemProps> = ({
-  title,
-  description,
-  technologies,
-  githubLink,
-  demoLink,
-  achievements,
-}) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const hasAchievements = achievements && achievements.length > 0;
+const CATEGORIES = ['All', 'Research', 'AI', 'Open Source', 'Full Stack', 'Distributed Systems'];
+
+function ProjectCard({ project, idx }: { project: Project; idx: number }) {
+  const [ref, inView] = useInView();
+  const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <Card className="h-full flex flex-col card-hover" border="1" rounded="xl">
-      <Box className="flex justify-between">
-        <CardHeader className="text-xl font-bold">{title}</CardHeader>
-        <Box className="flex gap-2">
-          {githubLink && (
-            <Button
-              asChild
-              appearance="subtle"
-              size="sm"
-              className="gap-1"
-              icon={<FiGithub size={14} />}
-            >
-              <Link
-                href={githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            </Button>
-          )}
-          {demoLink && (
-            <Button
-              asChild
-              appearance="subtle"
-              size="sm"
-              className="gap-1"
-              icon={<FiExternalLink size={14} />}
-            >
-              <Link href={demoLink} target="_blank" rel="noopener noreferrer" />
-            </Button>
-          )}
-        </Box>
-      </Box>
-      <CardFooter className="flex-grow">
-        <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech, index) => (
-            <Badge key={index} intent="information">
-              {tech}
-            </Badge>
+    <div ref={ref}
+      onClick={() => navigate(`/project/${project.id}`)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'translateY(0)' : 'translateY(30px)',
+        transition: `opacity 0.5s ease ${idx * 0.05}s, transform 0.5s ease ${idx * 0.05}s`,
+        background: 'var(--surface)',
+        border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
+        borderRadius: '10px', padding: '1.5rem',
+        position: 'relative', overflow: 'hidden',
+        boxShadow: hovered ? '0 4px 20px rgba(0,0,0,0.08)' : 'none',
+        display: 'flex', flexDirection: 'column', cursor: 'pointer',
+      }}>
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: hovered ? 'var(--accent)' : 'transparent', transition: 'background 0.2s' }} />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem', gap: '0.5rem' }}>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.68rem', color: 'var(--accent)', background: 'var(--accent-bg)', padding: '3px 8px', borderRadius: '3px', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{project.category}</span>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--text-dim)' }}>{project.year}</span>
+      </div>
+
+      {project.badge && (
+        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#c89b00', marginBottom: '0.5rem' }}>★ {project.badge}</div>
+      )}
+
+      <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', margin: '0 0 0.25rem' }}>{project.title}</h3>
+      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 0.9rem' }}>{project.subtitle}</p>
+      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.65, margin: '0 0 1rem', flex: 1 }}>{project.summary}</p>
+
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1rem' }}>
+        {project.tech.map(t => (
+          <span key={t} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.66rem', color: 'var(--text-muted)', background: 'var(--bg-alt)', padding: '2px 7px', borderRadius: '3px', border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>{t}</span>
+        ))}
+      </div>
+
+      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: hovered ? 'var(--accent)' : 'var(--text-dim)', letterSpacing: '0.04em' }}>
+        READ MORE →
+      </div>
+    </div>
+  );
+}
+
+export default function Projects() {
+  const [ref, inView] = useInView();
+  const [filter, setFilter] = useState('All');
+  const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+
+  return (
+    <section id="projects" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
+      <div ref={ref} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: 'all 0.5s ease', marginBottom: '2rem' }}>
+        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.75rem', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>WORK & RESEARCH</p>
+        <h2 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: '0 0 1.5rem' }}>Projects</h2>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          {CATEGORIES.map(c => (
+            <button key={c} onClick={() => setFilter(c)} style={{
+              fontFamily: 'DM Mono, monospace', fontSize: '0.72rem',
+              padding: '6px 14px', borderRadius: '20px', cursor: 'pointer',
+              border: `1px solid ${filter === c ? 'var(--accent)' : 'var(--border-md)'}`,
+              background: filter === c ? 'var(--accent-bg)' : 'transparent',
+              color: filter === c ? 'var(--accent)' : 'var(--text-muted)',
+              letterSpacing: '0.04em',
+            }}>{c}</button>
           ))}
         </div>
-        <p className="text-muted-foreground mb-4">{description}</p>
-
-        {hasAchievements && (
-          <Disclosure open={isOpen} onOpenChange={setIsOpen} className="mt-2">
-            <DisclosureTrigger>
-              <Button
-                appearance="subtle"
-                size="sm"
-                className="flex items-center gap-1 w-full justify-between"
-              >
-                <span className="font-semibold">Key Achievements</span>
-                {isOpen ? (
-                  <FiChevronUp size={16} />
-                ) : (
-                  <FiChevronDown size={16} />
-                )}
-              </Button>
-            </DisclosureTrigger>
-            <DisclosureContent className="mt-2">
-              <ul className="space-y-2 pl-4">
-                {achievements.map((achievement, i) => (
-                  <li key={i} className="text-sm relative pl-2">
-                    <span className="absolute left-[-1rem] top-[0.6rem] h-1.5 w-1.5 rounded-full bg-primary/70"></span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: achievement.replace(
-                          /\*\*(.*?)\*\*/g,
-                          '<span class="font-bold">$1</span>'
-                        ),
-                      }}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </DisclosureContent>
-          </Disclosure>
-        )}
-      </CardFooter>
-    </Card>
+      </div>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
+        {filtered.map((p, i) => <ProjectCard key={p.id} project={p as Project} idx={i} />)}
+      </div>
+    </section>
   );
-};
-
-const Projects = () => {
-  return (
-    <Box id="projects" className="py-16">
-      <Flex className="container mx-auto px-4 md:px-6" alignItems={"center"}>
-        <Heading level="2" className="section-title" textAlign="center">
-          Academic Projects
-        </Heading>
-
-        <Box className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 staggered-animate">
-          {projectsData.map((project, index) => (
-            <ProjectItem
-              key={index}
-              title={project.title}
-              description={project.description}
-              technologies={project.technologies}
-              githubLink={project.githubLink}
-              demoLink={project.demoLink}
-              achievements={project.achievements}
-            />
-          ))}
-        </Box>
-      </Flex>
-    </Box>
-  );
-};
-
-export default Projects;
+}

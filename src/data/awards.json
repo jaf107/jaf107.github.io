@@ -1,60 +1,9 @@
 [
-  {
-    "title": "Scholarship",
-    "description": "For outstanding undergraduate academic performance",
-    "year": "2022",
-    "tags": [
-      { "name": "Academic", "intent": "information" },
-      { "name": "Scholarship", "intent": "success" }
-    ]
-  },
-  {
-    "title": "Top 6",
-    "description": "SCORE-ICSE",
-    "year": "2023",
-    "tags": [
-      { "name": "Conference", "intent": "information" },
-      { "name": "Top 6", "intent": "neutral" }
-    ]
-  },
-  {
-    "title": "Champion",
-    "description": "DU ITVerse Code Odyssey Refactoring Competition",
-    "year": "2023",
-    "tags": [{ "name": "Champion", "intent": "success" }]
-  },
-
-  {
-    "title": "Best UI/UX",
-    "description": "BUET CSE Fest Hackathon",
-    "year": "2023",
-    "tags": [
-      { "name": "Hackathon", "intent": "information" },
-      { "name": "Best UI/UX", "intent": "success" }
-    ]
-  },
-  {
-    "title": "Champions",
-    "description": "RUET CSE Fest Project Showcasing",
-    "year": "2022",
-    "tags": [{ "name": "Champion", "intent": "success" }]
-  },
-  {
-    "title": "Runners Up",
-    "description": "MIST CSE Fest Project Showcasing",
-    "year": "2022",
-    "tags": [{ "name": "Runners Up", "intent": "warning" }]
-  },
-  {
-    "title": "Runners Up",
-    "description": "CUET CSE Fest Project Showcasing",
-    "year": "2021",
-    "tags": [{ "name": "Runners Up", "intent": "warning" }]
-  },
-  {
-    "title": "Top 50",
-    "description": "NASA Space Apps Challenge",
-    "year": "2023",
-    "tags": [{ "name": "Top 50", "intent": "neutral" }]
-  }
+  { "title": "ICT Division Fellowship", "org": "Government of Bangladesh", "year": "2026", "desc": "Research funding for NavA11y / M.Sc. thesis (Grant No. 56.00.0000.052.33.002.24-61)" },
+  { "title": "Top 6 — ICSE SCORE 2023", "org": "International undergraduate SE competition", "year": "2023" },
+  { "title": "Champion — Refactoring Competition", "org": "", "year": "2023" },
+  { "title": "Best UI/UX — BUET Hackathon", "org": "", "year": "2023" },
+  { "title": "Champion — Project Showcasing", "org": "", "year": "2022" },
+  { "title": "Runners-up — Project Showcasing", "org": "", "year": "2021" },
+  { "title": "600+ problems solved", "org": "Codeforces & LeetCode", "year": "" }
 ]

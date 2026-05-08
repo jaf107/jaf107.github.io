@@ -1,0 +1,17 @@
+[
+  {
+    "id": "nava11y-paper",
+    "authors": "Abu Jafar Saifullah, Tasmia Zerin, Zerina Begum, Kazi Sakib",
+    "title": "NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation",
+    "venue": "In Proceedings of the 20th International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2025)",
+    "status": "Accepted",
+    "year": "2025",
+    "keyResults": [
+      "100% precision and recall on a 22-page controlled dataset (32 SC-level assertions)",
+      "2,947 violations detected across 26 production websites",
+      "90% precision confirmed via independent manual validation (PABAK = 0.80)",
+      "First tool to cover all five WCAG 2.4 focus-behavior success criteria"
+    ],
+    "links": [{ "label": "Code", "href": "#" }]
+  }
+]

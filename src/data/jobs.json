@@ -1,0 +1,52 @@
+[
+  {
+    "id": "optimizely",
+    "company": "Optimizely",
+    "team": "Content Marketing Platform",
+    "location": "Dhaka, Bangladesh",
+    "role": "Software Engineer II",
+    "roleNote": "promoted from SE I, Apr 2026",
+    "period": "Apr 2024 – Present",
+    "current": true,
+    "summary": "Shipping AI features and design-system migrations across Optimizely's Content Marketing Platform. De-facto sign-off owner for design-system migrations and AI-tracking instrumentation.",
+    "themes": ["Design Systems", "AI Integration", "Micro-frontends", "Platform Quality"],
+    "bullets": [
+      { "t": "Design System Migration", "d": "Drove the platform's multi-year migration from a legacy in-house design library to the OptiAxiom design system, authoring React/TypeScript adapter components and leading component migrations. Authored internal migration documentation adopted across product teams." },
+      { "t": "Axiom V3 Brand Refresh", "d": "Led the Axiom V3 rollout including resolving a critical micro-frontend architecture issue; migrated the color token system and key UI components." },
+      { "t": "AI Platform Integration", "d": "Owned end-to-end integration of an AI integration SDK — migrated the backend service to a modern framework, designed the internal package publishing pipeline, built the permissions layer and test suite, and authored internal documentation that graduated the feature from beta to GA." },
+      { "t": "AI Event Instrumentation", "d": "Built a reusable event-tracking React hook and instrumented structured AI-context events across multiple product surfaces." },
+      { "t": "Block-based AI Document UI", "d": "Implemented backend context extraction for LLM prompts, frontend block form interaction, and AI resource rendering for the platform's AI document interface." },
+      { "t": "Spotlight & Status System", "d": "Centralized fragmented per-feature status indicators into a unified StatusBadge component backed by a shared server-side schema across campaigns, tasks, and milestones; surfaced in global Spotlight search." },
+      { "t": "Platform Quality", "d": "Resolved duplicate comment/task creation on rapid clicks (server + client), fixed duplicate in-app notifications, refactored Dark Mode to CSS variables, and added 8 missing i18n locale variants." },
+      { "t": "Code Review & Mentorship", "d": "Reviewed 300+ pull requests across multiple repositories." }
+    ]
+  },
+  {
+    "id": "semeru",
+    "company": "SEMERU Lab, William & Mary",
+    "location": "Remote",
+    "role": "Research Intern",
+    "roleNote": "supervised by Dr. Denys Poshyvanyk",
+    "period": "Aug 2023 – Dec 2023",
+    "current": false,
+    "summary": "Worked under Dr. Denys Poshyvanyk on intelligent software tools — building NLP infrastructure for SE-specific code understanding.",
+    "themes": ["NLP for SE", "Tokenization", "Research"],
+    "bullets": [
+      { "t": "PL-Specific Tokenizer", "d": "Built a programming language-specific tokenizer to improve NLP model predictions for software engineering tasks, contributing to the lab's research on intelligent software tools." }
+    ]
+  },
+  {
+    "id": "orion",
+    "company": "Orion Informatics Ltd.",
+    "location": "Dhaka, Bangladesh",
+    "role": "Software Engineer",
+    "period": "Jul 2023 – Mar 2024",
+    "current": false,
+    "summary": "Full-stack engineering on internal tooling and a real-time stock-data integration.",
+    "themes": [".NET", "Azure", "Data Visualization"],
+    "bullets": [
+      { "t": "Attendance Management System", "d": "Built custom graphs and advanced data filters to enhance reporting capabilities." },
+      { "t": "Automated Trading Integration", "d": "Designed and implemented a TradeStation API integration for real-time stock price data; deployed on Azure using .NET." }
+    ]
+  }
+]
