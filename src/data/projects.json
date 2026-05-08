@@ -46,13 +46,12 @@
     "category": "Open Source",
     "year": "2024–2026",
     "badge": "Production at Optimizely",
-    "summary": "Multi-year migration from a legacy design library to OptiAxiom — including the V3 brand refresh, micro-frontend architecture fixes, and dark-mode theming.",
+    "summary": "Multi-year migration from a legacy design library to OptiAxiom — adapter components, component migrations, and dark-mode theming.",
     "headline": "Adapter components · component migrations · Authored internal guides adopted across product teams.",
     "description": "OptiAxiom is Optimizely's open-source design system. My contributions span the full migration lifecycle of the platform.",
     "sections": [
       { "h": "Adapter Components & Component Migrations", "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Led component migrations directly in the design-system repo." },
-      { "h": "Axiom V3 Rollout", "body": "Led the V3 brand-refresh rollout including resolving a critical micro-frontend architecture issue. Migrated the color token system and key UI components." },
-      { "h": "Documentation", "body": "Authored internal migration guides adopted across product teams." },
+{ "h": "Documentation", "body": "Authored internal migration guides adopted across product teams." },
       { "h": "Other System Work", "body": "Refactored Dark Mode to CSS variables; centralized fragmented status indicators into a unified StatusBadge schema; added missing i18n locale variants." }
     ],
     "stack": { "Framework": "React 18/19, Next.js", "Architecture": "Module Federation, Rspack", "Documentation": "Storybook", "Language": "TypeScript" },
