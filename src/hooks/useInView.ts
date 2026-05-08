@@ -6,10 +6,16 @@ export function useInView(threshold = 0.15): [React.RefObject<HTMLDivElement>, b
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+        }
+      },
       { threshold }
     );
-    if (ref.current) obs.observe(ref.current);
+    if (ref.current) {
+      obs.observe(ref.current);
+    }
     return () => obs.disconnect();
   }, [threshold]);
 

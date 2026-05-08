@@ -17,26 +17,7 @@
       { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of ENASE 2025 — 20th International Conference on Evaluation of Novel Approaches to Software Engineering. Accepted." }
     ],
     "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2025" },
-    "links": [{ "label": "Code", "href": "#" }, { "label": "Paper", "href": "#" }]
-  },
-  {
-    "id": "repaira11y",
-    "title": "RepairA11y",
-    "subtitle": "LLM-Driven Accessibility Repair",
-    "tech": ["Node.js", "Playwright", "Vitest", "LLMs"],
-    "category": "Research",
-    "year": "2026",
-    "badge": "M.Sc. Thesis — In Progress",
-    "summary": "LLM-driven automated repair pipeline for WCAG 2.4 accessibility violations. Evaluates whether runtime-evidence prompting outperforms static-evidence prompting for accessibility patch generation.",
-    "headline": "Open question: does live DOM evidence + dynamic violation reports produce better LLM patches than HTML/screenshots alone?",
-    "description": "RepairA11y forms the second half of my M.Sc. thesis — an automated repair pipeline that takes NavA11y's violation reports as input and generates accessibility patches via LLMs.",
-    "sections": [
-      { "h": "Research Questions", "body": "RQ1: Effectiveness — can LLM-generated patches resolve real WCAG 2.4 violations? RQ2: Evidence ablation — does runtime evidence outperform static evidence? RQ3: Regression safety — do patches preserve existing functionality? RQ4: Fault localization quality — does NavA11y's output narrow the LLM's search space effectively?" },
-      { "h": "Pipeline", "body": "NavA11y violations → context assembly (HTML / screenshot / live DOM) → LLM patch generation → automated validation via NavA11y as oracle → regression test suite via Vitest." },
-      { "h": "Status", "body": "Funded by ICT Division Fellowship (Govt. of Bangladesh, Apr 2026). Currently in implementation; targeting completion alongside M.Sc. thesis defense in Aug 2026." }
-    ],
-    "stack": { "Pipeline": "Node.js, Playwright", "Validation": "Vitest, NavA11y oracle", "Funding": "ICT Division Fellowship", "Status": "In Progress" },
-    "links": []
+    "links": [{ "label": "Paper", "href": "/papers/nava11y-latest.pdf" }]
   },
   {
     "id": "optiaxiom",
@@ -110,7 +91,7 @@
       { "h": "Why", "body": "Built as a teaching tool and as a direct precursor to the PL-specific tokenizer research at SEMERU Lab." }
     ],
     "stack": { "Language": "Python", "Frontend": "Flask", "Reference": "HuggingFace tokenizers", "Distribution": "PyPI" },
-    "links": [{ "label": "PyPI", "href": "#" }]
+    "links": [{ "label": "PyPI", "href": "https://pypi.org/project/python-bpe-tokenizer/" }]
   },
   {
     "id": "mr-bin",

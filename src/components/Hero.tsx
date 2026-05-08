@@ -16,6 +16,10 @@ const STATS = [
   { label: '600+', desc: 'Problems Solved' },
 ];
 
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 function TypedText() {
   const [idx, setIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
@@ -78,18 +82,19 @@ export default function Hero() {
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
             Software engineer with published research at the intersection of{' '}
             <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>web accessibility</span>,{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>automated program repair</span>, and{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>dynamic testing</span>, and{' '}
             <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>AI for software engineering</span>.
-            Currently shipping AI features at Optimizely while wrapping up an M.Sc. thesis on LLM-driven accessibility repair.
+            Currently shipping AI features at Optimizely while wrapping up an M.Sc. thesis on browser-based accessibility analysis.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            <button onClick={() => scrollToSection('projects')}
               style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', background: 'var(--accent)', color: dark ? '#0c0e13' : '#fff', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
               View Projects
             </button>
-            <a href="mailto:jafarmahin107@gmail.com" style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: 'var(--text)', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', textDecoration: 'none', fontWeight: 500 }}>
+            <button onClick={() => scrollToSection('contact')}
+              style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500 }}>
               Get in Touch
-            </a>
+            </button>
           </div>
           <div style={{ display: 'flex', gap: '2rem', marginTop: '3.5rem', flexWrap: 'nowrap', alignItems: 'flex-start' }} className="hero-stats">
             {STATS.map(s => (

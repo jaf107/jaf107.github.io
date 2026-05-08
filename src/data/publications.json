@@ -12,6 +12,6 @@
       "90% precision confirmed via independent manual validation (PABAK = 0.80)",
       "First tool to cover all five WCAG 2.4 focus-behavior success criteria"
     ],
-    "links": [{ "label": "Code", "href": "#" }]
+    "links": [{ "label": "Paper", "href": "/papers/nava11y-latest.pdf" }]
   }
 ]

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { SectionHeader } from "./Research";
 
 const EMAIL = "jafarmahin107@gmail.com";
+const GOOGLE_SCHOLAR_URL =
+  "https://scholar.google.com/scholar?q=%22Abu+Jafar+Saifullah%22";
 
 const SOCIALS = [
   {
@@ -41,7 +43,7 @@ const SOCIALS = [
   {
     label: "Google Scholar",
     handle: "Saifullah, A.J.",
-    href: "#",
+    href: GOOGLE_SCHOLAR_URL,
     color: "#4285F4",
     icon: (
       <svg
@@ -84,10 +86,34 @@ const SOCIALS = [
 export default function Contact() {
   const [copied, setCopied] = useState(false);
 
-  const copyEmail = () => {
-    navigator.clipboard.writeText(EMAIL);
+  const confirmCopied = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
+  };
+
+  const fallbackCopyEmail = () => {
+    const textarea = document.createElement("textarea");
+    textarea.value = EMAIL;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-1000px";
+    document.body.appendChild(textarea);
+    textarea.select();
+    const successful = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (successful) {
+      confirmCopied();
+    }
+  };
+
+  const copyEmail = () => {
+    if (navigator.clipboard) {
+      void navigator.clipboard.writeText(EMAIL).then(confirmCopied).catch(fallbackCopyEmail);
+      return;
+    }
+
+    fallbackCopyEmail();
   };
 
   return (

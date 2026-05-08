@@ -14,7 +14,9 @@ function renderDescription(text: string): React.ReactNode {
   const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
   let last = 0, m: RegExpExecArray | null;
   while ((m = pattern.exec(text)) !== null) {
-    if (m.index > last) parts.push(text.slice(last, m.index));
+    if (m.index > last) {
+      parts.push(text.slice(last, m.index));
+    }
     parts.push(
       <a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer"
         style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
@@ -23,7 +25,9 @@ function renderDescription(text: string): React.ReactNode {
     );
     last = m.index + m[0].length;
   }
-  if (last < text.length) parts.push(text.slice(last));
+  if (last < text.length) {
+    parts.push(text.slice(last));
+  }
   return parts.length ? parts : text;
 }
 

@@ -5,7 +5,9 @@ const NAV_LINKS = ['Experience', 'Projects', 'Research', 'Publications', 'Contac
 
 function scrollTo(id: string) {
   const el = document.getElementById(id.toLowerCase());
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 export default function Nav() {

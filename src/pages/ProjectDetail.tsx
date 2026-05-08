@@ -15,6 +15,14 @@ export default function ProjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = (projects as Project[]).find(p => p.id === id);
+  const goBack = () => {
+    if (window.history.length > 1) {
+      navigate(-1);
+      return;
+    }
+
+    navigate('/');
+  };
 
   if (!project) {
     return (
@@ -32,7 +40,7 @@ export default function ProjectDetail() {
     <div style={{ background: 'var(--bg)', minHeight: '100vh' }}>
       {/* Back nav */}
       <div style={{ padding: '1.5rem clamp(1.5rem, 10vw, 12rem)', borderBottom: '1px solid var(--border)' }}>
-        <button onClick={() => navigate(-1)} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.78rem', color: 'var(--accent)', background: 'transparent', border: 'none', cursor: 'pointer', letterSpacing: '0.04em' }}>
+        <button onClick={goBack} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.78rem', color: 'var(--accent)', background: 'transparent', border: 'none', cursor: 'pointer', letterSpacing: '0.04em' }}>
           ← BACK
         </button>
       </div>

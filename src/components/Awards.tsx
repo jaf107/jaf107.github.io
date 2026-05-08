@@ -16,7 +16,7 @@ export default function Awards() {
         {(awards as Award[]).map((a) => (
           <div
             key={a.slug}
-            onClick={() => navigate('/awards/' + a.slug)}
+            onClick={() => navigate(`/awards/${a.slug}`)}
             onMouseEnter={() => setHovered(a.slug)}
             onMouseLeave={() => setHovered(null)}
             style={{
