@@ -1,9 +1,25 @@
 {
-  "statement": "When not shipping code, I'm deep in a game of Mafia, watching too many episodes of something, or nursing a strong tea before 9 AM.",
+  "statement": "When not shipping code, I'm deep in a game of Mafia, watching too many episodes of something, or occasionally fragging with friends on Valorant.",
   "pursuits": [
-    { "icon": "🎭", "title": "Mind & Social Games", "body": "Mafia, interactive party games, puzzles. Monopoly Deal and Uno No Mercy are staples." },
-    { "icon": "🎮", "title": "Valorant", "body": "Play occasionally with friends. Competitive enough to care, casual enough to keep it fun." },
-    { "icon": "📺", "title": "TV & Cinema", "body": "Marvel through Phase 4, DC (big Batman fan — loved Peacemaker). Game of Thrones, House of the Dragon. Sitcoms: The Office, Brooklyn 99, HIMYM, Big Bang Theory." },
-    { "icon": "☕", "title": "Tea & Slow Mornings", "body": "Strong tea, no rush. The best ideas have all shown up before 9 AM." }
+    {
+      "label": "GAMES",
+      "title": "Mind & Social",
+      "items": ["Mafia", "Monopoly Deal", "Uno No Mercy", "Puzzles", "Interactive party games"]
+    },
+    {
+      "label": "GAMING",
+      "title": "Valorant",
+      "items": ["Occasional", "With friends", "Duelist main"]
+    },
+    {
+      "label": "WATCHING",
+      "title": "TV & Cinema",
+      "groups": [
+        { "label": "Marvel", "items": ["Phase 1 → 4"] },
+        { "label": "DC", "items": ["Batman", "Peacemaker"] },
+        { "label": "HBO", "items": ["Game of Thrones", "House of the Dragon"] },
+        { "label": "Sitcoms", "items": ["The Office", "Brooklyn 99", "HIMYM", "Big Bang Theory"] }
+      ]
+    }
   ]
 }
