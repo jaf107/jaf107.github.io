@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
-const NAV_LINKS = ['Experience', 'Projects', 'Research', 'Publications', 'Beyond', 'Contact'];
+const NAV_LINKS = ['Experience', 'Projects', 'Research', 'Publications', 'Contact'];
 
 function scrollTo(id: string) {
   const el = document.getElementById(id.toLowerCase());
