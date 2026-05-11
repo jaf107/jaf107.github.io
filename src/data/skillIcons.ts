@@ -44,6 +44,17 @@ export const SKILL_ICONS: Record<string, SkillIcon> = {
   Chromium:            { src: "simpleicons:chromium" },
   "GitHub Actions":    { src: "devicon:githubactions" },
   "Cloudflare Workers":{ src: "devicon:cloudflare" },
+  Vite:                { src: "devicon:vitejs" },
+  Vercel:              { src: "simpleicons:vercel", invertOnDark: true },
+  Netlify:             { src: "simpleicons:netlify" },
+  "Next.js":           { src: "simpleicons:nextdotjs", invertOnDark: true },
+  pnpm:                { src: "simpleicons:pnpm" },
+  Turnstile:           { src: "simpleicons:cloudflare" },
+  Resend:              { src: "simpleicons:resend", invertOnDark: true },
+  Recharts:            { src: "simpleicons:recharts" },
+  "Framer Motion":     { src: "simpleicons:framer" },
+  "react-hook-form":   { src: "simpleicons:reacthookform" },
+  Zod:                 { src: "simpleicons:zod" },
 };
 
 export function resolveIconUrl(src: string): string {

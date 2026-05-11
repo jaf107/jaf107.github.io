@@ -1,12 +1,82 @@
 [
   {
+    "id": "blueberry-auto",
+    "title": "Blueberry Auto",
+    "subtitle": "Vehicle Auction & Marketplace Platform",
+    "tech": ["React", "TypeScript", "Vite", "Hono", "Supabase", "Tailwind CSS", "shadcn/ui", "Vercel"],
+    "category": "Full Stack",
+    "year": "2025–Present",
+    "badge": "Lead Developer",
+    "summary": "Vehicle auction and marketplace platform for the Bangladesh market. Leading the end-to-end build as the contracted developer.",
+    "headline": "pnpm monorepo · Vite/React frontend · Hono API · Supabase backend · separate crawler app.",
+    "description": "Blueberry Auto is a vehicle auction and marketplace platform built from scratch as a pnpm monorepo. I lead architecture, OAuth, Supabase migrations, edge functions, and Vercel deployment.",
+    "sections": [
+      { "h": "Architecture", "body": "pnpm monorepo: apps/web (Vite + React 18 + TypeScript + Tailwind + shadcn/ui), apps/api (Hono backend), apps/crawler (data ingestion), packages/shared + packages/config, supabase/ migrations." },
+      { "h": "Engineering Surfaces", "body": "Contact-Email edge function, Supabase workflow, Google OAuth security refactor, exchange-rate calculator, notifications system." }
+    ],
+    "stack": { "Frontend": "React 18, Vite, Tailwind, shadcn/ui", "Backend": "Hono, Supabase", "Tooling": "pnpm workspaces, Vercel" },
+    "links": [{ "label": "Live", "href": "https://blueberry.com.bd/" }]
+  },
+  {
+    "id": "opti-retreat",
+    "title": "Opti Retreat Voting System",
+    "subtitle": "Internal Voting App for Optimizely Retreat",
+    "tech": ["React", "TypeScript", "Netlify"],
+    "category": "Full Stack",
+    "year": "2024",
+    "badge": "Optimizely Retreat 2024",
+    "summary": "Internal voting application built for Optimizely's annual company retreat; React + TypeScript SPA used by the Bangladesh office.",
+    "headline": "Shipped internal tool · React + TypeScript SPA on Netlify.",
+    "description": "A React + TypeScript single-page voting app used internally at Optimizely's 2024 company retreat in the Bangladesh office.",
+    "sections": [],
+    "stack": { "Frontend": "React 18, TypeScript", "Hosting": "Netlify" },
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/jaf107/opti-retreat-voting-system" },
+      { "label": "Live", "href": "https://optiretreat2024.netlify.app" }
+    ]
+  },
+  {
+    "id": "gcmaf",
+    "title": "GCMAF",
+    "subtitle": "Medical Product & Research Site",
+    "tech": ["Next.js", "React", "Tailwind CSS", "Cloudflare Workers", "Resend"],
+    "category": "Full Stack",
+    "year": "2025",
+    "badge": "Lead Developer",
+    "summary": "Marketing and research site for a medical product line; led design and build.",
+    "headline": "Next.js 16 on Cloudflare Workers · Resend for transactional email · Turnstile for form protection.",
+    "description": "GCMAF is a marketing and research site for a medical product line, deployed on Cloudflare Workers with Next.js. I led the design and build.",
+    "sections": [
+      { "h": "Surfaces", "body": "Clinical applications, product, research, contact, and about pages." }
+    ],
+    "stack": { "Framework": "Next.js 16, React 19, Tailwind 4", "Hosting": "Cloudflare Workers", "Email": "Resend", "Anti-spam": "Turnstile" },
+    "links": [{ "label": "Live", "href": "https://gcmaf.net" }]
+  },
+  {
+    "id": "dbh-services",
+    "title": "DBH Services",
+    "subtitle": "Corporate / Holding Company Website",
+    "tech": ["React", "TypeScript", "Vite", "shadcn/ui", "Recharts", "Framer Motion"],
+    "category": "Full Stack",
+    "year": "2025",
+    "badge": "Lead Developer",
+    "summary": "Corporate website for a holding company covering home, services, allied businesses, and admin contact submissions.",
+    "headline": "Vite + React + shadcn/ui · react-hook-form + zod · recharts · framer-motion.",
+    "description": "DBH Services is a corporate website for a holding company. I led the design and build.",
+    "sections": [
+      { "h": "Surfaces", "body": "Home, About, Services, Allied Business Concerns, Contact + admin Contact Submissions, Privacy, Terms." }
+    ],
+    "stack": { "Framework": "Vite, React 18, TypeScript", "UI": "shadcn/ui, Framer Motion", "Forms": "react-hook-form + zod", "Charts": "Recharts" },
+    "links": [{ "label": "Live", "href": "https://dbhservices.com.bd" }]
+  },
+  {
     "id": "nava11y",
     "title": "NavA11y",
     "subtitle": "Dynamic WCAG 2.4 Accessibility Testing",
     "tech": ["Node.js", "Playwright", "Chromium"],
     "category": "Research",
-    "year": "2025",
-    "badge": "Published — ENASE 2025",
+    "year": "2026",
+    "badge": "Published — ENASE 2026",
     "summary": "Dynamic WCAG 2.4 accessibility testing tool — the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event.",
     "headline": "100% precision and recall on the labeled benchmark · 2,947 violations detected on 26 production sites · 90% confirmed true-positive rate.",
     "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state — surfacing violations that only appear at runtime.",
@@ -14,26 +84,26 @@
       { "h": "Two-phase Architecture", "body": "Page-Level Analysis performs full-keyboard tab traversal and computes Kendall τ divergence between expected and observed focus order. Element-Level Analysis inspects each focused element's rendered focus state, including a 7×7 grid obscuration probe to detect occluded focus indicators." },
       { "h": "Empirical Results", "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed via independent manual validation by two expert raters (PABAK = 0.80)." },
       { "h": "Contributions", "body": "First automated tool to cover all five WCAG 2.4 focus-behavior success criteria. Released a reusable 22-page labeled focus-behavior dataset covering pass, boundary, and obscuration cases for community benchmarking." },
-      { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of ENASE 2025 — 20th International Conference on Evaluation of Novel Approaches to Software Engineering. Accepted." }
+      { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of ENASE 2026 — International Conference on Evaluation of Novel Approaches to Software Engineering. Accepted." }
     ],
-    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2025" },
+    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2026" },
     "links": [{ "label": "Paper", "href": "/papers/nava11y-latest.pdf" }]
   },
   {
     "id": "optiaxiom",
-    "title": "OptiAxiom Migration",
-    "subtitle": "CMP's Design System Migration",
+    "title": "Axiom Migration",
+    "subtitle": "Platform Migration to @optiaxiom/react",
     "tech": ["React", "TypeScript", "Module Federation", "Storybook"],
     "category": "Open Source",
     "year": "2024–2026",
     "badge": "Production at Optimizely",
-    "summary": "Multi-year migration from a legacy design library to OptiAxiom — adapter components, component migrations, and dark-mode theming.",
+    "summary": "Multi-year migration from a legacy design library to Axiom — adapter components, component migrations, and dark-mode theming.",
     "headline": "Adapter components · component migrations · Authored internal guides adopted across product teams.",
-    "description": "OptiAxiom is Optimizely's open-source design system. My contributions span the full migration lifecycle of the platform.",
+    "description": "Axiom is Optimizely's open-source design system (`@optiaxiom/react`). My contributions span the full migration lifecycle of the platform.",
     "sections": [
-      { "h": "Adapter Components & Component Migrations", "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Led component migrations directly in the design-system repo." },
-{ "h": "Documentation", "body": "Authored internal migration guides adopted across product teams." },
-      { "h": "Other System Work", "body": "Refactored Dark Mode to CSS variables; centralized fragmented status indicators into a unified StatusBadge schema; added missing i18n locale variants." }
+      { "h": "Adapter Components & Component Migrations", "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Contributed component migrations directly in the design-system repo." },
+      { "h": "Documentation", "body": "Authored internal migration guides used across product teams." },
+      { "h": "Other System Work", "body": "Refactored Dark Mode to CSS variables; centralized fragmented status indicators into a unified status schema; added missing i18n locale variants." }
     ],
     "stack": { "Framework": "React 18/19, Next.js", "Architecture": "Module Federation, Rspack", "Documentation": "Storybook", "Language": "TypeScript" },
     "links": []
@@ -48,9 +118,9 @@
     "badge": "Shipped at Optimizely",
     "summary": "End-to-end integration of an AI SDK across the platform — service migration, internal publishing pipeline, instrumentation, and a block-based AI document UI.",
     "headline": "AI-context events across multiple product surfaces · graduated feature from beta to GA.",
-    "description": "I owned the end-to-end AI integration into the platform, including infrastructure migration, the AI event-tracking layer, and a block-based AI document interface.",
+    "description": "I worked on the end-to-end AI integration into the platform, including infrastructure migration, the AI event-tracking layer, and a block-based AI document interface.",
     "sections": [
-      { "h": "SDK Integration & Infrastructure", "body": "Migrated the AI service to a modern framework. Designed the internal package publishing pipeline. Built the permissions layer and test suite. Authored internal documentation that graduated the feature from beta to GA." },
+      { "h": "SDK Integration & Infrastructure", "body": "Migrated the AI service to a modern framework. Designed the internal package publishing pipeline. Built the permissions layer and test suite. Authored internal documentation that helped graduate the feature from beta to GA." },
       { "h": "AI Event Instrumentation", "body": "Built a reusable event-tracking hook and instrumented structured AI-context events across multiple product surfaces." },
       { "h": "Block-based AI Document UI", "body": "Implemented backend context extraction for LLM prompts, frontend block form interaction, and AI resource rendering for the platform's AI document interface." }
     ],
@@ -76,24 +146,6 @@
     "links": [{ "label": "GitHub", "href": "https://github.com/jaf107" }]
   },
   {
-    "id": "bpe-tokenizer",
-    "title": "BPE Tokenizer",
-    "subtitle": "Byte Pair Encoding from Scratch",
-    "tech": ["Python", "Flask", "HuggingFace"],
-    "category": "AI",
-    "year": "2023",
-    "badge": "Published on PyPI",
-    "summary": "Byte Pair Encoding tokenizer implemented from scratch and published as python-bpe-tokenizer on PyPI. Includes a Flask web interface for training on custom corpora.",
-    "headline": "Direct precursor to my SEMERU Lab tokenizer research.",
-    "description": "A from-scratch BPE tokenizer that handles the full training/encoding/decoding cycle. Shipped as a public PyPI package and a Flask UI for non-CLI users.",
-    "sections": [
-      { "h": "Package", "body": "Published as python-bpe-tokenizer on PyPI — supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export." },
-      { "h": "Why", "body": "Built as a teaching tool and as a direct precursor to the PL-specific tokenizer research at SEMERU Lab." }
-    ],
-    "stack": { "Language": "Python", "Frontend": "Flask", "Reference": "HuggingFace tokenizers", "Distribution": "PyPI" },
-    "links": [{ "label": "PyPI", "href": "https://pypi.org/project/python-bpe-tokenizer/" }]
-  },
-  {
     "id": "mr-bin",
     "title": "Mr. Bin",
     "subtitle": "Recycling Marketplace + ML Classification",
@@ -112,23 +164,6 @@
     "links": []
   },
   {
-    "id": "emitxplorer",
-    "title": "EmitXplorer",
-    "subtitle": "Greenhouse Gas Visualization",
-    "tech": ["React", "ASP.NET Core", "TensorFlow"],
-    "category": "AI",
-    "year": "2023",
-    "badge": "NASA Space Apps 2023",
-    "summary": "Gamified greenhouse gas visualization platform using SCISAT satellite data and ML-based CO₂ concentration prediction.",
-    "headline": "Built for NASA Space Apps Challenge 2023.",
-    "description": "EmitXplorer turns SCISAT satellite emissions data into an interactive gamified visualization, with an ML model that predicts CO₂ concentrations from input parameters.",
-    "sections": [
-      { "h": "Approach", "body": "SCISAT satellite data → preprocessing → ML model (TensorFlow) for CO₂ prediction → React/ASP.NET visualization with gamified exploration." }
-    ],
-    "stack": { "Frontend": "React", "Backend": "ASP.NET Core", "ML": "TensorFlow", "Data": "SCISAT satellite" },
-    "links": []
-  },
-  {
     "id": "api-miners-gpt",
     "title": "API Miners GPT",
     "subtitle": "GPT-Powered PDF Chatbot",
@@ -136,11 +171,11 @@
     "category": "AI",
     "year": "2023",
     "badge": "BUET Hackathon — Best UI/UX",
-    "summary": "GPT-powered PDF chatbot with audio I/O, OCR, and Stable Diffusion image generation.",
+    "summary": "GPT-powered PDF chatbot with voice input, OCR, and Stable Diffusion image generation.",
     "headline": "Won Best UI/UX at BUET Hackathon 2023.",
-    "description": "A multimodal GPT interface: chat with PDFs, voice in/out, OCR for image-to-text, and on-the-fly image generation via Stable Diffusion.",
+    "description": "A multimodal GPT interface: chat with PDFs, voice input via the Web Speech API, OCR for image-to-text, and on-the-fly image generation via Stable Diffusion.",
     "sections": [
-      { "h": "Features", "body": "PDF chat (RAG-style), audio I/O for voice interaction, OCR pipeline, AI image generation via Stable Diffusion, integrated bookstore." },
+      { "h": "Features", "body": "PDF chat (RAG-style), voice input via the Web Speech API, OCR pipeline, AI image generation via Stable Diffusion, integrated bookstore." },
       { "h": "Stack", "body": ".NET backend with SQL Server, React + Tailwind CSS frontend." }
     ],
     "stack": { "Frontend": "React + Tailwind", "Backend": "ASP.NET Core, EF Core", "AI": "OpenAI API, Stable Diffusion", "Database": "SQL Server" },
@@ -163,20 +198,38 @@
     "links": [{ "label": "GitHub", "href": "https://github.com/jaf107" }]
   },
   {
-    "id": "design-system-study",
-    "title": "Design System Usability Study",
-    "subtitle": "Controlled Developer Study (n=15)",
-    "tech": ["React 19", "MUI", "Carbon", "Fluent UI"],
-    "category": "Research",
-    "year": "2025",
-    "badge": "M.Sc. Coursework",
-    "summary": "Designed and built the research instrument for a controlled developer study comparing Material UI, Carbon, and Fluent UI across 5 standardized UI tasks.",
-    "headline": "n = 15 participants · 3 design systems · 5 standardized tasks.",
-    "description": "A controlled study instrument for evaluating developer experience across major design systems. Includes automated time-logging, consent documentation, and structured evaluation rubrics.",
+    "id": "bpe-tokenizer",
+    "title": "BPE Tokenizer",
+    "subtitle": "Byte Pair Encoding from Scratch",
+    "tech": ["Python", "Flask", "HuggingFace"],
+    "category": "AI",
+    "year": "2023",
+    "badge": "Published on PyPI",
+    "summary": "Byte Pair Encoding tokenizer implemented from scratch and published as python-bpe-tokenizer on PyPI. Includes a Flask web interface for training on custom corpora.",
+    "headline": "Direct precursor to my SEMERU Lab tokenizer research.",
+    "description": "A from-scratch BPE tokenizer that handles the full training/encoding/decoding cycle. Shipped as a public PyPI package and a Flask UI for non-CLI users.",
     "sections": [
-      { "h": "Method", "body": "Participants (n=15) completed 5 standardized UI implementation tasks using each of MUI, Carbon, and Fluent UI; task time was auto-logged and code/output rated against rubrics." }
+      { "h": "Package", "body": "Published as python-bpe-tokenizer on PyPI — supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export." },
+      { "h": "Why", "body": "Built as a teaching tool and as a direct precursor to the PL-specific tokenizer research at SEMERU Lab." }
     ],
-    "stack": { "Frontend": "React 19, TypeScript", "Systems Compared": "MUI · Carbon · Fluent UI", "Method": "Controlled study (n=15)" },
+    "stack": { "Language": "Python", "Frontend": "Flask", "Reference": "HuggingFace tokenizers", "Distribution": "PyPI" },
+    "links": [{ "label": "PyPI", "href": "https://pypi.org/project/python-bpe-tokenizer/" }]
+  },
+  {
+    "id": "emitxplorer",
+    "title": "EmitXplorer",
+    "subtitle": "Greenhouse Gas Visualization",
+    "tech": ["React", "ASP.NET Core", "TensorFlow"],
+    "category": "AI",
+    "year": "2023",
+    "badge": "NASA Space Apps 2023",
+    "summary": "Gamified greenhouse gas visualization platform using SCISAT satellite data and ML-based CO₂ concentration prediction.",
+    "headline": "Built for NASA Space Apps Challenge 2023.",
+    "description": "EmitXplorer turns SCISAT satellite emissions data into an interactive gamified visualization, with an ML model that predicts CO₂ concentrations from input parameters.",
+    "sections": [
+      { "h": "Approach", "body": "SCISAT satellite data → preprocessing → ML model (TensorFlow) for CO₂ prediction → React/ASP.NET visualization with gamified exploration." }
+    ],
+    "stack": { "Frontend": "React", "Backend": "ASP.NET Core", "ML": "TensorFlow", "Data": "SCISAT satellite" },
     "links": []
   },
   {

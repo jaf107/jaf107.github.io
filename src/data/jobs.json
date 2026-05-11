@@ -11,12 +11,15 @@
     "summary": "Part of CMP's platform team — contributing to AI feature development, design-system migrations, client bug triage, and feature requests alongside the broader platform.",
     "themes": ["Design Systems", "AI Integration", "Platform Quality"],
     "bullets": [
-      { "t": "Design System Migration", "d": "Contributed to the platform's multi-year migration from a legacy design library to OptiAxiom, building React/TypeScript adapter components and writing migration documentation adopted across product teams." },
-      { "t": "AI Platform Integration", "d": "Worked on end-to-end integration of an AI SDK — migrated the backend service, designed the internal package publishing pipeline, built the permissions layer and test suite, and wrote documentation that helped graduate the feature from beta to GA." },
-      { "t": "AI Event Instrumentation", "d": "Built a reusable event-tracking React hook and instrumented structured AI-context events across multiple product surfaces." },
-      { "t": "Block-based AI Document UI", "d": "Implemented backend context extraction for LLM prompts, frontend block interaction, and AI resource rendering for the platform's document AI interface — following a block-based UI pattern inspired by [Adaptive Cards](https://adaptivecards.io)." },
-      { "t": "Platform Quality", "d": "Resolved duplicate comment/task creation on rapid clicks (server + client), fixed duplicate in-app notifications, refactored Dark Mode to CSS variables, and added 8 missing i18n locale variants." },
-      { "t": "Code Review & Mentorship", "d": "Reviewed 300+ pull requests, served as onboarding buddy for new team members, and participated in sprint planning, reviews, and technical design discussions." }
+      { "t": "Design System Migration", "d": "Contributed to the platform's multi-year migration from a legacy design library to Axiom (`@optiaxiom/react`, public design system). Authored 15+ V1→V2 component conversions in the open-source repo and 10+ adapter components in the product. Wrote the Migration Guide and Icon Contribution Guide used by other product teams." },
+      { "t": "Axiom V3 Brand Refresh", "d": "Worked on the V3 token/color rollout in the product, including a module-federation singleton fix that eliminated duplicate React-context errors across micro-frontends." },
+      { "t": "AI SDK Integration", "d": "Worked on end-to-end integration of an internal AI SDK. Migrated the backing service from Express to Hono, set up the AWS CodeArtifact publishing pipeline, and built the permissions layer and test suite." },
+      { "t": "AI Event Instrumentation", "d": "Built a reusable event-tracking React hook and instrumented structured AI-context events across 10+ product surfaces." },
+      { "t": "Block-based AI Document UI", "d": "Implemented backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering for the platform's AI document interface — following a block-based UI pattern inspired by [Adaptive Cards](https://adaptivecards.io)." },
+      { "t": "Spotlight Global Search", "d": "Contributed to the platform's Spotlight global search with status pills, keyboard activation (Cmd+K), search-result separation, and segment-event telemetry. Built during, and won, the **Optimizely Global Hackathon 2025** as part of a team." },
+      { "t": "Dark Mode", "d": "Implemented Dark Mode across 15+ surfaces (modals, dropdowns, tables, library, notifications, plan share, asset upload); refactored to CSS variables and prevented bleed-through into legacy UI." },
+      { "t": "Platform Quality", "d": "Resolved duplicate comment/task creation on rapid clicks (server + client), fixed duplicate in-app notifications, restored thread-reply notifications to original commenters, and added 8 missing i18n locale variants." },
+      { "t": "Code Review & Mentorship", "d": "Reviewed 300+ pull requests across product client/server and AI services; served as onboarding buddy for new team members; participated in sprint planning, reviews, and technical design discussions." }
     ]
   },
   {
@@ -40,11 +43,11 @@
     "role": "Software Engineer",
     "period": "Jul 2023 – Mar 2024",
     "current": false,
-    "summary": "Full-stack engineering on internal tooling and a real-time stock-data integration.",
+    "summary": "Full-stack engineering on internal tooling and an automated trading integration.",
     "themes": [".NET", "Azure", "Data Visualization"],
     "bullets": [
       { "t": "Attendance Management System", "d": "Built custom graphs and advanced data filters to enhance reporting capabilities." },
-      { "t": "Automated Trading Integration", "d": "Designed and implemented a TradeStation API integration for real-time stock price data; deployed on Azure using .NET." }
+      { "t": "Automated Trading Integration", "d": "Built a two-service ASP.NET Core webhook relay that ingests TradeStation alerts, validates request integrity, and routes by trade type to a file-based queue consumed by an automated trading bot; deployed on Azure App Service." }
     ]
   }
 ]

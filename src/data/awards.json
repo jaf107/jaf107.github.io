@@ -13,6 +13,19 @@
     "images": []
   },
   {
+    "slug": "optimizely-global-hackathon-2025",
+    "title": "Winner — Optimizely Global Hackathon 2025",
+    "org": "Optimizely",
+    "year": "2025",
+    "desc": "Company-wide international hackathon win — team built Spotlight, which then shipped to CMP.",
+    "description": "Won the Optimizely Global Hackathon 2025 as part of a team. Our hackathon project was Spotlight — a Cmd+K command palette / global search for the Content Marketing Platform. The feature was later productionized and shipped to CMP.",
+    "sections": [
+      { "h": "About the Hackathon", "body": "The Optimizely Global Hackathon is a company-wide international competition spanning Optimizely's offices and product teams." },
+      { "h": "What We Built", "body": "Spotlight: keyboard-activated (Cmd+K) global search over CMP entities, with status pills, search-result separation by type, and segment-event telemetry. Shipped to production after the hackathon." }
+    ],
+    "images": []
+  },
+  {
     "slug": "icse-score-2023",
     "title": "Top 6 — ICSE SCORE 2023",
     "org": "International undergraduate SE competition",
