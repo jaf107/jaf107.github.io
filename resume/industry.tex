@@ -1,0 +1,279 @@
+%-------------------------
+% Industry Resume — Abu Jafar Saifullah
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{hyphenat}
+\usepackage{fontawesome}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{{#1 \vspace{-2pt}}}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeEducationHeading}[6]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+      \textit{\small#5} & \textit{\small #6} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+\begin{document}
+
+%---------- HEADING ----------
+
+\begin{center}
+    \textbf{\Huge \scshape Abu Jafar Saifullah} \\ \vspace{3pt}
+    \small
+    \faMobile \hspace{.5pt} \href{tel:+8801717743519}{+880 1717 743519}
+    $|$
+    \faAt \hspace{.5pt} \href{mailto:jafarmahin107@gmail.com}{jafarmahin107@gmail.com}
+    $|$
+    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/abu-jafar-saifullah/}{LinkedIn}
+    $|$
+    \faGithub \hspace{.5pt} \href{https://github.com/jaf107}{GitHub}
+    $|$
+    \faMapMarker \hspace{.5pt} {Dhaka, Bangladesh}
+\end{center}
+
+
+%----------- EXPERIENCE -----------
+
+\section{Experience}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Optimizely, Content Marketing Platform}{Dhaka, Bangladesh}
+      {Software Engineer II \textnormal{(promoted from SE I, Apr 2026)}}{Apr 2024 \textbf{--} Present, Full-time}
+      \resumeItemListStart
+        \resumeItem{\textbf{Design System Migration:} Contributed to the platform's multi-year migration to \textbf{Axiom} (\href{https://github.com/optimizely-axiom/optiaxiom}{\color{blue}\texttt{@optiaxiom/react}}, public design system). Authored \textbf{15+ V1{\textrightarrow}V2 component conversions} in the open-source repo and \textbf{10+ adapter components} in the product. Wrote the Migration Guide and Icon Contribution Guide used by other product teams.}
+        \resumeItem{\textbf{Axiom V3 Brand Refresh:} Worked on the V3 token/color rollout in the product, including a \textbf{module-federation singleton fix} that eliminated duplicate React-context errors across micro-frontends.}
+        \resumeItem{\textbf{AI SDK Integration:} Worked on end-to-end integration of an internal AI SDK. Migrated the backing service from \textbf{Express to Hono}, set up the \textbf{AWS CodeArtifact} publishing pipeline, built the permissions layer and test suite, and wrote the rollout documentation.}
+        \resumeItem{\textbf{AI Event Instrumentation:} Built a reusable event-tracking React hook and instrumented structured AI-context events across \textbf{10+ product surfaces}, enabling downstream AI agents to consume product context.}
+        \resumeItem{\textbf{Block-based AI Document UI:} Implemented backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering for the platform's AI document interface (Adaptive-Cards-style pattern).}
+        \resumeItem{\textbf{Spotlight Global Search:} Contributed to the platform's \textbf{Spotlight} global search with status pills, keyboard activation (\texttt{Cmd+K}), search-result separation, and segment-event telemetry. Built during, and won, the \textbf{Optimizely Global Hackathon 2025} as part of a team.}
+        \resumeItem{\textbf{Dark Mode:} Implemented \textbf{Dark Mode} across \textbf{15+ surfaces} (modals, dropdowns, tables, library, notifications, plan share, asset upload); refactored to \textbf{CSS variables} and prevented bleed-through into legacy UI.}
+        \resumeItem{\textbf{Platform Quality:} Resolved duplicate comment/task creation on rapid clicks (server + client), fixed duplicate in-app notifications, restored thread-reply notifications to original commenters, and added \textbf{8 missing i18n locale variants}.}
+        \resumeItem{\textbf{Code Review:} Reviewed \textbf{300+ pull requests} across product client/server and AI services; participated in sprint planning and technical design discussions.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Orion Informatics Ltd.}{Dhaka, Bangladesh}
+      {Software Engineer}{Jul 2023 \textbf{--} Mar 2024, Full-time}
+        \resumeItemListStart
+            \resumeItem{Built custom graphs and advanced data filters for an Attendance Management System to enhance reporting capabilities.}
+            \resumeItem{Built a two-service \textbf{ASP.NET Core} webhook relay that ingests TradeStation alerts, validates request integrity, and routes by trade type to a file-based queue consumed by an automated trading bot; deployed on \textbf{Azure App Service}.}
+        \resumeItemListEnd
+
+    \resumeSubheading
+      {SEMERU Lab, William \& Mary}{Remote}
+      {Research Intern, supervised by \href{https://www.cs.wm.edu/~denys/}{\color{blue}Dr. Denys Poshyvanyk}}{Aug 2023 \textbf{--} Dec 2023}
+        \resumeItemListStart
+            \resumeItem{Built a programming language-specific tokenizer to improve NLP model predictions for software engineering tasks.}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%----------- EDUCATION -----------
+
+\section{Education}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+
+    \resumeEducationHeading
+      {University of Dhaka}{Dhaka, Bangladesh}
+      {M.Sc. in Software Engineering (Final Semester); \textbf{GPA: 3.92/4.00}}{Apr 2025 \textbf{--} Aug 2026}
+      {B.Sc. in Software Engineering; \textbf{GPA: 3.89/4.00}}{Jan 2019 \textbf{--} Dec 2023}
+
+    \resumeSubheading
+      {Notre Dame College}{Dhaka, Bangladesh}
+      {Higher Secondary Certificate; \textbf{GPA: 5.0/5.0}}{Jun 2014 \textbf{--} Jun 2016}
+
+  \resumeSubHeadingListEnd
+
+
+%----------- PUBLICATIONS -----------
+
+\section{Publications}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+      \textbf{Abu Jafar Saifullah}, Tasmia Zerin, Zerina Begum, Kazi Sakib. \textit{``NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.''} In \textit{Proceedings of the International Conference on Evaluation of Novel Approaches to Software Engineering} \textbf{(ENASE 2026)}. \textit{Accepted.} \hfill \href{https://anonymous.4open.science/r/NavA11y-2C9E}{\color{blue}[Code]}
+    }}
+  \resumeSubHeadingListEnd
+
+
+%----------- PROJECTS -----------
+
+\section{Projects}
+    \vspace{3pt}
+    \resumeSubHeadingListStart
+
+      \resumeProjectHeading
+        {\textbf{Blueberry Auto} $|$ \emph{React 18, TypeScript, Vite, Hono, Supabase, Tailwind, shadcn/ui, pnpm workspaces, Vercel} $|$ \href{https://blueberry.com.bd/}{\color{blue}Live} $|$ \textit{Lead Developer, 2025\,--\,Present}}{}
+          \resumeItemListStart
+            \resumeItem{Vehicle auction and marketplace platform; pnpm monorepo with a Vite/React frontend, Hono API, Supabase backend, and a separate crawler app. Leading end-to-end build (architecture, OAuth, Supabase migrations, edge functions, Vercel deploy) as the contracted developer.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Opti Retreat Voting System} $|$ \emph{React, TypeScript} $|$ \href{https://github.com/jaf107/opti-retreat-voting-system}{\color{blue}GitHub} $|$ \href{https://optiretreat2024.netlify.app}{\color{blue}Live} $|$ \textit{Optimizely Retreat 2024}}{}
+          \resumeItemListStart
+            \resumeItem{Internal voting application built for Optimizely's annual company retreat; React + TypeScript SPA deployed on Netlify, used by the Bangladesh office.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{NavA11y} $|$ \emph{Node.js, Playwright, Chromium} $|$ \href{https://anonymous.4open.science/r/NavA11y-2C9E}{\color{blue}Code} $|$ \textit{ENASE 2026}}{}
+          \resumeItemListStart
+            \resumeItem{Dynamic WCAG 2.4 accessibility testing tool, the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event. Achieved 100\% precision and recall on a 22-page labeled dataset; detected 2,947 violations across 26 production websites with 90\% confirmed true-positive rate.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{RepairA11y} $|$ \emph{Node.js, Playwright, Vitest} $|$ \textit{M.Sc. Thesis, In Progress}}{}
+          \resumeItemListStart
+            \resumeItem{LLM-driven automated repair pipeline for WCAG 2.4 accessibility violations; evaluates whether runtime-evidence prompting outperforms static-evidence (HTML/screenshot) prompting for accessibility patch generation. Uses NavA11y as validation oracle.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Clippy} $|$ \emph{Angular, Node.js, AWS S3} $|$ \href{https://github.com/jaf107/Clippy}{\color{blue}GitHub} $|$ \textit{ICSE SRC 2023, Top 6}}{}
+          \resumeItemListStart
+            \resumeItem{Smart PDF reader with knowledge graph extraction, citation network visualization, and paper recommendation. OTP-based auth, Azure CI/CD. 392 commits, 5 GitHub stars; submitted to ICSE 2023 Student Research Competition.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{Mr. Bin} $|$ \emph{MERN, Spring Boot 3, TensorFlow, Maps API} $|$ \textit{JavaFest 2023 (Therap)}}{}
+          \resumeItemListStart
+            \resumeItem{Full-stack recycling and exchange marketplace with ML-based object detection for item classification; MERN stack with a Spring Boot 3 / Java 17 backend rewrite. Entered in JavaFest 2023 (Therap competition).}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{API Miners GPT} $|$ \emph{ASP.NET Core, React, OpenAI API, EF Core} $|$ \textit{BUET Hackathon, Best UI/UX}}{}
+          \resumeItemListStart
+            \resumeItem{GPT-powered PDF chatbot with voice input, OCR, and Stable Diffusion image generation; .NET backend with SQL Server, React + Tailwind CSS frontend. Won Best UI/UX at BUET Hackathon 2023.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{MiniFacebook} $|$ \emph{React, Node.js, Docker, NGINX} $|$ \href{https://github.com/jaf107/Distributed-Systems-Lab}{\color{blue}GitHub}}{}
+          \resumeItemListStart
+            \resumeItem{Demonstrated monolith-to-microservices decomposition by splitting a Node.js app into User, Story, and Status services behind an NGINX reverse proxy / load balancer, orchestrated with Docker Compose.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{BPE Tokenizer} $|$ \emph{Python, Flask, HuggingFace} $|$ \href{https://pypi.org/project/python-bpe-tokenizer/}{\color{blue}PyPI} $|$ \textit{Published Package}}{}
+          \resumeItemListStart
+            \resumeItem{Byte Pair Encoding tokenizer implemented from scratch and published as \texttt{python-bpe-tokenizer} on PyPI; includes a Flask web interface for training on custom corpora and tokenize/detokenize workflows.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+        {\textbf{EmitXplorer} $|$ \emph{React, ASP.NET Core, Python/ML, TensorFlow} $|$ \textit{NASA Space Apps 2023}}{}
+          \resumeItemListStart
+            \resumeItem{Gamified greenhouse gas visualization platform using SCISAT satellite data and ML-based CO\textsubscript{2} concentration prediction; built for NASA Space Apps Challenge 2023.}
+          \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+
+
+%----------- SKILLS -----------
+
+\section{Skills}
+  \vspace{2pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textbf{Languages:}{ TypeScript, JavaScript, Python, Java, C\#, C++} \\ \vspace{3pt}
+        \textbf{Frontend:}{ React 18/19, Next.js, Angular, Vite, Tailwind CSS, shadcn/ui, Radix UI, Chakra UI, Framer Motion, Storybook, Module Federation, Rspack} \\ \vspace{3pt}
+        \textbf{Backend:}{ Node.js, Hono, Express, FastAPI, Spring Boot 3, ASP.NET Core, Entity Framework Core} \\ \vspace{3pt}
+        \textbf{Testing \& Automation:}{ Playwright, Vitest, Karma, Mocha, Chai, Sinon, axe-core, Selenium} \\ \vspace{3pt}
+        \textbf{Databases:}{ MongoDB, PostgreSQL (Supabase), SQL Server, Firebase, Redis} \\ \vspace{3pt}
+        \textbf{DevOps / Cloud:}{ AWS CodeArtifact, AWS S3, Azure, Cloudflare Workers, Docker, NGINX, GitHub Actions, Netlify} \\ \vspace{3pt}
+        \textbf{ML / NLP:}{ TensorFlow, HuggingFace Transformers, BPE Tokenization, TextRank, TF-IDF, scikit-learn} \\ \vspace{3pt}
+        \textbf{Concepts:}{ Design Systems, Micro-frontends, Dynamic Program Analysis, REST APIs, Microservices, OOP, Design Patterns, Agile/Scrum}
+    }}
+  \resumeSubHeadingListEnd
+
+
+%----------- AWARDS & ACHIEVEMENTS -----------
+
+\section{Awards \& Achievements}
+  \vspace{2pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textbf{ICT Division Fellowship}, Government of Bangladesh: research funding for NavA11y / M.Sc. thesis (Apr 2026) \\ \vspace{3pt}
+        \textbf{Top 6}, ICSE SCORE 2023 (international undergraduate SE competition) \hspace{10pt}
+        \textbf{Champion}, Refactoring Competition (2023) \\ \vspace{3pt}
+        \textbf{Best UI/UX}, BUET Hackathon (2023) \hspace{10pt}
+        \textbf{Champion}, Project Showcasing (2022) \hspace{10pt}
+        \textbf{Runners-up}, Project Showcasing (2021) \\ \vspace{3pt}
+        \textbf{600+} problems solved on Codeforces \& LeetCode
+    }}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}
