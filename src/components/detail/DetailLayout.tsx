@@ -23,7 +23,6 @@ export interface DetailLayoutProps {
   category?: string;
   year?: string;
   badge?: string;
-  badgeIcon?: string;
   title: string;
   subtitle?: string;
   headline?: string;
@@ -87,7 +86,7 @@ function LinkButton({ link, variant }: { link: DetailLink; variant: 'hero' | 'si
   );
 }
 
-function MetaRow({ category, year, badge, badgeIcon }: Pick<DetailLayoutProps, 'category' | 'year' | 'badge' | 'badgeIcon'>) {
+function MetaRow({ category, year, badge }: Pick<DetailLayoutProps, 'category' | 'year' | 'badge'>) {
   if (!category && !year && !badge) {
     return null;
   }
@@ -106,7 +105,7 @@ function MetaRow({ category, year, badge, badgeIcon }: Pick<DetailLayoutProps, '
       )}
       {badge && (
         <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#c89b00', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
-          <span aria-hidden="true">{badgeIcon ?? '★'}</span>
+          <span aria-hidden="true">★</span>
           {badge}
         </span>
       )}
@@ -235,7 +234,7 @@ function ImageGallery({ images }: { images: string[] }) {
 
 export default function DetailLayout(props: DetailLayoutProps) {
   const {
-    category, year, badge, badgeIcon,
+    category, year, badge,
     title, subtitle, headline,
     description, sections, techIcons, images,
     metaItems, links,
@@ -263,7 +262,6 @@ export default function DetailLayout(props: DetailLayoutProps) {
       <Nav />
 
       <div style={{
-        paddingTop: '64px',
         padding: '64px clamp(1.5rem, 10vw, 12rem) 0',
         borderBottom: '1px solid var(--border)',
       }}>
@@ -290,7 +288,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
       }}>
         {/* Hero */}
         <header style={{ marginBottom: '2.5rem', maxWidth: '1100px' }}>
-          <MetaRow category={category} year={year} badge={badge} badgeIcon={badgeIcon} />
+          <MetaRow category={category} year={year} badge={badge} />
           <h1 style={{
             fontFamily: 'DM Sans, sans-serif',
             fontWeight: 700,
