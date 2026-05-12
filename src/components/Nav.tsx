@@ -1,24 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
 const NAV_LINKS = ['Experience', 'Projects', 'Research', 'Publications', 'Contact'];
 
-function scrollTo(id: string) {
-  const el = document.getElementById(id.toLowerCase());
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
-
 export default function Nav() {
   const { dark, toggleDark } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const onHome = location.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const goToSection = (link: string) => {
+    const id = link.toLowerCase();
+    if (onHome) {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    navigate('/', { state: { scrollTo: id } });
+  };
 
   return (
     <nav style={{
@@ -30,14 +37,14 @@ export default function Nav() {
       borderBottom: scrolled ? '1px solid var(--border)' : 'none',
       transition: 'all 0.3s ease',
     }}>
-      <a href="#hero" style={{
+      <Link to="/" style={{
         fontFamily: 'DM Mono, monospace', fontSize: '0.85rem',
         color: 'var(--accent)', letterSpacing: '0.05em', textDecoration: 'none',
-      }}>{'<AJS />'}</a>
+      }}>{'<AJS />'}</Link>
 
       <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
         {NAV_LINKS.map(link => (
-          <button key={link} onClick={() => scrollTo(link)} style={{
+          <button key={link} onClick={() => goToSection(link)} style={{
             background: 'none', border: 'none', cursor: 'pointer',
             color: 'var(--text-muted)', fontSize: '0.82rem',
             fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.04em',
