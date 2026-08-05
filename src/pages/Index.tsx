@@ -20,7 +20,9 @@ import Footer from '../components/Footer';
 export default function Index() {
   const location = useLocation();
   const navigate = useNavigate();
-  const [railOpen, setRailOpen] = useState(() => localStorage.getItem('ajs-rail') !== 'collapsed');
+  const [railOpen, setRailOpen] = useState(
+    () => typeof window === 'undefined' || localStorage.getItem('ajs-rail') !== 'collapsed'
+  );
 
   const toggleRail = () => setRailOpen(o => {
     localStorage.setItem('ajs-rail', o ? 'collapsed' : 'open');
