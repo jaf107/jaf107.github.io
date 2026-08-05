@@ -11,7 +11,7 @@
     "summary": "Part of CMP's platform team — contributing to AI feature development, design-system migrations, client bug triage, and feature requests alongside the broader platform.",
     "themes": ["Design Systems", "AI Integration", "Platform Quality"],
     "bullets": [
-      { "t": "Design System Migration", "d": "Contributed to the platform's multi-year migration from a legacy design library to Axiom (`@optiaxiom/react`, public design system). Authored 15+ V1→V2 component conversions in the open-source repo and 10+ adapter components in the product. Wrote the Migration Guide and Icon Contribution Guide used by other product teams." },
+      { "t": "Design System Migration", "d": "Contributed to the platform's multi-year migration from a legacy design library to Axiom (`@optiaxiom/react`, public design system). Landed 26 merged PRs in the open-source repo — V1→V2 component conversions plus net-new components (Aside, SubNav, Range, FileUpload preview) — and authored 10+ adapter components in the product. Wrote the Migration Guide and Icon Contribution Guide used by other product teams." },
       { "t": "Axiom V3 Brand Refresh", "d": "Worked on the V3 token/color rollout in the product, including a module-federation singleton fix that eliminated duplicate React-context errors across micro-frontends." },
       { "t": "AI SDK Integration", "d": "Worked on end-to-end integration of an internal AI SDK. Migrated the backing service from Express to Hono, set up the AWS CodeArtifact publishing pipeline, and built the permissions layer and test suite." },
       { "t": "AI Event Instrumentation", "d": "Built a reusable event-tracking React hook and instrumented structured AI-context events across 10+ product surfaces." },

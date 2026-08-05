@@ -1,12 +1,12 @@
 {
-  "interests": ["Web Accessibility", "Automated Program Repair", "Software Testing", "Dynamic Analysis", "NLP for Software Engineering"],
+  "interests": ["AI for Software Engineering", "Automated Program Repair", "Software Testing", "Dynamic Analysis", "Human-Centered SE & Web Accessibility"],
   "affiliations": [
     {
       "lab": "Institute of Information Technology, University of Dhaka",
       "role": "Graduate Researcher",
       "advisors": "Dr. Kazi Sakib & Zerina Begum",
       "period": "Apr 2025 – Present",
-      "work": "Developing NavA11y; designing two-phase analysis architecture; constructed and released a 22-page labeled focus-behavior dataset; conducted manual evaluation with two expert raters (PABAK = 0.80)."
+      "work": "Developed NavA11y (published at ENASE 2026); constructed and released a 22-page labeled focus-behavior dataset; conducted manual evaluation with two expert raters (PABAK = 0.80). Now building RepairA11y — an LLM-driven repair pipeline for WCAG 2.4 violations testing runtime-evidence vs. static-evidence prompting (thesis, in progress)."
     },
     {
       "lab": "SEMERU Lab, William & Mary",

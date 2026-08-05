@@ -81,10 +81,10 @@ export default function Hero() {
           </div>
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
             Software engineer with published research at the intersection of{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>web accessibility</span>,{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>AI for software engineering</span>,{' '}
             <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>dynamic testing</span>, and{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>AI for software engineering</span>.
-            Currently shipping AI features at Optimizely while wrapping up an M.Sc. thesis on browser-based accessibility analysis.
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>human-centered accessibility</span>.
+            Currently shipping AI features at Optimizely while wrapping up an M.Sc. thesis on LLM-driven repair of accessibility violations.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button onClick={() => scrollToSection('projects')}
