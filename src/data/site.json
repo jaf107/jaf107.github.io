@@ -1,0 +1,40 @@
+{
+  "name": "Abu Jafar Saifullah",
+  "portrait": "assets/portrait.jpg",
+  "roleHtml": { "bold": "Software Engineer II", "rest": " · Optimizely", "line2": "M.Sc. Researcher · IIT, University of Dhaka" },
+  "location": "DHAKA, BANGLADESH · GMT+6",
+  "cv": "resume_academic.pdf",
+  "navLinks": ["News", "Research", "Publications", "Projects", "Experience", "Beyond", "Contact"],
+  "socials": [
+    { "lbl": "MAIL", "label": "Email", "text": "jafarmahin107@gmail.com", "href": "mailto:jafarmahin107@gmail.com", "icon": "mail" },
+    { "lbl": "GH", "label": "GitHub", "text": "github.com/jaf107", "href": "https://github.com/jaf107", "icon": "github" },
+    { "lbl": "IN", "label": "LinkedIn", "text": "abu-jafar-saifullah", "href": "https://linkedin.com/in/abu-jafar-saifullah", "icon": "linkedin" },
+    { "lbl": "SCHL", "label": "Google Scholar", "text": "Google Scholar", "href": "#", "icon": "scholar" }
+  ],
+  "railStats": ["3.92 M.Sc. CGPA · 1 publication", "300+ PRs reviewed · 600+ problems"],
+  "callout": {
+    "text": "Seeking PhD positions for Fall 2027 — web accessibility, automated program repair, software testing.",
+    "ctaLabel": "Get in touch",
+    "ctaHref": "mailto:jafarmahin107@gmail.com"
+  },
+  "intro": "I build tools that make the web work for everyone. My research spans **dynamic accessibility analysis** — NavA11y, published at ENASE 2026 — and **LLM-driven accessibility repair**, the subject of my M.Sc. thesis. At Optimizely, I ship AI features and lead design-system migrations on the Content Marketing Platform.",
+  "contact": {
+    "email": "jafarmahin107@gmail.com",
+    "availability": "AVAILABLE · PHD APPLICATIONS · COLLABS",
+    "headline": "The fastest way to reach me is email.",
+    "blurb": "Research collaborations, PhD program inquiries, or engineering opportunities — I read everything and reply within 48 hours.",
+    "socials": [
+      { "label": "GitHub", "handle": "@jaf107", "href": "https://github.com/jaf107" },
+      { "label": "LinkedIn", "handle": "abu-jafar-saifullah", "href": "https://linkedin.com/in/abu-jafar-saifullah" },
+      { "label": "Google Scholar", "handle": "Saifullah, A.J.", "href": "#" },
+      { "label": "CV / Résumé", "handle": "Download PDF", "href": "resume_academic.pdf" }
+    ],
+    "meta": [
+      { "l": "LOCATION", "v": "Dhaka, Bangladesh" },
+      { "l": "TIMEZONE", "v": "GMT+6 (BST)" },
+      { "l": "PHONE", "v": "+880 1717 743519" },
+      { "l": "RESPONSE", "v": "< 48 hours" }
+    ]
+  },
+  "footer": { "left": "© 2026 Abu Jafar Saifullah", "right": "engineer · researcher · Dhaka, Bangladesh" }
+}

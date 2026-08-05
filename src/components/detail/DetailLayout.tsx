@@ -42,7 +42,7 @@ function isExternal(href: string) {
 function LinkButton({ link, variant }: { link: DetailLink; variant: 'hero' | 'sidebar' }) {
   const external = isExternal(link.href);
   const heroStyle: React.CSSProperties = {
-    fontFamily: 'DM Mono, monospace',
+    fontFamily: 'var(--mono)',
     fontSize: '0.78rem',
     color: 'var(--accent)',
     border: '1px solid var(--accent)',
@@ -57,7 +57,7 @@ function LinkButton({ link, variant }: { link: DetailLink; variant: 'hero' | 'si
     whiteSpace: 'nowrap',
   };
   const sidebarStyle: React.CSSProperties = {
-    fontFamily: 'DM Mono, monospace',
+    fontFamily: 'var(--mono)',
     fontSize: '0.78rem',
     color: 'var(--accent)',
     border: '1px solid var(--accent)',
@@ -94,17 +94,17 @@ function MetaRow({ category, year, badge }: Pick<DetailLayoutProps, 'category' |
     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
       {category && (
         <span style={{
-          fontFamily: 'DM Mono, monospace', fontSize: '0.68rem',
+          fontFamily: 'var(--mono)', fontSize: '0.68rem',
           color: 'var(--accent)', background: 'var(--accent-bg)',
           padding: '3px 8px', borderRadius: '3px', letterSpacing: '0.06em',
           textTransform: 'uppercase',
         }}>{category}</span>
       )}
       {year && (
-        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--text-dim)' }}>{year}</span>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: '0.72rem', color: 'var(--text-dim)' }}>{year}</span>
       )}
       {badge && (
-        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#c89b00', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: '0.7rem', color: '#c89b00', display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
           <span aria-hidden="true">★</span>
           {badge}
         </span>
@@ -123,7 +123,7 @@ function Section({ section }: { section: DetailSection }) {
       position: 'relative',
     }}>
       <h3 style={{
-        fontFamily: 'DM Sans, sans-serif',
+        fontFamily: 'var(--sans)',
         fontWeight: 700,
         fontSize: '0.95rem',
         color: 'var(--text)',
@@ -139,7 +139,7 @@ function Section({ section }: { section: DetailSection }) {
         {section.h}
       </h3>
       <p style={{
-        fontFamily: 'DM Sans, sans-serif',
+        fontFamily: 'var(--sans)',
         fontSize: '0.92rem',
         color: 'var(--text-muted)',
         lineHeight: 1.75,
@@ -159,7 +159,7 @@ function StackPanel({ items }: { items: DetailMetaItem[] }) {
       padding: '1rem 1.1rem',
     }}>
       <p style={{
-        fontFamily: 'DM Mono, monospace', fontSize: '0.68rem',
+        fontFamily: 'var(--mono)', fontSize: '0.68rem',
         color: 'var(--accent)', letterSpacing: '0.12em',
         margin: '0 0 0.75rem',
       }}>STACK</p>
@@ -167,12 +167,12 @@ function StackPanel({ items }: { items: DetailMetaItem[] }) {
         {items.map(item => (
           <div key={item.label}>
             <dt style={{
-              fontFamily: 'DM Mono, monospace', fontSize: '0.62rem',
+              fontFamily: 'var(--mono)', fontSize: '0.62rem',
               color: 'var(--text-dim)', letterSpacing: '0.08em',
               textTransform: 'uppercase', marginBottom: '2px',
             }}>{item.label}</dt>
             <dd style={{
-              fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem',
+              fontFamily: 'var(--sans)', fontSize: '0.85rem',
               color: 'var(--text-mid)', margin: 0, lineHeight: 1.5,
               overflowWrap: 'anywhere',
             }}>{item.value}</dd>
@@ -192,7 +192,7 @@ function LinksPanel({ links }: { links: DetailLink[] }) {
       padding: '1rem 1.1rem',
     }}>
       <p style={{
-        fontFamily: 'DM Mono, monospace', fontSize: '0.68rem',
+        fontFamily: 'var(--mono)', fontSize: '0.68rem',
         color: 'var(--accent)', letterSpacing: '0.12em',
         margin: '0 0 0.75rem',
       }}>LINKS</p>
@@ -268,7 +268,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
         <button
           onClick={goBack}
           style={{
-            fontFamily: 'DM Mono, monospace',
+            fontFamily: 'var(--mono)',
             fontSize: '0.78rem',
             color: 'var(--accent)',
             background: 'transparent',
@@ -290,7 +290,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
         <header style={{ marginBottom: '2.5rem', maxWidth: '1100px' }}>
           <MetaRow category={category} year={year} badge={badge} />
           <h1 style={{
-            fontFamily: 'DM Sans, sans-serif',
+            fontFamily: 'var(--sans)',
             fontWeight: 700,
             fontSize: 'clamp(2rem, 5vw, 3rem)',
             color: 'var(--text)',
@@ -301,7 +301,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
           }}>{title}</h1>
           {subtitle && (
             <p style={{
-              fontFamily: 'DM Sans, sans-serif',
+              fontFamily: 'var(--sans)',
               fontSize: '1.1rem',
               color: 'var(--text-muted)',
               margin: '0 0 1.5rem',
@@ -318,7 +318,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
               marginBottom: hasTech || hasLinks ? '1.5rem' : 0,
             }}>
               <p style={{
-                fontFamily: 'DM Sans, sans-serif',
+                fontFamily: 'var(--sans)',
                 fontSize: '0.95rem',
                 color: 'var(--text-mid)',
                 margin: 0,
@@ -355,7 +355,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
           <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {description && (
               <p style={{
-                fontFamily: 'DM Sans, sans-serif',
+                fontFamily: 'var(--sans)',
                 fontSize: '1rem',
                 color: 'var(--text-muted)',
                 lineHeight: 1.8,

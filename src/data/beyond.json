@@ -1,0 +1,17 @@
+{
+  "statement": "When I'm off the clock, I'm usually scheming through a Mafia round, marathoning a series with friends, or out with a camera.",
+  "pursuits": [
+    { "icon": "♟", "title": "Mind Games & Mafia", "body": "Mafia, puzzles, and party games that reward reading the room. Monopoly Deal and Uno No Mercy are weekend staples." },
+    { "icon": "◉", "title": "Valorant with Friends", "body": "Casual ranked nights with friends — five-stack chaos, post-match recaps, occasionally an actual win." },
+    { "icon": "◐", "title": "LeetCode, Lightly", "body": "Not chasing rating anymore — a few problems a week to keep the data-structures muscle warm." },
+    { "icon": "▶", "title": "TV & Cinema", "body": "MCU through Phase 4, lifelong Batman + DC fan (Peacemaker was a treat), GOT and House of the Dragon for the long haul. Sitcoms on rotation: The Office, B99, HIMYM, Big Bang Theory." },
+    { "icon": "◯", "title": "Photography", "body": "Old habit, slowly returning. Mostly street and travel — happy to share a few frames below." }
+  ],
+  "framesNote": "Street & travel photography — drop your shots into the frames.",
+  "photos": [
+    { "id": "photo-1", "caption": "Old Dhaka", "src": null },
+    { "id": "photo-2", "caption": "Ramna Park", "src": null },
+    { "id": "photo-3", "caption": "Cox's Bazar", "src": null },
+    { "id": "photo-4", "caption": "Sajek Valley", "src": null }
+  ]
+}

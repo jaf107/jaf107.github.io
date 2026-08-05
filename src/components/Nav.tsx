@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import site from '../data/site.json';
 
-const NAV_LINKS = ['Experience', 'Projects', 'Research', 'Publications', 'Contact'];
+function scrollToId(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 92, behavior: 'smooth' });
+  }
+}
 
 export default function Nav() {
   const { dark, toggleDark } = useTheme();
@@ -12,7 +18,7 @@ export default function Nav() {
   const onHome = location.pathname === '/';
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -20,66 +26,71 @@ export default function Nav() {
   const goToSection = (link: string) => {
     const id = link.toLowerCase();
     if (onHome) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToId(id);
       return;
     }
-
     navigate('/', { state: { scrollTo: id } });
+  };
+
+  const goHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
   };
 
   return (
     <nav style={{
-      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-      padding: '0 clamp(1.5rem, 5vw, 4rem)', height: '64px',
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, height: '64px',
+      padding: '0 clamp(1.25rem, 4vw, 2.5rem)',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      background: scrolled ? 'var(--nav-bg)' : 'transparent',
-      backdropFilter: scrolled ? 'blur(12px)' : 'none',
-      borderBottom: scrolled ? '1px solid var(--border)' : 'none',
-      transition: 'all 0.3s ease',
+      background: 'var(--nav-bg)', backdropFilter: 'blur(12px)',
+      borderBottom: `1px solid ${scrolled ? 'var(--border)' : 'transparent'}`,
+      transition: 'border-color 0.3s',
     }}>
-      <Link to="/" style={{
-        fontFamily: 'DM Mono, monospace', fontSize: '0.85rem',
-        color: 'var(--accent)', letterSpacing: '0.05em', textDecoration: 'none',
-      }}>{'<AJS />'}</Link>
+      <a href="/" onClick={goHome} style={{
+        fontFamily: 'var(--serif)', fontWeight: 600, fontSize: '1.02rem',
+        color: 'var(--text)', textDecoration: 'none', letterSpacing: '-0.01em',
+      }}>{site.name}</a>
 
-      <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-        {NAV_LINKS.map(link => (
-          <button key={link} onClick={() => goToSection(link)} style={{
-            background: 'none', border: 'none', cursor: 'pointer',
-            color: 'var(--text-muted)', fontSize: '0.82rem',
-            fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.04em',
-            padding: '4px 0', transition: 'color 0.2s',
-          }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
-          >{link}</button>
-        ))}
+      <div style={{ display: 'flex', gap: '1.4rem', alignItems: 'center' }}>
+        <div className="navlinks">
+          {site.navLinks.map(link => (
+            <button key={link} onClick={() => goToSection(link)} style={{
+              background: 'none', border: 'none', cursor: 'pointer',
+              color: 'var(--text-muted)', fontSize: '0.8rem',
+              fontFamily: 'var(--sans)', padding: '4px 0', transition: 'color 0.2s',
+            }}
+              onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'var(--text-muted)')}
+            >{link}</button>
+          ))}
+        </div>
+
+        <a href={site.cv} target="_blank" rel="noreferrer" className="chip"
+          style={{ border: '1px solid rgba(var(--accent-rgb),0.35)' }}>CV ↓</a>
 
         <button onClick={toggleDark}
           title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
           aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
           style={{
             background: 'var(--surface)', border: '1px solid var(--border-md)',
-            cursor: 'pointer', width: '34px', height: '34px', borderRadius: '8px',
+            cursor: 'pointer', width: '32px', height: '32px', borderRadius: '6px',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             color: 'var(--text)', padding: 0,
           }}>
           {dark ? (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
             </svg>
           ) : (
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
           )}
         </button>
-
-        <a href="https://github.com/jaf107" target="_blank" rel="noreferrer" style={{
-          fontFamily: 'DM Mono, monospace', fontSize: '0.75rem',
-          color: 'var(--accent)', border: '1px solid var(--accent)',
-          padding: '6px 14px', borderRadius: '4px', textDecoration: 'none',
-        }}>GitHub</a>
       </div>
     </nav>
   );

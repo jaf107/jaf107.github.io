@@ -55,7 +55,7 @@ export function TechIcon({ name, size = 24 }: TechIconProps) {
           style={{ display: 'block', width: `${size}px`, height: `${size}px`, objectFit: 'contain', filter: iconFilter }}
         />
       ) : (
-        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.66rem', lineHeight: 1, letterSpacing: '0.02em' }}>
+        <span style={{ fontFamily: 'var(--mono)', fontSize: '0.66rem', lineHeight: 1, letterSpacing: '0.02em' }}>
           {getMonogram(name)}
         </span>
       )}
