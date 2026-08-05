@@ -23,3 +23,16 @@ dist-ssr
 *.sln
 *.sw?
 *.tex
+
+# ssr prerender intermediate
+dist-server
+
+# latex build artifacts (but keep the .tex sources versioned)
+!resume/*.tex
+resume/*.aux
+resume/*.log
+resume/*.out
+resume/*.fls
+resume/*.fdb_latexmk
+resume/*.synctex.gz
+resume/*.pdf
