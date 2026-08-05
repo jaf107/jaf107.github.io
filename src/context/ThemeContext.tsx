@@ -8,7 +8,9 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [dark, setDark] = useState(() => localStorage.getItem('ajs-theme') === 'dark');
+  const [dark, setDark] = useState(
+    () => typeof window !== 'undefined' && localStorage.getItem('ajs-theme') === 'dark'
+  );
 
   useEffect(() => {
     const html = document.documentElement;
