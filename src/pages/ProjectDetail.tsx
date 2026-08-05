@@ -28,11 +28,11 @@ export default function ProjectDetail() {
     return (
       <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg)' }}>
         <div style={{ textAlign: 'center' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', color: 'var(--accent)', marginBottom: '1rem' }}>404</p>
-          <h1 style={{ fontFamily: 'DM Sans, sans-serif', color: 'var(--text)', marginBottom: '1.5rem' }}>Project not found</h1>
+          <p style={{ fontFamily: 'var(--mono)', color: 'var(--accent)', marginBottom: '1rem' }}>404</p>
+          <h1 style={{ fontFamily: 'var(--sans)', color: 'var(--text)', marginBottom: '1.5rem' }}>Project not found</h1>
           <button
             onClick={() => navigate('/', { state: { scrollTo: 'projects' } })}
-            style={{ fontFamily: 'DM Sans, sans-serif', background: 'var(--accent)', color: 'var(--accent-fg)', border: 'none', padding: '10px 24px', borderRadius: '6px', cursor: 'pointer' }}
+            style={{ fontFamily: 'var(--sans)', background: 'var(--accent)', color: 'var(--accent-fg)', border: 'none', padding: '10px 24px', borderRadius: '6px', cursor: 'pointer' }}
           >← Back to projects</button>
         </div>
       </div>

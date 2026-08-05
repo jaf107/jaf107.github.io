@@ -12,6 +12,7 @@
       "90% precision confirmed via independent manual validation (PABAK = 0.80)",
       "First tool to cover all five WCAG 2.4 focus-behavior success criteria"
     ],
-    "links": [{ "label": "Paper", "href": "/papers/nava11y-latest.pdf" }]
+    "links": [{ "label": "Paper", "href": "/papers/nava11y-latest.pdf" }],
+    "note": "🏆 Funded by the ICT Division Fellowship (2026)"
   }
 ]
