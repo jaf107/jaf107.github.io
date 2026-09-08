@@ -76,19 +76,20 @@
     "tech": ["Node.js", "Playwright", "Chromium"],
     "category": "Research",
     "year": "2026",
-    "badge": "Published — ENASE 2026",
+    "badge": "Published — ENASE 2026 (full paper)",
     "summary": "Dynamic WCAG 2.4 accessibility testing tool — the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event.",
     "headline": "100% precision and recall on the labeled benchmark · 2,947 violations detected on 26 production sites · 90% confirmed true-positive rate.",
     "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state — surfacing violations that only appear at runtime.",
     "sections": [
-      { "h": "Two-phase Architecture", "body": "Page-Level Analysis performs full-keyboard tab traversal and computes Kendall τ divergence between expected and observed focus order. Element-Level Analysis inspects each focused element's rendered focus state, including a 7×7 grid obscuration probe to detect occluded focus indicators." },
-      { "h": "Empirical Results", "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed via independent manual validation by two expert raters (PABAK = 0.80)." },
+      { "h": "How it works", "body": "Page level: NavA11y drives real keyboard navigation through the page and compares the focus order it observes with the order a user would expect. Element level: at every focus stop it checks that the focused element is visible, shows a visible focus indicator, and is not covered by other content such as sticky headers or overlays. Because every check runs against the rendered page, it catches failures that only appear at runtime." },
+      { "h": "Empirical Results", "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed by two independent expert raters on a manually validated sample." },
       { "h": "Contributions", "body": "First automated tool to cover all five WCAG 2.4 focus-behavior success criteria. Released a reusable 22-page labeled focus-behavior dataset covering pass, boundary, and obscuration cases for community benchmarking." },
-      { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of the 21st ENASE 2026 — International Conference on Evaluation of Novel Approaches to Software Engineering. Presented by the author in Benidorm, Spain, May 2026." }
+      { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Vol. 2, pp. 1019–1030. SCITEPRESS. Full paper; presented by the author in Benidorm, Spain, May 2026. DOI: 10.5220/0015045700004015." }
     ],
-    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2026" },
+    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2026 (full paper, pp. 1019–1030)" },
     "links": [
       { "label": "Paper", "href": "/papers/nava11y-latest.pdf" },
+      { "label": "DOI", "href": "https://doi.org/10.5220/0015045700004015" },
       { "label": "Code", "href": "https://github.com/jaf107/NavA11y" }
     ]
   },
@@ -155,16 +156,16 @@
     "tech": ["Angular", "Node.js", "AWS S3"],
     "category": "Research",
     "year": "2023",
-    "badge": "ICSE SRC 2023 — Top 6",
-    "summary": "Smart PDF reader with knowledge graph extraction, citation network visualization, and paper recommendation. Submitted to ICSE 2023 Student Research Competition.",
-    "headline": "392 commits · 5 GitHub stars · Top 6 at ICSE SRC 2023.",
+    "badge": "ICSE SCORE 2023 — Top 6",
+    "summary": "Smart PDF reader with knowledge graph extraction, citation network visualization, and paper recommendation. Top 6 finalist at ICSE SCORE 2023, the Student Contest on Software Engineering.",
+    "headline": "Top 6 finalist at ICSE SCORE 2023 · knowledge graph · citation network · paper recommendations.",
     "description": "Clippy reimagines the academic PDF reader: papers are parsed into a knowledge graph, citations form an interactive network, and similar papers are recommended via embedding similarity.",
     "sections": [
       { "h": "Features", "body": "PDF parsing → knowledge graph extraction; citation network visualization; paper recommendation engine; OTP-based authentication; Azure CI/CD pipeline." },
-      { "h": "Recognition", "body": "Selected as a Top 6 finalist at the ICSE 2023 Student Research Competition (SCORE) — an international undergraduate SE research competition." }
+      { "h": "Recognition", "body": "Selected as a Top 6 finalist at ICSE SCORE 2023 — the Student Contest on Software Engineering, an international team-project contest held with the International Conference on Software Engineering." }
     ],
     "stack": { "Frontend": "Angular", "Backend": "Node.js", "Storage": "AWS S3", "CI": "Azure", "Auth": "OTP-based" },
-    "links": [{ "label": "GitHub", "href": "https://github.com/jaf107" }]
+    "links": [{ "label": "GitHub", "href": "https://github.com/jaf107/Clippy" }]
   },
   {
     "id": "mr-bin",

@@ -5,5 +5,5 @@
   "Testing": ["Playwright", "Vitest", "Mocha"],
   "Databases": ["MongoDB", "PostgreSQL", "SQL Server", "Supabase"],
   "DevOps / Cloud": ["Docker", "GitHub Actions", "Cloudflare Workers"],
-  "Research Methods": ["Dynamic Program Analysis", "Mining Software Repositories (SZZ)", "Controlled User Studies", "Statistical Evaluation", "Inter-rater Agreement (κ, PABAK)"]
+  "Research Methods": ["Dynamic Program Analysis", "Mining Software Repositories (SZZ)", "Controlled User Studies", "Statistical Evaluation"]
 }

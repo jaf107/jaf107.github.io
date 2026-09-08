@@ -3,15 +3,19 @@
     "id": "nava11y-paper",
     "authors": "Abu Jafar Saifullah, Tasmia Zerin, Zerina Begum, Kazi Sakib",
     "title": "NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation",
-    "venue": "In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Benidorm, Spain",
-    "status": "Presented by author — May 2026",
+    "venue": "In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Vol. 2, pp. 1019–1030. SCITEPRESS. Benidorm, Spain",
+    "status": "Full paper · Presented by author — May 2026",
     "year": "2026",
+    "doi": "10.5220/0015045700004015",
+    "method": "Drives a real browser through each page's keyboard tab order and, at every focus stop, checks that focus lands where expected, is visibly indicated, and is not hidden behind other content.",
     "keyResults": [
-      "100% precision and recall on a 22-page controlled dataset (32 SC-level assertions)",
-      "2,947 violations detected across 26 production websites",
-      "90% precision confirmed via independent manual validation (PABAK = 0.80)",
+      "100% precision and recall on a 22-page labeled dataset (32 SC-level assertions)",
+      "2,947 violations detected across 26 production websites; 90% precision validated by two independent expert raters",
       "First tool to cover all five WCAG 2.4 focus-behavior success criteria"
     ],
-    "links": [{ "label": "Paper", "href": "/papers/nava11y-latest.pdf" }]
+    "links": [
+      { "label": "Paper", "href": "/papers/nava11y-latest.pdf" },
+      { "label": "Code", "href": "https://github.com/jaf107/NavA11y" }
+    ]
   }
 ]

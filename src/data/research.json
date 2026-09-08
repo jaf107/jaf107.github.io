@@ -6,7 +6,7 @@
       "role": "Graduate Researcher",
       "advisors": "Dr. Kazi Sakib & Zerina Begum",
       "period": "Apr 2025 – Present",
-      "work": "Developed NavA11y (published at ENASE 2026); constructed and released a 22-page labeled focus-behavior dataset; conducted manual evaluation with two expert raters (PABAK = 0.80). Now building RepairA11y — an LLM-driven repair pipeline for WCAG 2.4 violations testing runtime-evidence vs. static-evidence prompting (thesis, in progress)."
+      "work": "Developed NavA11y (full paper at ENASE 2026); constructed and released a 22-page labeled focus-behavior dataset; ran a manual validation study with two independent expert raters (90% precision confirmed). Now building RepairA11y — an LLM-driven repair pipeline for WCAG 2.4 violations testing runtime-evidence vs. static-evidence prompting (thesis, in progress)."
     },
     {
       "lab": "SEMERU Lab, William & Mary",

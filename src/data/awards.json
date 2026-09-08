@@ -31,9 +31,9 @@
     "org": "International undergraduate SE competition",
     "year": "2023",
     "desc": "International undergraduate software engineering competition",
-    "description": "Placed in the Top 6 at ICSE SCORE 2023 — the Student Research Competition and Expo at the International Conference on Software Engineering, one of the most prestigious undergraduate SE research venues globally.",
+    "description": "Placed in the Top 6 at ICSE SCORE 2023 — the Student Contest on Software Engineering held with the International Conference on Software Engineering, an international team-project contest for students.",
     "sections": [
-      { "h": "About ICSE SCORE", "body": "ICSE SCORE is the student research competition held at the International Conference on Software Engineering (ICSE). It invites undergraduate students to present original research to a panel of expert judges from academia and industry." },
+      { "h": "About ICSE SCORE", "body": "ICSE SCORE is the Student Contest on Software Engineering, run alongside the International Conference on Software Engineering (ICSE). Student teams build a complete software project against a published brief and are judged by a panel from academia and industry; finalists present at the conference." },
       { "h": "Our Work", "body": "Our submission presented original software engineering research conducted during our undergraduate program. Competing against teams from universities worldwide, we advanced to the final round and placed in the top 6." }
     ],
     "images": []

@@ -4,7 +4,8 @@ import publications from '../data/publications.json';
 
 interface Pub {
   id: string; authors: string; title: string; venue: string;
-  status: string; year: string; keyResults: string[];
+  status: string; year: string; doi?: string; method?: string;
+  keyResults: string[];
   links: { label: string; href: string }[];
 }
 
@@ -18,9 +19,20 @@ export default function Publications() {
             <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>{p.year} · {p.status.toUpperCase()}</div>
             <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', margin: '0 0 0.4rem', lineHeight: 1.4 }}>{p.title}</h3>
             <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-mid)', margin: '0 0 0.5rem' }}>{p.authors}</p>
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', fontStyle: 'italic', color: 'var(--text-muted)', margin: '0 0 1rem' }}>{p.venue}</p>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', fontStyle: 'italic', color: 'var(--text-muted)', margin: p.doi ? '0 0 0.4rem' : '0 0 1rem' }}>{p.venue}</p>
+            {p.doi && (
+              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--text-muted)', margin: '0 0 1rem' }}>
+                DOI: <a href={`https://doi.org/${p.doi}`} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{p.doi}</a>
+              </p>
+            )}
             <div style={{ background: 'var(--bg-alt)', borderRadius: '6px', padding: '0.85rem 1rem', marginBottom: '1rem' }}>
-              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.5rem' }}>KEY RESULTS</p>
+              {p.method && (
+                <>
+                  <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.35rem' }}>METHOD</p>
+                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 0.75rem' }}>{p.method}</p>
+                </>
+              )}
+              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.5rem' }}>RESULTS</p>
               <ul style={{ margin: 0, paddingLeft: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                 {p.keyResults.map((k, i) => (
                   <li key={i} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{k}</li>
