@@ -99,6 +99,13 @@
     $|$
     \faGithub \hspace{.5pt} \href{https://github.com/jaf107}{GitHub}
     $|$
+    \faGlobe \hspace{.5pt} \href{https://jaf107.github.io}{jaf107.github.io}
+    % Uncomment once profiles exist; if the header wraps, shorten labels to "Scholar"/"ORCID".
+    % $|$
+    % \faGraduationCap \hspace{.5pt} \href{SCHOLAR_URL}{Google Scholar}
+    % $|$
+    % \faLink \hspace{.5pt} \href{https://orcid.org/ORCID_ID}{ORCID}
+    $|$
     \faMapMarker \hspace{.5pt} {Dhaka, Bangladesh}
 \end{center}
 
@@ -108,6 +115,7 @@
 \section{Research Interests}
   \vspace{3pt}
   \resumeSubHeadingListStart
+    % >>> TAILORING POINT: reorder/trim this list per target program and professor before each application. <<<
     \small{\item{
       AI for Software Engineering, Automated Program Repair, Software Testing, Dynamic Analysis, Human-Centered Software Engineering (Web Accessibility)
     }}
@@ -138,10 +146,11 @@
   \vspace{3pt}
   \resumeSubHeadingListStart
     \small{\item{
-      \textbf{Abu Jafar Saifullah}, Tasmia Zerin, Zerina Begum, Kazi Sakib. \textit{``NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.''} In \textit{Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering} \textbf{(ENASE 2026)}. Benidorm, Spain. \textit{Presented by author, May 2026.} \hfill \href{https://github.com/jaf107/NavA11y}{\color{blue}[Code]}
+      \textbf{Abu Jafar Saifullah}, Tasmia Zerin, Zerina Begum, Kazi Sakib. \textit{``NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.''} In \textit{Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering} \textbf{(ENASE 2026)}, vol.~2, pp.~1019--1030. SCITEPRESS. Benidorm, Spain. \textit{Full paper; presented by author, May 2026.} DOI: \href{https://doi.org/10.5220/0015045700004015}{\color{blue}10.5220/0015045700004015} \hfill \href{https://doi.org/10.5220/0015045700004015}{\color{blue}[Paper]} \href{https://github.com/jaf107/NavA11y}{\color{blue}[Code]}
       \vspace{4pt}
 
-      \textit{Key results:} 100\% precision and recall on a 22-page controlled dataset (32 SC-level assertions); 2,947 violations detected across 26 production websites; 90\% precision confirmed via independent manual validation (PABAK = 0.80). First tool to cover all five WCAG 2.4 focus-behavior success criteria.
+      \textit{Method:} Drives a real browser through each page's keyboard tab order and, at every focus stop, checks that focus lands where expected, is visibly indicated, and is not hidden behind other content. \\
+      \textit{Results:} 100\% precision and recall on a 22-page labeled dataset; 2,947 violations on 26 production websites at 90\% precision, validated by two independent expert raters; first tool to cover all five WCAG 2.4 focus-behavior criteria.
     }}
   \resumeSubHeadingListEnd
 
@@ -157,9 +166,8 @@
       {Graduate Researcher, supervised by \href{https://iit.du.ac.bd/faculty/profile/sakib}{\color{blue}Dr. Kazi Sakib} \& Zerina Begum}{Apr 2025 \textbf{--} Present}
         \resumeItemListStart
             \resumeItem{Developing \textbf{NavA11y}, a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation using Playwright-driven browser automation. Research forms the core of M.Sc. thesis.}
-            \resumeItem{Designed a two-phase analysis architecture: Page-Level Analysis (keyboard traversal, Kendall $\tau$ divergence scoring) and Element-Level Analysis (focus-state inspection, 7$\times$7 grid obscuration probing).}
+            \resumeItem{Designed its two-phase analysis: page level drives real keyboard navigation and compares observed vs.\ expected focus order; element level checks that each focused element is visible, has a focus indicator, and is not hidden.}
             \resumeItem{Constructed and released a 22-page labeled focus-behavior dataset (\textit{Dd}) covering all five WCAG 2.4 focus-behavior SCs, including pass, boundary, and obscuration cases.}
-            \resumeItem{Conducted manual evaluation with two independent expert raters across 6 production websites; computed inter-rater agreement (PABAK = 0.80).}
         \resumeItemListEnd
 
     \resumeSubheading
@@ -182,10 +190,10 @@
       {Optimizely, Content Marketing Platform}{Dhaka, Bangladesh}
       {Software Engineer II \textnormal{(promoted from SE I, Apr 2026)}}{Apr 2024 \textbf{--} Present, Full-time}
       \resumeItemListStart
-        \resumeItem{Contributed to the platform's migration to \textbf{Axiom} (\href{https://github.com/optimizely-axiom/optiaxiom}{\color{blue}\texttt{@optiaxiom/react}}, public design system). Landed \textbf{26 merged PRs} in the open-source repo --- V1{\textrightarrow}V2 component conversions plus net-new components (Aside, SubNav, Range) --- and 10+ adapter components in the product. Wrote the Migration Guide and Icon Contribution Guide used by other product teams.}
-        \resumeItem{Worked on end-to-end integration of an internal AI SDK. Migrated the backing service from Express to Hono, set up the AWS CodeArtifact publishing pipeline, and instrumented AI-context events across 10+ product surfaces.}
-        \resumeItem{Implemented backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering for the platform's AI document UI (Adaptive-Cards-style pattern).}
-        \resumeItem{Implemented \textbf{Dark Mode} across 15+ surfaces (CSS-variable refactor) and contributed to \textbf{Spotlight} global search (built during, and won, the \textbf{Optimizely Global Hackathon 2025} as part of a team); reviewed \textbf{300+ pull requests} across design-system and AI-tracking work.}
+        \resumeItem{Accelerated the platform's migration to \textbf{Axiom} (\href{https://github.com/optimizely-axiom/optiaxiom}{\color{blue}\texttt{@optiaxiom/react}}, open-source design system) [METRIC?] by landing \textbf{26 merged PRs} upstream and 10+ in-product adapter components, and by writing the Migration and Icon Contribution Guides adopted by other product teams.}
+        \resumeItem{Delivered end-to-end integration of an internal AI SDK [METRIC?] by moving its service from Express to Hono, adding the AWS CodeArtifact publishing pipeline, and instrumenting AI-context events across \textbf{10+ product surfaces}.}
+        \resumeItem{Shipped the platform's block-based AI document UI (Adaptive-Cards-style) [METRIC?] by implementing backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering.}
+        \resumeItem{Rolled out \textbf{Dark Mode} across \textbf{15+ surfaces} [METRIC?] via a CSS-variable refactor; co-built \textbf{Spotlight} global search, which won the \textbf{Optimizely Global Hackathon 2025} and shipped to production; reviewed \textbf{300+ pull requests}.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -207,7 +215,7 @@
       \resumeProjectHeading
         {\textbf{NavA11y} $|$ \emph{Node.js, Playwright, Chromium, GitHub Actions} $|$ \href{https://github.com/jaf107/NavA11y}{\color{blue}Code} $|$ \textit{ENASE 2026}}{}
           \resumeItemListStart
-            \resumeItem{Dynamic WCAG 2.4 accessibility testing tool, the first to cover all five focus-behavior SCs. Two-phase architecture: Page-Level Analysis (Kendall $\tau$ divergence scoring of tab traversal) and Element-Level Analysis (7$\times$7 grid obscuration probing, CSS focus-state inspection). 100\% precision/recall on 22-page labeled benchmark; 2,947 violations on 26 production sites; 90\% precision confirmed by independent expert raters (PABAK = 0.80). Dataset released for community benchmarking.}
+            \resumeItem{Dynamic WCAG 2.4 accessibility testing tool, the first to cover all five focus-behavior success criteria. Drives a real browser through each page's keyboard navigation and inspects what is actually rendered at every focus stop. 100\% precision/recall on a 22-page labeled benchmark; 2,947 violations on 26 production sites; 90\% precision confirmed by independent expert raters; dataset released for community benchmarking.}
           \resumeItemListEnd
 
       \resumeProjectHeading
@@ -217,9 +225,9 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-        {\textbf{Clippy} $|$ \emph{Angular, Node.js, AWS S3} $|$ \href{https://github.com/jaf107/Clippy}{\color{blue}GitHub} $|$ \textit{ICSE SRC 2023, Top 6}}{}
+        {\textbf{Clippy} $|$ \emph{Angular, Node.js, AWS S3} $|$ \href{https://github.com/jaf107/Clippy}{\color{blue}GitHub} $|$ \textit{ICSE SCORE 2023, Top 6}}{}
           \resumeItemListStart
-            \resumeItem{Smart PDF reader with knowledge graph extraction, citation network visualization, and paper recommendation; submitted to ICSE 2023 Student Research Competition. 392 commits, 5 GitHub stars.}
+            \resumeItem{Smart PDF reader for researchers with knowledge-graph extraction, citation-network visualization, and paper recommendation; Top 6 finalist in the ICSE 2023 Student Contest on Software Engineering (SCORE).}
           \resumeItemListEnd
 
       \resumeProjectHeading
@@ -253,7 +261,7 @@
         \textbf{Web \& Frontend:}{ React 18/19, Next.js, Angular, Node.js, Hono, Express, FastAPI, Spring Boot 3, ASP.NET Core} \\ \vspace{3pt}
         \textbf{Testing \& Automation:}{ Playwright, axe-core, Vitest, Karma, Mocha, Chai, Sinon, Selenium} \\ \vspace{3pt}
         \textbf{ML / NLP:}{ TensorFlow, HuggingFace Transformers, BPE Tokenization (own impl.), TextRank, TF-IDF, scikit-learn, pandas} \\ \vspace{3pt}
-        \textbf{Research Methods:}{ Dynamic Program Analysis, Mining Software Repositories (SZZ), Controlled User Studies, Statistical Evaluation (Kendall $\tau$, Cohen's $\kappa$, PABAK), Inter-rater Agreement} \\ \vspace{3pt}
+        \textbf{Research Methods:}{ Dynamic Program Analysis, Mining Software Repositories (SZZ), Controlled User Studies, Statistical Evaluation} \\ \vspace{3pt}
         \textbf{DevOps / Cloud:}{ AWS CodeArtifact, AWS S3, Azure, Cloudflare Workers, Docker, NGINX, GitHub Actions} \\ \vspace{3pt}
         \textbf{Databases:}{ MongoDB, PostgreSQL (Supabase), SQL Server, Firebase, Redis}
     }}
