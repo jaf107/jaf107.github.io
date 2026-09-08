@@ -36,3 +36,7 @@ resume/*.fls
 resume/*.fdb_latexmk
 resume/*.synctex.gz
 resume/*.pdf
+
+# CV archives + local launch config
+resume/archive/
+.claude/launch.json

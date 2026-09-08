@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { SectionHeader } from "./Research";
 
 const EMAIL = "jafarmahin107@gmail.com";
+// TODO: replace with the profile URL once a Google Scholar profile exists.
 const GOOGLE_SCHOLAR_URL =
   "https://scholar.google.com/scholar?q=%22Abu+Jafar+Saifullah%22";
+// TODO: fill after registering at https://orcid.org/register (e.g. "0000-0002-1234-5678").
+// The ORCID card below only renders once this is non-empty.
+const ORCID_ID = "";
 
 const SOCIALS = [
   {
@@ -81,6 +85,22 @@ const SOCIALS = [
       </svg>
     ),
   },
+  ...(ORCID_ID
+    ? [
+        {
+          label: "ORCID",
+          handle: ORCID_ID,
+          href: `https://orcid.org/${ORCID_ID}`,
+          color: "#A6CE39",
+          icon: (
+            <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="11" fill="currentColor" />
+              <text x="12" y="16" textAnchor="middle" fontFamily="DM Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff">iD</text>
+            </svg>
+          ),
+        },
+      ]
+    : []),
 ];
 
 export default function Contact() {
