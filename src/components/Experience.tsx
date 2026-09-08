@@ -1,34 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useInView } from '../hooks/useInView';
 import jobs from '../data/jobs.json';
+import { Md } from './Md';
 
 interface Bullet { t: string; d: string; }
 interface Job {
   id: string; company: string; team?: string; location: string;
   role: string; roleNote?: string; period: string; current?: boolean;
   summary: string; themes?: string[]; bullets: Bullet[];
-}
-
-function renderDescription(text: string): React.ReactNode {
-  const parts: React.ReactNode[] = [];
-  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
-  let last = 0, m: RegExpExecArray | null;
-  while ((m = pattern.exec(text)) !== null) {
-    if (m.index > last) {
-      parts.push(text.slice(last, m.index));
-    }
-    parts.push(
-      <a key={m.index} href={m[2]} target="_blank" rel="noopener noreferrer"
-        style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
-        {m[1]}
-      </a>
-    );
-    last = m.index + m[0].length;
-  }
-  if (last < text.length) {
-    parts.push(text.slice(last));
-  }
-  return parts.length ? parts : text;
 }
 
 function JobCard({ job }: { job: Job }) {
@@ -66,7 +45,7 @@ function JobCard({ job }: { job: Job }) {
         {visible.map((b, i) => (
           <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.9rem 1.1rem' }}>
             <div style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-mid)', marginBottom: '0.3rem' }}>{b.t}</div>
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}>{renderDescription(b.d)}</p>
+            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}><Md s={b.d} /></p>
           </div>
         ))}
       </div>
