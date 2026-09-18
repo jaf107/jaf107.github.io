@@ -3,6 +3,11 @@ import { useInView } from '../hooks/useInView';
 import research from '../data/research.json';
 import { Md } from './Md';
 
+interface Affiliation {
+  lab: string; url?: string; role: string; advisors: string; period: string;
+  work: string[];
+}
+
 function SectionHeader({ label, title }: { label: string; title: string }) {
   const [ref, inView] = useInView();
   return (
@@ -31,11 +36,13 @@ export default function Research() {
 
       <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: 'var(--fs-xl)', color: 'var(--text)', marginBottom: '1rem' }}>Research Affiliations</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        {research.affiliations.map((a, i) => (
+        {(research.affiliations as Affiliation[]).map((a, i) => (
           <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '10px', padding: '1.25rem 1.5rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
               <div>
-                <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'var(--fs-lg)', color: 'var(--text)', margin: 0 }}>{a.lab}</h4>
+                <h4 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'var(--fs-lg)', color: 'var(--text)', margin: 0 }}>
+                  {a.url ? <a href={a.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'var(--accent)', textUnderlineOffset: '3px' }}>{a.lab}</a> : a.lab}
+                </h4>
                 <p style={{ fontFamily: 'var(--font-sans)', fontStyle: 'italic', color: 'var(--accent)', margin: '3px 0 0', fontSize: 'var(--fs-md)' }}>
                   {a.role} <span style={{ fontStyle: 'normal', color: 'var(--text-muted)' }}>· {a.advisors}</span>
                 </p>
