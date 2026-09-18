@@ -40,7 +40,6 @@ export interface DetailLayoutProps {
   description?: string;
   sections?: DetailSection[];
   techIcons?: string[];
-  images?: string[];
   metaItems?: DetailMetaItem[];
   links?: DetailLink[];
   backLabel?: string;
@@ -255,38 +254,11 @@ function LinksPanel({ links }: { links: DetailLink[] }) {
   );
 }
 
-function ImageGallery({ images }: { images: string[] }) {
-  return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-      gap: '1rem',
-      marginTop: '0.5rem',
-    }}>
-      {images.map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt=""
-          loading="lazy"
-          style={{
-            width: '100%',
-            borderRadius: '8px',
-            border: '1px solid var(--border)',
-            objectFit: 'cover',
-            aspectRatio: '4/3',
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function DetailLayout(props: DetailLayoutProps) {
   const {
     category, year, badge,
     title, subtitle, headline,
-    description, sections, techIcons, images,
+    description, sections, techIcons,
     metaItems, links,
     backLabel = 'BACK',
   } = props;
@@ -304,7 +276,6 @@ export default function DetailLayout(props: DetailLayoutProps) {
   const hasLinks = !!(links && links.length > 0);
   const hasSidebar = hasMetaItems || hasLinks;
   const hasSections = !!(sections && sections.length > 0);
-  const hasImages = !!(images && images.length > 0);
   const hasTech = !!(techIcons && techIcons.length > 0);
 
   return (
@@ -418,7 +389,6 @@ export default function DetailLayout(props: DetailLayoutProps) {
                 {sections.map((s, i) => <Section key={i} section={s} />)}
               </div>
             )}
-            {hasImages && <ImageGallery images={images} />}
           </div>
 
           {hasSidebar && (

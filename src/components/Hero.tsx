@@ -93,7 +93,7 @@ export default function Hero() {
             </button>
             <a href="resume_academic.pdf" target="_blank" rel="noreferrer"
               style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500, textDecoration: 'none', display: 'inline-block' }}>
-              Academic CV
+              Curriculum Vitae
             </a>
           </div>
           <div style={{ display: 'flex', gap: '2rem', marginTop: '3.5rem', flexWrap: 'nowrap', alignItems: 'flex-start' }} className="hero-stats">

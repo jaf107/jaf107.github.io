@@ -61,7 +61,7 @@ const SOCIALS = [
     ),
   },
   {
-    label: "Academic CV",
+    label: "Curriculum Vitae",
     handle: "Download PDF",
     href: "resume_academic.pdf",
     color: "var(--accent)",
