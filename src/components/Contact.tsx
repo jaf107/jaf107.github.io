@@ -63,7 +63,7 @@ const SOCIALS = [
   {
     label: "Curriculum Vitae",
     handle: "Download PDF",
-    href: "resume_academic.pdf",
+    href: "/cv",
     color: "var(--accent)",
     icon: (
       <svg

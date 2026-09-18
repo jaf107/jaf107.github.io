@@ -91,7 +91,7 @@ export default function Hero() {
               style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', background: 'var(--accent)', color: dark ? '#0c0e13' : '#fff', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
               View Research
             </button>
-            <a href="resume_academic.pdf" target="_blank" rel="noreferrer"
+            <a href="/cv" target="_blank" rel="noreferrer"
               style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500, textDecoration: 'none', display: 'inline-block' }}>
               Curriculum Vitae
             </a>
