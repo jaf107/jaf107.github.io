@@ -38,8 +38,8 @@ export default function Index() {
         <Hero />
         <Research />
         <Publications />
-        <Projects />
         <Education />
+        <Projects />
         <Experience />
         <Skills />
         <Awards />

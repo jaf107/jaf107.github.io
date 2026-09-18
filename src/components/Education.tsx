@@ -66,7 +66,7 @@ export default function Education() {
   const entries = education as Edu[];
 
   return (
-    <section id="education" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
+    <section id="education" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg)' }}>
       <SectionHeader label="ACADEMICS" title="Education" />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         {entries.map((e, i) => (
