@@ -10,10 +10,9 @@ const PHRASES = [
 
 const STATS = [
   { label: '1', desc: 'Peer-Reviewed Paper' },
-  { label: '2', desc: 'Research Labs' },
-  { label: '5', desc: 'WCAG Criteria Covered' },
   { label: '3.92', desc: 'M.Sc. CGPA' },
   { label: '2+ yrs', desc: 'Optimizely' },
+  { label: '300+', desc: 'PRs Reviewed' },
 ];
 
 function scrollToSection(id: string) {
@@ -80,12 +79,13 @@ export default function Hero() {
             <TypedText />
           </div>
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
-            Graduate researcher working on{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>AI for software engineering</span>,{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>automated program repair</span>, and{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>human-centered accessibility</span>.
-            First-author full paper at ENASE 2026 on dynamic WCAG focus-behavior analysis; M.Sc. thesis on LLM-driven repair of accessibility violations.
-            Applying for PhD programs for Fall 2027, alongside engineering AI features at Optimizely.
+            I build tools that catch the accessibility bugs people actually run into — the ones where{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>keyboard focus quietly disappears</span>{' '}
+            and a page stops being navigable. That work became{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>NavA11y</span>, my first-author paper at ENASE 2026,
+            and my M.Sc. thesis now asks whether an LLM can repair those failures on its own.
+            Day to day I engineer AI features at Optimizely. I'm applying for{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>PhD programs for Fall 2027</span>.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button onClick={() => scrollToSection('research')}
