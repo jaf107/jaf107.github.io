@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { SectionHeader } from "./Research";
 
 const EMAIL = "jafarmahin107@gmail.com";
-// TODO: replace with the profile URL once a Google Scholar profile exists.
 const GOOGLE_SCHOLAR_URL =
-  "https://scholar.google.com/scholar?q=%22Abu+Jafar+Saifullah%22";
+  "https://scholar.google.com/citations?user=jxd2CNEAAAAJ";
 // TODO: fill after registering at https://orcid.org/register (e.g. "0000-0002-1234-5678").
 // The ORCID card below only renders once this is non-empty.
 const ORCID_ID = "";
@@ -46,7 +45,7 @@ const SOCIALS = [
   },
   {
     label: "Google Scholar",
-    handle: "Saifullah, A.J.",
+    handle: "Abu Jafar Saifullah",
     href: GOOGLE_SCHOLAR_URL,
     color: "#4285F4",
     icon: (

@@ -1,5 +1,5 @@
 [
-  { "school": "University of Dhaka", "degree": "M.Sc. in Software Engineering", "period": "Apr 2025 – Aug 2026", "note": "Final Semester · Currently in Progress", "gpa": "3.92 / 4.00", "current": true },
+  { "school": "University of Dhaka", "degree": "M.Sc. in Software Engineering", "period": "Apr 2025 – Sep 2026", "gpa": "3.92 / 4.00" },
   { "school": "University of Dhaka", "degree": "B.Sc. in Software Engineering", "period": "Jan 2019 – Dec 2023", "gpa": "3.89 / 4.00" },
   { "school": "Notre Dame College", "degree": "Higher Secondary Certificate", "period": "Jun 2014 – Jun 2016", "gpa": "5.00 / 5.00" }
 ]

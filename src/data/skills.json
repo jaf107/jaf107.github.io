@@ -1,9 +1,43 @@
 {
-  "Languages": ["TypeScript", "Python", "C++"],
-  "Frontend": ["React", "Tailwind CSS", "shadcn/ui", "Radix UI", "Storybook"],
-  "Backend": ["Node.js", "Hono", "Express", "FastAPI"],
-  "Testing": ["Playwright", "Vitest", "Mocha"],
-  "Databases": ["MongoDB", "PostgreSQL", "SQL Server", "Supabase"],
-  "DevOps / Cloud": ["Docker", "GitHub Actions", "Cloudflare Workers"],
-  "Research Methods": ["Dynamic Program Analysis", "Mining Software Repositories (SZZ)", "Controlled User Studies", "Statistical Evaluation"]
+  "Research Methods": [
+    "Dynamic Program Analysis",
+    "Mining Software Repositories (SZZ)",
+    "Controlled User Studies",
+    "Statistical Evaluation (Kendall τ, Cohen's κ, PABAK)",
+    "Inter-rater Agreement"
+  ],
+  "Languages": [
+    "TypeScript",
+    "Python",
+    "C++"
+  ],
+  "Frontend": [
+    "React",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Radix UI",
+    "Storybook"
+  ],
+  "Backend": [
+    "Node.js",
+    "Hono",
+    "Express",
+    "FastAPI"
+  ],
+  "Testing": [
+    "Playwright",
+    "Vitest",
+    "Mocha"
+  ],
+  "Databases": [
+    "MongoDB",
+    "PostgreSQL",
+    "SQL Server",
+    "Supabase"
+  ],
+  "DevOps / Cloud": [
+    "Docker",
+    "GitHub Actions",
+    "Cloudflare Workers"
+  ]
 }

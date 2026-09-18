@@ -111,18 +111,8 @@ export default function Skills() {
         ))}
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        {visibleCategories.map(cat => (
-          <CategoryRow
-            key={cat}
-            label={cat}
-            items={(skillsData as Record<string, string[]>)[cat]}
-          />
-        ))}
-      </div>
-
       {researchMethods.length > 0 && (
-        <div style={{ marginTop: '2.5rem' }}>
+        <div style={{ marginBottom: '2.5rem' }}>
           <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>RESEARCH METHODS</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
             {researchMethods.map(m => (
@@ -139,6 +129,16 @@ export default function Skills() {
           </div>
         </div>
       )}
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        {visibleCategories.map(cat => (
+          <CategoryRow
+            key={cat}
+            label={cat}
+            items={(skillsData as Record<string, string[]>)[cat]}
+          />
+        ))}
+      </div>
     </section>
   );
 }
