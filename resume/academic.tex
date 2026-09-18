@@ -117,7 +117,7 @@
   \resumeSubHeadingListStart
     % >>> TAILORING POINT: reorder/trim this list per target program and professor before each application. <<<
     \small{\item{
-      AI for Software Engineering, Automated Program Repair, Software Testing, Dynamic Analysis, Human-Centered Software Engineering (Web Accessibility)
+      AI for Software Engineering, Human-Centered Software Engineering, Web Accessibility
     }}
   \resumeSubHeadingListEnd
 
@@ -162,10 +162,10 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Institute of Information Technology, University of Dhaka}{Dhaka, Bangladesh}
-      {Graduate Researcher, supervised by \href{https://iit.du.ac.bd/faculty/profile/sakib}{\color{blue}Dr. Kazi Sakib} \& Zerina Begum}{Apr 2025 \textbf{--} Present}
+      {\href{https://dsse.iit.du.ac.bd/}{\color{blue}DSSE Research Group}, IIT, University of Dhaka}{Dhaka, Bangladesh}
+      {Graduate Researcher, supervised by Dr. Zerina Begum \& \href{https://iit.du.ac.bd/faculty/profile/sakib}{\color{blue}Dr. Kazi Sakib}}{Apr 2025 \textbf{--} Present}
         \resumeItemListStart
-            \resumeItem{Developing \textbf{NavA11y}, a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation using Playwright-driven browser automation. Research forms the core of M.Sc. thesis.}
+            \resumeItem{M.Sc. thesis (submitted): \textit{Detecting and Repairing Keyboard Focus-Behavior Violations through Dynamic Analysis}. Built \textbf{NavA11y} for detection and \textbf{RepairA11y} for repair.}
             \resumeItem{Designed its two-phase analysis: page level drives real keyboard navigation and compares observed vs.\ expected focus order; element level checks that each focused element is visible, has a focus indicator, and is not hidden.}
             \resumeItem{Constructed and released a 22-page labeled focus-behavior dataset (\textit{Dd}) covering all five WCAG 2.4 focus-behavior SCs, including pass, boundary, and obscuration cases.}
         \resumeItemListEnd
@@ -218,9 +218,9 @@
           \resumeItemListEnd
 
       \resumeProjectHeading
-        {\textbf{RepairA11y} $|$ \emph{Node.js, Playwright, Vitest} $|$ \textit{M.Sc. Thesis, In Progress, 2026}}{}
+        {\textbf{RepairA11y} $|$ \emph{Node.js, Playwright, Vitest} $|$ \textit{M.Sc. Thesis, 2026}}{}
           \resumeItemListStart
-            \resumeItem{LLM-driven accessibility repair pipeline evaluating whether runtime-evidence prompting (live DOM + NavA11y violation report) outperforms static-evidence prompting (HTML/screenshots) for automated WCAG 2.4 patch generation. Addresses four research questions covering effectiveness, evidence ablation, and regression safety.}
+            \resumeItem{Repairs WCAG 2.4 focus-behavior violations from the runtime evidence NavA11y records: writes a typed patch (a CSS rule or an attribute change) with deterministic rules or a language model, applies it in a live browser, and re-runs NavA11y's checks. On 32 fixture cases, rules fixed 29 and the model 25, with no new focus-behavior violation; runtime evidence raised the model from 5 to 7 of 7 realistic focus-appearance cases.}
           \resumeItemListEnd
 
       \resumeProjectHeading
@@ -282,7 +282,7 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{ICT Division Fellowship, Government of Bangladesh}: research funding for NavA11y / M.Sc. thesis (Grant No. 56.00.0000.052.33.002.24-61, Apr 2026) \\ \vspace{3pt}
+        \textbf{ICT Division Fellowship, Government of Bangladesh}: research funding for M.Sc. thesis (Grant No. 56.00.0000.052.33.002.24-61, Apr 2026) \\ \vspace{3pt}
         \textbf{Winner}, Optimizely Global Hackathon 2025 (company-wide international hackathon; team built Spotlight, shipped to CMP) \\ \vspace{3pt}
         \textbf{Top 6}, ICSE SCORE 2023 (international undergraduate SE competition)
     }}
