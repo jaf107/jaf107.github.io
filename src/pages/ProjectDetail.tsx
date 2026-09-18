@@ -17,6 +17,7 @@ interface Project {
   sections: DetailSection[];
   stack: Record<string, string>;
   links: DetailLink[];
+  listed?: boolean;
 }
 
 export default function ProjectDetail() {
@@ -54,7 +55,7 @@ export default function ProjectDetail() {
       techIcons={project.tech}
       metaItems={metaItems}
       links={project.links}
-      backLabel="BACK TO PROJECTS"
+      backLabel={project.listed === false ? 'BACK' : 'BACK TO PROJECTS'}
     />
   );
 }

@@ -59,7 +59,7 @@
     "id": "repaira11y",
     "listed": false,
     "title": "RepairA11y",
-    "subtitle": "LLM-Driven Accessibility Repair",
+    "subtitle": "Repairing Focus-Behavior Violations from Runtime Evidence",
     "tech": [
       "Node.js",
       "Playwright",
@@ -68,23 +68,32 @@
     ],
     "category": "Research",
     "year": "2026",
-    "badge": "M.Sc. thesis · in progress",
-    "summary": "LLM-driven repair pipeline for WCAG 2.4 focus-behavior violations, evaluating whether runtime evidence (live DOM + NavA11y violation reports) beats static evidence (HTML/screenshots) for automated patch generation.",
-    "headline": "Follow-up to NavA11y · runtime-evidence vs. static-evidence prompting · regression-safe patch evaluation.",
-    "description": "RepairA11y closes the loop that NavA11y opens: NavA11y detects WCAG 2.4 focus-behavior violations at runtime; RepairA11y feeds that runtime evidence to an LLM to generate candidate patches, then re-runs dynamic analysis to verify the fix and guard against regressions.",
+    "badge": "M.Sc. thesis",
+    "summary": "Automated repair of WCAG 2.4 keyboard focus-behavior violations. Turns the runtime evidence NavA11y records into typed patches, written by rules or by a language model, and verifies each patch in a live browser.",
+    "headline": "Rules resolve 29 of 32 cases, the language model 25 · no patch introduces a new focus-behavior violation · runtime evidence lifts the model from 5 to all 7 realistic focus-appearance cases",
+    "description": "RepairA11y closes the loop that NavA11y opens. NavA11y reports focus-behavior violations from a running page; RepairA11y reuses the evidence recorded during that detection to write a typed patch (a style rule or an attribute change, never free-form code), applies it in a live browser, and re-runs the same checks that reported the violation to confirm the fix.",
     "sections": [
       {
-        "h": "Research Questions",
-        "body": "Four research questions covering repair effectiveness, evidence ablation (live DOM + violation report vs. static HTML/screenshots), and regression safety of generated patches."
+        "h": "How it works",
+        "body": "Five stages. Detection: NavA11y records the failing element, the violated Success Criterion, its styles before and after focus, the measured contrast ratio, a screenshot, and any element covering it. Evidence packaging: that record becomes an evidence bundle at one of four cumulative levels, from the markup a static tool would see up to full runtime measurements with a visual crop. Patch generation: a generator writes one typed patch. Patch application: the patch is applied in a live browser session. Verification: the patched page is analyzed again; the target violation must pass, nothing that passed may start failing, and the unfocused page must stay at least 90% pixel-similar to the original."
       },
       {
-        "h": "Pipeline",
-        "body": "Detect with NavA11y → construct evidence-conditioned prompts → generate candidate patches → apply and re-run dynamic analysis to validate focus behavior and catch regressions, with Vitest-based harness automation."
+        "h": "Two patch generators",
+        "body": "The rule-based generator applies deterministic templates built from WCAG thresholds and W3C techniques, for example an injected :focus outline for a missing or weak indicator, recolored to the nearest color that clears the 3:1 contrast minimum against the measured background. The language-model generator receives the evidence bundle in a prompt written for the violated criterion and must answer with a single JSON patch. It runs locally at temperature zero, so every trial can be repeated."
+      },
+      {
+        "h": "Evaluation",
+        "body": "Measured on two fixture corpora: the controlled suite from NavA11y, and 17 anti-pattern cases rebuilt from failure patterns seen on production sites (global outline resets, framework focus rings below the contrast minimum, dark themes, fixed elements covering focused targets), released under CC-BY-4.0. A controlled ablation over the four evidence levels measures what runtime evidence contributes to repair."
+      },
+      {
+        "h": "Results",
+        "body": "At the full evidence level, the rules resolve 29 of the 32 case-criterion pairs and the language model 25. All 13 focus-appearance pairs are resolved by both, and no patch introduces a new focus-behavior violation. On the 7 realistic focus-appearance cases, runtime evidence raises the model from 5 resolved cases to all 7; on the obscuration criteria it lowers the model's results, and the rules do better. The samples are too small for these differences to reach significance, and the results are the detector's verdicts, not user studies."
       }
     ],
     "stack": {
       "Runtime": "Node.js",
       "Browser": "Playwright + Chromium",
+      "Generators": "Rule-based + language model",
       "Testing": "Vitest",
       "Standards": "WCAG 2.4"
     },
