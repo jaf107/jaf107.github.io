@@ -79,13 +79,11 @@ export default function Hero() {
             <TypedText />
           </div>
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lg)', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
-            I build tools that catch the accessibility bugs people actually run into — the ones where{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>keyboard focus quietly disappears</span>{' '}
-            and a page stops being navigable. That work became{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>NavA11y</span>, my first-author paper at ENASE 2026,
-            and my M.Sc. thesis now asks whether an LLM can repair those failures on its own.
-            Day to day I engineer AI features at Optimizely. I'm applying for{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>PhD programs for Fall 2027</span>.
+            I'm a{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>full-stack software engineer at Optimizely Bangladesh</span>,
+            where I build features for the Content Marketing Platform (CMP) team. I did my M.Sc. at IIT,
+            University of Dhaka, with research in HCI focused on{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>web accessibility</span>.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button onClick={() => scrollToSection('research')}
