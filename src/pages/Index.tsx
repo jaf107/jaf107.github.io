@@ -6,6 +6,7 @@ import Experience from '../components/Experience';
 import Projects from '../components/Projects';
 import Research from '../components/Research';
 import Publications from '../components/Publications';
+import News from '../components/News';
 import Skills from '../components/Skills';
 import Education from '../components/Education';
 import Awards from '../components/Awards';
@@ -34,10 +35,11 @@ export default function Index() {
   return (
     <>
       <Nav />
-      <main>
+      <main className="home">
         <Hero />
         <Research />
         <Publications />
+        <News />
         <Education />
         <Projects />
         <Experience />

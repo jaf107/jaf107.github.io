@@ -87,7 +87,7 @@ export default function Skills() {
   const visibleCategories = active === 'All' ? categories : categories.filter(c => c === active);
 
   return (
-    <section id="skills" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
+    <section id="skills" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)' }}>
       <SectionHeader label="TECHNICAL" title="Skills" />
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '2.5rem' }}>

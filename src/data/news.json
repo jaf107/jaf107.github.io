@@ -1,0 +1,14 @@
+[
+  { "date": "2026-09", "type": "update", "text": "Applying to PhD programs for **Fall 2027**: accessibility, automated program repair, and software testing." },
+  { "date": "2026-05", "type": "talk", "text": "Presented [NavA11y](/project/nava11y) in person at **ENASE 2026** in Benidorm, Spain." },
+  { "date": "2026-04", "type": "award", "text": "Received the **ICT Division Fellowship** from the Government of Bangladesh, funding my M.Sc. thesis research." },
+  { "date": "2026-04", "type": "career", "text": "Promoted to **Software Engineer II** at Optimizely." },
+  { "date": "2026", "type": "paper", "text": "My first-author full paper on [NavA11y](/project/nava11y) was accepted at **ENASE 2026**." },
+  { "date": "2025", "type": "award", "text": "Won the [Optimizely Global Hackathon 2025](/awards/optimizely-global-hackathon-2025). Our team built Spotlight, a Cmd+K global search that later shipped to production." },
+  { "date": "2025-04", "type": "education", "text": "Started my M.Sc. in Software Engineering at the University of Dhaka, advised by Dr. Kazi Sakib and Zerina Begum." },
+  { "date": "2024-04", "type": "career", "text": "Joined **Optimizely** as a Software Engineer on the Content Marketing Platform team." },
+  { "date": "2023-12", "type": "education", "text": "Completed my B.Sc. in Software Engineering at the University of Dhaka." },
+  { "date": "2023-08", "type": "research", "text": "Started a remote research internship at **SEMERU Lab, William & Mary**, with Dr. Denys Poshyvanyk." },
+  { "date": "2023", "type": "award", "text": "[Clippy](/project/clippy) placed **Top 6** at ICSE SCORE 2023, the Student Contest on Software Engineering." },
+  { "date": "2023", "type": "award", "text": "Won **Best UI/UX** at the BUET Hackathon with [API Miners GPT](/project/api-miners-gpt)." }
+]

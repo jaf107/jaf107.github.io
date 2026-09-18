@@ -76,6 +76,29 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Home sections alternate backgrounds by position, so reordering never breaks the rhythm. */
+.home > section {
+  background: var(--bg);
+}
+.home > section:nth-of-type(odd):not(#hero) {
+  background: var(--bg-alt);
+}
+
+.news-item {
+  display: grid;
+  grid-template-columns: 5.5rem 1.75rem minmax(0, 1fr);
+  grid-template-areas: 'date icon text';
+  align-items: baseline;
+  column-gap: 0.75rem;
+}
+@media (max-width: 640px) {
+  .news-item {
+    grid-template-columns: 1.75rem minmax(0, 1fr);
+    grid-template-areas: 'date date' 'icon text';
+    row-gap: 0.3rem;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

@@ -16,7 +16,7 @@ export { SectionHeader };
 
 export default function Research() {
   return (
-    <section id="research" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg)' }}>
+    <section id="research" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)' }}>
       <SectionHeader label="ACADEMIC" title="Research" />
 
       <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: '3px solid var(--accent)', borderRadius: '10px', padding: '1.5rem 2rem', marginBottom: '2.5rem' }}>

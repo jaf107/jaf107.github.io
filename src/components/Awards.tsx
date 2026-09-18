@@ -10,7 +10,7 @@ export default function Awards() {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (
-    <section id="awards" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg)' }}>
+    <section id="awards" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)' }}>
       <SectionHeader label="RECOGNITION" title="Awards & Achievements" />
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '0.85rem' }}>
         {(awards as Award[]).map((a) => (

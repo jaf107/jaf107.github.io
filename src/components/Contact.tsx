@@ -140,7 +140,6 @@ export default function Contact() {
       id="contact"
       style={{
         padding: "clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)",
-        background: "var(--bg-alt)",
       }}
     >
       <SectionHeader label="REACH OUT" title="Let's Talk" />

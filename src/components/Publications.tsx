@@ -11,7 +11,7 @@ interface Pub {
 
 export default function Publications() {
   return (
-    <section id="publications" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
+    <section id="publications" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)' }}>
       <SectionHeader label="PEER-REVIEWED" title="Publications" />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         {(publications as Pub[]).map(p => (
