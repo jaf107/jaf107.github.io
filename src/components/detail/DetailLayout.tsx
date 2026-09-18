@@ -4,10 +4,20 @@ import Nav from '../Nav';
 import Footer from '../Footer';
 import { TechIcon } from '../TechIcon';
 
+export interface DetailFigure {
+  src: string;
+  alt: string;
+  caption?: string;
+  maxWidth?: string;
+  // Screenshots whose details must stay legible take a full row.
+  wide?: boolean;
+}
+
 export interface DetailSection {
   h: string;
   // A string renders as a paragraph, an array as a bullet list.
-  body: string | string[];
+  body?: string | string[];
+  figures?: DetailFigure[];
 }
 
 export interface DetailLink {
@@ -151,7 +161,7 @@ function Section({ section }: { section: DetailSection }) {
             }}>{point}</li>
           ))}
         </ul>
-      ) : (
+      ) : section.body && (
         <p style={{
           fontFamily: 'var(--font-sans)',
           fontSize: 'var(--fs-md)',
@@ -160,6 +170,31 @@ function Section({ section }: { section: DetailSection }) {
           margin: 0,
           overflowWrap: 'anywhere',
         }}>{section.body}</p>
+      )}
+      {section.figures && (
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: '1rem',
+          marginTop: section.body ? '1.1rem' : 0,
+        }}>
+          {section.figures.map(f => (
+            <figure key={f.src} style={{ margin: '0 auto', width: '100%', maxWidth: f.maxWidth, gridColumn: f.wide ? '1 / -1' : undefined }}>
+              <a href={f.src} target="_blank" rel="noopener noreferrer" title="Open full size" style={{ display: 'block', cursor: 'zoom-in' }}>
+                <img src={f.src} alt={f.alt} loading="lazy" style={{
+                  display: 'block', width: '100%', height: 'auto',
+                  borderRadius: '6px', border: '1px solid var(--border-md)', background: '#fff',
+                }} />
+              </a>
+              {f.caption && (
+                <figcaption style={{
+                  fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)',
+                  color: 'var(--text-muted)', lineHeight: 1.5, marginTop: '0.45rem',
+                }}>{f.caption}</figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
       )}
     </article>
   );

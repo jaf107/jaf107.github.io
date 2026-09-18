@@ -3,7 +3,7 @@
     "id": "nava11y",
     "listed": false,
     "title": "NavA11y",
-    "subtitle": "Dynamic WCAG 2.4 Accessibility Testing",
+    "subtitle": "Detecting Focus-Behavior Violations through Dynamic Analysis",
     "tech": [
       "Node.js",
       "Playwright",
@@ -12,33 +12,59 @@
     "category": "Research",
     "year": "2026",
     "badge": "ENASE 2026 · full paper",
-    "summary": "Dynamic WCAG 2.4 accessibility testing tool, the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event.",
-    "headline": "100% precision and recall on the labeled benchmark · 2,947 violations detected on 26 production sites · 90% confirmed true-positive rate.",
-    "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state, surfacing violations that only appear at runtime.",
+    "summary": "Detects WCAG 2.4 keyboard focus-behavior violations by driving a real browser; the first tool to cover all five focus-behavior success criteria.",
+    "headline": "Finds WCAG 2.4 keyboard focus-behavior violations by driving a real browser.",
     "sections": [
       {
         "h": "How it works",
-        "body": "Page level: NavA11y drives real keyboard navigation through the page and compares the focus order it observes with the order a user would expect. Element level: at every focus stop it checks that the focused element is visible, shows a visible focus indicator, and is not covered by other content such as sticky headers or overlays. Because every check runs against the rendered page, it catches failures that only appear at runtime."
+        "body": [
+          "Drives real keyboard navigation in Chromium through Playwright.",
+          "Page level: compares the HTML source order, the tab sequence focus actually takes, and the visual reading order (SC 2.4.3).",
+          "Element level: compares how each element is drawn before and after focus, and checks whether other content, such as a sticky header, covers it (SC 2.4.7, 2.4.11, 2.4.12, 2.4.13).",
+          "Reports as JSON, HTML, and annotated screenshots."
+        ],
+        "figures": [
+          {
+            "src": "/assets/projects/nava11y/architecture.webp",
+            "maxWidth": "420px",
+            "alt": "Architecture diagram. A website URL feeds page-level analysis (keyboard navigation simulator, navigation sequence, focus order evaluation for SC 2.4.3) and element-level analysis (focus state inspection, visibility evaluation for SC 2.4.7 and 2.4.13, obscuration evaluation for SC 2.4.11 and 2.4.12). Both feed report generation: JSON, HTML and annotated screenshots.",
+            "caption": "NavA11y's architecture."
+          }
+        ]
       },
       {
-        "h": "Empirical Results",
-        "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed by two independent expert raters on a manually validated sample."
+        "h": "Found on real sites",
+        "figures": [
+          {
+            "src": "/assets/projects/nava11y/agoda-obscured.webp",
+            "alt": "agoda.com page where a focused destination card sits beneath a Save 10% app-booking pop-up; NavA11y's red label reads: 2.4.12, focused element is obscured by other content, 40.8% hidden.",
+            "caption": "agoda.com: a focused destination card is 40.8% hidden under a promotional pop-up (SC 2.4.12).",
+            "wide": true
+          },
+          {
+            "src": "/assets/projects/nava11y/ebay-no-indicator.webp",
+            "alt": "ebay.com home page with the search box focused; NavA11y's red label reads: 2.4.7, no significant visual change detected on focus.",
+            "caption": "ebay.com: the search box shows no visible change when it receives focus (SC 2.4.7).",
+            "wide": true
+          }
+        ]
       },
       {
-        "h": "Contributions",
-        "body": "First automated tool to cover all five WCAG 2.4 focus-behavior success criteria. Released a reusable 22-page labeled focus-behavior dataset covering pass, boundary, and obscuration cases for community benchmarking."
-      },
-      {
-        "h": "Publication",
-        "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Vol. 2, pp. 1019–1030. SCITEPRESS. Full paper; presented by the author in Benidorm, Spain, May 2026. DOI: 10.5220/0015045700004015."
+        "h": "Results",
+        "body": [
+          "100% precision and recall on a 22-page labeled benchmark (32 success-criterion assertions).",
+          "2,947 violations found across 26 production websites.",
+          "90% precision, confirmed by two independent expert raters.",
+          "First tool to cover all five WCAG 2.4 focus-behavior success criteria.",
+          "The labeled dataset is released for benchmarking."
+        ]
       }
     ],
     "stack": {
       "Runtime": "Node.js",
       "Browser": "Playwright + Chromium",
       "CI": "GitHub Actions",
-      "Standards": "WCAG 2.4",
-      "Venue": "ENASE 2026 (full paper, pp. 1019–1030)"
+      "Standards": "WCAG 2.4"
     },
     "links": [
       {
@@ -79,6 +105,28 @@
           "Output: a typed patch (a CSS rule or an attribute change, never free-form code).",
           "Generators: WCAG-based rules, or a language model.",
           "Verification: the patch is applied in a live browser and NavA11y's checks run again."
+        ],
+        "figures": [
+          {
+            "src": "/assets/projects/repaira11y/pipeline.webp",
+            "alt": "Pipeline diagram with five stages: 1 detection with NavA11y produces a violation record; 2 evidence packaging at cumulative levels E1 to E4; 3 patch generation, rule-based or LLM, emits a typed JSON patch; 4 patch application in a browser session; 5 verification re-detects the violation and checks pixel similarity. An unresolved result can re-prompt the generator with the failure evidence.",
+            "caption": "RepairA11y's five-stage repair pipeline."
+          }
+        ]
+      },
+      {
+        "h": "Example repair",
+        "figures": [
+          {
+            "src": "/assets/projects/repaira11y/outline-before.png",
+            "alt": "A dark Dashboard button whose focus outline is too faint to see.",
+            "caption": "Before: the focus outline is invisible."
+          },
+          {
+            "src": "/assets/projects/repaira11y/outline-after.png",
+            "alt": "The same Dashboard button after repair, with a clear white focus outline.",
+            "caption": "After: the patched outline is visible."
+          }
         ]
       },
       {
