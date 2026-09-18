@@ -69,31 +69,31 @@
     "category": "Research",
     "year": "2026",
     "badge": "M.Sc. thesis",
-    "summary": "Automated repair of WCAG 2.4 keyboard focus-behavior violations. Turns the runtime evidence NavA11y records into typed patches, written by rules or by a language model, and verifies each patch in a live browser.",
-    "headline": "Rules resolve 29 of 32 cases, the language model 25 · no patch introduces a new focus-behavior violation · runtime evidence lifts the model from 5 to all 7 realistic focus-appearance cases",
-    "description": "RepairA11y closes the loop that NavA11y opens. NavA11y reports focus-behavior violations from a running page; RepairA11y reuses the evidence recorded during that detection to write a typed patch (a style rule or an attribute change, never free-form code), applies it in a live browser, and re-runs the same checks that reported the violation to confirm the fix.",
+    "summary": "Repairs the WCAG 2.4 focus-behavior violations NavA11y detects, using rules or a language model, and verifies each patch in a live browser.",
+    "headline": "Automatically repairs the WCAG 2.4 focus-behavior violations that NavA11y detects.",
     "sections": [
       {
         "h": "How it works",
-        "body": "Five stages. Detection: NavA11y records the failing element, the violated Success Criterion, its styles before and after focus, the measured contrast ratio, a screenshot, and any element covering it. Evidence packaging: that record becomes an evidence bundle at one of four cumulative levels, from the markup a static tool would see up to full runtime measurements with a visual crop. Patch generation: a generator writes one typed patch. Patch application: the patch is applied in a live browser session. Verification: the patched page is analyzed again; the target violation must pass, nothing that passed may start failing, and the unfocused page must stay at least 90% pixel-similar to the original."
+        "body": [
+          "Input: a violation from NavA11y, with the runtime evidence recorded during detection.",
+          "Output: a typed patch (a CSS rule or an attribute change, never free-form code).",
+          "Generators: WCAG-based rules, or a language model.",
+          "Verification: the patch is applied in a live browser and NavA11y's checks run again."
+        ]
       },
       {
-        "h": "Two patch generators",
-        "body": "The rule-based generator applies deterministic templates built from WCAG thresholds and W3C techniques, for example an injected :focus outline for a missing or weak indicator, recolored to the nearest color that clears the 3:1 contrast minimum against the measured background. The language-model generator receives the evidence bundle in a prompt written for the violated criterion and must answer with a single JSON patch. It runs locally at temperature zero, so every trial can be repeated."
-      },
-      {
-        "h": "Evaluation",
-        "body": "Measured on two fixture corpora: the controlled suite from NavA11y, and 17 anti-pattern cases rebuilt from failure patterns seen on production sites (global outline resets, framework focus rings below the contrast minimum, dark themes, fixed elements covering focused targets), released under CC-BY-4.0. A controlled ablation over the four evidence levels measures what runtime evidence contributes to repair."
-      },
-      {
-        "h": "Results",
-        "body": "At the full evidence level, the rules resolve 29 of the 32 case-criterion pairs and the language model 25. All 13 focus-appearance pairs are resolved by both, and no patch introduces a new focus-behavior violation. On the 7 realistic focus-appearance cases, runtime evidence raises the model from 5 resolved cases to all 7; on the obscuration criteria it lowers the model's results, and the rules do better. The samples are too small for these differences to reach significance, and the results are the detector's verdicts, not user studies."
+        "h": "Results on 32 test cases",
+        "body": [
+          "Rules fixed 29; the language model fixed 25.",
+          "No patch introduced a new focus-behavior violation.",
+          "Runtime evidence raised the model from 5 to 7 of 7 realistic focus-appearance cases, but lowered it on obscuration cases.",
+          "Samples are too small for statistical significance."
+        ]
       }
     ],
     "stack": {
       "Runtime": "Node.js",
       "Browser": "Playwright + Chromium",
-      "Generators": "Rule-based + language model",
       "Testing": "Vitest",
       "Standards": "WCAG 2.4"
     },

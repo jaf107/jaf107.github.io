@@ -13,7 +13,7 @@ interface Project {
   badge?: string;
   summary: string;
   headline?: string;
-  description: string;
+  description?: string;
   sections: DetailSection[];
   stack: Record<string, string>;
   links: DetailLink[];

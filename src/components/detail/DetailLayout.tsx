@@ -6,7 +6,8 @@ import { TechIcon } from '../TechIcon';
 
 export interface DetailSection {
   h: string;
-  body: string;
+  // A string renders as a paragraph, an array as a bullet list.
+  body: string | string[];
 }
 
 export interface DetailLink {
@@ -138,14 +139,28 @@ function Section({ section }: { section: DetailSection }) {
         }} />
         {section.h}
       </h3>
-      <p style={{
-        fontFamily: 'var(--font-sans)',
-        fontSize: 'var(--fs-md)',
-        color: 'var(--text-muted)',
-        lineHeight: 1.75,
-        margin: 0,
-        overflowWrap: 'anywhere',
-      }}>{section.body}</p>
+      {Array.isArray(section.body) ? (
+        <ul style={{ margin: 0, paddingLeft: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+          {section.body.map((point, i) => (
+            <li key={i} style={{
+              fontFamily: 'var(--font-sans)',
+              fontSize: 'var(--fs-md)',
+              color: 'var(--text-muted)',
+              lineHeight: 1.6,
+              overflowWrap: 'anywhere',
+            }}>{point}</li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{
+          fontFamily: 'var(--font-sans)',
+          fontSize: 'var(--fs-md)',
+          color: 'var(--text-muted)',
+          lineHeight: 1.75,
+          margin: 0,
+          overflowWrap: 'anywhere',
+        }}>{section.body}</p>
+      )}
     </article>
   );
 }
