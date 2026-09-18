@@ -4,7 +4,6 @@ import { useTheme } from '../context/ThemeContext';
 const PHRASES = [
   'Graduate Researcher · IIT, University of Dhaka',
   'PhD Applicant — Fall 2027',
-  'Published at ENASE 2026',
   'Software Engineer II at Optimizely',
 ];
 
