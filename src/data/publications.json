@@ -4,7 +4,7 @@
     "authors": "Abu Jafar Saifullah, Tasmia Zerin, Zerina Begum, Kazi Sakib",
     "title": "NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation",
     "venue": "In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Vol. 2, pp. 1019–1030. SCITEPRESS. Benidorm, Spain",
-    "status": "Full paper · Presented in person — May 2026",
+    "status": "Full paper · Presented in person, May 2026",
     "year": "2026",
     "doi": "10.5220/0015045700004015",
     "method": "Drives a real browser through each page's keyboard tab order and, at every focus stop, checks that focus lands where expected, is visibly indicated, and is not hidden behind other content.",

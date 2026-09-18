@@ -217,7 +217,7 @@ export default function Contact() {
               }}
             >
               Research collaborations, PhD program inquiries, or engineering
-              opportunities — I read everything and reply within 48 hours.
+              opportunities. I read everything and reply within 48 hours.
             </p>
           </div>
           <div style={{ marginTop: "1.75rem" }}>

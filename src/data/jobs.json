@@ -8,15 +8,15 @@
     "roleNote": "promoted from SE I, Apr 2026",
     "period": "Apr 2024 – Present",
     "current": true,
-    "summary": "Part of CMP's platform team — contributing to AI feature development, design-system migrations, client bug triage, and feature requests alongside the broader platform.",
+    "summary": "Part of CMP's platform team, contributing to AI feature development, design-system migrations, client bug triage, and feature requests alongside the broader platform.",
     "themes": ["Design Systems", "AI Integration", "Platform Quality"],
     "bullets": [
-      { "t": "Design System Migration", "d": "Accelerated the platform's multi-year migration from a legacy design library to [Axiom](https://github.com/optimizely-axiom/optiaxiom) (`@optiaxiom/react`, Optimizely's open-source design system) by landing **26 merged PRs** upstream — V1→V2 component conversions plus net-new Aside, SubNav, Range, and FileUpload-preview components — and **10+ adapter components** in the product, and by writing the Migration Guide and Icon Contribution Guide that other product teams adopted." },
+      { "t": "Design System Migration", "d": "Accelerated the platform's multi-year migration from a legacy design library to [Axiom](https://github.com/optimizely-axiom/optiaxiom) (`@optiaxiom/react`, Optimizely's open-source design system) by landing **26 merged PRs** upstream (V1→V2 component conversions plus net-new Aside, SubNav, Range, and FileUpload-preview components) and **10+ adapter components** in the product, and by writing the Migration Guide and Icon Contribution Guide that other product teams adopted." },
       { "t": "Axiom V3 Brand Refresh", "d": "Rolled out the Axiom V3 token/color refresh across the product and eliminated duplicate React-context errors across micro-frontends by fixing the module-federation singleton configuration." },
       { "t": "AI SDK Integration", "d": "Delivered end-to-end integration of an internal AI SDK by migrating its backing service from Express to Hono, setting up the AWS CodeArtifact publishing pipeline, and building the permissions layer and test suite." },
       { "t": "AI Event Instrumentation", "d": "Made product context consumable by downstream AI agents on **10+ product surfaces** by building a reusable event-tracking React hook and instrumenting structured AI-context events with it." },
-      { "t": "Block-based AI Document UI", "d": "Delivered the platform's block-based AI document interface by implementing backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering — a block UI pattern inspired by [Adaptive Cards](https://adaptivecards.io)." },
-      { "t": "Spotlight Global Search", "d": "Co-built **Spotlight**, the platform's Cmd+K global search, which won the **Optimizely Global Hackathon 2025** and shipped to production — contributing status pills, keyboard activation, search-result separation, and segment-event telemetry." },
+      { "t": "Block-based AI Document UI", "d": "Delivered the platform's block-based AI document interface by implementing backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering, using a block UI pattern inspired by [Adaptive Cards](https://adaptivecards.io)." },
+      { "t": "Spotlight Global Search", "d": "Co-built **Spotlight**, the platform's Cmd+K global search, which won the **Optimizely Global Hackathon 2025** and shipped to production, contributing status pills, keyboard activation, search-result separation, and segment-event telemetry." },
       { "t": "Dark Mode", "d": "Shipped **Dark Mode** across **15+ surfaces** (modals, dropdowns, tables, library, notifications, plan share, asset upload) by refactoring theming to CSS variables and preventing bleed-through into legacy UI." },
       { "t": "Platform Quality", "d": "Eliminated duplicate comment/task creation on rapid clicks and duplicate in-app notifications with server- and client-side guards, restored thread-reply notifications to original commenters, and added **8 missing i18n locale variants**." },
       { "t": "Code Review & Mentorship", "d": "Reviewed **300+ pull requests** across product client/server and AI services, onboarded new team members as their buddy, and contributed to sprint planning and technical design discussions." }
@@ -30,7 +30,7 @@
     "roleNote": "supervised by Dr. Denys Poshyvanyk",
     "period": "Aug 2023 – Dec 2023",
     "current": false,
-    "summary": "Worked under Dr. Denys Poshyvanyk on intelligent software tools — building NLP infrastructure for SE-specific code understanding.",
+    "summary": "Worked under Dr. Denys Poshyvanyk on intelligent software tools, building NLP infrastructure for SE-specific code understanding.",
     "themes": ["NLP for SE", "Tokenization", "Research"],
     "bullets": [
       { "t": "PL-Specific Tokenizer", "d": "Built a programming language-specific tokenizer to improve NLP model predictions for software engineering tasks, contributing to the lab's research on intelligent software tools." }

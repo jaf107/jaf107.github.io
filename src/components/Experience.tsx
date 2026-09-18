@@ -19,7 +19,7 @@ function JobCard({ job }: { job: Job }) {
         <div>
           <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'var(--fs-2xl)', color: 'var(--text)', margin: 0 }}>
             {job.company}
-            {job.team && <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: 'var(--fs-md)' }}> — {job.team}</span>}
+            {job.team && <span style={{ color: 'var(--text-muted)', fontWeight: 400, fontSize: 'var(--fs-md)' }}> · {job.team}</span>}
           </h3>
           <p style={{ fontFamily: 'var(--font-sans)', fontStyle: 'italic', color: 'var(--accent)', margin: '4px 0 0', fontSize: 'var(--fs-md)', display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
             {job.role}
@@ -56,7 +56,7 @@ function JobCard({ job }: { job: Job }) {
           color: 'var(--accent)', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)',
           padding: '6px 14px', borderRadius: '20px', cursor: 'pointer', letterSpacing: '0.04em',
         }}>
-          {open ? '— show less' : `+ read more (${job.bullets.length - 3} more)`}
+          {open ? '− show less' : `+ read more (${job.bullets.length - 3} more)`}
         </button>
       )}
     </div>

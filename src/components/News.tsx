@@ -53,7 +53,7 @@ export default function News() {
           color: 'var(--accent)', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)',
           padding: '6px 14px', borderRadius: '20px', cursor: 'pointer', letterSpacing: '0.04em',
         }}>
-          {showAll ? '— show recent only' : `+ show all (${items.length})`}
+          {showAll ? '− show recent only' : `+ show all (${items.length})`}
         </button>
       )}
     </section>

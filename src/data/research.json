@@ -1,19 +1,26 @@
 {
-  "interests": ["AI for Software Engineering", "Human-Centered Software Engineering", "Web Accessibility (HCI)"],
+  "interests": ["AI for Software Engineering", "Human-Centered Software Engineering", "Web Accessibility"],
   "affiliations": [
     {
       "lab": "Institute of Information Technology, University of Dhaka",
       "role": "Graduate Researcher",
       "advisors": "Dr. Kazi Sakib & Zerina Begum",
       "period": "Apr 2025 – Present",
-      "work": "Developed NavA11y (full paper at ENASE 2026); constructed and released a 22-page labeled focus-behavior dataset; ran a manual validation study with two independent expert raters (90% precision confirmed). Now building RepairA11y — an LLM-driven repair pipeline for WCAG 2.4 violations testing runtime-evidence vs. static-evidence prompting (thesis, in progress)."
+      "work": [
+        "Developed [NavA11y](/project/nava11y), published as a full paper at ENASE 2026.",
+        "Constructed and released a 22-page labeled focus-behavior dataset.",
+        "Ran a manual validation study with two independent expert raters (90% precision confirmed).",
+        "Building [RepairA11y](/project/repaira11y), an LLM-driven repair pipeline for WCAG 2.4 violations that compares runtime-evidence and static-evidence prompting (M.Sc. thesis, in progress)."
+      ]
     },
     {
       "lab": "SEMERU Lab, William & Mary",
       "role": "Research Intern",
       "advisors": "Dr. Denys Poshyvanyk",
       "period": "Aug 2023 – Dec 2023",
-      "work": "Built a programming language-specific tokenizer to improve NLP model predictions for software engineering tasks."
+      "work": [
+        "Built a programming language-specific tokenizer to improve NLP model predictions for software engineering tasks."
+      ]
     }
   ]
 }

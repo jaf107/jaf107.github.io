@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const PHRASES = [
-  'Graduate Researcher · IIT, University of Dhaka',
-  'PhD Applicant — Fall 2027',
+  'M.Sc. in Software Engineering · IIT, University of Dhaka',
+  'PhD Applicant · Fall 2027',
   'Software Engineer II at Optimizely',
 ];
 
@@ -69,7 +69,7 @@ export default function Hero() {
       <div style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)', gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'center' }} className="hero-grid">
         <div style={{ maxWidth: '760px' }}>
           <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-sm)', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '1.5rem' }}>
-            HELLO, WORLD — I'M
+            HELLO, WORLD! I'M
           </p>
           <h1 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(2.8rem, 7vw, 5rem)', lineHeight: 1.05, color: 'var(--text)', margin: '0 0 0.5rem', letterSpacing: '-0.02em' }}>
             Abu Jafar<br />Saifullah
@@ -79,10 +79,12 @@ export default function Hero() {
           </div>
           <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lg)', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
             I'm a{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>full-stack software engineer at Optimizely Bangladesh</span>,
-            where I build features for the Content Marketing Platform (CMP) team. I did my M.Sc. at IIT,
-            University of Dhaka, with research in HCI focused on{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>web accessibility</span>.
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>software engineering researcher</span>{' '}
+            working on web accessibility. I did my M.Sc. in Software Engineering at IIT, University of Dhaka,
+            and I'm applying to{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>PhD programs for Fall 2027</span>.
+            I also work as a full-stack software engineer at Optimizely Bangladesh, building features for the
+            Content Marketing Platform (CMP) team.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button onClick={() => scrollToSection('research')}

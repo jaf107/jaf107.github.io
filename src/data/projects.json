@@ -10,10 +10,10 @@
     ],
     "category": "Research",
     "year": "2026",
-    "badge": "Published — ENASE 2026 (full paper)",
-    "summary": "Dynamic WCAG 2.4 accessibility testing tool — the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event.",
+    "badge": "ENASE 2026 · full paper",
+    "summary": "Dynamic WCAG 2.4 accessibility testing tool, the first to cover all five focus-behavior success criteria. Drives a real browser to simulate keyboard navigation and inspect rendered page state at each focus event.",
     "headline": "100% precision and recall on the labeled benchmark · 2,947 violations detected on 26 production sites · 90% confirmed true-positive rate.",
-    "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state — surfacing violations that only appear at runtime.",
+    "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state, surfacing violations that only appear at runtime.",
     "sections": [
       {
         "h": "How it works",
@@ -66,8 +66,8 @@
     ],
     "category": "Research",
     "year": "2026",
-    "badge": "M.Sc. Thesis — In Progress",
-    "summary": "LLM-driven repair pipeline for WCAG 2.4 focus-behavior violations — evaluating whether runtime evidence (live DOM + NavA11y violation reports) beats static evidence (HTML/screenshots) for automated patch generation.",
+    "badge": "M.Sc. thesis · in progress",
+    "summary": "LLM-driven repair pipeline for WCAG 2.4 focus-behavior violations, evaluating whether runtime evidence (live DOM + NavA11y violation reports) beats static evidence (HTML/screenshots) for automated patch generation.",
     "headline": "Follow-up to NavA11y · runtime-evidence vs. static-evidence prompting · regression-safe patch evaluation.",
     "description": "RepairA11y closes the loop that NavA11y opens: NavA11y detects WCAG 2.4 focus-behavior violations at runtime; RepairA11y feeds that runtime evidence to an LLM to generate candidate patches, then re-runs dynamic analysis to verify the fix and guard against regressions.",
     "sections": [
@@ -104,7 +104,7 @@
     ],
     "category": "Research",
     "year": "2023",
-    "badge": "ICSE SCORE 2023 — Top 6",
+    "badge": "ICSE SCORE 2023 · Top 6",
     "summary": "Smart PDF reader with knowledge graph extraction, citation network visualization, and paper recommendation. Top 6 finalist at ICSE SCORE 2023, the Student Contest on Software Engineering.",
     "headline": "Top 6 finalist at ICSE SCORE 2023 · knowledge graph · citation network · paper recommendations.",
     "description": "Clippy reimagines the academic PDF reader: papers are parsed into a knowledge graph, citations form an interactive network, and similar papers are recommended via embedding similarity.",
@@ -115,7 +115,7 @@
       },
       {
         "h": "Recognition",
-        "body": "Selected as a Top 6 finalist at ICSE SCORE 2023 — the Student Contest on Software Engineering, an international team-project contest held with the International Conference on Software Engineering."
+        "body": "Selected as a Top 6 finalist at ICSE SCORE 2023 (the Student Contest on Software Engineering), an international team-project contest held with the International Conference on Software Engineering."
       }
     ],
     "stack": {
@@ -179,7 +179,7 @@
     "sections": [
       {
         "h": "Package",
-        "body": "Published as python-bpe-tokenizer on PyPI — supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export."
+        "body": "Published as python-bpe-tokenizer on PyPI. Supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export."
       },
       {
         "h": "Why",
@@ -212,7 +212,7 @@
     "category": "AI",
     "year": "2025",
     "badge": "Shipped at Optimizely",
-    "summary": "End-to-end integration of an AI SDK across the platform — service migration, internal publishing pipeline, instrumentation, and a block-based AI document UI.",
+    "summary": "End-to-end integration of an AI SDK across the platform: service migration, internal publishing pipeline, instrumentation, and a block-based AI document UI.",
     "headline": "AI-context events across multiple product surfaces · graduated feature from beta to GA.",
     "description": "I worked on the end-to-end AI integration into the platform, including infrastructure migration, the AI event-tracking layer, and a block-based AI document interface.",
     "sections": [
@@ -249,7 +249,7 @@
     ],
     "category": "AI",
     "year": "2023",
-    "badge": "BUET Hackathon — Best UI/UX",
+    "badge": "BUET Hackathon · Best UI/UX",
     "summary": "GPT-powered PDF chatbot with voice input, OCR, and Stable Diffusion image generation.",
     "headline": "Won Best UI/UX at BUET Hackathon 2023.",
     "description": "A multimodal GPT interface: chat with PDFs, voice input via the Web Speech API, OCR for image-to-text, and on-the-fly image generation via Stable Diffusion.",
@@ -313,13 +313,13 @@
     "category": "Open Source",
     "year": "2024–2026",
     "badge": "Production at Optimizely",
-    "summary": "Multi-year migration from a legacy design library to Axiom — adapter components, component migrations, and dark-mode theming.",
+    "summary": "Multi-year migration from a legacy design library to Axiom: adapter components, component migrations, and dark-mode theming.",
     "headline": "26 merged PRs in the open-source repo · adapter components · internal guides adopted across product teams.",
     "description": "Axiom is Optimizely's open-source design system (`@optiaxiom/react`). My contributions span the full migration lifecycle of the platform, with 26 merged PRs in the public design-system repo (Oct 2024 – Jun 2026).",
     "sections": [
       {
         "h": "Adapter Components & Component Migrations",
-        "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Landed 26 merged PRs in the design-system repo — V1→V2 component conversions plus net-new components: Aside (with resize), SubNav, Range, and FileUpload file preview."
+        "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Landed 26 merged PRs in the design-system repo, covering V1→V2 component conversions and net-new components (Aside with resize, SubNav, Range, and FileUpload file preview)."
       },
       {
         "h": "Documentation",
@@ -536,7 +536,7 @@
     ],
     "category": "Distributed Systems",
     "year": "2022",
-    "summary": "Demonstrated monolith-to-microservices decomposition — split a Node.js app into User, Story, and Status services behind an NGINX reverse proxy.",
+    "summary": "Demonstrated monolith-to-microservices decomposition: split a Node.js app into User, Story, and Status services behind an NGINX reverse proxy.",
     "headline": "NGINX-fronted Docker Compose stack with three independent services.",
     "description": "An academic study in service decomposition: take a Node.js monolith and break it cleanly along user/story/status seams, with NGINX handling routing and Docker Compose handling orchestration.",
     "sections": [
