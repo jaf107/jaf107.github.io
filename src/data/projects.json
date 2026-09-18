@@ -1,6 +1,7 @@
 [
   {
     "id": "nava11y",
+    "listed": false,
     "title": "NavA11y",
     "subtitle": "Dynamic WCAG 2.4 Accessibility Testing",
     "tech": [
@@ -56,6 +57,7 @@
   },
   {
     "id": "repaira11y",
+    "listed": false,
     "title": "RepairA11y",
     "subtitle": "LLM-Driven Accessibility Repair",
     "tech": [

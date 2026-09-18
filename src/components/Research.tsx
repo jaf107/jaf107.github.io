@@ -49,11 +49,15 @@ export default function Research() {
               </div>
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--text-muted)' }}>{a.period}</span>
             </div>
-            <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-              {a.work.map((w, j) => (
-                <li key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.6 }}><Md s={w} /></li>
-              ))}
-            </ul>
+            {a.work.length === 1 ? (
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0.6rem 0 0' }}><Md s={a.work[0]} /></p>
+            ) : (
+              <ul style={{ margin: '0.6rem 0 0', paddingLeft: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+                {a.work.map((w, j) => (
+                  <li key={j} style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.6 }}><Md s={w} /></li>
+                ))}
+              </ul>
+            )}
           </div>
         ))}
       </div>

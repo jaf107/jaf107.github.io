@@ -5,15 +5,10 @@
       "lab": "DSSE Research Group, IIT, University of Dhaka",
       "url": "https://dsse.iit.du.ac.bd/",
       "role": "Graduate Researcher",
-      "advisors": "Dr. Kazi Sakib & Zerina Begum",
+      "advisors": "Dr. Zerina Begum & Dr. Kazi Sakib",
       "period": "Apr 2025 – Present",
       "work": [
-        "Developed [NavA11y](/project/nava11y), published as a full paper at ENASE 2026.",
-        "Constructed and released a 22-page labeled focus-behavior dataset.",
-        "Ran a manual validation study with two independent expert raters (90% precision confirmed).",
-        "Building [RepairA11y](/project/repaira11y), an LLM-driven repair pipeline for WCAG 2.4 violations that compares runtime-evidence and static-evidence prompting (M.Sc. thesis, in progress).",
-        "Take part in the weekly meetings of DSSE (Distributed Systems & Software Engineering), where members present their research methods, plans, and hypotheses and give each other constructive feedback.",
-        "Review fellow members' paper drafts before submission, and get feedback on mine the same way."
+        "**M.Sc. thesis:** “Detecting and Repairing Keyboard Focus-Behavior Violations through Dynamic Analysis.” Built [NavA11y](/project/nava11y) to detect these violations (published at ENASE 2026) and [RepairA11y](/project/repaira11y) to repair them."
       ]
     },
     {

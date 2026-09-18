@@ -7,6 +7,7 @@ import projects from '../data/projects.json';
 interface Project {
   id: string; title: string; subtitle: string; tech: string[];
   category: string; year: string; badge?: string; summary: string;
+  listed?: boolean;
 }
 
 const CATEGORIES = ['All', 'Research', 'AI', 'Open Source', 'Full Stack', 'Distributed Systems'];
@@ -63,7 +64,9 @@ function ProjectCard({ project, idx }: { project: Project; idx: number }) {
 export default function Projects() {
   const [ref, inView] = useInView();
   const [filter, setFilter] = useState('All');
-  const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
+  // Thesis work lives in Research and Publications; its detail pages stay reachable by URL.
+  const listed = (projects as Project[]).filter(p => p.listed !== false);
+  const filtered = filter === 'All' ? listed : listed.filter(p => p.category === filter);
 
   return (
     <section id="projects" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)' }}>
@@ -84,7 +87,7 @@ export default function Projects() {
         </div>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
-        {filtered.map((p, i) => <ProjectCard key={p.id} project={p as Project} idx={i} />)}
+        {filtered.map((p, i) => <ProjectCard key={p.id} project={p} idx={i} />)}
       </div>
     </section>
   );
