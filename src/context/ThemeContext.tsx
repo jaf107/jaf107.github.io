@@ -13,20 +13,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   );
 
   useEffect(() => {
-    const html = document.documentElement;
-    if (dark) {
-      html.setAttribute('data-theme', 'dark');
-      html.style.setProperty('--accent', '#00d97e');
-      html.style.setProperty('--accent-rgb', '0,217,126');
-      html.style.setProperty('--accent-bg', 'rgba(0,217,126,0.1)');
-      localStorage.setItem('ajs-theme', 'dark');
-    } else {
-      html.setAttribute('data-theme', 'light');
-      html.style.setProperty('--accent', '#008a55');
-      html.style.setProperty('--accent-rgb', '0,138,85');
-      html.style.setProperty('--accent-bg', 'rgba(0,138,85,0.08)');
-      localStorage.setItem('ajs-theme', 'light');
-    }
+    // Colors live in globals.css under :root and [data-theme="dark"].
+    const theme = dark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('ajs-theme', theme);
   }, [dark]);
 
   return (

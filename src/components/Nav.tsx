@@ -38,7 +38,7 @@ export default function Nav() {
       transition: 'all 0.3s ease',
     }}>
       <Link to="/" style={{
-        fontFamily: 'DM Mono, monospace', fontSize: '0.85rem',
+        fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-base)',
         color: 'var(--accent)', letterSpacing: '0.05em', textDecoration: 'none',
       }}>{'<AJS />'}</Link>
 
@@ -46,8 +46,8 @@ export default function Nav() {
         {NAV_LINKS.map(link => (
           <button key={link} onClick={() => goToSection(link)} style={{
             background: 'none', border: 'none', cursor: 'pointer',
-            color: 'var(--text-muted)', fontSize: '0.82rem',
-            fontFamily: 'DM Sans, sans-serif', letterSpacing: '0.04em',
+            color: 'var(--text-muted)', fontSize: 'var(--fs-sm)',
+            fontFamily: 'var(--font-sans)', letterSpacing: '0.04em',
             padding: '4px 0', transition: 'color 0.2s',
           }}
             onMouseEnter={e => (e.currentTarget.style.color = 'var(--text)')}
@@ -76,7 +76,7 @@ export default function Nav() {
         </button>
 
         <a href="https://github.com/jaf107" target="_blank" rel="noreferrer" style={{
-          fontFamily: 'DM Mono, monospace', fontSize: '0.75rem',
+          fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)',
           color: 'var(--accent)', border: '1px solid var(--accent)',
           padding: '6px 14px', borderRadius: '4px', textDecoration: 'none',
         }}>GitHub</a>

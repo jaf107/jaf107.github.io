@@ -25,7 +25,7 @@ function SkillTile({ name }: { name: string }) {
         alignItems: 'center',
         justifyContent: 'center',
         gap: '0.5rem',
-        width: '80px',
+        width: '88px',
         padding: '0.75rem 0.5rem',
         background: 'var(--surface)',
         border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
@@ -46,17 +46,17 @@ function SkillTile({ name }: { name: string }) {
             style={{ objectFit: 'contain', opacity: hovered ? 1 : 0.85, transition: 'opacity 0.15s', filter: iconFilter }}
           />
         ) : (
-          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: hovered ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 1 }}>/&gt;</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', color: hovered ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 1 }}>/&gt;</span>
         )}
       </div>
       <span style={{
-        fontFamily: 'DM Sans, sans-serif',
-        fontSize: '0.68rem',
+        fontFamily: 'var(--font-sans)',
+        fontSize: 'var(--fs-2xs)',
         color: hovered ? 'var(--accent)' : 'var(--text-muted)',
         textAlign: 'center',
         lineHeight: 1.2,
         transition: 'color 0.15s',
-        maxWidth: '72px',
+        maxWidth: '100%',
         wordBreak: 'break-word',
       }}>{name}</span>
     </div>
@@ -67,8 +67,8 @@ function CategoryRow({ label, items }: { label: string; items: string[] }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
       <p style={{
-        fontFamily: 'DM Mono, monospace',
-        fontSize: '0.65rem',
+        fontFamily: 'var(--font-mono)',
+        fontSize: 'var(--fs-xs)',
         color: 'var(--accent)',
         letterSpacing: '0.1em',
         margin: 0,
@@ -96,8 +96,8 @@ export default function Skills() {
             key={label}
             onClick={() => setActive(label)}
             style={{
-              fontFamily: 'DM Mono, monospace',
-              fontSize: '0.7rem',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--fs-xs)',
               letterSpacing: '0.06em',
               padding: '5px 14px',
               borderRadius: '20px',
@@ -113,12 +113,12 @@ export default function Skills() {
 
       {researchMethods.length > 0 && (
         <div style={{ marginBottom: '2.5rem' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>RESEARCH METHODS</p>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.1em', margin: '0 0 0.75rem' }}>RESEARCH METHODS</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
             {researchMethods.map(m => (
               <span key={m} style={{
-                fontFamily: 'DM Sans, sans-serif',
-                fontSize: '0.8rem',
+                fontFamily: 'var(--font-sans)',
+                fontSize: 'var(--fs-sm)',
                 color: 'var(--text-mid)',
                 background: 'var(--surface)',
                 padding: '5px 12px',

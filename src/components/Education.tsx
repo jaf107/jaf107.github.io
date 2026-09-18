@@ -13,8 +13,8 @@ function GpaBar({ gpa }: { gpa: string }) {
   return (
     <div style={{ minWidth: '160px', textAlign: 'right', flexShrink: 0 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'flex-end', gap: '0.3rem', marginBottom: '0.4rem' }}>
-        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '1.6rem', fontWeight: 700, color: 'var(--accent)', lineHeight: 1 }}>{value.toFixed(2)}</span>
-        <span style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.72rem', color: 'var(--text-dim)' }}>/ {max.toFixed(2)}</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--accent)', lineHeight: 1 }}>{value.toFixed(2)}</span>
+        <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)', color: 'var(--text-dim)' }}>/ {max.toFixed(2)}</span>
       </div>
       <div style={{ height: '3px', background: 'var(--border)', borderRadius: '2px', overflow: 'hidden' }}>
         <div style={{ height: '100%', width: `${pct}%`, background: 'var(--accent)', borderRadius: '2px' }} />
@@ -47,14 +47,14 @@ function EduCard({ e, delay }: { e: Edu; delay: number }) {
     >
       <div style={{ flex: 1, minWidth: '220px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.3rem' }}>
-          <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', margin: 0 }}>{e.school}</h3>
+          <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'var(--fs-xl)', color: 'var(--text)', margin: 0 }}>{e.school}</h3>
           {e.current && (
-            <span style={{ background: 'var(--accent-bg)', color: 'var(--accent)', fontSize: '0.63rem', padding: '2px 8px', borderRadius: '20px', fontFamily: 'DM Mono, monospace', letterSpacing: '0.05em' }}>IN PROGRESS</span>
+            <span style={{ background: 'var(--accent-bg)', color: 'var(--accent)', fontSize: 'var(--fs-2xs)', padding: '2px 8px', borderRadius: '20px', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>IN PROGRESS</span>
           )}
         </div>
-        <p style={{ fontFamily: 'DM Sans, sans-serif', fontStyle: 'italic', color: 'var(--accent)', margin: '0 0 0.2rem', fontSize: '0.92rem' }}>{e.degree}</p>
-        {e.note && <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 0.15rem' }}>{e.note}</p>}
-        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--text-dim)', margin: 0 }}>{e.period}</p>
+        <p style={{ fontFamily: 'var(--font-sans)', fontStyle: 'italic', color: 'var(--accent)', margin: '0 0 0.2rem', fontSize: 'var(--fs-md)' }}>{e.degree}</p>
+        {e.note && <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)', color: 'var(--text-muted)', margin: '0 0 0.15rem' }}>{e.note}</p>}
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--text-dim)', margin: 0 }}>{e.period}</p>
       </div>
 
       <GpaBar gpa={e.gpa} />

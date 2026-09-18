@@ -32,14 +32,14 @@ export default function Awards() {
               transform: hovered === a.slug ? 'translateY(-1px)' : 'none',
             }}
           >
-            <span style={{ color: '#c89b00', fontSize: '1.1rem', flexShrink: 0 }}>★</span>
+            <span style={{ color: 'var(--gold)', fontSize: 'var(--fs-xl)', flexShrink: 0 }}>★</span>
             <div style={{ flex: 1 }}>
-              <p style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 600, fontSize: '0.92rem', color: 'var(--text)', margin: '0 0 0.2rem' }}>{a.title}</p>
-              {a.org && <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 0.35rem' }}>{a.org}</p>}
-              {a.desc && <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.76rem', color: 'var(--text-muted)', margin: '0 0 0.35rem', lineHeight: 1.55 }}>{a.desc}</p>}
-              {a.year && <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.68rem', color: 'var(--accent)', background: 'var(--accent-bg)', padding: '1px 7px', borderRadius: '3px' }}>{a.year}</span>}
+              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: 'var(--fs-md)', color: 'var(--text)', margin: '0 0 0.2rem' }}>{a.title}</p>
+              {a.org && <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)', color: 'var(--text-muted)', margin: '0 0 0.35rem' }}>{a.org}</p>}
+              {a.desc && <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)', color: 'var(--text-muted)', margin: '0 0 0.35rem', lineHeight: 1.55 }}>{a.desc}</p>}
+              {a.year && <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', color: 'var(--accent)', background: 'var(--accent-bg)', padding: '1px 7px', borderRadius: '3px' }}>{a.year}</span>}
             </div>
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.65rem', color: hovered === a.slug ? 'var(--accent)' : 'var(--text-dim)', flexShrink: 0, alignSelf: 'center', transition: 'color 0.2s' }}>→</span>
+            <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', color: hovered === a.slug ? 'var(--accent)' : 'var(--text-dim)', flexShrink: 0, alignSelf: 'center', transition: 'color 0.2s' }}>→</span>
           </div>
         ))}
       </div>

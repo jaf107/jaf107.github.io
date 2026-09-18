@@ -9,6 +9,20 @@ html {
 }
 
 :root {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Type scale: every text size on the site comes from here. */
+  --fs-2xs: 0.75rem;   /* 12px: chips, badges */
+  --fs-xs: 0.8125rem;  /* 13px: mono labels, dates */
+  --fs-sm: 0.875rem;   /* 14px: secondary text, nav */
+  --fs-base: 1rem;     /* 16px: body copy */
+  --fs-md: 1.0625rem;  /* 17px: roles, sub-headings */
+  --fs-lg: 1.125rem;   /* 18px: lead paragraphs, small titles */
+  --fs-xl: 1.25rem;    /* 20px: card titles */
+  --fs-2xl: 1.375rem;  /* 22px: employer names */
+
+  /* Text colors all clear WCAG AA (4.5:1) on --surface, --bg and --bg-alt. */
   --bg: #f7f8fa;
   --bg-alt: #eef0f4;
   --surface: #ffffff;
@@ -16,13 +30,14 @@ html {
   --border-md: rgba(0, 0, 0, 0.12);
   --text: #1a1c24;
   --text-mid: #3d4358;
-  --text-muted: #6b7280;
-  --text-dim: #9ca3af;
+  --text-muted: #525a6a;
+  --text-dim: #646c7c;
   --nav-bg: rgba(247, 248, 250, 0.92);
-  --accent: #008a55;
-  --accent-rgb: 0, 138, 85;
-  --accent-bg: rgba(0, 138, 85, 0.08);
+  --accent: #007548;
+  --accent-rgb: 0, 117, 72;
+  --accent-bg: rgba(0, 117, 72, 0.08);
   --accent-fg: #ffffff;
+  --gold: #8a6800;
   --scrollbar: #d1d5db;
   --grid-line: rgba(0, 0, 0, 0.04);
 }
@@ -35,13 +50,14 @@ html {
   --border-md: rgba(255, 255, 255, 0.12);
   --text: #e2e5ed;
   --text-mid: #b0bcd0;
-  --text-muted: #8892a4;
-  --text-dim: #5a6478;
+  --text-muted: #9aa3b5;
+  --text-dim: #7a8499;
   --nav-bg: rgba(12, 14, 19, 0.92);
   --accent: #00d97e;
   --accent-rgb: 0, 217, 126;
   --accent-bg: rgba(0, 217, 126, 0.1);
   --accent-fg: #062a1b;
+  --gold: #c89b00;
   --scrollbar: #252a38;
   --grid-line: rgba(255, 255, 255, 0.03);
 }
@@ -49,11 +65,15 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   transition: background 0.3s ease, color 0.3s ease;
-  font-size: 15px;
+  font-size: 16px;
+}
+
+/* Grayscale smoothing thins dark-on-light text on macOS; keep it for light-on-dark only. */
+[data-theme="dark"] body {
+  -webkit-font-smoothing: antialiased;
 }
 
 ::-webkit-scrollbar {

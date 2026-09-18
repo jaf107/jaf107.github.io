@@ -94,7 +94,7 @@ const SOCIALS = [
           icon: (
             <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="11" fill="currentColor" />
-              <text x="12" y="16" textAnchor="middle" fontFamily="DM Sans, sans-serif" fontSize="11" fontWeight="700" fill="#fff">iD</text>
+              <text x="12" y="16" textAnchor="middle" style={{ fontFamily: "var(--font-sans)" }} fontSize="11" fontWeight="700" fill="#fff">iD</text>
             </svg>
           ),
         },
@@ -186,8 +186,8 @@ export default function Contact() {
               />
               <span
                 style={{
-                  fontFamily: "DM Mono, monospace",
-                  fontSize: "0.72rem",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "var(--fs-xs)",
                   color: "var(--text-mid)",
                   letterSpacing: "0.08em",
                 }}
@@ -197,7 +197,7 @@ export default function Contact() {
             </div>
             <h3
               style={{
-                fontFamily: "DM Sans, sans-serif",
+                fontFamily: "var(--font-sans)",
                 fontWeight: 700,
                 fontSize: "1.5rem",
                 color: "var(--text)",
@@ -210,8 +210,8 @@ export default function Contact() {
             </h3>
             <p
               style={{
-                fontFamily: "DM Sans, sans-serif",
-                fontSize: "0.95rem",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--fs-md)",
                 color: "var(--text-muted)",
                 lineHeight: 1.7,
                 margin: 0,
@@ -242,9 +242,9 @@ export default function Contact() {
                   background: "var(--accent)",
                   color: "var(--accent-fg)",
                   textDecoration: "none",
-                  fontFamily: "DM Sans, sans-serif",
+                  fontFamily: "var(--font-sans)",
                   fontWeight: 600,
-                  fontSize: "0.9rem",
+                  fontSize: "var(--fs-md)",
                   padding: "0.85rem 1.25rem",
                   borderRadius: "8px",
                   letterSpacing: "0.01em",
@@ -276,8 +276,8 @@ export default function Contact() {
                   background: copied ? "var(--accent-bg)" : "transparent",
                   color: copied ? "var(--accent)" : "var(--text-mid)",
                   border: `1px solid ${copied ? "var(--accent)" : "var(--border-md)"}`,
-                  fontFamily: "DM Mono, monospace",
-                  fontSize: "0.78rem",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "var(--fs-xs)",
                   cursor: "pointer",
                   padding: "0 1.1rem",
                   borderRadius: "8px",
@@ -290,8 +290,8 @@ export default function Contact() {
             </div>
             <div
               style={{
-                fontFamily: "DM Mono, monospace",
-                fontSize: "0.85rem",
+                fontFamily: "var(--font-mono)",
+                fontSize: "var(--fs-base)",
                 color: "var(--text-muted)",
                 marginTop: "0.85rem",
                 padding: "0.65rem 0.9rem",
@@ -353,8 +353,8 @@ export default function Contact() {
                   top: "0.85rem",
                   right: "0.95rem",
                   color: "var(--text-dim)",
-                  fontFamily: "DM Mono, monospace",
-                  fontSize: "0.8rem",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "var(--fs-sm)",
                 }}
               >
                 ↗
@@ -365,8 +365,8 @@ export default function Contact() {
               <div style={{ textAlign: "center" }}>
                 <div
                   style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "0.95rem",
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "var(--fs-md)",
                     color: "var(--text)",
                     fontWeight: 600,
                     marginBottom: "2px",
@@ -376,8 +376,8 @@ export default function Contact() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "DM Mono, monospace",
-                    fontSize: "0.74rem",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "var(--fs-xs)",
                     color: "var(--text-muted)",
                   }}
                 >
@@ -412,8 +412,8 @@ export default function Contact() {
           <div key={m.l}>
             <div
               style={{
-                fontFamily: "DM Mono, monospace",
-                fontSize: "0.65rem",
+                fontFamily: "var(--font-mono)",
+                fontSize: "var(--fs-2xs)",
                 color: "var(--accent)",
                 letterSpacing: "0.1em",
                 marginBottom: "4px",
@@ -423,8 +423,8 @@ export default function Contact() {
             </div>
             <div
               style={{
-                fontFamily: "DM Sans, sans-serif",
-                fontSize: "0.85rem",
+                fontFamily: "var(--font-sans)",
+                fontSize: "var(--fs-base)",
                 color: "var(--text-mid)",
               }}
             >

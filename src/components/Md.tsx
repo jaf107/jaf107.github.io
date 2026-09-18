@@ -18,7 +18,7 @@ export function Md({ s }: { s: string }) {
     if (m[1] !== undefined) {
       out.push(<b key={k++} style={{ color: 'var(--text-mid)', fontWeight: 600 }}>{m[1]}</b>);
     } else if (m[4] !== undefined) {
-      out.push(<code key={k++} style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.92em' }}>{m[4]}</code>);
+      out.push(<code key={k++} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.92em' }}>{m[4]}</code>);
     } else if (m[3].startsWith('/')) {
       out.push(<Link key={k++} to={m[3]} style={LINK}>{m[2]}</Link>);
     } else {

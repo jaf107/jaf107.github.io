@@ -16,32 +16,32 @@ export default function Publications() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         {(publications as Pub[]).map(p => (
           <article key={p.id} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderLeft: '3px solid var(--accent)', borderRadius: '10px', padding: '1.5rem 1.75rem' }}>
-            <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>{p.year} · {p.status.toUpperCase()}</div>
-            <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', margin: '0 0 0.4rem', lineHeight: 1.4 }}>{p.title}</h3>
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-mid)', margin: '0 0 0.5rem' }}>{p.authors}</p>
-            <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', fontStyle: 'italic', color: 'var(--text-muted)', margin: p.doi ? '0 0 0.4rem' : '0 0 1rem' }}>{p.venue}</p>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>{p.year} · {p.status.toUpperCase()}</div>
+            <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'var(--fs-xl)', color: 'var(--text)', margin: '0 0 0.4rem', lineHeight: 1.4 }}>{p.title}</h3>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-mid)', margin: '0 0 0.5rem' }}>{p.authors}</p>
+            <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', fontStyle: 'italic', color: 'var(--text-muted)', margin: p.doi ? '0 0 0.4rem' : '0 0 1rem' }}>{p.venue}</p>
             {p.doi && (
-              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--text-muted)', margin: '0 0 1rem' }}>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--text-muted)', margin: '0 0 1rem' }}>
                 DOI: <a href={`https://doi.org/${p.doi}`} target="_blank" rel="noreferrer" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{p.doi}</a>
               </p>
             )}
             <div style={{ background: 'var(--bg-alt)', borderRadius: '6px', padding: '0.85rem 1rem', marginBottom: '1rem' }}>
               {p.method && (
                 <>
-                  <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.35rem' }}>METHOD</p>
-                  <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 0.75rem' }}>{p.method}</p>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.35rem' }}>METHOD</p>
+                  <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.6, margin: '0 0 0.75rem' }}>{p.method}</p>
                 </>
               )}
-              <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.5rem' }}>RESULTS</p>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.08em', margin: '0 0 0.5rem' }}>RESULTS</p>
               <ul style={{ margin: 0, paddingLeft: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                 {p.keyResults.map((k, i) => (
-                  <li key={i} style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{k}</li>
+                  <li key={i} style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.6 }}>{k}</li>
                 ))}
               </ul>
             </div>
             <div style={{ display: 'flex', gap: '0.6rem' }}>
               {p.links.map(l => (
-                <a key={l.label} href={l.href} target="_blank" rel="noreferrer" style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: 'var(--accent)', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '4px', textDecoration: 'none' }}>{l.label} →</a>
+                <a key={l.label} href={l.href} target="_blank" rel="noreferrer" style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '4px', textDecoration: 'none' }}>{l.label} →</a>
               ))}
             </div>
           </article>

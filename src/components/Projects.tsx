@@ -35,17 +35,17 @@ function ProjectCard({ project, idx }: { project: Project; idx: number }) {
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: hovered ? 'var(--accent)' : 'transparent', transition: 'background 0.2s' }} />
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem', gap: '0.5rem' }}>
-        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.68rem', color: 'var(--accent)', background: 'var(--accent-bg)', padding: '3px 8px', borderRadius: '3px', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{project.category}</span>
-        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: 'var(--text-dim)' }}>{project.year}</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', color: 'var(--accent)', background: 'var(--accent-bg)', padding: '3px 8px', borderRadius: '3px', letterSpacing: '0.06em', whiteSpace: 'nowrap' }}>{project.category}</span>
+        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--text-dim)' }}>{project.year}</span>
       </div>
 
       {project.badge && (
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.7rem', color: '#c89b00', marginBottom: '0.5rem' }}>★ {project.badge}</div>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--gold)', marginBottom: '0.5rem' }}>★ {project.badge}</div>
       )}
 
-      <h3 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: '1.1rem', color: 'var(--text)', margin: '0 0 0.25rem' }}>{project.title}</h3>
-      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 0.9rem' }}>{project.subtitle}</p>
-      <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.65, margin: '0 0 1rem', flex: 1 }}>{project.summary}</p>
+      <h3 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'var(--fs-xl)', color: 'var(--text)', margin: '0 0 0.25rem' }}>{project.title}</h3>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)', color: 'var(--text-muted)', margin: '0 0 0.9rem' }}>{project.subtitle}</p>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.65, margin: '0 0 1rem', flex: 1 }}>{project.summary}</p>
 
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.7rem', alignItems: 'center', marginBottom: '1rem' }}>
         {project.tech.map(t => (
@@ -53,7 +53,7 @@ function ProjectCard({ project, idx }: { project: Project; idx: number }) {
         ))}
       </div>
 
-      <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.72rem', color: hovered ? 'var(--accent)' : 'var(--text-dim)', letterSpacing: '0.04em' }}>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: hovered ? 'var(--accent)' : 'var(--text-dim)', letterSpacing: '0.04em' }}>
         READ MORE →
       </div>
     </div>
@@ -68,12 +68,12 @@ export default function Projects() {
   return (
     <section id="projects" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)', background: 'var(--bg-alt)' }}>
       <div ref={ref} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: 'all 0.5s ease', marginBottom: '2rem' }}>
-        <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.75rem', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>RESEARCH & WORK</p>
-        <h2 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: '0 0 1.5rem' }}>Projects</h2>
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>RESEARCH & WORK</p>
+        <h2 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: '0 0 1.5rem' }}>Projects</h2>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           {CATEGORIES.map(c => (
             <button key={c} onClick={() => setFilter(c)} style={{
-              fontFamily: 'DM Mono, monospace', fontSize: '0.72rem',
+              fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)',
               padding: '6px 14px', borderRadius: '20px', cursor: 'pointer',
               border: `1px solid ${filter === c ? 'var(--accent)' : 'var(--border-md)'}`,
               background: filter === c ? 'var(--accent-bg)' : 'transparent',

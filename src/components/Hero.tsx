@@ -69,16 +69,16 @@ export default function Hero() {
 
       <div style={{ position: 'relative', zIndex: 1, display: 'grid', gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)', gap: 'clamp(2rem, 5vw, 4rem)', alignItems: 'center' }} className="hero-grid">
         <div style={{ maxWidth: '760px' }}>
-          <p style={{ fontFamily: 'DM Mono, monospace', fontSize: '0.8rem', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '1.5rem' }}>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-sm)', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '1.5rem' }}>
             HELLO, WORLD — I'M
           </p>
-          <h1 style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 700, fontSize: 'clamp(2.8rem, 7vw, 5rem)', lineHeight: 1.05, color: 'var(--text)', margin: '0 0 0.5rem', letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(2.8rem, 7vw, 5rem)', lineHeight: 1.05, color: 'var(--text)', margin: '0 0 0.5rem', letterSpacing: '-0.02em' }}>
             Abu Jafar<br />Saifullah
           </h1>
-          <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', color: 'var(--text-muted)', marginBottom: '1.5rem', minHeight: '2em' }}>
+          <div style={{ fontFamily: 'var(--font-sans)', fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', color: 'var(--text-muted)', marginBottom: '1.5rem', minHeight: '2em' }}>
             <TypedText />
           </div>
-          <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
+          <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-lg)', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
             I build tools that catch the accessibility bugs people actually run into — the ones where{' '}
             <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>keyboard focus quietly disappears</span>{' '}
             and a page stops being navigable. That work became{' '}
@@ -89,19 +89,19 @@ export default function Hero() {
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button onClick={() => scrollToSection('research')}
-              style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', background: 'var(--accent)', color: dark ? '#0c0e13' : '#fff', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
+              style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', background: 'var(--accent)', color: dark ? '#0c0e13' : '#fff', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
               View Research
             </button>
             <a href="resume_academic.pdf" target="_blank" rel="noreferrer"
-              style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500, textDecoration: 'none', display: 'inline-block' }}>
+              style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500, textDecoration: 'none', display: 'inline-block' }}>
               Academic CV
             </a>
           </div>
           <div style={{ display: 'flex', gap: '2rem', marginTop: '3.5rem', flexWrap: 'nowrap', alignItems: 'flex-start' }} className="hero-stats">
             {STATS.map(s => (
               <div key={s.desc} style={{ flexShrink: 0 }}>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '1.4rem', fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>{s.label}</div>
-                <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.75rem', color: 'var(--text-muted)', letterSpacing: '0.04em', marginTop: '2px', whiteSpace: 'nowrap' }}>{s.desc}</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>{s.label}</div>
+                <div style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-sm)', color: 'var(--text-muted)', letterSpacing: '0.04em', marginTop: '2px', whiteSpace: 'nowrap' }}>{s.desc}</div>
               </div>
             ))}
           </div>
