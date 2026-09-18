@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const PHRASES = [
-  'Software Engineer II at Optimizely',
   'Graduate Researcher · IIT, University of Dhaka',
-  'Building accessible, AI-powered systems',
-  'Aspiring PhD Researcher',
+  'PhD Applicant — Fall 2027',
+  'Published at ENASE 2026',
+  'Software Engineer II at Optimizely',
 ];
 
 const STATS = [
-  { label: '1', desc: 'Publication' },
-  { label: '2+ yrs', desc: 'Optimizely' },
+  { label: '1', desc: 'Peer-Reviewed Paper' },
+  { label: '2', desc: 'Research Labs' },
+  { label: '5', desc: 'WCAG Criteria Covered' },
   { label: '3.92', desc: 'M.Sc. CGPA' },
-  { label: '300+', desc: 'PRs Reviewed' },
-  { label: '600+', desc: 'Problems Solved' },
+  { label: '2+ yrs', desc: 'Optimizely' },
 ];
 
 function scrollToSection(id: string) {
@@ -80,21 +80,22 @@ export default function Hero() {
             <TypedText />
           </div>
           <p style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '1rem', color: 'var(--text-muted)', lineHeight: 1.75, maxWidth: '560px', marginBottom: '2.5rem' }}>
-            Software engineer with published research at the intersection of{' '}
+            Graduate researcher working on{' '}
             <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>AI for software engineering</span>,{' '}
-            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>dynamic testing</span>, and{' '}
+            <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>automated program repair</span>, and{' '}
             <span style={{ color: 'var(--text-mid)', fontWeight: 500 }}>human-centered accessibility</span>.
-            Currently shipping AI features at Optimizely while wrapping up an M.Sc. thesis on LLM-driven repair of accessibility violations.
+            First-author full paper at ENASE 2026 on dynamic WCAG focus-behavior analysis; M.Sc. thesis on LLM-driven repair of accessibility violations.
+            Applying for PhD programs for Fall 2027, alongside engineering AI features at Optimizely.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <button onClick={() => scrollToSection('projects')}
+            <button onClick={() => scrollToSection('research')}
               style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', background: 'var(--accent)', color: dark ? '#0c0e13' : '#fff', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
-              View Projects
+              View Research
             </button>
-            <button onClick={() => scrollToSection('contact')}
-              style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500 }}>
-              Get in Touch
-            </button>
+            <a href="resume_academic.pdf" target="_blank" rel="noreferrer"
+              style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '0.9rem', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500, textDecoration: 'none', display: 'inline-block' }}>
+              Academic CV
+            </a>
           </div>
           <div style={{ display: 'flex', gap: '2rem', marginTop: '3.5rem', flexWrap: 'nowrap', alignItems: 'flex-start' }} className="hero-stats">
             {STATS.map(s => (

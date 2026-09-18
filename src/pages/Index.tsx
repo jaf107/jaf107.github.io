@@ -36,11 +36,11 @@ export default function Index() {
       <Nav />
       <main>
         <Hero />
-        <Experience />
-        <Education />
-        <Projects />
         <Research />
         <Publications />
+        <Projects />
+        <Education />
+        <Experience />
         <Skills />
         <Awards />
         <Contact />

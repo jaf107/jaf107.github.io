@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 
-const NAV_LINKS = ['Experience', 'Projects', 'Research', 'Publications', 'Contact'];
+const NAV_LINKS = ['Research', 'Publications', 'Projects', 'Experience', 'Contact'];
 
 export default function Nav() {
   const { dark, toggleDark } = useTheme();

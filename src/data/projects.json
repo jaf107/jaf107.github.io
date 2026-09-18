@@ -1,79 +1,13 @@
 [
   {
-    "id": "blueberry-auto",
-    "title": "Blueberry Auto",
-    "subtitle": "Vehicle Auction & Marketplace Platform",
-    "tech": ["React", "TypeScript", "Vite", "Hono", "Supabase", "Tailwind CSS", "shadcn/ui", "Vercel"],
-    "category": "Full Stack",
-    "year": "2025–Present",
-    "badge": "Lead Developer",
-    "summary": "Vehicle auction and marketplace platform for the Bangladesh market. Leading the end-to-end build as the contracted developer.",
-    "headline": "pnpm monorepo · Vite/React frontend · Hono API · Supabase backend · separate crawler app.",
-    "description": "Blueberry Auto is a vehicle auction and marketplace platform built from scratch as a pnpm monorepo. I lead architecture, OAuth, Supabase migrations, edge functions, and Vercel deployment.",
-    "sections": [
-      { "h": "Architecture", "body": "pnpm monorepo: apps/web (Vite + React 18 + TypeScript + Tailwind + shadcn/ui), apps/api (Hono backend), apps/crawler (data ingestion), packages/shared + packages/config, supabase/ migrations." },
-      { "h": "Engineering Surfaces", "body": "Contact-Email edge function, Supabase workflow, Google OAuth security refactor, exchange-rate calculator, notifications system." }
-    ],
-    "stack": { "Frontend": "React 18, Vite, Tailwind, shadcn/ui", "Backend": "Hono, Supabase", "Tooling": "pnpm workspaces, Vercel" },
-    "links": [{ "label": "Live", "href": "https://blueberry.com.bd/" }]
-  },
-  {
-    "id": "opti-retreat",
-    "title": "Opti Retreat Voting System",
-    "subtitle": "Internal Voting App for Optimizely Retreat",
-    "tech": ["React", "TypeScript", "Netlify"],
-    "category": "Full Stack",
-    "year": "2024",
-    "badge": "Optimizely Retreat 2024",
-    "summary": "Internal voting application built for Optimizely's annual company retreat; React + TypeScript SPA used by the Bangladesh office.",
-    "headline": "Shipped internal tool · React + TypeScript SPA on Netlify.",
-    "description": "A React + TypeScript single-page voting app used internally at Optimizely's 2024 company retreat in the Bangladesh office.",
-    "sections": [],
-    "stack": { "Frontend": "React 18, TypeScript", "Hosting": "Netlify" },
-    "links": [
-      { "label": "GitHub", "href": "https://github.com/jaf107/opti-retreat-voting-system" },
-      { "label": "Live", "href": "https://optiretreat2024.netlify.app" }
-    ]
-  },
-  {
-    "id": "gcmaf",
-    "title": "GCMAF",
-    "subtitle": "Medical Product & Research Site",
-    "tech": ["Next.js", "React", "Tailwind CSS", "Cloudflare Workers", "Resend"],
-    "category": "Full Stack",
-    "year": "2025",
-    "badge": "Lead Developer",
-    "summary": "Marketing and research site for a medical product line; led design and build.",
-    "headline": "Next.js 16 on Cloudflare Workers · Resend for transactional email · Turnstile for form protection.",
-    "description": "GCMAF is a marketing and research site for a medical product line, deployed on Cloudflare Workers with Next.js. I led the design and build.",
-    "sections": [
-      { "h": "Surfaces", "body": "Clinical applications, product, research, contact, and about pages." }
-    ],
-    "stack": { "Framework": "Next.js 16, React 19, Tailwind 4", "Hosting": "Cloudflare Workers", "Email": "Resend", "Anti-spam": "Turnstile" },
-    "links": [{ "label": "Live", "href": "https://gcmaf.net" }]
-  },
-  {
-    "id": "dbh-services",
-    "title": "DBH Services",
-    "subtitle": "Corporate / Holding Company Website",
-    "tech": ["React", "TypeScript", "Vite", "shadcn/ui", "Recharts", "Framer Motion"],
-    "category": "Full Stack",
-    "year": "2025",
-    "badge": "Lead Developer",
-    "summary": "Corporate website for a holding company covering home, services, allied businesses, and admin contact submissions.",
-    "headline": "Vite + React + shadcn/ui · react-hook-form + zod · recharts · framer-motion.",
-    "description": "DBH Services is a corporate website for a holding company. I led the design and build.",
-    "sections": [
-      { "h": "Surfaces", "body": "Home, About, Services, Allied Business Concerns, Contact + admin Contact Submissions, Privacy, Terms." }
-    ],
-    "stack": { "Framework": "Vite, React 18, TypeScript", "UI": "shadcn/ui, Framer Motion", "Forms": "react-hook-form + zod", "Charts": "Recharts" },
-    "links": [{ "label": "Live", "href": "https://dbhservices.com.bd" }]
-  },
-  {
     "id": "nava11y",
     "title": "NavA11y",
     "subtitle": "Dynamic WCAG 2.4 Accessibility Testing",
-    "tech": ["Node.js", "Playwright", "Chromium"],
+    "tech": [
+      "Node.js",
+      "Playwright",
+      "Chromium"
+    ],
     "category": "Research",
     "year": "2026",
     "badge": "Published — ENASE 2026 (full paper)",
@@ -81,23 +15,55 @@
     "headline": "100% precision and recall on the labeled benchmark · 2,947 violations detected on 26 production sites · 90% confirmed true-positive rate.",
     "description": "NavA11y is a dynamic analysis tool for automated WCAG 2.4 accessibility evaluation built around Playwright-driven browser automation. Unlike static checkers (axe-core, Lighthouse) that inspect HTML/ARIA attributes, NavA11y drives a real Chromium browser to actually execute keyboard navigation and capture rendered focus state — surfacing violations that only appear at runtime.",
     "sections": [
-      { "h": "How it works", "body": "Page level: NavA11y drives real keyboard navigation through the page and compares the focus order it observes with the order a user would expect. Element level: at every focus stop it checks that the focused element is visible, shows a visible focus indicator, and is not covered by other content such as sticky headers or overlays. Because every check runs against the rendered page, it catches failures that only appear at runtime." },
-      { "h": "Empirical Results", "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed by two independent expert raters on a manually validated sample." },
-      { "h": "Contributions", "body": "First automated tool to cover all five WCAG 2.4 focus-behavior success criteria. Released a reusable 22-page labeled focus-behavior dataset covering pass, boundary, and obscuration cases for community benchmarking." },
-      { "h": "Publication", "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Vol. 2, pp. 1019–1030. SCITEPRESS. Full paper; presented by the author in Benidorm, Spain, May 2026. DOI: 10.5220/0015045700004015." }
+      {
+        "h": "How it works",
+        "body": "Page level: NavA11y drives real keyboard navigation through the page and compares the focus order it observes with the order a user would expect. Element level: at every focus stop it checks that the focused element is visible, shows a visible focus indicator, and is not covered by other content such as sticky headers or overlays. Because every check runs against the rendered page, it catches failures that only appear at runtime."
+      },
+      {
+        "h": "Empirical Results",
+        "body": "100% precision and recall on a 22-page labeled benchmark dataset (32 SC-level assertions). Detected 2,947 violations across 26 production websites; 90% precision confirmed by two independent expert raters on a manually validated sample."
+      },
+      {
+        "h": "Contributions",
+        "body": "First automated tool to cover all five WCAG 2.4 focus-behavior success criteria. Released a reusable 22-page labeled focus-behavior dataset covering pass, boundary, and obscuration cases for community benchmarking."
+      },
+      {
+        "h": "Publication",
+        "body": "Saifullah, Zerin, Begum, Sakib. \"NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation.\" In Proceedings of the 21st International Conference on Evaluation of Novel Approaches to Software Engineering (ENASE 2026), Vol. 2, pp. 1019–1030. SCITEPRESS. Full paper; presented by the author in Benidorm, Spain, May 2026. DOI: 10.5220/0015045700004015."
+      }
     ],
-    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "CI": "GitHub Actions", "Standards": "WCAG 2.4", "Venue": "ENASE 2026 (full paper, pp. 1019–1030)" },
+    "stack": {
+      "Runtime": "Node.js",
+      "Browser": "Playwright + Chromium",
+      "CI": "GitHub Actions",
+      "Standards": "WCAG 2.4",
+      "Venue": "ENASE 2026 (full paper, pp. 1019–1030)"
+    },
     "links": [
-      { "label": "Paper", "href": "/papers/nava11y-latest.pdf" },
-      { "label": "DOI", "href": "https://doi.org/10.5220/0015045700004015" },
-      { "label": "Code", "href": "https://github.com/jaf107/NavA11y" }
+      {
+        "label": "Paper",
+        "href": "/papers/nava11y-latest.pdf"
+      },
+      {
+        "label": "DOI",
+        "href": "https://doi.org/10.5220/0015045700004015"
+      },
+      {
+        "label": "Code",
+        "href": "https://github.com/jaf107/NavA11y"
+      }
     ]
   },
   {
     "id": "repaira11y",
     "title": "RepairA11y",
     "subtitle": "LLM-Driven Accessibility Repair",
-    "tech": ["Node.js", "Playwright", "Vitest", "LLM"],
+    "tech": [
+      "Node.js",
+      "Playwright",
+      "Vitest",
+      "LLM"
+    ],
     "category": "Research",
     "year": "2026",
     "badge": "M.Sc. Thesis — In Progress",
@@ -105,55 +71,37 @@
     "headline": "Follow-up to NavA11y · runtime-evidence vs. static-evidence prompting · regression-safe patch evaluation.",
     "description": "RepairA11y closes the loop that NavA11y opens: NavA11y detects WCAG 2.4 focus-behavior violations at runtime; RepairA11y feeds that runtime evidence to an LLM to generate candidate patches, then re-runs dynamic analysis to verify the fix and guard against regressions.",
     "sections": [
-      { "h": "Research Questions", "body": "Four research questions covering repair effectiveness, evidence ablation (live DOM + violation report vs. static HTML/screenshots), and regression safety of generated patches." },
-      { "h": "Pipeline", "body": "Detect with NavA11y → construct evidence-conditioned prompts → generate candidate patches → apply and re-run dynamic analysis to validate focus behavior and catch regressions, with Vitest-based harness automation." }
+      {
+        "h": "Research Questions",
+        "body": "Four research questions covering repair effectiveness, evidence ablation (live DOM + violation report vs. static HTML/screenshots), and regression safety of generated patches."
+      },
+      {
+        "h": "Pipeline",
+        "body": "Detect with NavA11y → construct evidence-conditioned prompts → generate candidate patches → apply and re-run dynamic analysis to validate focus behavior and catch regressions, with Vitest-based harness automation."
+      }
     ],
-    "stack": { "Runtime": "Node.js", "Browser": "Playwright + Chromium", "Testing": "Vitest", "Standards": "WCAG 2.4" },
-    "links": [{ "label": "Code", "href": "https://github.com/jaf107/RepairA11y" }]
-  },
-  {
-    "id": "optiaxiom",
-    "title": "Axiom Migration",
-    "subtitle": "Platform Migration to @optiaxiom/react",
-    "tech": ["React", "TypeScript", "Module Federation", "Storybook"],
-    "category": "Open Source",
-    "year": "2024–2026",
-    "badge": "Production at Optimizely",
-    "summary": "Multi-year migration from a legacy design library to Axiom — adapter components, component migrations, and dark-mode theming.",
-    "headline": "26 merged PRs in the open-source repo · adapter components · internal guides adopted across product teams.",
-    "description": "Axiom is Optimizely's open-source design system (`@optiaxiom/react`). My contributions span the full migration lifecycle of the platform, with 26 merged PRs in the public design-system repo (Oct 2024 – Jun 2026).",
-    "sections": [
-      { "h": "Adapter Components & Component Migrations", "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Landed 26 merged PRs in the design-system repo — V1→V2 component conversions plus net-new components: Aside (with resize), SubNav, Range, and FileUpload file preview." },
-      { "h": "Documentation", "body": "Authored internal migration guides used across product teams." },
-      { "h": "Other System Work", "body": "Refactored Dark Mode to CSS variables; centralized fragmented status indicators into a unified status schema; added missing i18n locale variants." }
-    ],
-    "stack": { "Framework": "React 18/19, Next.js", "Architecture": "Module Federation, Rspack", "Documentation": "Storybook", "Language": "TypeScript" },
-    "links": [{ "label": "Merged PRs", "href": "https://github.com/optimizely-axiom/optiaxiom/pulls?q=is%3Apr+author%3Ajaf107+is%3Amerged" }]
-  },
-  {
-    "id": "opal-ai",
-    "title": "AI Platform Integration",
-    "subtitle": "AI SDK Integration + Block-based Document UI",
-    "tech": ["Node.js", "MCP", "LLMs", "React"],
-    "category": "AI",
-    "year": "2025",
-    "badge": "Shipped at Optimizely",
-    "summary": "End-to-end integration of an AI SDK across the platform — service migration, internal publishing pipeline, instrumentation, and a block-based AI document UI.",
-    "headline": "AI-context events across multiple product surfaces · graduated feature from beta to GA.",
-    "description": "I worked on the end-to-end AI integration into the platform, including infrastructure migration, the AI event-tracking layer, and a block-based AI document interface.",
-    "sections": [
-      { "h": "SDK Integration & Infrastructure", "body": "Migrated the AI service to a modern framework. Designed the internal package publishing pipeline. Built the permissions layer and test suite. Authored internal documentation that helped graduate the feature from beta to GA." },
-      { "h": "AI Event Instrumentation", "body": "Built a reusable event-tracking hook and instrumented structured AI-context events across multiple product surfaces." },
-      { "h": "Block-based AI Document UI", "body": "Implemented backend context extraction for LLM prompts, frontend block form interaction, and AI resource rendering for the platform's AI document interface." }
-    ],
-    "stack": { "Backend": "Node.js (migrated to modern framework)", "Publishing": "Internal package registry", "Protocol": "MCP (Model Context Protocol)", "Frontend": "React" },
-    "links": []
+    "stack": {
+      "Runtime": "Node.js",
+      "Browser": "Playwright + Chromium",
+      "Testing": "Vitest",
+      "Standards": "WCAG 2.4"
+    },
+    "links": [
+      {
+        "label": "Code",
+        "href": "https://github.com/jaf107/RepairA11y"
+      }
+    ]
   },
   {
     "id": "clippy",
     "title": "Clippy",
     "subtitle": "Smart PDF Reader for Researchers",
-    "tech": ["Angular", "Node.js", "AWS S3"],
+    "tech": [
+      "Angular",
+      "Node.js",
+      "AWS S3"
+    ],
     "category": "Research",
     "year": "2023",
     "badge": "ICSE SCORE 2023 — Top 6",
@@ -161,104 +109,39 @@
     "headline": "Top 6 finalist at ICSE SCORE 2023 · knowledge graph · citation network · paper recommendations.",
     "description": "Clippy reimagines the academic PDF reader: papers are parsed into a knowledge graph, citations form an interactive network, and similar papers are recommended via embedding similarity.",
     "sections": [
-      { "h": "Features", "body": "PDF parsing → knowledge graph extraction; citation network visualization; paper recommendation engine; OTP-based authentication; Azure CI/CD pipeline." },
-      { "h": "Recognition", "body": "Selected as a Top 6 finalist at ICSE SCORE 2023 — the Student Contest on Software Engineering, an international team-project contest held with the International Conference on Software Engineering." }
+      {
+        "h": "Features",
+        "body": "PDF parsing → knowledge graph extraction; citation network visualization; paper recommendation engine; OTP-based authentication; Azure CI/CD pipeline."
+      },
+      {
+        "h": "Recognition",
+        "body": "Selected as a Top 6 finalist at ICSE SCORE 2023 — the Student Contest on Software Engineering, an international team-project contest held with the International Conference on Software Engineering."
+      }
     ],
-    "stack": { "Frontend": "Angular", "Backend": "Node.js", "Storage": "AWS S3", "CI": "Azure", "Auth": "OTP-based" },
-    "links": [{ "label": "GitHub", "href": "https://github.com/jaf107/Clippy" }]
-  },
-  {
-    "id": "mr-bin",
-    "title": "Mr. Bin",
-    "subtitle": "Recycling Marketplace + ML Classification",
-    "tech": ["MERN", "Spring Boot 3", "TensorFlow", "Maps API"],
-    "category": "Full Stack",
-    "year": "2023",
-    "badge": "JavaFest 2023 (Therap)",
-    "summary": "Full-stack recycling and exchange marketplace with ML-based object detection for item classification.",
-    "headline": "MERN frontend with a Spring Boot 3 / Java 17 backend rewrite.",
-    "description": "Mr. Bin is a two-sided marketplace connecting recyclers and sellers of usable products. Built originally on MERN, later partially rewritten to Spring Boot 3 / Java 17.",
-    "sections": [
-      { "h": "Features", "body": "User auth, listings, real-time chat, geolocation-based discovery via Google Maps API, ML-based image classification of recyclable materials." },
-      { "h": "Tech Stack Migration", "body": "Initial MERN implementation; backend later rewritten in Spring Boot 3 / Java 17 as part of Therap's JavaFest 2023 entry." }
-    ],
-    "stack": { "Frontend": "React, Redux", "Backend": "Node.js → Spring Boot 3", "ML": "TensorFlow", "Maps": "Google Maps API", "Database": "MongoDB" },
-    "links": []
-  },
-  {
-    "id": "api-miners-gpt",
-    "title": "API Miners GPT",
-    "subtitle": "GPT-Powered PDF Chatbot",
-    "tech": ["ASP.NET Core", "React", "OpenAI API", "EF Core"],
-    "category": "AI",
-    "year": "2023",
-    "badge": "BUET Hackathon — Best UI/UX",
-    "summary": "GPT-powered PDF chatbot with voice input, OCR, and Stable Diffusion image generation.",
-    "headline": "Won Best UI/UX at BUET Hackathon 2023.",
-    "description": "A multimodal GPT interface: chat with PDFs, voice input via the Web Speech API, OCR for image-to-text, and on-the-fly image generation via Stable Diffusion.",
-    "sections": [
-      { "h": "Features", "body": "PDF chat (RAG-style), voice input via the Web Speech API, OCR pipeline, AI image generation via Stable Diffusion, integrated bookstore." },
-      { "h": "Stack", "body": ".NET backend with SQL Server, React + Tailwind CSS frontend." }
-    ],
-    "stack": { "Frontend": "React + Tailwind", "Backend": "ASP.NET Core, EF Core", "AI": "OpenAI API, Stable Diffusion", "Database": "SQL Server" },
-    "links": []
-  },
-  {
-    "id": "minifacebook",
-    "title": "MiniFacebook",
-    "subtitle": "Monolith → Microservices",
-    "tech": ["React", "Node.js", "Docker", "NGINX"],
-    "category": "Distributed Systems",
-    "year": "2022",
-    "summary": "Demonstrated monolith-to-microservices decomposition — split a Node.js app into User, Story, and Status services behind an NGINX reverse proxy.",
-    "headline": "NGINX-fronted Docker Compose stack with three independent services.",
-    "description": "An academic study in service decomposition: take a Node.js monolith and break it cleanly along user/story/status seams, with NGINX handling routing and Docker Compose handling orchestration.",
-    "sections": [
-      { "h": "Architecture", "body": "Three independent services (User, Story, Status) each with their own data store; NGINX reverse proxy for routing and basic load balancing; Docker Compose for orchestration." }
-    ],
-    "stack": { "Frontend": "React", "Backend": "Node.js, Express", "Infrastructure": "Docker Compose, NGINX", "Database": "MongoDB" },
-    "links": [{ "label": "GitHub", "href": "https://github.com/jaf107" }]
-  },
-  {
-    "id": "bpe-tokenizer",
-    "title": "BPE Tokenizer",
-    "subtitle": "Byte Pair Encoding from Scratch",
-    "tech": ["Python", "Flask", "HuggingFace"],
-    "category": "AI",
-    "year": "2023",
-    "badge": "Published on PyPI",
-    "summary": "Byte Pair Encoding tokenizer implemented from scratch and published as python-bpe-tokenizer on PyPI. Includes a Flask web interface for training on custom corpora.",
-    "headline": "Direct precursor to my SEMERU Lab tokenizer research.",
-    "description": "A from-scratch BPE tokenizer that handles the full training/encoding/decoding cycle. Shipped as a public PyPI package and a Flask UI for non-CLI users.",
-    "sections": [
-      { "h": "Package", "body": "Published as python-bpe-tokenizer on PyPI — supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export." },
-      { "h": "Why", "body": "Built as a teaching tool and as a direct precursor to the PL-specific tokenizer research at SEMERU Lab." }
-    ],
-    "stack": { "Language": "Python", "Frontend": "Flask", "Reference": "HuggingFace tokenizers", "Distribution": "PyPI" },
-    "links": [{ "label": "PyPI", "href": "https://pypi.org/project/python-bpe-tokenizer/" }]
-  },
-  {
-    "id": "emitxplorer",
-    "title": "EmitXplorer",
-    "subtitle": "Greenhouse Gas Visualization",
-    "tech": ["React", "ASP.NET Core", "TensorFlow"],
-    "category": "AI",
-    "year": "2023",
-    "badge": "NASA Space Apps 2023",
-    "summary": "Gamified greenhouse gas visualization platform using SCISAT satellite data and ML-based CO₂ concentration prediction.",
-    "headline": "Built for NASA Space Apps Challenge 2023.",
-    "description": "EmitXplorer turns SCISAT satellite emissions data into an interactive gamified visualization, with an ML model that predicts CO₂ concentrations from input parameters.",
-    "sections": [
-      { "h": "Approach", "body": "SCISAT satellite data → preprocessing → ML model (TensorFlow) for CO₂ prediction → React/ASP.NET visualization with gamified exploration." }
-    ],
-    "stack": { "Frontend": "React", "Backend": "ASP.NET Core", "ML": "TensorFlow", "Data": "SCISAT satellite" },
-    "links": []
+    "stack": {
+      "Frontend": "Angular",
+      "Backend": "Node.js",
+      "Storage": "AWS S3",
+      "CI": "Azure",
+      "Auth": "OTP-based"
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/jaf107/Clippy"
+      }
+    ]
   },
   {
     "id": "szz-mining",
     "title": "ML Bug Mining (SZZ)",
     "subtitle": "Mining Software Repositories",
-    "tech": ["Python", "GitPython", "pandas", "scikit-learn"],
+    "tech": [
+      "Python",
+      "GitPython",
+      "pandas",
+      "scikit-learn"
+    ],
     "category": "Research",
     "year": "2025",
     "badge": "M.Sc. Coursework",
@@ -266,9 +149,413 @@
     "headline": "9 repos · bug-fixing → bug-introducing commit linkage.",
     "description": "An MSR (Mining Software Repositories) project: applied the SZZ algorithm to identify bug-fixing and bug-introducing commits across 9 ML-library-touching open-source projects.",
     "sections": [
-      { "h": "Pipeline", "body": "Clone repos → keyword-heuristic bug-fix detection → git blame to recover bug-introducing commits → filter for ML-library-touching code → analysis." }
+      {
+        "h": "Pipeline",
+        "body": "Clone repos → keyword-heuristic bug-fix detection → git blame to recover bug-introducing commits → filter for ML-library-touching code → analysis."
+      }
     ],
-    "stack": { "Language": "Python", "Tooling": "GitPython, pandas, scikit-learn", "Algorithm": "SZZ" },
+    "stack": {
+      "Language": "Python",
+      "Tooling": "GitPython, pandas, scikit-learn",
+      "Algorithm": "SZZ"
+    },
     "links": []
+  },
+  {
+    "id": "bpe-tokenizer",
+    "title": "BPE Tokenizer",
+    "subtitle": "Byte Pair Encoding from Scratch",
+    "tech": [
+      "Python",
+      "Flask",
+      "HuggingFace"
+    ],
+    "category": "AI",
+    "year": "2023",
+    "badge": "Published on PyPI",
+    "summary": "Byte Pair Encoding tokenizer implemented from scratch and published as python-bpe-tokenizer on PyPI. Includes a Flask web interface for training on custom corpora.",
+    "headline": "Direct precursor to my SEMERU Lab tokenizer research.",
+    "description": "A from-scratch BPE tokenizer that handles the full training/encoding/decoding cycle. Shipped as a public PyPI package and a Flask UI for non-CLI users.",
+    "sections": [
+      {
+        "h": "Package",
+        "body": "Published as python-bpe-tokenizer on PyPI — supports training on custom corpora, tokenize/detokenize workflows, and vocabulary export."
+      },
+      {
+        "h": "Why",
+        "body": "Built as a teaching tool and as a direct precursor to the PL-specific tokenizer research at SEMERU Lab."
+      }
+    ],
+    "stack": {
+      "Language": "Python",
+      "Frontend": "Flask",
+      "Reference": "HuggingFace tokenizers",
+      "Distribution": "PyPI"
+    },
+    "links": [
+      {
+        "label": "PyPI",
+        "href": "https://pypi.org/project/python-bpe-tokenizer/"
+      }
+    ]
+  },
+  {
+    "id": "opal-ai",
+    "title": "AI Platform Integration",
+    "subtitle": "AI SDK Integration + Block-based Document UI",
+    "tech": [
+      "Node.js",
+      "MCP",
+      "LLMs",
+      "React"
+    ],
+    "category": "AI",
+    "year": "2025",
+    "badge": "Shipped at Optimizely",
+    "summary": "End-to-end integration of an AI SDK across the platform — service migration, internal publishing pipeline, instrumentation, and a block-based AI document UI.",
+    "headline": "AI-context events across multiple product surfaces · graduated feature from beta to GA.",
+    "description": "I worked on the end-to-end AI integration into the platform, including infrastructure migration, the AI event-tracking layer, and a block-based AI document interface.",
+    "sections": [
+      {
+        "h": "SDK Integration & Infrastructure",
+        "body": "Migrated the AI service to a modern framework. Designed the internal package publishing pipeline. Built the permissions layer and test suite. Authored internal documentation that helped graduate the feature from beta to GA."
+      },
+      {
+        "h": "AI Event Instrumentation",
+        "body": "Built a reusable event-tracking hook and instrumented structured AI-context events across multiple product surfaces."
+      },
+      {
+        "h": "Block-based AI Document UI",
+        "body": "Implemented backend context extraction for LLM prompts, frontend block form interaction, and AI resource rendering for the platform's AI document interface."
+      }
+    ],
+    "stack": {
+      "Backend": "Node.js (migrated to modern framework)",
+      "Publishing": "Internal package registry",
+      "Protocol": "MCP (Model Context Protocol)",
+      "Frontend": "React"
+    },
+    "links": []
+  },
+  {
+    "id": "api-miners-gpt",
+    "title": "API Miners GPT",
+    "subtitle": "GPT-Powered PDF Chatbot",
+    "tech": [
+      "ASP.NET Core",
+      "React",
+      "OpenAI API",
+      "EF Core"
+    ],
+    "category": "AI",
+    "year": "2023",
+    "badge": "BUET Hackathon — Best UI/UX",
+    "summary": "GPT-powered PDF chatbot with voice input, OCR, and Stable Diffusion image generation.",
+    "headline": "Won Best UI/UX at BUET Hackathon 2023.",
+    "description": "A multimodal GPT interface: chat with PDFs, voice input via the Web Speech API, OCR for image-to-text, and on-the-fly image generation via Stable Diffusion.",
+    "sections": [
+      {
+        "h": "Features",
+        "body": "PDF chat (RAG-style), voice input via the Web Speech API, OCR pipeline, AI image generation via Stable Diffusion, integrated bookstore."
+      },
+      {
+        "h": "Stack",
+        "body": ".NET backend with SQL Server, React + Tailwind CSS frontend."
+      }
+    ],
+    "stack": {
+      "Frontend": "React + Tailwind",
+      "Backend": "ASP.NET Core, EF Core",
+      "AI": "OpenAI API, Stable Diffusion",
+      "Database": "SQL Server"
+    },
+    "links": []
+  },
+  {
+    "id": "emitxplorer",
+    "title": "EmitXplorer",
+    "subtitle": "Greenhouse Gas Visualization",
+    "tech": [
+      "React",
+      "ASP.NET Core",
+      "TensorFlow"
+    ],
+    "category": "AI",
+    "year": "2023",
+    "badge": "NASA Space Apps 2023",
+    "summary": "Gamified greenhouse gas visualization platform using SCISAT satellite data and ML-based CO₂ concentration prediction.",
+    "headline": "Built for NASA Space Apps Challenge 2023.",
+    "description": "EmitXplorer turns SCISAT satellite emissions data into an interactive gamified visualization, with an ML model that predicts CO₂ concentrations from input parameters.",
+    "sections": [
+      {
+        "h": "Approach",
+        "body": "SCISAT satellite data → preprocessing → ML model (TensorFlow) for CO₂ prediction → React/ASP.NET visualization with gamified exploration."
+      }
+    ],
+    "stack": {
+      "Frontend": "React",
+      "Backend": "ASP.NET Core",
+      "ML": "TensorFlow",
+      "Data": "SCISAT satellite"
+    },
+    "links": []
+  },
+  {
+    "id": "optiaxiom",
+    "title": "Axiom Migration",
+    "subtitle": "Platform Migration to @optiaxiom/react",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Module Federation",
+      "Storybook"
+    ],
+    "category": "Open Source",
+    "year": "2024–2026",
+    "badge": "Production at Optimizely",
+    "summary": "Multi-year migration from a legacy design library to Axiom — adapter components, component migrations, and dark-mode theming.",
+    "headline": "26 merged PRs in the open-source repo · adapter components · internal guides adopted across product teams.",
+    "description": "Axiom is Optimizely's open-source design system (`@optiaxiom/react`). My contributions span the full migration lifecycle of the platform, with 26 merged PRs in the public design-system repo (Oct 2024 – Jun 2026).",
+    "sections": [
+      {
+        "h": "Adapter Components & Component Migrations",
+        "body": "Authored React/TypeScript adapter components that allowed the platform to incrementally migrate from the legacy library while preserving existing call-sites. Landed 26 merged PRs in the design-system repo — V1→V2 component conversions plus net-new components: Aside (with resize), SubNav, Range, and FileUpload file preview."
+      },
+      {
+        "h": "Documentation",
+        "body": "Authored internal migration guides used across product teams."
+      },
+      {
+        "h": "Other System Work",
+        "body": "Refactored Dark Mode to CSS variables; centralized fragmented status indicators into a unified status schema; added missing i18n locale variants."
+      }
+    ],
+    "stack": {
+      "Framework": "React 18/19, Next.js",
+      "Architecture": "Module Federation, Rspack",
+      "Documentation": "Storybook",
+      "Language": "TypeScript"
+    },
+    "links": [
+      {
+        "label": "Merged PRs",
+        "href": "https://github.com/optimizely-axiom/optiaxiom/pulls?q=is%3Apr+author%3Ajaf107+is%3Amerged"
+      }
+    ]
+  },
+  {
+    "id": "blueberry-auto",
+    "title": "Blueberry Auto",
+    "subtitle": "Vehicle Auction & Marketplace Platform",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Hono",
+      "Supabase",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Vercel"
+    ],
+    "category": "Full Stack",
+    "year": "2025–Present",
+    "badge": "Lead Developer",
+    "summary": "Vehicle auction and marketplace platform for the Bangladesh market. Leading the end-to-end build as the contracted developer.",
+    "headline": "pnpm monorepo · Vite/React frontend · Hono API · Supabase backend · separate crawler app.",
+    "description": "Blueberry Auto is a vehicle auction and marketplace platform built from scratch as a pnpm monorepo. I lead architecture, OAuth, Supabase migrations, edge functions, and Vercel deployment.",
+    "sections": [
+      {
+        "h": "Architecture",
+        "body": "pnpm monorepo: apps/web (Vite + React 18 + TypeScript + Tailwind + shadcn/ui), apps/api (Hono backend), apps/crawler (data ingestion), packages/shared + packages/config, supabase/ migrations."
+      },
+      {
+        "h": "Engineering Surfaces",
+        "body": "Contact-Email edge function, Supabase workflow, Google OAuth security refactor, exchange-rate calculator, notifications system."
+      }
+    ],
+    "stack": {
+      "Frontend": "React 18, Vite, Tailwind, shadcn/ui",
+      "Backend": "Hono, Supabase",
+      "Tooling": "pnpm workspaces, Vercel"
+    },
+    "links": [
+      {
+        "label": "Live",
+        "href": "https://blueberry.com.bd/"
+      }
+    ]
+  },
+  {
+    "id": "gcmaf",
+    "title": "GCMAF",
+    "subtitle": "Medical Product & Research Site",
+    "tech": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Cloudflare Workers",
+      "Resend"
+    ],
+    "category": "Full Stack",
+    "year": "2025",
+    "badge": "Lead Developer",
+    "summary": "Marketing and research site for a medical product line; led design and build.",
+    "headline": "Next.js 16 on Cloudflare Workers · Resend for transactional email · Turnstile for form protection.",
+    "description": "GCMAF is a marketing and research site for a medical product line, deployed on Cloudflare Workers with Next.js. I led the design and build.",
+    "sections": [
+      {
+        "h": "Surfaces",
+        "body": "Clinical applications, product, research, contact, and about pages."
+      }
+    ],
+    "stack": {
+      "Framework": "Next.js 16, React 19, Tailwind 4",
+      "Hosting": "Cloudflare Workers",
+      "Email": "Resend",
+      "Anti-spam": "Turnstile"
+    },
+    "links": [
+      {
+        "label": "Live",
+        "href": "https://gcmaf.net"
+      }
+    ]
+  },
+  {
+    "id": "dbh-services",
+    "title": "DBH Services",
+    "subtitle": "Corporate / Holding Company Website",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "shadcn/ui",
+      "Recharts",
+      "Framer Motion"
+    ],
+    "category": "Full Stack",
+    "year": "2025",
+    "badge": "Lead Developer",
+    "summary": "Corporate website for a holding company covering home, services, allied businesses, and admin contact submissions.",
+    "headline": "Vite + React + shadcn/ui · react-hook-form + zod · recharts · framer-motion.",
+    "description": "DBH Services is a corporate website for a holding company. I led the design and build.",
+    "sections": [
+      {
+        "h": "Surfaces",
+        "body": "Home, About, Services, Allied Business Concerns, Contact + admin Contact Submissions, Privacy, Terms."
+      }
+    ],
+    "stack": {
+      "Framework": "Vite, React 18, TypeScript",
+      "UI": "shadcn/ui, Framer Motion",
+      "Forms": "react-hook-form + zod",
+      "Charts": "Recharts"
+    },
+    "links": [
+      {
+        "label": "Live",
+        "href": "https://dbhservices.com.bd"
+      }
+    ]
+  },
+  {
+    "id": "opti-retreat",
+    "title": "Opti Retreat Voting System",
+    "subtitle": "Internal Voting App for Optimizely Retreat",
+    "tech": [
+      "React",
+      "TypeScript",
+      "Netlify"
+    ],
+    "category": "Full Stack",
+    "year": "2024",
+    "badge": "Optimizely Retreat 2024",
+    "summary": "Internal voting application built for Optimizely's annual company retreat; React + TypeScript SPA used by the Bangladesh office.",
+    "headline": "Shipped internal tool · React + TypeScript SPA on Netlify.",
+    "description": "A React + TypeScript single-page voting app used internally at Optimizely's 2024 company retreat in the Bangladesh office.",
+    "sections": [],
+    "stack": {
+      "Frontend": "React 18, TypeScript",
+      "Hosting": "Netlify"
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/jaf107/opti-retreat-voting-system"
+      },
+      {
+        "label": "Live",
+        "href": "https://optiretreat2024.netlify.app"
+      }
+    ]
+  },
+  {
+    "id": "mr-bin",
+    "title": "Mr. Bin",
+    "subtitle": "Recycling Marketplace + ML Classification",
+    "tech": [
+      "MERN",
+      "Spring Boot 3",
+      "TensorFlow",
+      "Maps API"
+    ],
+    "category": "Full Stack",
+    "year": "2023",
+    "badge": "JavaFest 2023 (Therap)",
+    "summary": "Full-stack recycling and exchange marketplace with ML-based object detection for item classification.",
+    "headline": "MERN frontend with a Spring Boot 3 / Java 17 backend rewrite.",
+    "description": "Mr. Bin is a two-sided marketplace connecting recyclers and sellers of usable products. Built originally on MERN, later partially rewritten to Spring Boot 3 / Java 17.",
+    "sections": [
+      {
+        "h": "Features",
+        "body": "User auth, listings, real-time chat, geolocation-based discovery via Google Maps API, ML-based image classification of recyclable materials."
+      },
+      {
+        "h": "Tech Stack Migration",
+        "body": "Initial MERN implementation; backend later rewritten in Spring Boot 3 / Java 17 as part of Therap's JavaFest 2023 entry."
+      }
+    ],
+    "stack": {
+      "Frontend": "React, Redux",
+      "Backend": "Node.js → Spring Boot 3",
+      "ML": "TensorFlow",
+      "Maps": "Google Maps API",
+      "Database": "MongoDB"
+    },
+    "links": []
+  },
+  {
+    "id": "minifacebook",
+    "title": "MiniFacebook",
+    "subtitle": "Monolith → Microservices",
+    "tech": [
+      "React",
+      "Node.js",
+      "Docker",
+      "NGINX"
+    ],
+    "category": "Distributed Systems",
+    "year": "2022",
+    "summary": "Demonstrated monolith-to-microservices decomposition — split a Node.js app into User, Story, and Status services behind an NGINX reverse proxy.",
+    "headline": "NGINX-fronted Docker Compose stack with three independent services.",
+    "description": "An academic study in service decomposition: take a Node.js monolith and break it cleanly along user/story/status seams, with NGINX handling routing and Docker Compose handling orchestration.",
+    "sections": [
+      {
+        "h": "Architecture",
+        "body": "Three independent services (User, Story, Status) each with their own data store; NGINX reverse proxy for routing and basic load balancing; Docker Compose for orchestration."
+      }
+    ],
+    "stack": {
+      "Frontend": "React",
+      "Backend": "Node.js, Express",
+      "Infrastructure": "Docker Compose, NGINX",
+      "Database": "MongoDB"
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/jaf107"
+      }
+    ]
   }
 ]
