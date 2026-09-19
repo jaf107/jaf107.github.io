@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useLayoutEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from '../Nav';
 import Footer from '../Footer';
 import { TechIcon } from '../TechIcon';
@@ -88,6 +88,7 @@ function LinkButton({ link, variant }: { link: DetailLink; variant: 'hero' | 'si
       href={link.href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noreferrer' : undefined}
+      className="press"
       style={variant === 'hero' ? heroStyle : sidebarStyle}
     >
       <span>{link.label}</span>
@@ -264,6 +265,12 @@ export default function DetailLayout(props: DetailLayoutProps) {
   } = props;
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  // The router keeps the previous page's scroll offset; a detail page should open at its title.
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   const goBack = () => {
     if (window.history.length > 1) {
       navigate(-1);
@@ -288,6 +295,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
       }}>
         <button
           onClick={goBack}
+          className="press"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 'var(--fs-xs)',

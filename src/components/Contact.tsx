@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SectionHeader } from "./Research";
 
 const EMAIL = "jafarmahin107@gmail.com";
@@ -104,10 +104,13 @@ const SOCIALS = [
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const resetTimer = useRef<ReturnType<typeof setTimeout>>();
 
   const confirmCopied = () => {
     setCopied(true);
-    setTimeout(() => setCopied(false), 1800);
+    // A second copy restarts the confirmation instead of cutting it short.
+    clearTimeout(resetTimer.current);
+    resetTimer.current = setTimeout(() => setCopied(false), 1800);
   };
 
   const fallbackCopyEmail = () => {
@@ -231,6 +234,7 @@ export default function Contact() {
             >
               <a
                 href={`mailto:${EMAIL}`}
+                className="press"
                 style={{
                   flex: "1 1 auto",
                   minWidth: "200px",
@@ -267,25 +271,24 @@ export default function Contact() {
               </a>
               <button
                 onClick={copyEmail}
-                aria-label="Copy email"
+                aria-label="Copy email address"
+                className="copy-btn"
+                data-copied={copied || undefined}
                 style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.45rem",
-                  background: copied ? "var(--accent-bg)" : "transparent",
-                  color: copied ? "var(--accent)" : "var(--text-mid)",
-                  border: `1px solid ${copied ? "var(--accent)" : "var(--border-md)"}`,
                   fontFamily: "var(--font-mono)",
                   fontSize: "var(--fs-xs)",
                   cursor: "pointer",
                   padding: "0 1.1rem",
                   borderRadius: "8px",
                   letterSpacing: "0.02em",
-                  transition: "all 0.2s",
                 }}
               >
-                {copied ? "✓ Copied" : "Copy address"}
+                <span className="copy-idle">Copy address</span>
+                <span className="copy-done">✓ Copied</span>
               </button>
+              <span role="status" className="sr-only">
+                {copied ? "Email address copied" : ""}
+              </span>
             </div>
             <div
               style={{
@@ -319,10 +322,10 @@ export default function Contact() {
               href={s.href}
               target="_blank"
               rel="noreferrer"
+              className="social-card"
               style={{
                 position: "relative",
                 background: "var(--surface)",
-                border: "1px solid var(--border)",
                 borderRadius: "14px",
                 padding: "1.5rem 1.25rem 1.25rem",
                 textDecoration: "none",
@@ -332,18 +335,6 @@ export default function Contact() {
                 justifyContent: "center",
                 gap: "0.85rem",
                 minHeight: "150px",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                  "var(--accent)";
-                (e.currentTarget as HTMLAnchorElement).style.transform =
-                  "translateY(-2px)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLAnchorElement).style.borderColor =
-                  "var(--border)";
-                (e.currentTarget as HTMLAnchorElement).style.transform = "none";
               }}
             >
               <span

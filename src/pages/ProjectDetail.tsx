@@ -33,6 +33,7 @@ export default function ProjectDetail() {
           <h1 style={{ fontFamily: 'var(--font-sans)', color: 'var(--text)', marginBottom: '1.5rem' }}>Project not found</h1>
           <button
             onClick={() => navigate('/', { state: { scrollTo: 'projects' } })}
+            className="press"
             style={{ fontFamily: 'var(--font-sans)', background: 'var(--accent)', color: 'var(--accent-fg)', border: 'none', padding: '10px 24px', borderRadius: '6px', cursor: 'pointer' }}
           >← Back to projects</button>
         </div>

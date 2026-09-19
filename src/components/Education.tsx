@@ -23,16 +23,15 @@ function GpaBar({ gpa }: { gpa: string }) {
   );
 }
 
-function EduCard({ e, delay }: { e: Edu; delay: number }) {
-  const [ref, inView] = useInView();
+function EduCard({ e, index }: { e: Edu; index: number }) {
+  const [ref, inView] = useInView(`edu:${index}`);
 
   return (
     <div
       ref={ref}
+      className="reveal"
+      data-in-view={inView || undefined}
       style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'none' : 'translateY(16px)',
-        transition: `opacity 0.45s ease ${delay}ms, transform 0.45s ease ${delay}ms`,
         background: 'var(--surface)',
         border: '1px solid var(--border)',
         borderRadius: '10px',
@@ -70,7 +69,7 @@ export default function Education() {
       <SectionHeader label="ACADEMICS" title="Education" />
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         {entries.map((e, i) => (
-          <EduCard key={i} e={e} delay={i * 80} />
+          <EduCard key={i} e={e} index={i} />
         ))}
       </div>
     </section>

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
+import React, { useEffect, useRef, useState } from 'react';
+import { scrollToSection } from '../lib/scroll';
 
 const PHRASES = [
   'M.Sc. in Software Engineering · IIT, University of Dhaka',
@@ -14,17 +14,32 @@ const STATS = [
   { label: '300+', desc: 'PRs Reviewed' },
 ];
 
-function scrollToSection(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
 function TypedText() {
   const [idx, setIdx] = useState(0);
   const [displayed, setDisplayed] = useState('');
   const [deleting, setDeleting] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const [fading, setFading] = useState(false);
+  const [onScreen, setOnScreen] = useState(true);
+  const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    // No typing while the hero is scrolled away.
+    const el = ref.current;
+    if (!el) {
+      return;
+    }
+    const obs = new IntersectionObserver(([entry]) => setOnScreen(entry.isIntersecting));
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || !onScreen) {
+      return;
+    }
     if (paused) {
       const t = setTimeout(() => { setPaused(false); setDeleting(true); }, 2200);
       return () => clearTimeout(t);
@@ -41,20 +56,38 @@ function TypedText() {
         return () => clearTimeout(t);
       } else { setDeleting(false); setIdx((idx + 1) % PHRASES.length); }
     }
-  }, [displayed, deleting, paused, idx]);
+  }, [displayed, deleting, paused, idx, reduceMotion, onScreen]);
+
+  // Reduced motion: no typing. Each phrase holds, fades out (--dur-ui, 200ms), and the next fades in.
+  useEffect(() => {
+    if (!reduceMotion || !onScreen) {
+      return;
+    }
+    const t = fading
+      ? setTimeout(() => { setIdx(i => (i + 1) % PHRASES.length); setFading(false); }, 200)
+      : setTimeout(() => setFading(true), 3000);
+    return () => clearTimeout(t);
+  }, [reduceMotion, onScreen, fading]);
 
   return (
-    <span style={{ color: 'var(--accent)' }}>
-      {displayed}<span style={{ animation: 'blink 1s step-end infinite' }}>|</span>
-    </span>
+    <>
+      {/* Screen readers get the phrases once, not keystrokes. */}
+      <span className="sr-only">{PHRASES.join('. ')}</span>
+      {/* Invisible copies of every phrase hold the line at its tallest, so nothing below shifts. */}
+      <span ref={ref} className="typed" aria-hidden="true" style={{ color: 'var(--accent)' }}>
+        {PHRASES.map(p => <span key={p} className="typed-ghost">{p}|</span>)}
+        <span className="typed-text" data-fading={fading || undefined}>
+          {reduceMotion ? PHRASES[idx] : displayed}<span className="typed-caret">|</span>
+        </span>
+      </span>
+    </>
   );
 }
 
 export default function Hero() {
-  const { dark } = useTheme();
   return (
     <section id="hero" style={{
-      minHeight: '100vh', display: 'flex', flexDirection: 'column',
+      minHeight: '100svh', display: 'flex', flexDirection: 'column',
       justifyContent: 'center', padding: 'calc(64px + 2rem) clamp(1.5rem, 10vw, 12rem) 4rem',
       position: 'relative', overflow: 'hidden',
     }}>
@@ -87,11 +120,11 @@ export default function Hero() {
             Content Marketing Platform (CMP) team.
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <button onClick={() => scrollToSection('research')}
-              style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', background: 'var(--accent)', color: dark ? '#0c0e13' : '#fff', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
+            <button onClick={() => scrollToSection('research')} className="press"
+              style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', background: 'var(--accent)', color: 'var(--accent-fg)', border: 'none', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}>
               View Research
             </button>
-            <a href="/cv" target="_blank" rel="noreferrer"
+            <a href="/cv" target="_blank" rel="noreferrer" className="press"
               style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text)', background: 'transparent', border: '1px solid var(--border-md)', padding: '12px 28px', borderRadius: '6px', cursor: 'pointer', fontWeight: 500, textDecoration: 'none', display: 'inline-block' }}>
               Curriculum Vitae
             </a>

@@ -9,9 +9,9 @@ interface Affiliation {
 }
 
 function SectionHeader({ label, title }: { label: string; title: string }) {
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView(`header:${title}`);
   return (
-    <div ref={ref} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: 'all 0.5s ease', marginBottom: '2.5rem' }}>
+    <div ref={ref} className="reveal" data-in-view={inView || undefined} style={{ marginBottom: '2.5rem' }}>
       <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>{label}</p>
       <h2 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: 0 }}>{title}</h2>
     </div>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { SectionHeader } from './Research';
-import { useTheme } from '../context/ThemeContext';
 import skillsData from '../data/skills.json';
 import { SKILL_ICONS, resolveIconUrl } from '../data/skillIcons';
 
@@ -8,17 +7,13 @@ const RESEARCH_KEY = 'Research Methods';
 const categories = Object.keys(skillsData).filter(k => k !== RESEARCH_KEY) as (keyof typeof skillsData)[];
 const researchMethods = (skillsData as Record<string, string[]>)[RESEARCH_KEY] ?? [];
 
+// Tiles are not interactive, so they have no hover state: a lift would promise a click.
 function SkillTile({ name }: { name: string }) {
-  const [hovered, setHovered] = useState(false);
-  const { dark } = useTheme();
   const icon = SKILL_ICONS[name];
   const iconUrl = icon?.src ? resolveIconUrl(icon.src) : null;
-  const iconFilter = icon?.invertOnDark && dark ? 'brightness(0) invert(1)' : undefined;
 
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -28,12 +23,9 @@ function SkillTile({ name }: { name: string }) {
         width: '88px',
         padding: '0.75rem 0.5rem',
         background: 'var(--surface)',
-        border: `1px solid ${hovered ? 'var(--accent)' : 'var(--border)'}`,
+        border: '1px solid var(--border)',
         borderRadius: '10px',
         cursor: 'default',
-        transition: 'all 0.15s',
-        transform: hovered ? 'translateY(-2px)' : 'none',
-        boxShadow: hovered ? '0 4px 12px rgba(0,0,0,0.08)' : 'none',
       }}
     >
       <div style={{ width: '40px', height: '40px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -43,19 +35,19 @@ function SkillTile({ name }: { name: string }) {
             alt={name}
             width={40}
             height={40}
-            style={{ objectFit: 'contain', opacity: hovered ? 1 : 0.85, transition: 'opacity 0.15s', filter: iconFilter }}
+            className={icon?.invertOnDark ? 'invert-on-dark' : undefined}
+            style={{ objectFit: 'contain', opacity: 0.85 }}
           />
         ) : (
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', color: hovered ? 'var(--accent)' : 'var(--text-dim)', lineHeight: 1 }}>/&gt;</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', color: 'var(--text-dim)', lineHeight: 1 }}>/&gt;</span>
         )}
       </div>
       <span style={{
         fontFamily: 'var(--font-sans)',
         fontSize: 'var(--fs-2xs)',
-        color: hovered ? 'var(--accent)' : 'var(--text-muted)',
+        color: 'var(--text-muted)',
         textAlign: 'center',
         lineHeight: 1.2,
-        transition: 'color 0.15s',
         maxWidth: '100%',
         wordBreak: 'break-word',
       }}>{name}</span>
@@ -94,6 +86,7 @@ export default function Skills() {
         {PILL_LABELS.map(label => (
           <button
             key={label}
+            className="pill"
             onClick={() => setActive(label)}
             style={{
               fontFamily: 'var(--font-mono)',
@@ -105,7 +98,6 @@ export default function Skills() {
               background: active === label ? 'var(--accent-bg)' : 'var(--surface)',
               color: active === label ? 'var(--accent)' : 'var(--text-muted)',
               cursor: 'pointer',
-              transition: 'all 0.15s',
             }}
           >{label.toUpperCase()}</button>
         ))}

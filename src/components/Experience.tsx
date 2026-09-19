@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { useInView } from '../hooks/useInView';
 import jobs from '../data/jobs.json';
 import { Md } from './Md';
@@ -43,7 +43,9 @@ function JobCard({ job }: { job: Job }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginTop: '1rem' }}>
         {visible.map((b, i) => (
-          <div key={i} style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.9rem 1.1rem' }}>
+          // Bullets past the first three only mount on "read more"; they fade in (see .enter).
+          <div key={i} className={i < 3 ? undefined : 'enter'}
+            style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '8px', padding: '0.9rem 1.1rem', '--enter-i': i - 3 } as CSSProperties}>
             <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: 'var(--fs-md)', color: 'var(--text-mid)', marginBottom: '0.3rem' }}>{b.t}</div>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-muted)', lineHeight: 1.7, margin: 0 }}><Md s={b.d} /></p>
           </div>
@@ -51,7 +53,7 @@ function JobCard({ job }: { job: Job }) {
       </div>
 
       {job.bullets.length > 3 && (
-        <button onClick={() => setOpen(!open)} style={{
+        <button onClick={() => setOpen(!open)} className="press" style={{
           marginTop: '1rem', background: 'transparent', border: '1px solid var(--border-md)',
           color: 'var(--accent)', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)',
           padding: '6px 14px', borderRadius: '20px', cursor: 'pointer', letterSpacing: '0.04em',
@@ -64,10 +66,10 @@ function JobCard({ job }: { job: Job }) {
 }
 
 export default function Experience() {
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView('header:Experience');
   return (
     <section id="experience" style={{ padding: 'clamp(4rem, 8vw, 7rem) clamp(1.5rem, 10vw, 12rem)' }}>
-      <div ref={ref} style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)', transition: 'all 0.5s ease', marginBottom: '3rem' }}>
+      <div ref={ref} className="reveal" data-in-view={inView || undefined} style={{ marginBottom: '3rem' }}>
         <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '0.5rem' }}>CAREER</p>
         <h2 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', margin: 0 }}>Experience</h2>
       </div>
