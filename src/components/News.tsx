@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { SectionHeader } from './Research';
 import { Md } from './Md';
 import news from '../data/news.json';
@@ -38,7 +38,9 @@ export default function News() {
         {shown.map((n, i) => {
           const [emoji, label] = KINDS[n.type] ?? KINDS.update;
           return (
-            <li key={`${n.date}-${i}`} className="news-item" style={{ padding: '1rem 1.5rem', borderTop: i ? '1px solid var(--border)' : 'none' }}>
+            // Rows past the first VISIBLE only mount on "show all"; they fade in (see .enter).
+            <li key={`${n.date}-${i}`} className={i < VISIBLE ? 'news-item' : 'news-item enter'}
+              style={{ padding: '1rem 1.5rem', borderTop: i ? '1px solid var(--border)' : 'none', '--enter-i': i - VISIBLE } as CSSProperties}>
               <time dateTime={n.date} style={{ gridArea: 'date', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>{formatDate(n.date)}</time>
               <span role="img" aria-label={label} title={label} style={{ gridArea: 'icon', fontSize: 'var(--fs-md)' }}>{emoji}</span>
               <p style={{ gridArea: 'text', fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', color: 'var(--text-mid)', lineHeight: 1.6 }}><Md s={n.text} /></p>
@@ -48,7 +50,7 @@ export default function News() {
       </ul>
 
       {items.length > VISIBLE && (
-        <button onClick={() => setShowAll(!showAll)} aria-expanded={showAll} aria-controls="news-list" style={{
+        <button onClick={() => setShowAll(!showAll)} aria-expanded={showAll} aria-controls="news-list" className="press" style={{
           marginTop: '1rem', background: 'transparent', border: '1px solid var(--border-md)',
           color: 'var(--accent)', fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)',
           padding: '6px 14px', borderRadius: '20px', cursor: 'pointer', letterSpacing: '0.04em',

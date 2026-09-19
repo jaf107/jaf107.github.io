@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTheme } from '../context/ThemeContext';
 import { SKILL_ICONS, resolveIconUrl } from '../data/skillIcons';
 
 function getMonogram(name: string) {
@@ -22,11 +21,9 @@ interface TechIconProps {
 }
 
 export function TechIcon({ name, size = 24 }: TechIconProps) {
-  const { dark } = useTheme();
   const [failed, setFailed] = useState(false);
   const icon = SKILL_ICONS[name];
   const iconUrl = icon?.src && !failed ? resolveIconUrl(icon.src) : null;
-  const iconFilter = icon?.invertOnDark && dark ? 'brightness(0) invert(1)' : undefined;
 
   return (
     <span
@@ -52,7 +49,8 @@ export function TechIcon({ name, size = 24 }: TechIconProps) {
           height={size}
           loading="lazy"
           onError={() => setFailed(true)}
-          style={{ display: 'block', width: `${size}px`, height: `${size}px`, objectFit: 'contain', filter: iconFilter }}
+          className={icon?.invertOnDark ? 'invert-on-dark' : undefined}
+          style={{ display: 'block', width: `${size}px`, height: `${size}px`, objectFit: 'contain' }}
         />
       ) : (
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-2xs)', lineHeight: 1, letterSpacing: '0.02em' }}>

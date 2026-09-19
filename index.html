@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Before first paint: apply the saved theme (no light flash for dark-mode visitors)
+         and mark JS as running (scroll reveals only hide content when .js is set). -->
+    <script>
+      (function (root) {
+        root.classList.add('js');
+        try {
+          if (localStorage.getItem('ajs-theme') === 'dark') root.setAttribute('data-theme', 'dark');
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
     <title>Abu Jafar Saifullah · Software Engineering Researcher</title>
     <meta name="description" content="Software engineering researcher working on web accessibility. M.Sc. in Software Engineering, IIT, University of Dhaka; first-author paper at ENASE 2026; applying to PhD programs for Fall 2027. Full-stack software engineer at Optimizely Bangladesh." />
     <meta name="author" content="Abu Jafar Saifullah" />

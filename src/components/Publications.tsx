@@ -41,7 +41,7 @@ export default function Publications() {
             </div>
             <div style={{ display: 'flex', gap: '0.6rem' }}>
               {p.links.map(l => (
-                <a key={l.label} href={l.href} target="_blank" rel="noreferrer" style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '4px', textDecoration: 'none' }}>{l.label} →</a>
+                <a key={l.label} href={l.href} target="_blank" rel="noreferrer" className="press" style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-xs)', color: 'var(--accent)', border: '1px solid var(--accent)', padding: '4px 12px', borderRadius: '4px', textDecoration: 'none' }}>{l.label} →</a>
               ))}
             </div>
           </article>

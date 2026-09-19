@@ -4,9 +4,8 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* No scroll-behavior: smooth on html: it would also animate Back/Forward scroll restoration.
+   Section jumps glide through src/lib/scroll.ts instead. */
 
 :root {
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -21,6 +20,12 @@ html {
   --fs-lg: 1.125rem;   /* 18px: lead paragraphs, small titles */
   --fs-xl: 1.25rem;    /* 20px: card titles */
   --fs-2xl: 1.375rem;  /* 22px: employer names */
+
+  /* Motion: every curve and duration on the site comes from here. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1); /* strong ease-out: entrances, exits, press */
+  --dur-fast: 150ms;   /* press feedback, hover color, exits */
+  --dur-ui: 200ms;     /* menus, state swaps, list entrances */
+  --dur-reveal: 500ms; /* one-time scroll reveals */
 
   /* Text colors all clear WCAG AA (4.5:1) on --surface, --bg and --bg-alt. */
   --bg: #f7f8fa;
@@ -67,7 +72,6 @@ body {
   color: var(--text);
   font-family: var(--font-sans);
   overflow-x: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
   font-size: 16px;
 }
 
@@ -162,4 +166,308 @@ a {
 
 button {
   font-family: inherit;
+  /* A long press on a control should not select its label. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Taps fire at once instead of waiting to rule out a double-tap zoom. */
+a, button {
+  touch-action: manipulation;
+}
+
+/* Controls that draw their own :active state skip the browser's gray tap flash.
+   Plain text links keep it, since they have no press state of their own. */
+.press, .pill, .copy-btn, .social-card, .project-card-link, .nav-menu button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Colors for logos that are black on a transparent background. */
+[data-theme="dark"] .invert-on-dark {
+  filter: brightness(0) invert(1);
+}
+
+/* The theme toggle shows the mode it switches to. */
+[data-theme="dark"] .theme-icon-moon,
+:root:not([data-theme="dark"]) .theme-icon-sun {
+  display: none;
+}
+
+/* ---------- Motion ----------
+   Values come from the tokens in :root. Hover styles sit behind (hover: hover) and (pointer: fine),
+   because touch screens fake a hover on tap and leave it stuck. */
+
+/* Press feedback: a pressed control dips 3%. */
+.press {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.press:active {
+  transform: scale(0.97);
+}
+
+/* Filter pills: color follows the selection, plus press feedback. */
+.pill {
+  transition:
+    background-color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-out);
+}
+.pill:active {
+  transform: scale(0.97);
+}
+
+/* One-time scroll reveal. Content is only hidden once JS runs (index.html adds .js),
+   so the prerendered page stays readable without it. useInView sets --reveal-i so elements
+   revealed in the same frame cascade 50ms apart. */
+.reveal {
+  transition:
+    opacity var(--dur-reveal) var(--ease-out),
+    transform var(--dur-reveal) var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 50ms);
+}
+.js .reveal:not([data-in-view]) {
+  opacity: 0;
+  transform: translateY(8px);
+}
+/* Once a filter pill is used, new results are a response to a click, not a first sight: UI timing. */
+[data-filtered] .reveal {
+  transition-duration: var(--dur-ui);
+  transition-delay: 0s;
+}
+
+/* Rows added by "show all" / "read more" fade up in a short cascade. Rows present
+   at load never get this class, so nothing animates on page load. */
+.enter {
+  transition:
+    opacity var(--dur-ui) var(--ease-out),
+    transform var(--dur-ui) var(--ease-out);
+  transition-delay: calc(var(--enter-i, 0) * 30ms);
+}
+@starting-style {
+  .enter {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* Nav bar turns solid once the page scrolls. */
+.nav-bar {
+  transition:
+    background-color var(--dur-ui) ease,
+    border-color var(--dur-ui) ease,
+    backdrop-filter var(--dur-ui) ease;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  transition: color var(--dur-fast) ease;
+}
+
+/* Mobile menu stays mounted so it can leave the way it came. Exit is quicker than entry;
+   visibility keeps the closed menu out of the tab order and the accessibility tree. */
+.nav-menu {
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  transition:
+    opacity var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out),
+    visibility 0s linear var(--dur-fast);
+}
+.nav-menu[data-open] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition:
+    opacity var(--dur-ui) var(--ease-out),
+    transform var(--dur-ui) var(--ease-out),
+    visibility 0s;
+}
+/* Row color lives here, not inline, so the press color can override it. */
+.nav-menu button {
+  color: var(--text);
+}
+.nav-menu button:active {
+  color: var(--accent);
+}
+
+/* Hero typewriter: every phrase sits invisibly in the same grid cell, so the line is always
+   as tall as the longest phrase and the text below never jumps. */
+.typed {
+  display: grid;
+}
+.typed > * {
+  grid-area: 1 / 1;
+}
+.typed-ghost {
+  visibility: hidden;
+}
+.typed-caret {
+  animation: blink 1s step-end infinite;
+}
+/* Reduced motion: no typing; phrases swap with a short fade (Hero.tsx). */
+.typed-text {
+  transition: opacity var(--dur-ui) ease;
+}
+.typed-text[data-fading] {
+  opacity: 0;
+}
+
+/* Project cards: the title link's ::after covers the card, so the whole card is one link
+   with the title as its accessible name. */
+.project-card {
+  position: relative;
+  border: 1px solid var(--border);
+  /* The hover shadow snaps: animating box-shadow repaints the card every frame. */
+  transition:
+    border-color var(--dur-ui) ease,
+    transform var(--dur-fast) var(--ease-out);
+}
+.project-card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+/* Tech icons sit above the link so their name tooltips still show on hover. */
+.project-card-tech > * {
+  position: relative;
+  z-index: 1;
+}
+.project-card-bar {
+  background-color: transparent;
+  transition: background-color var(--dur-ui) ease;
+}
+.project-card-more {
+  color: var(--text-dim);
+  transition: color var(--dur-ui) ease;
+}
+@supports selector(:has(*)) {
+  .project-card-link:focus-visible {
+    outline: none;
+  }
+  .project-card:has(.project-card-link:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  /* Press anywhere on the card (the link's ::after) dips it; subtler than buttons for its size. */
+  .project-card:has(.project-card-link:active) {
+    transform: scale(0.98);
+  }
+}
+
+/* Contact link cards lift on hover and dip on press. */
+.social-card {
+  border: 1px solid var(--border);
+  transition:
+    transform var(--dur-ui) var(--ease-out),
+    border-color var(--dur-ui) ease;
+}
+
+/* Copy button: both labels share one grid cell, so the button keeps the wider label's width.
+   The idle label blurs out as the confirmation blurs in. */
+.copy-btn {
+  display: inline-grid;
+  place-items: center;
+  background-color: transparent;
+  color: var(--text-mid);
+  border: 1px solid var(--border-md);
+  transition:
+    background-color var(--dur-ui) ease,
+    border-color var(--dur-ui) ease,
+    color var(--dur-ui) ease,
+    transform var(--dur-fast) var(--ease-out);
+}
+.copy-btn:active {
+  transform: scale(0.97);
+}
+.copy-btn[data-copied] {
+  background-color: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.copy-btn > span {
+  grid-area: 1 / 1;
+  transition:
+    opacity var(--dur-ui) var(--ease-out),
+    transform var(--dur-ui) var(--ease-out),
+    filter var(--dur-ui) var(--ease-out);
+}
+.copy-btn:not([data-copied]) > .copy-done,
+.copy-btn[data-copied] > .copy-idle {
+  opacity: 0;
+  transform: scale(0.97);
+  filter: blur(2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover {
+    color: var(--text);
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  .project-card:hover .project-card-bar {
+    background-color: var(--accent);
+  }
+  .project-card:hover .project-card-more {
+    color: var(--accent);
+  }
+  .social-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+}
+
+/* After the hover rule, so a press on a lifted card drops it back down. */
+.social-card:active {
+  transform: scale(0.97);
+  transition-duration: var(--dur-fast);
+}
+
+/* Reduced motion means gentler, not none: fades and color changes stay, travel goes. */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal:not([data-in-view]),
+  .nav-menu,
+  .social-card:hover:not(:active) {
+    transform: none;
+  }
+  @starting-style {
+    .enter {
+      transform: none;
+    }
+  }
+  .typed-caret {
+    display: none;
+  }
+}
+
+/* Printing or saving as PDF shows everything, scrolled past or not. */
+@media print {
+  .js .reveal:not([data-in-view]) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* While the theme flips, no element runs its own color transition: every color changes
+   in the same frame, under one page crossfade (see ThemeContext). */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
 }

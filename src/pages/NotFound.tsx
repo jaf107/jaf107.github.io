@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import Nav from "../components/Nav";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,15 +13,18 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <Link to="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </Link>
-      </div>
-    </div>
+    <>
+      <Nav />
+      <main style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '64px 1.5rem 0', background: 'var(--bg)' }}>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--fs-sm)', color: 'var(--accent)', letterSpacing: '0.12em', marginBottom: '1rem' }}>404</p>
+          <h1 style={{ fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', color: 'var(--text)', marginBottom: '1.5rem' }}>Page not found</h1>
+          <Link to="/" className="press" style={{ display: 'inline-block', fontFamily: 'var(--font-sans)', fontSize: 'var(--fs-base)', fontWeight: 600, background: 'var(--accent)', color: 'var(--accent-fg)', padding: '10px 24px', borderRadius: '6px' }}>
+            ← Back to home
+          </Link>
+        </div>
+      </main>
+    </>
   );
 };
 
