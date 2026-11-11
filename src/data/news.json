@@ -1,7 +1,7 @@
 [
   { "date": "2026-09", "type": "education", "text": "Completed my **M.Sc. in Software Engineering** at the University of Dhaka, with the thesis on detecting and repairing keyboard focus-behavior violations." },
   { "date": "2026-09", "type": "update", "text": "Applying to PhD programs for **Fall 2027**." },
-  { "date": "2026-05", "type": "talk", "text": "Presented my first-author full paper, [NavA11y](/project/nava11y), in person at **ENASE 2026** in Benidorm, Spain." },
+  { "date": "2026-05", "type": "talk", "text": "Presented my first-author full paper, [NavA11y](/project/nava11y), remotely at **ENASE 2026**." },
   { "date": "2026-04", "type": "award", "text": "Received the **ICT Division Fellowship** from the Government of Bangladesh, funding my M.Sc. thesis research." },
   { "date": "2026-04", "type": "career", "text": "Promoted to **Software Engineer II** at Optimizely." },
   { "date": "2025", "type": "award", "text": "Won the **Optimizely Global Hackathon 2025**. Our team built Spotlight, a Cmd+K global search that later shipped to production." },
