@@ -34,13 +34,17 @@ if [[ -z "$drive" || ! -d "$drive" ]]; then
 fi
 
 tex="$drive/Curriculum Vitae.tex"
-if [[ -f "$tex" && $force -eq 0 ]] && ! cmp -s "$tex" "$repo/resume/cv.tex"; then
-  echo "Drive .tex differs from resume/cv.tex (edited in Drive?). Diff:" >&2
-  diff -u "$tex" "$repo/resume/cv.tex" | head -40 >&2 || true
-  echo "Copy the change into resume/cv.tex, or rerun with --force to overwrite." >&2
+# Last version this script put on Drive; if Drive no longer matches it, someone edited it there.
+synced="$repo/resume/archive/last-synced.tex"
+[[ -f "$synced" ]] || synced="$repo/resume/cv.tex"
+if [[ -f "$tex" && $force -eq 0 ]] && ! cmp -s "$tex" "$synced"; then
+  echo "Drive .tex was edited since the last sync. Changes made in Drive:" >&2
+  diff -u "$synced" "$tex" | head -40 >&2 || true
+  echo "Copy them into resume/cv.tex, or rerun with --force to overwrite." >&2
   exit 1
 fi
 cp "$repo/resume/cv.tex" "$tex"
+cp "$repo/resume/cv.tex" "$repo/resume/archive/last-synced.tex"
 cp "$repo/resume/cv.pdf" "$drive/Curriculum Vitae.pdf"
 mkdir -p "$drive/Tailored"
 echo "synced: $drive"
