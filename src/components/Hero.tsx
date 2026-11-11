@@ -10,7 +10,7 @@ const PHRASES = [
 const STATS = [
   { label: '1', desc: 'Peer-Reviewed Paper' },
   { label: '3.92', desc: 'M.Sc. CGPA' },
-  { label: '2+ yrs', desc: 'Optimizely' },
+  { label: '3+ yrs', desc: 'Industry' },
   { label: '300+', desc: 'PRs Reviewed' },
 ];
 
