@@ -19,6 +19,7 @@ const App = () => (
       <Route path="/project/:id" element={<ProjectDetail />} />
       <Route path="/cv" element={<Forward to="/Abu_Jafar_Saifullah_CV.pdf" />} />
       <Route path="/resume_academic.pdf" element={<Forward to="/Abu_Jafar_Saifullah_CV.pdf" />} />
+      <Route path="/resume_industry.pdf" element={<Forward to="/Abu_Jafar_Saifullah_CV.pdf" />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </ThemeProvider>
