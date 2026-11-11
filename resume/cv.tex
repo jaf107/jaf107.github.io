@@ -34,12 +34,15 @@
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
-\raggedbottom
+% Fill both pages: sections get a little stretch and the last page is
+% flushed, so no blank band is left at the bottom of either page.
+\flushbottom
+\linespread{1.06}\selectfont
 \raggedright
 \setlength{\tabcolsep}{0in}
 
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
+  \vspace{4pt plus 12pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 \pdfgentounicode=1
@@ -305,4 +308,5 @@
 
 
 %-------------------------------------------
+\pagebreak
 \end{document}
