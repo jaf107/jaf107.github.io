@@ -118,7 +118,7 @@
   \resumeSubHeadingListStart
     % >>> TAILORING POINT: reorder/trim this list per target program and professor before each application. <<<
     \small{\item{
-      AI for Software Engineering, Software Engineering, AI \& Machine Learning, Web Accessibility
+      AI for Software Engineering (LLM coding agents), Software Accessibility, Program Analysis and Automated Repair
     }}
   \resumeSubHeadingListEnd
 
@@ -166,44 +166,18 @@
 
     \resumeSubheading
       {\href{https://dsse.iit.du.ac.bd/}{\color{blue}DSSE Research Group}, IIT, University of Dhaka}{Dhaka, Bangladesh}
-      {Graduate Researcher; supervisor Dr. Zerina Begum, co-supervisor \href{https://iit.du.ac.bd/faculty/profile/sakib}{\color{blue}Dr. Kazi Sakib}}{Apr 2025 \textbf{--} Sep 2026}
+      {Graduate Researcher; supervisor Dr. Zerina Begum, co-supervisor Dr. Kazi Sakib}{Apr 2025 \textbf{--} Sep 2026}
         \resumeItemListStart
-            \resumeItem{M.Sc. thesis (completed): \textit{Detecting and Repairing Keyboard Focus-Behavior Violations through Dynamic Analysis}. Built \textbf{NavA11y} for detection and \textbf{RepairA11y} for repair.}
-            \resumeItem{NavA11y (ENASE 2026): 100\% precision and recall on a 22-page labeled dataset; 2,947 violations on 26 production websites at 90\% precision, validated by two independent expert raters; first tool to cover all five WCAG 2.4 focus-behavior criteria.}
-            \resumeItem{Designed NavA11y's two-phase analysis: page level drives real keyboard navigation and compares observed vs.\ expected focus order; element level checks each focused element is visible, has a focus indicator, and is not hidden.}
-            \resumeItem{Extended the GDS Accessibility Tool Audit's 6 focus test pages with 16 new pages into a 22-page labeled dataset (\textit{Dd}) covering all five WCAG 2.4 focus-behavior SCs, including pass, boundary, and obscuration cases; released for evaluating future tools.}
+            \resumeItem{M.Sc. thesis (completed): \textit{Detecting and Repairing Keyboard Focus-Behavior Violations through Dynamic Analysis}. Built \textbf{NavA11y} to detect these violations and \textbf{RepairA11y} to fix them.}
+            \resumeItem{NavA11y drives a real browser through each page's keyboard navigation and checks every focus stop: \textbf{100\% precision and recall} on a 22-page labeled dataset; \textbf{2,947 violations} on 26 production websites at 90\% precision, confirmed by two independent raters.}
+            \resumeItem{Built and released the 22-page labeled dataset (extending a 6-page public test suite), the first to cover all five WCAG 2.4 focus-behavior criteria.}
         \resumeItemListEnd
 
     \resumeSubheading
       {SEMERU Lab, William \& Mary}{Remote}
       {Research Intern, supervised by \href{https://www.cs.wm.edu/~denys/}{\color{blue}Dr. Denys Poshyvanyk}}{Aug 2023 \textbf{--} Dec 2023}
         \resumeItemListStart
-            \resumeItem{Built a programming language-specific tokenizer to improve NLP model predictions for software engineering tasks, contributing to the lab's research on intelligent software tools.}
-        \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%----------- INDUSTRY EXPERIENCE -----------
-
-\section{Industry Experience}
-  \vspace{3pt}
-  \resumeSubHeadingListStart
-
-    \resumeSubheading
-      {Optimizely, Content Marketing Platform}{Dhaka, Bangladesh}
-      {Software Engineer II \textnormal{(promoted from SE I, Apr 2026)}}{Apr 2024 \textbf{--} Present, Full-time}
-      \resumeItemListStart
-        \resumeItem{Delivered end-to-end integration of an internal AI SDK by moving its service from Express to Hono, adding the AWS CodeArtifact publishing pipeline, and instrumenting AI-context events across \textbf{10+ product surfaces}.}
-        \resumeItem{Shipped the platform's block-based AI document UI (Adaptive-Cards-style): backend block-context extraction for LLM prompts, frontend block-form interaction, and AI resource rendering.}
-        \resumeItem{Moved the platform onto the public \textbf{Axiom} design system (\href{https://github.com/optimizely-axiom/optiaxiom}{\color{blue}\texttt{@optiaxiom/react}}) by leading the migration with \textbf{26 merged upstream PRs} and writing the Migration and Icon Contribution Guides other teams adopted; brought Dark Mode to \textbf{15+ surfaces}; co-built \textbf{Spotlight} search, winner of \textbf{Optimizely Global Hackathon 2025}.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Orion Informatics Ltd.}{Dhaka, Bangladesh}
-      {Software Engineer}{Jan 2023 \textbf{--} Jan 2024, Full-time}
-        \resumeItemListStart
-            \resumeItem{Built data visualisation and reporting features for an Attendance Management System; developed a two-service ASP.NET Core webhook relay for TradeStation alerts deployed on Azure.}
+            \resumeItem{Built a programming-language-specific tokenizer to improve NLP model predictions on software engineering tasks.}
         \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -216,30 +190,49 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-        {\textbf{RepairA11y} $|$ \emph{Node.js, Playwright, Vitest} $|$ \textit{M.Sc. Thesis, 2026}}{}
+        {\textbf{RepairA11y} $|$ \emph{Node.js, Playwright} $|$ \textit{M.Sc. Thesis, 2026}}{}
           \resumeItemListStart
-            \resumeItem{Repairs WCAG 2.4 focus-behavior violations from the runtime evidence NavA11y records: writes a typed patch (a CSS rule or an attribute change) with deterministic rules or a language model, applies it in a live browser, and re-runs NavA11y's checks. On 32 fixture cases, rules fixed 29 and the model 25, with no new focus-behavior violation; runtime evidence raised the model from 5 to 7 of 7 realistic focus-appearance cases.}
+            \resumeItem{Fixes the violations NavA11y finds: generates a CSS or attribute fix with rules or an LLM, applies it in a live browser, and re-checks the page. On 32 test cases, rules fixed \textbf{29} and the LLM \textbf{25}, with no new violations introduced.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-        {\textbf{Clippy} $|$ \emph{Angular, Node.js, AWS S3} $|$ \href{https://github.com/jaf107/Clippy}{\color{blue}GitHub} $|$ \textit{ICSE SCORE 2023, Top 6}}{}
+        {\textbf{Clippy} $|$ \emph{Angular, Node.js, AWS S3} $|$ \href{https://github.com/jaf107/Clippy}{\color{blue}GitHub}}{}
           \resumeItemListStart
-            \resumeItem{Smart PDF reader for researchers with knowledge-graph extraction, citation-network visualization, and paper recommendation; Top 6 finalist in the ICSE 2023 Student Contest on Software Engineering (SCORE).}
+            \resumeItem{PDF reader for researchers with knowledge-graph extraction, citation-network visualization, and paper recommendation.}
           \resumeItemListEnd
 
       \resumeProjectHeading
-        {\textbf{BPE Tokenizer} $|$ \emph{Python, Flask, HuggingFace} $|$ \href{https://pypi.org/project/python-bpe-tokenizer/}{\color{blue}PyPI}}{}
+        {\textbf{BPE Tokenizer} $|$ \emph{Python, Flask} $|$ \href{https://pypi.org/project/python-bpe-tokenizer/}{\color{blue}PyPI}}{}
           \resumeItemListStart
-            \resumeItem{Byte Pair Encoding tokenizer implemented from scratch and published as \texttt{python-bpe-tokenizer} on PyPI; includes a Flask web interface for training on custom corpora. Built as direct precursor to SEMERU Lab tokenizer research.}
-          \resumeItemListEnd
-
-      \resumeProjectHeading
-        {\textbf{ML Bug Mining (SZZ)} $|$ \emph{Python, GitPython, pandas, scikit-learn} $|$ \textit{M.Sc. Coursework}}{}
-          \resumeItemListStart
-            \resumeItem{Mined ML-related bugs across 9 open-source repositories using the SZZ algorithm; identified bug-fixing and bug-introducing commits via keyword heuristics and git blame, filtered for ML-library-touching code.}
+            \resumeItem{Byte Pair Encoding tokenizer built from scratch and published on PyPI, with a web interface for training on custom text; groundwork for the SEMERU Lab tokenizer.}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
+
+
+%----------- INDUSTRY EXPERIENCE -----------
+
+\section{Industry Experience}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Optimizely, Content Marketing Platform}{Dhaka, Bangladesh}
+      {Software Engineer II \textnormal{(promoted from SE I, Apr 2026)}}{Apr 2024 \textbf{--} Present, Full-time}
+      \resumeItemListStart
+        \resumeItem{Integrated an internal AI SDK into the product end to end, including its service, release pipeline, and usage tracking across \textbf{10+ product surfaces}.}
+        \resumeItem{Built the product's AI document editor: page context for LLM prompts, interactive form blocks, and rendering of AI-generated content.}
+        \resumeItem{Led the migration to the public \textbf{Axiom} design system (\textbf{26 merged upstream PRs}; migration guides adopted by other teams) and brought Dark Mode to \textbf{15+ surfaces}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Orion Informatics Ltd.}{Dhaka, Bangladesh}
+      {Software Engineer}{Jan 2023 \textbf{--} Jan 2024, Full-time}
+        \resumeItemListStart
+            \resumeItem{Built reporting and data-visualization features for an attendance management system, and a cloud webhook service for trading alerts (ASP.NET Core, Azure).}
+        \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
 
 
 %----------- OTHER PROJECTS -----------
@@ -249,9 +242,9 @@
     \resumeSubHeadingListStart
 
       \resumeProjectHeading
-        {\textbf{Blueberry Auto} $|$ \emph{React, Hono, Supabase, Vercel} $|$ \href{https://blueberry.com.bd/}{\color{blue}Live} $|$ \textit{Lead Developer, 2025\,--\,Present}}{}
+        {\textbf{Blueberry Auto} $|$ \emph{React, Hono, Supabase} $|$ \href{https://blueberry.com.bd/}{\color{blue}Live} $|$ \textit{Lead Developer, 2025\,--\,Present}}{}
           \resumeItemListStart
-            \resumeItem{Vehicle auction and marketplace platform built as a pnpm monorepo (frontend, Hono API, Supabase backend, crawler); leading end-to-end build as the contracted developer (\textbf{150+ merged PRs}).}
+            \resumeItem{Vehicle auction and marketplace platform; leading the end-to-end build as the contracted developer (\textbf{150+ merged PRs}).}
           \resumeItemListEnd
 
     \resumeSubHeadingListEnd
@@ -265,11 +258,8 @@
     \small{\item{
         \textbf{Research Methods:}{ Dynamic Program Analysis, Mining Software Repositories (SZZ), Statistical Evaluation (Kendall $\tau$, Cohen's $\kappa$, PABAK), Inter-rater Agreement} \\ \vspace{3pt}
         \textbf{Languages:}{ TypeScript, JavaScript, Python, Java, C\#, C++} \\ \vspace{3pt}
-        \textbf{Web \& Frontend:}{ React 18/19, Next.js, Angular, Node.js, Hono, Express, FastAPI, Spring Boot 3, ASP.NET Core} \\ \vspace{3pt}
-        \textbf{Testing \& Automation:}{ Playwright, axe-core, Vitest, Karma, Mocha, Chai, Sinon, Selenium} \\ \vspace{3pt}
-        \textbf{ML / NLP:}{ TensorFlow, HuggingFace Transformers, BPE Tokenization (own impl.), TextRank, TF-IDF, scikit-learn, pandas} \\ \vspace{3pt}
-        \textbf{DevOps / Cloud:}{ AWS CodeArtifact, AWS S3, Azure, Cloudflare Workers, Docker, NGINX, GitHub Actions} \\ \vspace{3pt}
-        \textbf{Databases:}{ MongoDB, PostgreSQL (Supabase), SQL Server, Firebase, Redis}
+        \textbf{Tools \& Frameworks:}{ Playwright, axe-core, Selenium, HuggingFace Transformers, scikit-learn, pandas, React, Node.js} \\ \vspace{3pt}
+        \textbf{Infrastructure:}{ AWS, Azure, Docker, GitHub Actions, PostgreSQL, MongoDB}
     }}
   \resumeSubHeadingListEnd
 
@@ -280,11 +270,38 @@
   \vspace{2pt}
   \resumeSubHeadingListStart
     \small{\item{
-        \textbf{ICT Division Fellowship, Government of Bangladesh}: research funding for M.Sc. thesis (Grant No. 56.00.0000.052.33.002.24-61, Apr 2026) \\ \vspace{3pt}
-        \textbf{Winner}, Optimizely Global Hackathon 2025 (company-wide international hackathon; team built Spotlight, shipped to CMP) \\ \vspace{3pt}
-        \textbf{Top 6}, ICSE SCORE 2023 (international undergraduate SE competition)
+        \textbf{ICT Division Fellowship}, Government of Bangladesh: research funding for M.Sc. thesis (2026) \\ \vspace{3pt}
+        \textbf{Winner}, Optimizely Global Hackathon 2025: company-wide; our team built Spotlight search, later shipped to production \\ \vspace{3pt}
+        \textbf{Top 6}, ICSE SCORE 2023 (international student contest on software engineering), for Clippy
     }}
   \resumeSubHeadingListEnd
+
+
+%----------- TALKS & SERVICE -----------
+
+\section{Talks \& Service}
+  \vspace{2pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textbf{Talk:} ``NavA11y: A Dynamic Analysis Approach for WCAG 2.4 Focus-Behavior Evaluation,'' ENASE 2026 (presented remotely), May 2026 \\ \vspace{3pt}
+        \textbf{Internal Reviewer}, DSSE Research Group (2025--2026): reviewed group members' paper drafts before submission
+    }}
+  \resumeSubHeadingListEnd
+
+
+%----------- REFERENCES -----------
+
+\section{References}
+  \vspace{2pt}
+  \small
+  \begin{tabularx}{\textwidth}{@{\hspace{0.15in}}X X}
+    \textbf{Dr. Kazi Sakib} & \textbf{Dr. Zerina Begum} \\
+    Professor, Institute of Information Technology & Professor, Institute of Information Technology \\
+    University of Dhaka & University of Dhaka \\
+    M.Sc. co-supervisor & M.Sc. supervisor \\
+    \href{mailto:sakib@iit.du.ac.bd}{\color{blue}sakib@iit.du.ac.bd} & \href{mailto:zerin@iit.du.ac.bd}{\color{blue}zerin@iit.du.ac.bd} \\
+  \end{tabularx}
+  \normalsize
 
 
 %-------------------------------------------
