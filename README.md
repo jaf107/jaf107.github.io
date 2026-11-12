@@ -1,199 +1,77 @@
-# Abu Jafar's Portfolio Website
+# jaf107.github.io
 
-A modern, responsive portfolio website built with React, TypeScript, and Vite. Features a clean design with dark/light theme support and smooth animations.
+Personal academic site of Abu Jafar Saifullah: research, publications, projects and CV.
+Live at **https://jaf107.github.io**.
 
-## 🚀 Tech Stack
+React 18 + TypeScript, built with Vite. Pages are prerendered to static HTML at build time,
+so the site reads fine without JavaScript and every page has its own title, description and
+social preview. Deployed to GitHub Pages by GitHub Actions.
 
-- **Frontend**: React 18 + TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS + OptiAxiom UI Components
-- **Routing**: React Router DOM
-- **Theme**: next-themes for dark/light mode
-- **Icons**: Lucide React
-- **Testing**: Vitest + Testing Library
-- **Linting**: ESLint + TypeScript ESLint
-- **Package Manager**: pnpm
+## Quick start
 
-## 📁 Project Structure
+Needs Node 20+ and pnpm (the version is pinned in `package.json`; `corepack enable` picks it up).
+
+```bash
+pnpm install
+pnpm dev          # http://localhost:8080
+```
+
+| Command | What it does |
+| --- | --- |
+| `pnpm dev` | Dev server with hot reload |
+| `pnpm build` | Client build, SSR build, then `scripts/prerender.mjs` writes static HTML for every route plus `sitemap.xml` |
+| `pnpm preview` | Serve the built `dist/` locally |
+| `pnpm lint` / `pnpm typecheck` | ESLint / TypeScript |
+| `pnpm test` | Vitest: content-file checks and a server render of every route |
+| `pnpm test:a11y` | axe-core WCAG 2.2 AA audit of every built page, light and dark (run `pnpm build` first) |
+| `pnpm check:cv` | Fails if `resume/cv.tex` changed after the CV PDF was last rebuilt |
+
+## Editing content
+
+Almost everything on the site comes from JSON in `src/data/`; no component changes needed.
+
+| File | Section |
+| --- | --- |
+| `profile.json` | Name, email, profile links (GitHub, LinkedIn, Scholar, ORCID). Also feeds the structured data and `rel="me"` links in the built HTML |
+| `research.json`, `news.json`, `publications.json` | Research experience, News, Publications |
+| `projects.json` | Project cards and the detail page at `/project/<id>/`. `"listed": false` keeps a page reachable by link but off the projects grid |
+| `jobs.json`, `education.json`, `awards.json`, `skills.json` | The matching sections |
+
+Images and PDFs go in `public/` and are referenced from the root, e.g. `/assets/projects/nava11y/architecture.webp`.
+`pnpm test` fails if a referenced file is missing.
+
+## Curriculum Vitae
+
+`resume/cv.tex` is the master copy. After editing it:
+
+```bash
+scripts/sync-cv.sh          # needs latexmk and pdfinfo
+```
+
+This rebuilds `public/Abu_Jafar_Saifullah_CV.pdf` (served at `/cv`) and, when it finds the
+Google Drive folder, copies the PDF and `.tex` there too (set `CV_DRIVE_DIR` to point it at
+the folder). Commit the `.tex` and the PDF together; CI's `check:cv` step fails otherwise.
+
+## Project layout
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── Hero.tsx        # Landing/About section
-│   ├── Experience.tsx  # Work experience
-│   ├── Projects.tsx    # Project showcase
-│   ├── Research.tsx    # Research work
-│   ├── Skills.tsx      # Technical skills
-│   ├── Awards.tsx      # Awards and achievements
-│   ├── Education.tsx   # Educational background
-│   ├── Contact.tsx     # Contact information
-│   ├── SectionTabs.tsx # Main navigation sidebar
-│   ├── NavLinks.tsx    # Social media links
-│   ├── ThemeToggle.tsx # Theme switcher
-│   ├── Logo.tsx        # Brand logo
-│   └── Footer.tsx      # Page footer
-├── data/               # JSON data files
-│   ├── navigation.json # Navigation menu items
-│   ├── contact.json    # Contact information
-│   ├── experience.json # Work experience data
-│   ├── projects.json   # Project details
-│   ├── research.json   # Research publications
-│   ├── skills.json     # Technical skills
-│   ├── awards.json     # Awards and achievements
-│   ├── education.json  # Educational background
-│   └── about.json      # Personal information
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions
-├── pages/              # Page components
-├── providers/          # Context providers
-└── test/               # Test configuration
+  components/     Page sections (Hero, Publications, Projects, ...) and detail/ for project pages
+  pages/          Routes: home, project detail, not found
+  data/           Site content (JSON)
+  entry-server.tsx  Server render entry used by the prerender step
+scripts/
+  prerender.mjs   Writes per-route HTML, metadata, JSON-LD and sitemap.xml into dist/
+  sync-cv.sh      Builds the CV PDF and syncs it to the site and Google Drive
+  check-cv.mjs    CV freshness check
+  a11y.mjs        axe-core audit of the built site
+tests/            Vitest tests
+resume/cv.tex     CV source
 ```
 
-## 🛠️ Development
+## CI and deployment
 
-### Prerequisites
-
-- Node.js 18+
-- pnpm (recommended package manager)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/jaf107/jaf107.github.io.git
-cd jaf107.github.io
-
-# Install dependencies
-pnpm install
-
-# Start development server
-pnpm dev
-```
-
-### Available Scripts
-
-```bash
-pnpm dev          # Start development server
-pnpm build        # Build for production
-pnpm build:dev    # Build in development mode
-pnpm preview      # Preview production build
-pnpm lint         # Run ESLint
-pnpm deploy       # Deploy to GitHub Pages
-```
-
-## 📝 Best Practices Implemented
-
-### Code Quality
-
-- ✅ **TypeScript Strict Mode**: Full type safety enabled
-- ✅ **ESLint Configuration**: Comprehensive linting rules
-- ✅ **Consistent Imports**: Organized import statements
-- ✅ **Component Structure**: Reusable, single-responsibility components
-- ✅ **Data Separation**: JSON files for easy content management
-
-### Performance
-
-- ✅ **Vite Build Tool**: Fast development and optimized builds
-- ✅ **Code Splitting**: Automatic route-based splitting
-- ✅ **Tree Shaking**: Unused code elimination
-- ✅ **Optimized Images**: Proper image handling
-
-### Accessibility
-
-- ✅ **Semantic HTML**: Proper HTML structure
-- ✅ **ARIA Labels**: Screen reader support
-- ✅ **Keyboard Navigation**: Full keyboard accessibility
-- ✅ **Color Contrast**: WCAG compliant color schemes
-
-### Maintainability
-
-- ✅ **Component Reusability**: DRY principle followed
-- ✅ **Consistent Styling**: Tailwind CSS utility classes
-- ✅ **Type Safety**: Full TypeScript coverage
-- ✅ **Documentation**: Comprehensive README and comments
-
-## 🎨 Customization
-
-### Adding New Sections
-
-1. Create a new component in `src/components/`
-2. Add corresponding data file in `src/data/`
-3. Update `src/data/navigation.json` with new menu item
-4. Add route in `src/components/SectionTabs.tsx`
-
-### Updating Content
-
-- Edit JSON files in `src/data/` directory
-- No code changes required for content updates
-- Supports markdown-like formatting in descriptions
-
-### Theme Customization
-
-- Modify CSS variables in `src/index.css`
-- Update Tailwind config in `tailwind.config.ts`
-- Colors automatically adapt to dark/light themes
-
-## 🚀 Deployment
-
-The site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
-
-### Manual Deployment
-
-```bash
-pnpm run deploy
-```
-
-## 🧪 Testing
-
-```bash
-# Run tests
-pnpm test
-
-# Run tests with coverage
-pnpm test:coverage
-```
-
-## 📊 Performance Metrics
-
-- **Lighthouse Score**: 95+ across all categories
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-
-## 🔧 Maintenance
-
-### Regular Tasks
-
-- [ ] Update dependencies monthly
-- [ ] Review and update content quarterly
-- [ ] Monitor performance metrics
-- [ ] Check accessibility compliance
-
-### Code Quality Checks
-
-```bash
-# Lint code
-pnpm lint
-
-# Type check
-pnpm type-check
-
-# Build check
-pnpm build
-```
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests and linting
-5. Submit a pull request
-
----
-
-Built with ❤️ by [Abu Jafar Saifullah](https://github.com/jaf107)
+`.github/workflows/deploy.yml` runs on every pull request and push to `main`: lint, typecheck,
+tests, the CV check, the build, the axe audit and Lighthouse budgets (`lighthouserc.json`).
+On `main` it then publishes `dist/` to the `gh-pages` branch, which GitHub Pages serves.
+Dependabot opens monthly update PRs for npm packages and Actions.

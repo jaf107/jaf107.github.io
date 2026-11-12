@@ -1,4 +1,3 @@
-import React from 'react';
 import { useInView } from '../hooks/useInView';
 import research from '../data/research.json';
 import { Md } from './Md';

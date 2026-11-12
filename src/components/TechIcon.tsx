@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { SKILL_ICONS, resolveIconUrl } from '../data/skillIcons';
 
 function getMonogram(name: string) {
