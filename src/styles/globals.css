@@ -8,8 +8,8 @@
    Section jumps glide through src/lib/scroll.ts instead. */
 
 :root {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
 
   /* Type scale: every text size on the site comes from here. */
   --fs-2xs: 0.75rem;   /* 12px: chips, badges */
