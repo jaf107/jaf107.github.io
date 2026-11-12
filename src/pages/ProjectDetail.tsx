@@ -1,7 +1,8 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { DetailLayout, type DetailLink, type DetailSection } from '../components/detail';
 import projects from '../data/projects.json';
+import profile from '../data/profile.json';
 
 interface Project {
   id: string;
@@ -15,7 +16,8 @@ interface Project {
   headline?: string;
   description?: string;
   sections: DetailSection[];
-  stack: Record<string, string>;
+  // Each project lists only some stack rows; JSON typing gives the rest as undefined.
+  stack: Partial<Record<string, string>>;
   links: DetailLink[];
   listed?: boolean;
 }
@@ -24,6 +26,14 @@ export default function ProjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = (projects as Project[]).find(p => p.id === id);
+
+  // The prerendered page already has this title; keep it in step on client-side navigation.
+  useEffect(() => {
+    if (!project) { return; }
+    const previous = document.title;
+    document.title = `${project.title}: ${project.subtitle} · ${profile.name}`;
+    return () => { document.title = previous; };
+  }, [project]);
 
   if (!project) {
     return (
@@ -41,7 +51,9 @@ export default function ProjectDetail() {
     );
   }
 
-  const metaItems = Object.entries(project.stack).map(([label, value]) => ({ label, value }));
+  const metaItems = Object.entries(project.stack)
+    .filter((entry): entry is [string, string] => entry[1] !== undefined)
+    .map(([label, value]) => ({ label, value }));
 
   return (
     <DetailLayout
