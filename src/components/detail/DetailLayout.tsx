@@ -10,6 +10,9 @@ const useBeforePaintEffect = typeof window === 'undefined' ? useEffect : useLayo
 export interface DetailFigure {
   src: string;
   alt: string;
+  // Intrinsic size, so the browser reserves the figure's space before the image loads.
+  width: number;
+  height: number;
   caption?: string;
   maxWidth?: string;
   // Screenshots whose details must stay legible take a full row.
@@ -184,7 +187,7 @@ function Section({ section }: { section: DetailSection }) {
           {section.figures.map(f => (
             <figure key={f.src} style={{ margin: '0 auto', width: '100%', maxWidth: f.maxWidth, gridColumn: f.wide ? '1 / -1' : undefined }}>
               <a href={f.src} target="_blank" rel="noopener noreferrer" title="Open full size" style={{ display: 'block', cursor: 'zoom-in' }}>
-                <img src={f.src} alt={f.alt} loading="lazy" style={{
+                <img src={f.src} alt={f.alt} width={f.width} height={f.height} loading="lazy" style={{
                   display: 'block', width: '100%', height: 'auto',
                   borderRadius: '6px', border: '1px solid var(--border-md)', background: '#fff',
                 }} />

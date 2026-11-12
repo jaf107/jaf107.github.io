@@ -24,6 +24,28 @@ function isValidOrcid(id: string): boolean {
   return digits.at(-1) === (result === 10 ? 'X' : String(result));
 }
 
+// Reads pixel dimensions from a PNG or WebP header.
+function imageSize(file: URL): { width: number; height: number } {
+  const b = readFileSync(file);
+  if (b.toString('ascii', 1, 4) === 'PNG') {
+    return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+  }
+  if (b.toString('ascii', 0, 4) === 'RIFF' && b.toString('ascii', 8, 12) === 'WEBP') {
+    const chunk = b.toString('ascii', 12, 16);
+    if (chunk === 'VP8X') { return { width: b.readUIntLE(24, 3) + 1, height: b.readUIntLE(27, 3) + 1 }; }
+    if (chunk === 'VP8L') {
+      const bits = b.readUInt32LE(21);
+      return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+    }
+    if (chunk === 'VP8 ') { return { width: b.readUInt16LE(26) & 0x3fff, height: b.readUInt16LE(28) & 0x3fff }; }
+  }
+  throw new Error(`unsupported image format: ${file.pathname}`);
+}
+
+const figures = projects.flatMap((p) =>
+  p.sections.flatMap((s) => ('figures' in s && s.figures ? s.figures : []))
+);
+
 describe('projects.json', () => {
   it('has unique, URL-safe ids', () => {
     const ids = projects.map((p) => p.id);
@@ -51,6 +73,13 @@ describe('publications.json', () => {
 describe('local files referenced from data', () => {
   it.each(localPaths.map(({ file, path }) => [path, file]))('%s (from %s.json) exists in public/', (path) => {
     expect(existsSync(publicFile(path))).toBe(true);
+  });
+});
+
+describe('project figures', () => {
+  // The width/height reserve space before lazy images load; wrong values distort or shift the page.
+  it.each(figures.map((f) => [f.src, f] as const))('%s declares its real size', (src, f) => {
+    expect(imageSize(publicFile(src))).toEqual({ width: f.width, height: f.height });
   });
 });
 

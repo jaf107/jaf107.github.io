@@ -26,6 +26,8 @@
         "figures": [
           {
             "src": "/assets/projects/nava11y/architecture.webp",
+            "width": 722,
+            "height": 930,
             "maxWidth": "420px",
             "alt": "Architecture diagram. A website URL feeds page-level analysis (keyboard navigation simulator, navigation sequence, focus order evaluation for SC 2.4.3) and element-level analysis (focus state inspection, visibility evaluation for SC 2.4.7 and 2.4.13, obscuration evaluation for SC 2.4.11 and 2.4.12). Both feed report generation: JSON, HTML and annotated screenshots.",
             "caption": "NavA11y's architecture."
@@ -37,12 +39,16 @@
         "figures": [
           {
             "src": "/assets/projects/nava11y/agoda-obscured.webp",
+            "width": 1280,
+            "height": 720,
             "alt": "agoda.com page where a focused destination card sits beneath a Save 10% app-booking pop-up; NavA11y's red label reads: 2.4.12, focused element is obscured by other content, 40.8% hidden.",
             "caption": "agoda.com: a focused destination card is 40.8% hidden under a promotional pop-up (SC 2.4.12).",
             "wide": true
           },
           {
             "src": "/assets/projects/nava11y/ebay-no-indicator.webp",
+            "width": 1280,
+            "height": 720,
             "alt": "ebay.com home page with the search box focused; NavA11y's red label reads: 2.4.7, no significant visual change detected on focus.",
             "caption": "ebay.com: the search box shows no visible change when it receives focus (SC 2.4.7).",
             "wide": true
@@ -109,6 +115,8 @@
         "figures": [
           {
             "src": "/assets/projects/repaira11y/pipeline.webp",
+            "width": 1340,
+            "height": 592,
             "alt": "Pipeline diagram with five stages: 1 detection with NavA11y produces a violation record; 2 evidence packaging at cumulative levels E1 to E4; 3 patch generation, rule-based or LLM, emits a typed JSON patch; 4 patch application in a browser session; 5 verification re-detects the violation and checks pixel similarity. An unresolved result can re-prompt the generator with the failure evidence.",
             "caption": "RepairA11y's five-stage repair pipeline."
           }
@@ -119,11 +127,15 @@
         "figures": [
           {
             "src": "/assets/projects/repaira11y/outline-before.png",
+            "width": 414,
+            "height": 128,
             "alt": "A dark Dashboard button whose focus outline is too faint to see.",
             "caption": "Before: the focus outline is invisible."
           },
           {
             "src": "/assets/projects/repaira11y/outline-after.png",
+            "width": 414,
+            "height": 128,
             "alt": "The same Dashboard button after repair, with a clear white focus outline.",
             "caption": "After: the patched outline is visible."
           }
