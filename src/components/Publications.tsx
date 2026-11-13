@@ -1,4 +1,3 @@
-import React from 'react';
 import { SectionHeader } from './Research';
 import publications from '../data/publications.json';
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { scrollToSection } from '../lib/scroll';
 
 const PHRASES = [
@@ -142,8 +142,10 @@ export default function Hero() {
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', maxWidth: '380px', justifySelf: 'end', width: '100%' }} className="hero-portrait">
           <div style={{ position: 'absolute', inset: '-10px', borderRadius: '14px', border: '1px solid var(--border-md)', transform: 'translate(12px, 12px)' }} />
           <div style={{ position: 'absolute', inset: '-10px', borderRadius: '14px', background: 'var(--accent-bg)', transform: 'translate(-12px, -12px)' }} />
-          <img src="assets/portrait.jpg" alt="Abu Jafar Saifullah" loading="lazy"
-            style={{ position: 'relative', width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: '50% 30%', borderRadius: '12px', border: '1px solid var(--border-md)', boxShadow: '0 20px 60px rgba(0,0,0,0.18)' }} />
+          <img src="/assets/portrait.webp" alt="Abu Jafar Saifullah" width={800} height={1000}
+            // React 18 only passes this attribute through in lowercase.
+            {...{ fetchpriority: 'high' }} decoding="async"
+            style={{ position: 'relative', width: '100%', height: 'auto', aspectRatio: '4/5', objectFit: 'cover', objectPosition: '50% 30%', borderRadius: '12px', border: '1px solid var(--border-md)', boxShadow: '0 20px 60px rgba(0,0,0,0.18)' }} />
         </div>
       </div>
 

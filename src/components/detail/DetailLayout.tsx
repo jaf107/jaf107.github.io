@@ -1,12 +1,18 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Nav from '../Nav';
 import Footer from '../Footer';
 import { TechIcon } from '../TechIcon';
 
+// Layout effect in the browser; plain effect during the prerender, where layout effects only warn.
+const useBeforePaintEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
 export interface DetailFigure {
   src: string;
   alt: string;
+  // Intrinsic size, so the browser reserves the figure's space before the image loads.
+  width: number;
+  height: number;
   caption?: string;
   maxWidth?: string;
   // Screenshots whose details must stay legible take a full row.
@@ -133,7 +139,7 @@ function Section({ section }: { section: DetailSection }) {
       padding: '1.4rem 1.5rem',
       position: 'relative',
     }}>
-      <h3 style={{
+      <h2 style={{
         fontFamily: 'var(--font-sans)',
         fontWeight: 700,
         fontSize: 'var(--fs-md)',
@@ -148,7 +154,7 @@ function Section({ section }: { section: DetailSection }) {
           background: 'var(--accent)', flexShrink: 0,
         }} />
         {section.h}
-      </h3>
+      </h2>
       {Array.isArray(section.body) ? (
         <ul style={{ margin: 0, paddingLeft: '1.1rem', display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
           {section.body.map((point, i) => (
@@ -181,7 +187,7 @@ function Section({ section }: { section: DetailSection }) {
           {section.figures.map(f => (
             <figure key={f.src} style={{ margin: '0 auto', width: '100%', maxWidth: f.maxWidth, gridColumn: f.wide ? '1 / -1' : undefined }}>
               <a href={f.src} target="_blank" rel="noopener noreferrer" title="Open full size" style={{ display: 'block', cursor: 'zoom-in' }}>
-                <img src={f.src} alt={f.alt} loading="lazy" style={{
+                <img src={f.src} alt={f.alt} width={f.width} height={f.height} loading="lazy" style={{
                   display: 'block', width: '100%', height: 'auto',
                   borderRadius: '6px', border: '1px solid var(--border-md)', background: '#fff',
                 }} />
@@ -267,7 +273,7 @@ export default function DetailLayout(props: DetailLayoutProps) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   // The router keeps the previous page's scroll offset; a detail page should open at its title.
-  useLayoutEffect(() => {
+  useBeforePaintEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
